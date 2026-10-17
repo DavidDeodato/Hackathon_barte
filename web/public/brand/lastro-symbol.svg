@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Lastro</title>
+  <desc id="desc">Três pontos de origem ligados em um L, com duas linhas de registro.</desc>
+  <rect width="56" height="56" rx="10" fill="#132B2A"/>
+  <path d="M16 15V40H41" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="square"/>
+  <path d="M26 15H40M26 27H40" stroke="#A9D4BF" stroke-width="3.5"/>
+  <path d="M12.5 11.5H19.5V18.5H12.5ZM12.5 23.5H19.5V30.5H12.5ZM37.5 36.5H44.5V43.5H37.5Z" fill="#FFFFFF"/>
+</svg>

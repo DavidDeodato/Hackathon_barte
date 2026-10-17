@@ -1,0 +1,64 @@
+// Independent UI integration against local deterministic backend; no secret/model configuration.
+const fs=require('node:fs');
+const path=require('node:path');
+const root=path.resolve(__dirname,'../..');
+const {chromium}=require(path.join(root,'web/node_modules/playwright'));
+const out=path.join(root,'docs/agent/branches/QA/artifacts');
+const RUN='5d9cd7ef-9f3c-47e7-8dcc-81045bfab964';
+
+(async()=>{
+  const browser=await chromium.launch({headless:true,channel:'msedge'});
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const report={checks:{},console:[],pageErrors:[],networkFailures:[],api:[],observations:{},limits:['No paid/model call requested; investigation mode omitted, API default deterministic.','No new financial close, financial approval, external publication or deploy triggered.']};
+  page.on('console',m=>{if(['error','warning'].includes(m.type()))report.console.push({type:m.type(),text:m.text()})});
+  page.on('pageerror',e=>report.pageErrors.push(e.message));
+  page.on('requestfailed',r=>report.networkFailures.push({url:r.url(),failure:r.failure()}));
+  page.on('response',r=>{if(r.url().includes('/api/'))report.api.push({path:new URL(r.url()).pathname,method:r.request().method(),status:r.status()})});
+  try{
+    await page.goto('http://127.0.0.1:5173',{waitUntil:'domcontentloaded'});
+    await page.getByRole('button',{name:/^Conectar API/}).click();
+    await page.getByLabel('Endereço da API').fill('');
+    await page.getByRole('button',{name:'Conectar',exact:true}).click();
+    await page.getByLabel('Execução',{exact:true}).selectOption(RUN);
+    await page.getByText('R$ 39.543,45',{exact:true}).first().waitFor();
+    const body=await page.locator('body').innerText();
+    report.checks.realBackendNumbers=body.includes('R$ 207.039,73')&&body.includes('R$ 39.543,45');
+    report.checks.partialCloseExplicit=body.includes('Baseline sem ajustes tardios')&&body.includes('revisão de Helena');
+    report.checks.overlappingMetricsNotAdded=body.includes('não devem ser somados');
+    await page.getByLabel('Competência',{exact:true}).fill('2026-10');
+    report.checks.periodSelectorDoesNotRelabelOldNumbers=(await page.locator('footer.page-footer').innerText()).includes('Competência 2026-09');
+    await page.screenshot({path:path.join(out,'integrated-summary-desktop.png'),fullPage:true});
+    await page.getByRole('button',{name:'Fontes',exact:true}).click();
+    await page.locator('.file-selector').getByRole('button',{name:'comissoes_por_lojista.csv',exact:true}).click();
+    await page.getByRole('button',{name:'Ver registro'}).first().click();
+    await page.getByRole('button',{name:'Conferir rastro desta saída'}).click();
+    await page.locator('.trace-record').first().waitFor();
+    report.checks.drilldownActualComponents=await page.locator('.trace-record').count()>0;
+    report.observations.drilldown=(await page.getByLabel('Detalhe do registro').innerText()).slice(0,14000);
+    report.checks.drilldownSourceAndRule=/Arquivo Origem/i.test(report.observations.drilldown)&&/Ref Origem/i.test(report.observations.drilldown)&&/Regra Fonte/i.test(report.observations.drilldown);
+    await page.screenshot({path:path.join(out,'integrated-trace-desktop.png'),fullPage:true});
+    await page.setViewportSize({width:390,height:844});
+    report.checks.traceMobileNoOverflow=await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
+    await page.screenshot({path:path.join(out,'integrated-trace-mobile.png'),fullPage:true});
+    await page.getByRole('button',{name:'Fechar detalhe'}).click();
+    await page.getByRole('button',{name:'Investigação',exact:true}).click();
+    await page.getByLabel('O que você precisa conferir?').fill('Por que a devolução da Casa não é cobrada da Orbe?');
+    await page.getByRole('button',{name:'Investigar',exact:true}).click();
+    await page.locator('.answer-text').waitFor({timeout:30000});
+    report.observations.investigation=await page.locator('.answer-panel').innerText();
+    report.checks.investigationEvidence=await page.locator('.evidence-block').count()>0;
+    report.checks.deterministicNotLLM=report.observations.investigation.includes('determin')||report.observations.investigation.includes('LLM');
+    await page.screenshot({path:path.join(out,'integrated-investigation-mobile-viewport.png'),fullPage:false});
+    report.checks.investigationMobileNoOverflow=await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
+    await page.getByRole('button',{name:'Fechamento',exact:true}).click();
+    await page.getByRole('button',{name:'Investigação',exact:true}).click();
+    report.checks.investigationSurvivesNavigation=await page.locator('.answer-text').isVisible();
+    report.checks.noPageErrors=report.pageErrors.length===0;
+    report.checks.noConsoleErrors=report.console.filter(x=>x.type==='error').length===0;
+    report.expectedRunSelectionAborts=report.networkFailures.filter(x=>x.failure?.errorText==='net::ERR_ABORTED'&&!x.url.includes(RUN));
+    report.checks.noUnexpectedNetworkFailures=report.networkFailures.length===report.expectedRunSelectionAborts.length;
+  }catch(e){report.failure=String(e.stack);process.exitCode=1;}
+  fs.writeFileSync(path.join(out,'ui_integrated_002.json'),JSON.stringify(report,null,2));
+  console.log(JSON.stringify({checks:report.checks,failure:report.failure,console:report.console,pageErrors:report.pageErrors,networkFailures:report.networkFailures,api:report.api},null,2));
+  await browser.close();
+})().catch(e=>{console.error(e);process.exitCode=1;});

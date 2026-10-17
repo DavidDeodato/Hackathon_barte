@@ -1,0 +1,36 @@
+/* Lastro v1. Namespaced values only; no component or reset ownership. */
+:root {
+  --ls-canvas: #F6F7F4;
+  --ls-surface: #FFFFFF;
+  --ls-surface-subtle: #EEF2EE;
+  --ls-ink: #132B2A;
+  --ls-text: #243B38;
+  --ls-muted: #586964;
+  --ls-border: #D7DFDA;
+  --ls-control-border: #7B8D84;
+  --ls-accent: #1E6654;
+  --ls-accent-hover: #164C3F;
+  --ls-accent-soft: #E7F1EC;
+  --ls-on-accent: #FFFFFF;
+  --ls-focus: #2465AA;
+  --ls-info: #245C91;
+  --ls-info-bg: #EAF1F8;
+  --ls-warning: #855A0C;
+  --ls-warning-bg: #FBF2DF;
+  --ls-danger: #A13C36;
+  --ls-danger-bg: #FBEDEA;
+  --ls-success: #27634D;
+  --ls-success-bg: #E8F2EB;
+  --ls-neutral: #52635C;
+  --ls-neutral-bg: #EDF1EE;
+  --ls-font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --ls-font-mono: "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  --ls-radius-control: 6px;
+  --ls-radius-surface: 8px;
+  --ls-space-1: 4px;
+  --ls-space-2: 8px;
+  --ls-space-3: 12px;
+  --ls-space-4: 16px;
+  --ls-space-6: 24px;
+  --ls-space-8: 32px;
+}

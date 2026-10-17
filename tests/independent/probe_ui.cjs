@@ -1,0 +1,56 @@
+// Browser plugin not available in this session. Read-only Playwright QA with local Edge.
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '../..');
+const { chromium } = require(path.join(root, 'web/node_modules/playwright'));
+const out = path.join(root, 'docs/agent/branches/QA/artifacts');
+
+(async () => {
+  const browser = await chromium.launch({ headless: true, channel: 'msedge' });
+  const report = {browser:'Edge headless, ephemeral context', browserPlugin:'not available',checks:{},console:[],pageErrors:[],networkFailures:[],surfaces:{}};
+  const page = await browser.newPage({ viewport: { width:1440,height:1000 }});
+  page.on('console', m => { if (['error','warning'].includes(m.type())) report.console.push({type:m.type(),text:m.text()}); });
+  page.on('pageerror', e => report.pageErrors.push(e.message));
+  page.on('requestfailed', r => report.networkFailures.push({url:r.url(),failure:r.failure()}));
+  const preview='http://127.0.0.1:5174/src/components/mission-control/preview.html';
+  await page.goto(preview,{waitUntil:'domcontentloaded'});
+  await page.getByRole('heading',{name:'Central de agentes'}).waitFor();
+  report.checks.fixtureExplicit = (await page.locator('body').innerText()).includes('Fixture inventada');
+  report.checks.toolCompletionNotTask = await page.locator('button.mc-task').filter({hasText:'conferir-taxas'}).locator('.mc-status').innerText() === 'Em execução';
+  report.checks.technicalNotFinancialApproval = (await page.locator('body').innerText()).includes('Conclusão técnica não equivale à aprovação de Helena.');
+  await page.locator('button.mc-task').filter({hasText:'conferir-taxas'}).click();
+  report.checks.taskSelection = await page.getByRole('heading',{name:'Rastro de conferir-taxas'}).isVisible();
+  await page.getByRole('button',{name:'Ver todas',exact:true}).click();
+  await page.screenshot({path:path.join(out,'motion-desktop.png'),fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  report.checks.motionMobileNoOverflow = await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
+  await page.screenshot({path:path.join(out,'motion-mobile.png'),fullPage:true});
+  await page.getByRole('button',{name:'Sem eventos',exact:true}).click();
+  report.checks.emptyNotSuccess = await page.getByRole('heading',{name:'Nenhuma execução registrada'}).isVisible();
+  await page.getByRole('button',{name:'Carregando',exact:true}).click();
+  report.checks.loadingNotSuccess = await page.getByRole('heading',{name:'Aguardando o primeiro registro'}).isVisible();
+  await page.getByRole('button',{name:'70 eventos',exact:true}).click();
+  report.checks.initialEventPage = await page.locator('.mc-timeline > li').count() === 30;
+  await page.getByRole('button',{name:'Mostrar mais 30 eventos'}).click();
+  report.checks.eventPagination = await page.locator('.mc-timeline > li').count() === 60;
+  report.surfaces.motion={url:preview,title:await page.title(),fixture:true};
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto('http://127.0.0.1:5173',{waitUntil:'domcontentloaded'});
+  await page.locator('body').filter({hasText:/fechamento|Tarvo/i}).waitFor();
+  // Bounded readiness for first API fetch; no financial action is triggered here.
+  await page.waitForTimeout(1200);
+  const body=await page.locator('body').innerText();
+  report.surfaces.workbench={url:page.url(),title:await page.title(),body,buttons:await page.getByRole('button').allTextContents()};
+  report.checks.workbenchNotBlank=body.length>200;
+  report.checks.noFrameworkOverlay=await page.locator('vite-error-overlay').count()===0;
+  await page.screenshot({path:path.join(out,'workbench-desktop.png'),fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  report.checks.workbenchMobileNoOverflow=await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
+  await page.screenshot({path:path.join(out,'workbench-mobile.png'),fullPage:true});
+  report.checks.noPageErrors=report.pageErrors.length===0;
+  report.checks.noConsoleErrors=report.console.filter(x=>x.type==='error').length===0;
+  report.checks.noNetworkFailure=report.networkFailures.length===0;
+  fs.writeFileSync(path.join(out,'ui_probe_001.json'),JSON.stringify(report,null,2));
+  console.log(JSON.stringify({checks:report.checks,pageErrors:report.pageErrors,console:report.console,networkFailures:report.networkFailures,workbench:report.surfaces.workbench},null,2));
+  await browser.close();
+})().catch(e=>{fs.writeFileSync(path.join(out,'ui_probe_001_error.txt'),String(e.stack));console.error(e);process.exitCode=1;});

@@ -1,0 +1,313 @@
+{
+  "version": "dom-v1.0",
+  "run_id": "close-1d52e6ba5c2cd969",
+  "period": "2026-09",
+  "created_at": "2026-10-17T16:50:18.791658+00:00",
+  "inputs": [
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\01_orbe_relatorio_comissoes_set2026.csv",
+      "file": "01_orbe_relatorio_comissoes_set2026.csv",
+      "sha256": "fdbc2bad2dd38dde8bf3af9d5c1f21116f0eae8d71d6a5a16b0dfd82de3cc7ec"
+    },
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\02_tabela_taxas_contratadas.xlsx",
+      "file": "02_tabela_taxas_contratadas.xlsx",
+      "sha256": "d0c7d2b13ac41c2a036a40362eb26c341666feef74d7199284742c255885dfc4"
+    },
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\03_email_ponte_cambio_relatorio_set2026.eml",
+      "file": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "sha256": "e36808cab907df4b598d0022ae92af99c9b7c281a5d619d91e64d163f42e6f8f"
+    },
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\04_plano_de_contas_fenix_erp.csv",
+      "file": "04_plano_de_contas_fenix_erp.csv",
+      "sha256": "fb99c63b151c2a029c86475eb2551e4af7722a055dc24137244a2411e7876d72"
+    },
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\05a_extrato_banco_aurora_cc4471_set2026.csv",
+      "file": "05a_extrato_banco_aurora_cc4471_set2026.csv",
+      "sha256": "7303b72fa76d227a863279a36726411605d93fb63237f0cae638c111a70d2d92"
+    },
+    {
+      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\05b_extrato_banco_meridiano_cc90233_set2026.ofx",
+      "file": "05b_extrato_banco_meridiano_cc90233_set2026.ofx",
+      "sha256": "27f11fae20c1fb69e2ca47885f6082690fe5db5cd13ddf3e407ef3cb29e33283"
+    }
+  ],
+  "additional_files": [],
+  "outputs": [
+    {
+      "file": "comissoes_por_lojista.csv",
+      "sha256": "e69f9e9abdcba8041012a080563f89b182f73fe00760f341a8989d0b7089ba42"
+    },
+    {
+      "file": "divergencias_taxa.csv",
+      "sha256": "408852591e0832325f823db2120c5cef52b792533627a1fde3308e261eb7a22e"
+    },
+    {
+      "file": "notas_a_emitir.csv",
+      "sha256": "ada2de2c01d03a63c43b7323cbc7357bafc71dc930f6fd8199179228113d537b"
+    },
+    {
+      "file": "lancamentos_classificados.csv",
+      "sha256": "d2980c2483e7e5f7bf809e88acb6838f932ea763243a74e44c4c36bcba1c3f71"
+    },
+    {
+      "file": "pendencias.csv",
+      "sha256": "0909c8b1470ac3d2008a034cee6d4b6207424d1c02d93c043c2162b4a4d41434"
+    },
+    {
+      "file": "rastro.csv",
+      "sha256": "6865a7a8f2c673176b2b7ca46d3fccd811b7a9693df6bd15bd3af048aa0c24cf"
+    }
+  ],
+  "policies": {
+    "rounding": "Decimal ROUND_HALF_UP por evento antes da soma",
+    "remessa_tolerance": "diferença absoluta de spread > 0.01 p.p.; escolha metodológica do time, não regra aprovada pelo cliente",
+    "pending_values": "valores de pendências têm métricas distintas e não devem ser somados",
+    "bank_confidence": "prioridade de regra declarada, não probabilidade estatisticamente calibrada",
+    "unknown_amount": "campo vazio significa não quantificado; nunca zero inventado"
+  },
+  "result": {
+    "run_id": "close-1d52e6ba5c2cd969",
+    "period": "2026-09",
+    "status": "pending_review",
+    "outputs": [
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\comissoes_por_lojista.csv",
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\divergencias_taxa.csv",
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\notas_a_emitir.csv",
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\lancamentos_classificados.csv",
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\pendencias.csv",
+      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\rastro.csv"
+    ],
+    "summary": {
+      "checkout_commission_brl": "207039.73",
+      "remessa_commission_brl": "39543.45",
+      "invoices_brl": "246588.68",
+      "checkout_rate_difference_brl": "1576.23",
+      "casa_refund_brl": "15397.42",
+      "remessa_rate_difference_brl": "1418.85",
+      "counts": {
+        "comissoes_por_lojista.csv": 35,
+        "divergencias_taxa.csv": 233,
+        "notas_a_emitir.csv": 21,
+        "lancamentos_classificados.csv": 184,
+        "pendencias.csv": 18,
+        "rastro.csv": 5177
+      },
+      "input_counts": {
+        "orbe": 1943,
+        "contracts": 25,
+        "remessa_rows": 233,
+        "bank_movements": 184
+      },
+      "trace_checks": 490,
+      "trace_reconciled": true,
+      "financial_approval": "PENDENTE_HELENA",
+      "late_adjustments": "PENDENTE",
+      "mode": "DETERMINISTICO",
+      "completeness": "BASELINE_SEM_AJUSTES_TARDIOS"
+    },
+    "issues": [
+      {
+        "id_saida": "PEN-2026-09-9a89993bc05a74",
+        "tipo": "COMISSAO_NEGATIVA",
+        "ref_origem": "00520815000100",
+        "valor_brl": "-5.50",
+        "motivo": "Saldo negativo sem NF e sem carregamento automático.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-C06",
+        "metrica_valor": "comissão contratada"
+      },
+      {
+        "id_saida": "PEN-2026-09-dc58fd806569eb",
+        "tipo": "CONTRATO_NAO_CONFIRMADO",
+        "ref_origem": "1076801732",
+        "valor_brl": "262138.61",
+        "motivo": "Linhas retidas sem faturar nem inventar taxa/CNPJ. Atlas: confirmar contrato desde 10/09 e faturar setembro junto com outubro.",
+        "quem_decide": "Comercial + Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+        "metrica_valor": "volume bruto pendente; não é comissão"
+      },
+      {
+        "id_saida": "PEN-2026-09-c75ccde513e96b",
+        "tipo": "ANTECIPACAO_SEM_LASTRO_CONFIRMADO",
+        "ref_origem": "1076801732",
+        "valor_brl": "235943.10",
+        "motivo": "Antecipações sem taxa/contrato confirmado; conferir vendido e lastro sem inventar limite de crédito.",
+        "quem_decide": "Helena + comercial",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+        "metrica_valor": "volume bruto antecipado; não é comissão"
+      },
+      {
+        "id_saida": "PEN-2026-09-368d9e37ed38d9",
+        "tipo": "DEVOLUCAO_CASA",
+        "ref_origem": "1018325654",
+        "valor_brl": "15397.42",
+        "motivo": "Cobrança durante isenção set-dez; devolver ao lojista após decisão Helena/comercial. Não cobrar Orbe. Estorno agosto não isento.",
+        "quem_decide": "Helena + comercial",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17/CAN-24",
+        "metrica_valor": "diferença de taxa líquida"
+      },
+      {
+        "id_saida": "PEN-2026-09-04a1dd5b780964",
+        "tipo": "CONTESTACAO_ORBE",
+        "ref_origem": "95927868000148",
+        "valor_brl": "1546.28",
+        "motivo": "Conferir diferenças líquidas por taxa; venda e estorno compensam. Rascunho não enviado.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-C05",
+        "metrica_valor": "diferença de taxa líquida"
+      },
+      {
+        "id_saida": "PEN-2026-09-042d562c9f6ff4",
+        "tipo": "CONTESTACAO_ORBE",
+        "ref_origem": "22224579000109",
+        "valor_brl": "29.95",
+        "motivo": "Conferir diferenças líquidas por taxa; venda e estorno compensam. Rascunho não enviado.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-C05",
+        "metrica_valor": "diferença de taxa líquida"
+      },
+      {
+        "id_saida": "PEN-2026-09-a0ec823287afa1",
+        "tipo": "DUPLICATA_PONTE",
+        "ref_origem": "PC-0926-0162",
+        "valor_brl": "0",
+        "motivo": "Mesma operação/valores nas linhas 76 e 77; primeira contada uma vez. Corrigir relatório.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R07",
+        "metrica_valor": "impacto adicional após deduplicação"
+      },
+      {
+        "id_saida": "PEN-2026-09-eee473fc9dc353",
+        "tipo": "SPREAD_NEGATIVO_CONTESTAR",
+        "ref_origem": "PC-0926-0210",
+        "valor_brl": "-343.76",
+        "motivo": "Spread negativo rejeitado; fora da comissão/NF, aguarda contestação. Valor é perda potencial da participação Tarvo, não excesso cobrado ao lojista.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R06",
+        "metrica_valor": "metade do spread negativo excluído"
+      },
+      {
+        "id_saida": "PEN-2026-09-8d635878d2684c",
+        "tipo": "SPREAD_NEGATIVO_CONTESTAR",
+        "ref_origem": "PC-0926-0326",
+        "valor_brl": "-254.61",
+        "motivo": "Spread negativo rejeitado; fora da comissão/NF, aguarda contestação. Valor é perda potencial da participação Tarvo, não excesso cobrado ao lojista.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R06",
+        "metrica_valor": "metade do spread negativo excluído"
+      },
+      {
+        "id_saida": "PEN-2026-09-8be0cf74abc5b9",
+        "tipo": "SPREAD_NEGATIVO_CONTESTAR",
+        "ref_origem": "PC-0926-0491",
+        "valor_brl": "-146.14",
+        "motivo": "Spread negativo rejeitado; fora da comissão/NF, aguarda contestação. Valor é perda potencial da participação Tarvo, não excesso cobrado ao lojista.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R06",
+        "metrica_valor": "metade do spread negativo excluído"
+      },
+      {
+        "id_saida": "PEN-2026-09-63750b0c988fdf",
+        "tipo": "SPREAD_NEGATIVO_CONTESTAR",
+        "ref_origem": "PC-0926-0545",
+        "valor_brl": "-172.52",
+        "motivo": "Spread negativo rejeitado; fora da comissão/NF, aguarda contestação. Valor é perda potencial da participação Tarvo, não excesso cobrado ao lojista.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R06",
+        "metrica_valor": "metade do spread negativo excluído"
+      },
+      {
+        "id_saida": "PEN-2026-09-68c07849ff1f16",
+        "tipo": "CONTESTACAO_PONTE",
+        "ref_origem": "17217888000111",
+        "valor_brl": "1418.85",
+        "motivo": "Contestar excesso integral ao lojista, mantendo participação realizada setembro. Ajuste só na competência futura em que ocorrer.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+        "metrica_valor": "excesso integral de spread"
+      },
+      {
+        "id_saida": "PEN-2026-09-b78dd8e15f3644",
+        "tipo": "CONFERIR_RECEBIMENTO_PONTE",
+        "ref_origem": "2026-09/PONTE",
+        "valor_brl": "39543.45",
+        "motivo": "Conferir TED no mês seguinte; pagamento ou desconto não conhecido. Comissão a receber não equivale a caixa.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R10",
+        "metrica_valor": "comissão a receber"
+      },
+      {
+        "id_saida": "PEN-2026-09-bc82720289eaf3",
+        "tipo": "CREDITO_NAO_IDENTIFICADO",
+        "ref_origem": "L50",
+        "valor_brl": "7350.00",
+        "motivo": "Origem desconhecida; não é receita. Crédito da conta transitória de ativo é provisório, pode gerar saldo credor e exige reclassificação após identificar obrigação/origem.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-B01;contexto/RESPOSTAS_FINANCEIRO.md#REG-B05",
+        "metrica_valor": "crédito bancário a identificar"
+      },
+      {
+        "id_saida": "PEN-2026-09-48510af0d03161",
+        "tipo": "DEVOLUCAO_REPASSE",
+        "ref_origem": "L65",
+        "valor_brl": "12400.00",
+        "motivo": "Repasse devolvido; obrigação ao lojista restabelecida. Investigar motivo e novo destino.",
+        "quem_decide": "Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-B01;contexto/RESPOSTAS_FINANCEIRO.md#REG-B06",
+        "metrica_valor": "obrigação ao lojista restabelecida"
+      },
+      {
+        "id_saida": "PEN-2026-09-d8d6e88368e38f",
+        "tipo": "TRANSFERENCIA_EM_TRANSITO",
+        "ref_origem": "L92",
+        "valor_brl": "300000.00",
+        "motivo": "Saída sem entrada no mês; manter trânsito e conferir crédito no próximo período, sem inventar movimento bancário.",
+        "quem_decide": "Caio + Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-B01;contexto/RESPOSTAS_FINANCEIRO.md#REG-B07",
+        "metrica_valor": "saldo de trânsito a conferir"
+      },
+      {
+        "id_saida": "PEN-2026-09-4a359f7b31bb0d",
+        "tipo": "ADIANTAMENTO_REMESSA_OUTUBRO",
+        "ref_origem": "MRD2026090425",
+        "valor_brl": "18240.00",
+        "motivo": "Ponte Aérea Estudantil é lojista, não Ponte Câmbio. Recurso destinado a operação de outubro; manter passivo, sem comissão setembro.",
+        "quem_decide": "Caio + Helena",
+        "estado": "PENDENTE",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-B08",
+        "metrica_valor": "recurso de lojista para remessa futura"
+      },
+      {
+        "id_saida": "PEN-2026-09-c57bac96e315e0",
+        "tipo": "AJUSTES_TARDIOS_NAO_INCORPORADOS",
+        "ref_origem": "06_orbe_ajustes_tardios_set2026.csv",
+        "valor_brl": "",
+        "motivo": "Baseline das seis fontes originais. Arquivo integral de ajustes tardios ausente ou sem parser homologado; fechamento final depende da incorporação e reexecução.",
+        "quem_decide": "Helena / coordenador",
+        "estado": "PENDENTE",
+        "regra_fonte": "aviso de ajustes tardios; PROJECT_CONTROL R004",
+        "metrica_valor": "não quantificado"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+-r requirements-api.txt
+-r requirements-finance.txt
+-r requirements-intelligence.txt

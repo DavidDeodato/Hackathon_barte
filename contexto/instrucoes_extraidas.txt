@@ -1,0 +1,162 @@
+Desafio Barte AI · Hackathon de AI Services · 16 e 17 de outubro de 2026
+Case Tarvo: o mês que só fecha na cabeça de quem fecha
+Instruções para os times (1 a 3 pessoas)
+Visão geral
+A AI Services é a área da Barte em que squads entram na operação financeira de grandes empresas e assumem o trabalho operacional: conciliação, repasses, fiscal, fechamento. O trabalho de verdade começa antes do código: entender por que a operação quebra, separar o que se sabe do que se está assumindo e perguntar para quem sabe.
+Este case simula esse começo. Você recebe os arquivos de um cliente, um time financeiro que conhece regras que não estão escritas em lugar nenhum e um dia para fechar o mês dele com ajuda da IA.
+Você não precisa saber finanças. Precisa entender o problema, construir algo que funciona em cima dos arquivos como eles vêm e mostrar de onde sai cada número.
+O cliente: Tarvo Pagamentos
+Negócio
+Subadquirente de nicho para o mercado de educação internacional: agências de intercâmbio, escolas de idiomas e operadoras de turismo estudantil. Cerca de 25 lojistas ativos.
+Duas linhas de negócio
+Checkout: os lojistas recebem dos alunos por cartão e Pix pela Tarvo, que usa a adquirente Orbe. A Tarvo ganha a taxa (MDR) e a taxa de antecipação. Remessas: os lojistas pagam escolas no exterior pela Tarvo, que opera com o parceiro de câmbio Ponte Câmbio. A Tarvo ganha uma participação no spread.
+Volume
+Cerca de 2 mil transações de checkout e 230 remessas internacionais por mês.
+Time financeiro
+3 pessoas. Uma delas mantém a planilha de taxas. Nenhuma tem tempo para mais nada no fim do mês.
+Sistemas
+Portal da Orbe, e-mail da Ponte Câmbio, dois bancos (Aurora e Meridiano), ERP Fênix e a planilha de taxas. Tudo se encontra no Excel.
+O que o time financeiro contou:
+“O fechamento leva oito dias úteis. Cada fonte é um arquivo diferente e eu bato uma por uma.”
+“Tem regra que só eu sei. Se eu sair de férias, o mês não fecha.”
+“No mês passado um lojista reclamou que pagou taxa a mais. Ele tinha razão, e a gente só descobriu porque ele reclamou.”
+“A Ponte manda o relatório por e-mail. Às vezes vem operação repetida, às vezes vem spread negativo, e eu não sei se aceito.”
+“A gente cresceu 3 vezes em um ano. O time não vai crescer 3 vezes.”
+O que o cliente pediu, nas palavras dele: “Queremos um agente que feche o mês para a gente.”
+Sua missão
+Construir uma solução que fecha setembro/2026 da Tarvo e entrega:
+A comissão de cada lojista, separada por linha de negócio (checkout e remessa).
+As divergências entre a taxa contratada e a taxa aplicada, transação por transação, com o valor em reais.
+As notas fiscais a emitir: para quem, de qual linha de negócio e de quanto.
+Os lançamentos dos dois extratos classificados no plano de contas.
+As pendências que exigem uma pessoa, cada uma com o motivo e quem precisa decidir.
+Regra central: todo número da saída aponta para a linha de origem. Comissão sem rastro até as transações que a compõem não conta. Total que não fecha com a soma das linhas de origem conta como número inventado.
+Níveis de entrega
+Nível
+O que entrega
+Mínimo
+Comissão de checkout por lojista, com rastro.
+Alvo
+Comissão das duas linhas, divergências de taxa, notas a emitir e lançamentos classificados.
+Extra
+Rastro completo de todos os números, pendências explicadas e solução que roda em outubro sem retrabalho.
+É melhor entregar o nível mínimo certo do que o nível extra com números que não fecham.
+O que avaliamos
+Dimensão
+O que estamos procurando
+Peso
+Causa raiz
+Você entende por que o fechamento é lento e erra, em vez de só automatizar o processo como ele é?
+15%
+Hipóteses
+Você separa o que sabe do que está assumindo, e escreve isso?
+10%
+Perguntar antes de construir
+Você pergunta ao financeiro antes de assumir uma regra? As perguntas são boas?
+10%
+Raciocínio estruturado e comunicação
+Você decompõe o problema, prioriza e explica a solução para quem não é técnico?
+10%
+Uso de IA
+O histórico mostra que você dirige a IA, verifica o que ela entrega e corrige quando ela erra? Ou que ela pensou por você?
+20%
+Correção dos números
+Comissões, divergências, notas e classificações contra o nosso gabarito. Alarmes falsos contam contra.
+25%
+Tempo e pontualidade
+Chegada, checkpoints, envio no horário e escopo compatível com o tempo que você tinha.
+10%
+As notas de execução são normalizadas pelo número de pessoas do time: um time de uma pessoa não concorre com o volume de um trio. Os convites para o Junior Fellowship são individuais e consideram todos que entregarem, finalistas ou não.
+Não avaliamos capricho visual, elegância de código, escolha de ferramenta ou quantidade de funcionalidades.
+Perguntas ao time financeiro
+O time financeiro da Tarvo está disponível no Slack e na mesa da banca. Ele responde sobre regras de negócio, como o time responderia de verdade. Não responde como construir.
+Canal #tarvo-financeiro: perguntas ao cliente. Comece toda mensagem com o nome do time. As respostas ficam no canal, à vista de todos.
+Presencial, na mesa da banca: vale igual. Se a resposta servir para todos, publicamos no canal.
+Canal #hackathon-duvidas: logística e formato do case, fora do personagem.
+Toda pergunta fica registrada com time e horário. Cabe a você decidir quanto e quando perguntar. Pergunta vaga recebe resposta vaga.
+Horário de atendimento do financeiro: hoje, das 20h30 às 22h30, e amanhã, das 9h30 às 17h30.
+Onde faltar resposta, assuma, escreva a premissa e siga. Ficar parado esperando também é decisão.
+O que você entrega
+1. Repositório no GitHub (até 18h30 de 17/10)
+Repositório público. O link vai no thread do seu time em #hackathon-entregas. Commits depois das 18h30 não são considerados.
+Estrutura obrigatória na raiz:
+README.md          como instalar e rodar do zero, chaves necessárias (sem as suas), limitações conhecidasHIPOTESES.md       premissas assumidas, perguntas feitas ao financeiro e respostas recebidasPROMPTS/           histórico das sessões de IA + MOMENTOS.mdsaida/             arquivos gerados a partir do data pack (formato abaixo)src/ (ou similar)  código, fluxos e configurações
+2. Arquivos de saída em saida/
+Formato fixo, porque parte da correção é automática. CSV com ; como separador, ponto como separador decimal, datas em AAAA-MM-DD, CNPJ só com números (14 dígitos).
+Arquivo
+Colunas obrigatórias
+comissoes_por_lojista.csv
+id_saida; cnpj; lojista; linha_negocio; comissao_brl
+divergencias_taxa.csv
+id_saida; cnpj; linha_negocio; ref_origem; taxa_contratada_pct; taxa_aplicada_pct; diferenca_brl
+notas_a_emitir.csv
+id_saida; tomador_cnpj; tomador; linha_negocio; valor_brl; discriminacao
+lancamentos_classificados.csv
+id_saida; banco; ref_origem; data; descricao; valor; conta_codigo; metodo; confianca
+pendencias.csv
+id_saida; tipo; ref_origem; valor_brl; motivo; quem_decide
+rastro.csv
+id_saida; arquivo_origem; ref_origem; valor
+linha_negocio: CHECKOUT ou REMESSA.
+banco: AURORA ou MERIDIANO.
+ref_origem: o identificador da linha de origem. Use id_transacao (Orbe), Nº Operação (Ponte), o número da linha física do arquivo no extrato Aurora (L10, L11…) e o FITID no extrato Meridiano.
+metodo: REGRA, IA ou HUMANO. confianca: de 0 a 1.
+rastro.csv liga cada número de saída às linhas de origem. A soma de valor por id_saida tem que bater com o número reportado.
+Colunas extras são bem-vindas.
+3. Histórico de prompts
+O histórico de todas as sessões de IA, de construção e de preparação: transcript do Claude Code, link da conversa, export ou print. Pode remover chaves de API e dados pessoais. Fora isso, não edite.
+Em PROMPTS/MOMENTOS.md, marque de 2 a 4 momentos que importaram. Para cada um, uma ou duas frases: o que você pediu, o que a IA devolveu e o que você fez com isso. Pelo menos um momento em que a IA errou ou te levou para o lugar errado.
+4. Pitch (das 18h30 às 19h de 17/10)
+Todos os times montam o pitch, finalistas ou não. Link (PDF, slides ou vídeo) no thread do time em #hackathon-entregas até as 19h. Os 3 finalistas apresentam às 19h30: 15 minutos de apresentação e 5 de perguntas. O pitch é para o time financeiro e o CFO da Tarvo, não para engenheiros. Ele deve cobrir:
+O que está de fato quebrado na operação, e por quê.
+O que a solução faz, em linguagem que o financeiro entende.
+Quanto dinheiro está em jogo: divergências, devoluções, receita que não seria faturada.
+Como a analista usa a solução no fechamento de outubro.
+Onde a IA atua, onde não atua e por quê.
+Onde a solução falha e o que acontece com esses casos.
+O que faria com mais um mês de desenvolvimento.
+Cronograma
+Quando
+O quê
+Hoje, 16/10, 19h
+Kickoff online e divulgação do case
+Em seguida
+30 minutos de Q&A sobre o formato
+Até 20h30
+Data pack liberado. Pode começar.
+17/10, 8h
+Credenciamento e café na Casa Barte. Pontualidade conta, por pessoa.
+9h
+Painel com os founders
+Até 9h30
+Todos construindo
+Até 11h
+Checkpoint 1 no thread do time: o que vão atacar, as principais hipóteses e o que fica de fora
+Durante o dia
+Novos dados podem chegar. Fique de olho no #hackathon-avisos.
+Até 15h30
+Checkpoint 2 no thread do time: o que já funciona, o que mudou no plano
+18h30
+Fim do desenvolvimento e envio do repositório
+18h30 às 19h
+Pitch. Envio até as 19h.
+19h
+Banca anuncia os 3 finalistas
+19h30
+Apresentação dos finalistas
+20h30
+Premiação e happy hour
+Regras
+Use as ferramentas de IA que quiser: Claude Code, Cursor, Lovable, n8n, código próprio. Não avaliamos a ferramenta, e sim como você dirige a IA. O custo de ferramentas e de API é seu.
+A solução tem que consumir os arquivos como eles vêm, sem limpeza manual antes.
+Mockup de tela não conta como solução.
+O time é o que se inscreveu. Não vale ajuda de fora do time.
+Pode trabalhar hoje à noite. Lembre que amanhã o credenciamento é às 8h.
+O que os times costumam errar
+Começam a programar antes de entender de onde vem cada número.
+Deixam a IA escolher a regra de negócio quando a resposta estava a uma pergunta de distância.
+Fazem casamento aproximado de nomes e aceitam qualquer correspondência que pareça boa.
+Entregam um total bonito que não fecha com as linhas de origem.
+Tratam toda exceção como erro do código, e não como algo que precisa de uma pessoa.
+Gastam a tarde no nível extra e chegam às 18h30 sem o mínimo.
+Boa sorte. Estamos ansiosos para ser contestados.

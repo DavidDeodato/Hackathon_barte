@@ -1,0 +1,2942 @@
+[
+  {
+    "id_saida": "COM-2026-09-283cc1afb6a3c8",
+    "expected": "-5.50",
+    "trace": "-5.50",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-2701614ab7487e",
+    "expected": "9259.74",
+    "trace": "9259.74",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-ab4a6f905adb1c",
+    "expected": "16077.90",
+    "trace": "16077.90",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-09fc2436650351",
+    "expected": "10711.41",
+    "trace": "10711.41",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-6e8e019793d5b3",
+    "expected": "7316.07",
+    "trace": "7316.07",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-f25bcb08fdba34",
+    "expected": "11906.08",
+    "trace": "11906.08",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-2c04c9273cf2ee",
+    "expected": "11679.43",
+    "trace": "11679.43",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-3a91c12bba7ecd",
+    "expected": "11916.02",
+    "trace": "11916.02",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-70835bb80ea164",
+    "expected": "9336.06",
+    "trace": "9336.06",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-bbaae2faabebcd",
+    "expected": "9014.42",
+    "trace": "9014.42",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-afbf6a07ddfc6e",
+    "expected": "18522.09",
+    "trace": "18522.09",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-039cfb5577a1d7",
+    "expected": "9315.31",
+    "trace": "9315.31",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-470fa0068439b7",
+    "expected": "5628.57",
+    "trace": "5628.57",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-64b7ea03952ca1",
+    "expected": "3819.35",
+    "trace": "3819.35",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-3c9044265ed51e",
+    "expected": "5898.02",
+    "trace": "5898.02",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-345366890b797d",
+    "expected": "12070.17",
+    "trace": "12070.17",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-fb39aa7aaecf6e",
+    "expected": "15010.78",
+    "trace": "15010.78",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-779b2611b3406f",
+    "expected": "7767.78",
+    "trace": "7767.78",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-702a78556d7c13",
+    "expected": "15621.27",
+    "trace": "15621.27",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-9f613ab46b46c5",
+    "expected": "8470.78",
+    "trace": "8470.78",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-7ec6dbf3145205",
+    "expected": "7703.98",
+    "trace": "7703.98",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-40f8bb09672923",
+    "expected": "4295.03",
+    "trace": "4295.03",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-efee60bd271237",
+    "expected": "2914.18",
+    "trace": "2914.18",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-6e190d845bfd44",
+    "expected": "3196.36",
+    "trace": "3196.36",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-e2219ef38d62a4",
+    "expected": "3547.69",
+    "trace": "3547.69",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-8db3e2e4ca7d5b",
+    "expected": "3764.05",
+    "trace": "3764.05",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-17b61514228ccd",
+    "expected": "3075.91",
+    "trace": "3075.91",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-6763956776669f",
+    "expected": "1772.61",
+    "trace": "1772.61",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-727e3715ce9837",
+    "expected": "1292.67",
+    "trace": "1292.67",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-be44f156f6e44e",
+    "expected": "2207.48",
+    "trace": "2207.48",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-278686038a6e79",
+    "expected": "4918.34",
+    "trace": "4918.34",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-38d8e8529774d9",
+    "expected": "2668.36",
+    "trace": "2668.36",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-0e14045b7a948b",
+    "expected": "2520.25",
+    "trace": "2520.25",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-49e8d6ebd88f4e",
+    "expected": "3007.30",
+    "trace": "3007.30",
+    "ok": true
+  },
+  {
+    "id_saida": "COM-2026-09-ba7779c3aa0c31",
+    "expected": "363.22",
+    "trace": "363.22",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-38f9cf1e6b7bfe",
+    "expected": "16.38",
+    "trace": "16.38",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e4e6e0f83f73bd",
+    "expected": "16.54",
+    "trace": "16.54",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-670287c57c5f79",
+    "expected": "218.82",
+    "trace": "218.82",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-9d3dd8d816f8b2",
+    "expected": "208.16",
+    "trace": "208.16",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3bbb138fb0dad7",
+    "expected": "119.87",
+    "trace": "119.87",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d8fde6b8ceafb6",
+    "expected": "210.41",
+    "trace": "210.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-c21169176f6c3f",
+    "expected": "162.19",
+    "trace": "162.19",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-69e8c62696546e",
+    "expected": "23.26",
+    "trace": "23.26",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-66058687e0b570",
+    "expected": "122.24",
+    "trace": "122.24",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b7996297e26d75",
+    "expected": "49.65",
+    "trace": "49.65",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-54a3151183b82f",
+    "expected": "137.19",
+    "trace": "137.19",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-21be416739d12e",
+    "expected": "104.51",
+    "trace": "104.51",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1c4ca3f4fab322",
+    "expected": "71.39",
+    "trace": "71.39",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-97a8e8d40be834",
+    "expected": "193.77",
+    "trace": "193.77",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-eab12c3e78a739",
+    "expected": "178.14",
+    "trace": "178.14",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-184daec5a0c92d",
+    "expected": "85.99",
+    "trace": "85.99",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-8af11fc2fe24ec",
+    "expected": "277.42",
+    "trace": "277.42",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-4679a01197bc88",
+    "expected": "89.23",
+    "trace": "89.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6c28a11d012232",
+    "expected": "60.12",
+    "trace": "60.12",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-76e2531c35a76a",
+    "expected": "7.62",
+    "trace": "7.62",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-df21acc8747148",
+    "expected": "284.66",
+    "trace": "284.66",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3d844cb765c298",
+    "expected": "35.02",
+    "trace": "35.02",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ac54345728abbd",
+    "expected": "208.68",
+    "trace": "208.68",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-bb1e6185dcd687",
+    "expected": "197.92",
+    "trace": "197.92",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7de381fd48b1b9",
+    "expected": "51.00",
+    "trace": "51.00",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b995ec3a99ebbe",
+    "expected": "15.99",
+    "trace": "15.99",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ba72733504c7ae",
+    "expected": "48.76",
+    "trace": "48.76",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5e411499a7047a",
+    "expected": "17.09",
+    "trace": "17.09",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-2892a217c5f7a8",
+    "expected": "248.75",
+    "trace": "248.75",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0dd355eb0374fe",
+    "expected": "35.65",
+    "trace": "35.65",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-de1c05c622bc00",
+    "expected": "663.48",
+    "trace": "663.48",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b78683aff640da",
+    "expected": "119.24",
+    "trace": "119.24",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ff2d7934cb314a",
+    "expected": "2.58",
+    "trace": "2.58",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6f50df10c65e67",
+    "expected": "103.70",
+    "trace": "103.70",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a04d204d0351be",
+    "expected": "107.69",
+    "trace": "107.69",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-cbd9e9b4c6bf2e",
+    "expected": "219.85",
+    "trace": "219.85",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-8eda95c889d507",
+    "expected": "42.82",
+    "trace": "42.82",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-2ddeb826dc2265",
+    "expected": "5.34",
+    "trace": "5.34",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-bedbcaa885fb50",
+    "expected": "83.62",
+    "trace": "83.62",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-97195bfff4232b",
+    "expected": "50.55",
+    "trace": "50.55",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5f2e7af16aeb95",
+    "expected": "110.49",
+    "trace": "110.49",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d46e0083b2d2ae",
+    "expected": "115.29",
+    "trace": "115.29",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ef29ae41c56248",
+    "expected": "228.88",
+    "trace": "228.88",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-52ef8b0aeee8e1",
+    "expected": "910.93",
+    "trace": "910.93",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6145595e512f0d",
+    "expected": "32.25",
+    "trace": "32.25",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5b8ed66b6024cb",
+    "expected": "9.41",
+    "trace": "9.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-dbe00565438440",
+    "expected": "93.42",
+    "trace": "93.42",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-36899a6c3f936e",
+    "expected": "66.28",
+    "trace": "66.28",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d6ecc82579b5e0",
+    "expected": "5.37",
+    "trace": "5.37",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a888eb6b3031ff",
+    "expected": "45.12",
+    "trace": "45.12",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-776335001879d8",
+    "expected": "106.85",
+    "trace": "106.85",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-921588d27fc291",
+    "expected": "83.06",
+    "trace": "83.06",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-eb6a03cb382d5a",
+    "expected": "303.81",
+    "trace": "303.81",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-24036fcfcae54b",
+    "expected": "352.41",
+    "trace": "352.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3b818edd42ae51",
+    "expected": "30.74",
+    "trace": "30.74",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-8355c9ff48b682",
+    "expected": "17.84",
+    "trace": "17.84",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5d32698f55d9c9",
+    "expected": "38.38",
+    "trace": "38.38",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e113936591fba9",
+    "expected": "73.21",
+    "trace": "73.21",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5a604c5d813480",
+    "expected": "156.47",
+    "trace": "156.47",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-afa560e6c58bb3",
+    "expected": "13.72",
+    "trace": "13.72",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-94ef0e8b3ffbbf",
+    "expected": "8.15",
+    "trace": "8.15",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-055ff7496fad95",
+    "expected": "9.99",
+    "trace": "9.99",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-330d4e274cdc2b",
+    "expected": "4.31",
+    "trace": "4.31",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a24eaaa23fa176",
+    "expected": "21.13",
+    "trace": "21.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b8c2efdf26878f",
+    "expected": "12.76",
+    "trace": "12.76",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1a1bda08782703",
+    "expected": "184.48",
+    "trace": "184.48",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d469a7ed7d8d72",
+    "expected": "63.45",
+    "trace": "63.45",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-012ba24e2845c1",
+    "expected": "138.51",
+    "trace": "138.51",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1a405ab06fee67",
+    "expected": "38.88",
+    "trace": "38.88",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-fb702aa010c8d9",
+    "expected": "6.92",
+    "trace": "6.92",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b69f701fa75f5a",
+    "expected": "232.18",
+    "trace": "232.18",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-99ffe0f90c1ae5",
+    "expected": "7.89",
+    "trace": "7.89",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-13d42aafad0573",
+    "expected": "4.50",
+    "trace": "4.50",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-4f91ed4b6361ef",
+    "expected": "2.23",
+    "trace": "2.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d9b7d0b8135677",
+    "expected": "12.35",
+    "trace": "12.35",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d01ba619ca97b8",
+    "expected": "23.88",
+    "trace": "23.88",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d28b71762a3da3",
+    "expected": "606.36",
+    "trace": "606.36",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-603a1f24c79ea7",
+    "expected": "34.31",
+    "trace": "34.31",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e4a18befaa5900",
+    "expected": "8.96",
+    "trace": "8.96",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b5b5225136eb8a",
+    "expected": "11.15",
+    "trace": "11.15",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-87ad407640db79",
+    "expected": "11.23",
+    "trace": "11.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d8440eb7a091d8",
+    "expected": "4.09",
+    "trace": "4.09",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-681f34456cafd7",
+    "expected": "24.06",
+    "trace": "24.06",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-4114b10f3e25ec",
+    "expected": "26.98",
+    "trace": "26.98",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a35f7e19d1f5a6",
+    "expected": "2.86",
+    "trace": "2.86",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-882602fa6d6efe",
+    "expected": "19.80",
+    "trace": "19.80",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b975dfdd3a74b5",
+    "expected": "5.93",
+    "trace": "5.93",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-c09ac36be5a908",
+    "expected": "5.13",
+    "trace": "5.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-212e88c1cedd2d",
+    "expected": "25.33",
+    "trace": "25.33",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1000215eaa019a",
+    "expected": "236.05",
+    "trace": "236.05",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-469df0f476880a",
+    "expected": "1206.58",
+    "trace": "1206.58",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-356ef913e4397f",
+    "expected": "3.44",
+    "trace": "3.44",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-23ff324519ce6e",
+    "expected": "5.42",
+    "trace": "5.42",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e8697174774a03",
+    "expected": "52.10",
+    "trace": "52.10",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0a50838b6718f2",
+    "expected": "14.23",
+    "trace": "14.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-25d65e75e69741",
+    "expected": "6.45",
+    "trace": "6.45",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7085a0fe2f31d9",
+    "expected": "26.86",
+    "trace": "26.86",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-50eaed2c6da3ee",
+    "expected": "7.95",
+    "trace": "7.95",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6efd77fbee858c",
+    "expected": "24.08",
+    "trace": "24.08",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-f275cdac1cd1f3",
+    "expected": "29.98",
+    "trace": "29.98",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-736935b5dedd75",
+    "expected": "6.83",
+    "trace": "6.83",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-dacc1af1028872",
+    "expected": "8.73",
+    "trace": "8.73",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-eeb5512242e385",
+    "expected": "3.29",
+    "trace": "3.29",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-458fa52602556c",
+    "expected": "26.33",
+    "trace": "26.33",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-33f698fc24b10d",
+    "expected": "9.98",
+    "trace": "9.98",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0d501e676592f2",
+    "expected": "11.20",
+    "trace": "11.20",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6f02fcbb56de24",
+    "expected": "63.43",
+    "trace": "63.43",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0a622a5837354a",
+    "expected": "7.74",
+    "trace": "7.74",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-64c5e39813db78",
+    "expected": "13.56",
+    "trace": "13.56",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-13b9fce686685f",
+    "expected": "32.50",
+    "trace": "32.50",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5382a28c3671a9",
+    "expected": "19.79",
+    "trace": "19.79",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-2ff6fc4ac4b3d2",
+    "expected": "24.78",
+    "trace": "24.78",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a9f930130742c6",
+    "expected": "314.08",
+    "trace": "314.08",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-bdd31d8de4a1fc",
+    "expected": "94.07",
+    "trace": "94.07",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-c67312e0206a4b",
+    "expected": "13.07",
+    "trace": "13.07",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-2b3948b2d1f390",
+    "expected": "8.47",
+    "trace": "8.47",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ae90217a92a191",
+    "expected": "40.26",
+    "trace": "40.26",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-bed7149277b35d",
+    "expected": "13.94",
+    "trace": "13.94",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-46929907449566",
+    "expected": "18.48",
+    "trace": "18.48",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-eced5273d2a05f",
+    "expected": "82.06",
+    "trace": "82.06",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d5b5329191ff05",
+    "expected": "28.80",
+    "trace": "28.80",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-f07e1ed2e5337d",
+    "expected": "587.10",
+    "trace": "587.10",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-32b1af2c202f56",
+    "expected": "14.13",
+    "trace": "14.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5bedf65545994c",
+    "expected": "233.03",
+    "trace": "233.03",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a97d9b2fced77a",
+    "expected": "2.88",
+    "trace": "2.88",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-efa849bcd2204d",
+    "expected": "145.99",
+    "trace": "145.99",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-dc579ce03d14e1",
+    "expected": "140.23",
+    "trace": "140.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-273de80fa9ff56",
+    "expected": "394.21",
+    "trace": "394.21",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7d3dd18f44429c",
+    "expected": "21.56",
+    "trace": "21.56",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b82f488f56e51d",
+    "expected": "257.52",
+    "trace": "257.52",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d93a13081360c2",
+    "expected": "18.62",
+    "trace": "18.62",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-65f5b1372077e3",
+    "expected": "5.86",
+    "trace": "5.86",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ae015974a462ed",
+    "expected": "2.68",
+    "trace": "2.68",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a15461a1d8a16b",
+    "expected": "13.05",
+    "trace": "13.05",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d057abf93608db",
+    "expected": "5.27",
+    "trace": "5.27",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5a2d1509909ef9",
+    "expected": "29.11",
+    "trace": "29.11",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-155c7c63748085",
+    "expected": "33.22",
+    "trace": "33.22",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1fee0501caa5a0",
+    "expected": "10.06",
+    "trace": "10.06",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-98dc5179e90d28",
+    "expected": "16.15",
+    "trace": "16.15",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0f038d078de9f1",
+    "expected": "13.44",
+    "trace": "13.44",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-eb00a23ca08ede",
+    "expected": "39.71",
+    "trace": "39.71",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-103dce02006c82",
+    "expected": "11.80",
+    "trace": "11.80",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a0dfc5cd64b311",
+    "expected": "10.81",
+    "trace": "10.81",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7b2db7bfaa97da",
+    "expected": "14.33",
+    "trace": "14.33",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-85591844a69fb1",
+    "expected": "15.81",
+    "trace": "15.81",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-90731525eed6d3",
+    "expected": "42.87",
+    "trace": "42.87",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a6f1c3e6c4de83",
+    "expected": "8.69",
+    "trace": "8.69",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ec9d91f92772d9",
+    "expected": "51.66",
+    "trace": "51.66",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-15fc6c6f8f5806",
+    "expected": "12.15",
+    "trace": "12.15",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-052de7590b817d",
+    "expected": "6.17",
+    "trace": "6.17",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-22e18416cd5ce1",
+    "expected": "56.13",
+    "trace": "56.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-56538ca76dfab2",
+    "expected": "25.07",
+    "trace": "25.07",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-de8dd83614ab09",
+    "expected": "40.27",
+    "trace": "40.27",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-619813c1fc0446",
+    "expected": "2.96",
+    "trace": "2.96",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a865225a6f4b71",
+    "expected": "10.89",
+    "trace": "10.89",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ab064dda27184b",
+    "expected": "6.09",
+    "trace": "6.09",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b06eefdab63850",
+    "expected": "39.22",
+    "trace": "39.22",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-4d3f9c4ed7096c",
+    "expected": "-52.10",
+    "trace": "-52.10",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-da9f24a24a6369",
+    "expected": "38.92",
+    "trace": "38.92",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3cb2b2e4fbef1c",
+    "expected": "50.42",
+    "trace": "50.42",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e952b1be65f546",
+    "expected": "205.62",
+    "trace": "205.62",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e538a1bcc1beac",
+    "expected": "22.70",
+    "trace": "22.70",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-edd59d309b0ffe",
+    "expected": "-5.13",
+    "trace": "-5.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-996846a7f0ec35",
+    "expected": "39.44",
+    "trace": "39.44",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b379c480e30193",
+    "expected": "18.93",
+    "trace": "18.93",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6291606c93dac4",
+    "expected": "-29.98",
+    "trace": "-29.98",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7995e1dd39ae5a",
+    "expected": "12.35",
+    "trace": "12.35",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ff65ff15d140ba",
+    "expected": "182.26",
+    "trace": "182.26",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-17a686ff626d31",
+    "expected": "23.99",
+    "trace": "23.99",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-21fb6e0cf16202",
+    "expected": "372.75",
+    "trace": "372.75",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d3e2e07a7f6b35",
+    "expected": "86.61",
+    "trace": "86.61",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-63f321ac9f9a31",
+    "expected": "27.48",
+    "trace": "27.48",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7c8c051ceb4295",
+    "expected": "9.38",
+    "trace": "9.38",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-dae3c106a779c6",
+    "expected": "5.44",
+    "trace": "5.44",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e24e6d604e3413",
+    "expected": "43.64",
+    "trace": "43.64",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-61d868f67ff909",
+    "expected": "-11.23",
+    "trace": "-11.23",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-4f6214d67b331e",
+    "expected": "16.48",
+    "trace": "16.48",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-64a21aefc9d17b",
+    "expected": "272.74",
+    "trace": "272.74",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-fe08f927109622",
+    "expected": "43.08",
+    "trace": "43.08",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e69f4250141416",
+    "expected": "6.64",
+    "trace": "6.64",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-39981f247c04a1",
+    "expected": "29.86",
+    "trace": "29.86",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-9213061e16cb65",
+    "expected": "16.20",
+    "trace": "16.20",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-94108ab1753def",
+    "expected": "2.51",
+    "trace": "2.51",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7462cdfd095da7",
+    "expected": "100.00",
+    "trace": "100.00",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b692c5dd9bdba9",
+    "expected": "69.84",
+    "trace": "69.84",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-1d0acc2b482569",
+    "expected": "13.17",
+    "trace": "13.17",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-97b56c093fdbb5",
+    "expected": "5.58",
+    "trace": "5.58",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d0948d641f5163",
+    "expected": "35.19",
+    "trace": "35.19",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3dc9938085c67e",
+    "expected": "4.40",
+    "trace": "4.40",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3bef46310d9171",
+    "expected": "19.51",
+    "trace": "19.51",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6d250b8f4314f2",
+    "expected": "9.09",
+    "trace": "9.09",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b50554ffd23091",
+    "expected": "44.82",
+    "trace": "44.82",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-11a3949f20102f",
+    "expected": "146.25",
+    "trace": "146.25",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0322b6bfcedf05",
+    "expected": "24.52",
+    "trace": "24.52",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5d37762937cee7",
+    "expected": "8.83",
+    "trace": "8.83",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-78738fc6c36643",
+    "expected": "39.85",
+    "trace": "39.85",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b332cdb0dd1f51",
+    "expected": "504.90",
+    "trace": "504.90",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-32d7263e9e12f3",
+    "expected": "13.46",
+    "trace": "13.46",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-076b0ae5e79f48",
+    "expected": "7.21",
+    "trace": "7.21",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-bbfface335fc22",
+    "expected": "9.95",
+    "trace": "9.95",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-fe331eaa8b2de7",
+    "expected": "-9.09",
+    "trace": "-9.09",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0ed8e08a9c2bee",
+    "expected": "13.31",
+    "trace": "13.31",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3a1ca11cd72f53",
+    "expected": "56.32",
+    "trace": "56.32",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-09808b2959b760",
+    "expected": "5.18",
+    "trace": "5.18",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-5eb1dd73219792",
+    "expected": "11.40",
+    "trace": "11.40",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-f496d9d7504ae4",
+    "expected": "101.43",
+    "trace": "101.43",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-0f88f754721732",
+    "expected": "5.11",
+    "trace": "5.11",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-b3f051ea9e6994",
+    "expected": "64.41",
+    "trace": "64.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-99783ae8e23a15",
+    "expected": "105.04",
+    "trace": "105.04",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-3ba17a90303277",
+    "expected": "94.68",
+    "trace": "94.68",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-a9a2e5003a347c",
+    "expected": "29.56",
+    "trace": "29.56",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7e1993de1fe653",
+    "expected": "68.32",
+    "trace": "68.32",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-c46a9d0fdb0cf6",
+    "expected": "68.20",
+    "trace": "68.20",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6e91d2562d1907",
+    "expected": "63.59",
+    "trace": "63.59",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ebb738c7810fd9",
+    "expected": "45.66",
+    "trace": "45.66",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-c5e688fc34c0f5",
+    "expected": "75.41",
+    "trace": "75.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ba7a2283e64698",
+    "expected": "18.59",
+    "trace": "18.59",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-30aaaa00696736",
+    "expected": "44.40",
+    "trace": "44.40",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-2124c3e447978b",
+    "expected": "65.71",
+    "trace": "65.71",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-636e7589df2d87",
+    "expected": "69.12",
+    "trace": "69.12",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-70de167a86c63d",
+    "expected": "40.38",
+    "trace": "40.38",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-7e19be80ec521e",
+    "expected": "71.36",
+    "trace": "71.36",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-aa0bf376987912",
+    "expected": "16.71",
+    "trace": "16.71",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-9fbc856cc1a937",
+    "expected": "65.78",
+    "trace": "65.78",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-8a96855d352ba6",
+    "expected": "43.42",
+    "trace": "43.42",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-d304483a106afa",
+    "expected": "113.41",
+    "trace": "113.41",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-044e21c484e893",
+    "expected": "62.40",
+    "trace": "62.40",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-ccf33d71ddbb78",
+    "expected": "19.90",
+    "trace": "19.90",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-360c6e85268cec",
+    "expected": "235.74",
+    "trace": "235.74",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-71d095ecd01d13",
+    "expected": "65.02",
+    "trace": "65.02",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-6247e9d011c68e",
+    "expected": "36.13",
+    "trace": "36.13",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-e95e65f871acd8",
+    "expected": "23.28",
+    "trace": "23.28",
+    "ok": true
+  },
+  {
+    "id_saida": "DIV-2026-09-8c5d9bc9b75a16",
+    "expected": "76.76",
+    "trace": "76.76",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-2701614ab7487e",
+    "expected": "9259.74",
+    "trace": "9259.74",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-ab4a6f905adb1c",
+    "expected": "16077.90",
+    "trace": "16077.90",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-09fc2436650351",
+    "expected": "10711.41",
+    "trace": "10711.41",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-6e8e019793d5b3",
+    "expected": "7316.07",
+    "trace": "7316.07",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-f25bcb08fdba34",
+    "expected": "11906.08",
+    "trace": "11906.08",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-2c04c9273cf2ee",
+    "expected": "11679.43",
+    "trace": "11679.43",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-3a91c12bba7ecd",
+    "expected": "11916.02",
+    "trace": "11916.02",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-70835bb80ea164",
+    "expected": "9336.06",
+    "trace": "9336.06",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-bbaae2faabebcd",
+    "expected": "9014.42",
+    "trace": "9014.42",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-afbf6a07ddfc6e",
+    "expected": "18522.09",
+    "trace": "18522.09",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-039cfb5577a1d7",
+    "expected": "9315.31",
+    "trace": "9315.31",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-470fa0068439b7",
+    "expected": "5628.57",
+    "trace": "5628.57",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-64b7ea03952ca1",
+    "expected": "3819.35",
+    "trace": "3819.35",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-3c9044265ed51e",
+    "expected": "5898.02",
+    "trace": "5898.02",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-345366890b797d",
+    "expected": "12070.17",
+    "trace": "12070.17",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-fb39aa7aaecf6e",
+    "expected": "15010.78",
+    "trace": "15010.78",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-779b2611b3406f",
+    "expected": "7767.78",
+    "trace": "7767.78",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-702a78556d7c13",
+    "expected": "15621.27",
+    "trace": "15621.27",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-9f613ab46b46c5",
+    "expected": "8470.78",
+    "trace": "8470.78",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-7ec6dbf3145205",
+    "expected": "7703.98",
+    "trace": "7703.98",
+    "ok": true
+  },
+  {
+    "id_saida": "NF-2026-09-a5cf5825486f8e",
+    "expected": "39543.45",
+    "trace": "39543.45",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-4e69383e260965",
+    "expected": "66026.00",
+    "trace": "66026.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-4afba842729396",
+    "expected": "-389.00",
+    "trace": "-389.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-52f2f1243f35d2",
+    "expected": "209630.03",
+    "trace": "209630.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e9a6d2fb5fa856",
+    "expected": "-350000.00",
+    "trace": "-350000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-89b2c82307f4ac",
+    "expected": "170754.70",
+    "trace": "170754.70",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-331dd17ea65d21",
+    "expected": "101224.11",
+    "trace": "101224.11",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7b21fd33d4d36a",
+    "expected": "-184732.18",
+    "trace": "-184732.18",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c4d68b66893a53",
+    "expected": "-28450.00",
+    "trace": "-28450.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e84292b191ed33",
+    "expected": "119663.57",
+    "trace": "119663.57",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-55fbc26f856590",
+    "expected": "-77106.46",
+    "trace": "-77106.46",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-5ef6c51f91ea9d",
+    "expected": "-20251.31",
+    "trace": "-20251.31",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a8edaedf23af6c",
+    "expected": "-157710.59",
+    "trace": "-157710.59",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e3473f40fc244d",
+    "expected": "-51774.96",
+    "trace": "-51774.96",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f50983af03c8fc",
+    "expected": "-13512.09",
+    "trace": "-13512.09",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-8634c46cfc642a",
+    "expected": "-171215.50",
+    "trace": "-171215.50",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1e866e9251b625",
+    "expected": "-90652.79",
+    "trace": "-90652.79",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-cb75a9f802a557",
+    "expected": "206834.86",
+    "trace": "206834.86",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-31a6af2e919be3",
+    "expected": "-48714.59",
+    "trace": "-48714.59",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3e5e1103aa989e",
+    "expected": "-82061.12",
+    "trace": "-82061.12",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-4b0ba478906192",
+    "expected": "-14147.48",
+    "trace": "-14147.48",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-9717d5c959a3f0",
+    "expected": "-179438.21",
+    "trace": "-179438.21",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c696889759d218",
+    "expected": "-116909.24",
+    "trace": "-116909.24",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c431ca790c0d00",
+    "expected": "165039.27",
+    "trace": "165039.27",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d0596add2b33a9",
+    "expected": "-162534.66",
+    "trace": "-162534.66",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-16de8c1b593200",
+    "expected": "-166257.83",
+    "trace": "-166257.83",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-63c21896a44e1e",
+    "expected": "-112220.15",
+    "trace": "-112220.15",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-be95af3c635b4a",
+    "expected": "-169982.06",
+    "trace": "-169982.06",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-79467e7f2ef541",
+    "expected": "-96716.99",
+    "trace": "-96716.99",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-af6fe1399f71b7",
+    "expected": "-107439.41",
+    "trace": "-107439.41",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1a6d3ea8bd89d0",
+    "expected": "-139443.63",
+    "trace": "-139443.63",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c8043d978d10c7",
+    "expected": "-53498.68",
+    "trace": "-53498.68",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2c33b884b66ff7",
+    "expected": "-9649.03",
+    "trace": "-9649.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a49d5bd25fce14",
+    "expected": "-66581.93",
+    "trace": "-66581.93",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f172e926757ae9",
+    "expected": "-21877.40",
+    "trace": "-21877.40",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d6d7f92571249f",
+    "expected": "185185.10",
+    "trace": "185185.10",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-24ff2d4e0210d4",
+    "expected": "-420000.00",
+    "trace": "-420000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-aba1e06acee81d",
+    "expected": "111947.16",
+    "trace": "111947.16",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2657cb533cdcec",
+    "expected": "178773.78",
+    "trace": "178773.78",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3865259f6b3ca4",
+    "expected": "-41208.77",
+    "trace": "-41208.77",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-5df652a1d45dce",
+    "expected": "-2210.00",
+    "trace": "-2210.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-91c7ab32e3c32d",
+    "expected": "269252.69",
+    "trace": "269252.69",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7c3a6fd56b9842",
+    "expected": "7350.00",
+    "trace": "7350.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-26e1e0bf2db228",
+    "expected": "140310.26",
+    "trace": "140310.26",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-baa77c4ab3f005",
+    "expected": "214548.05",
+    "trace": "214548.05",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0d055e06835c77",
+    "expected": "-6800.00",
+    "trace": "-6800.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-fc21586371426e",
+    "expected": "-51320.66",
+    "trace": "-51320.66",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3fc598d8f2aa09",
+    "expected": "-14778.57",
+    "trace": "-14778.57",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ee6d9ac4dc5b68",
+    "expected": "171916.89",
+    "trace": "171916.89",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c53f7bb0478494",
+    "expected": "-22104.35",
+    "trace": "-22104.35",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-348f1b0d1ea030",
+    "expected": "-380000.00",
+    "trace": "-380000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d58406c799e27b",
+    "expected": "191130.26",
+    "trace": "191130.26",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-00ee182da5efd3",
+    "expected": "-137081.62",
+    "trace": "-137081.62",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-4cda80e4a69f01",
+    "expected": "-17642.28",
+    "trace": "-17642.28",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7e9371b0192c02",
+    "expected": "-60108.95",
+    "trace": "-60108.95",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c6c7f8567c4ad4",
+    "expected": "-87245.50",
+    "trace": "-87245.50",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-92d0515e6662f7",
+    "expected": "163069.08",
+    "trace": "163069.08",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3755d0ca06f758",
+    "expected": "12400.00",
+    "trace": "12400.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-757015e9cd46f0",
+    "expected": "-31272.86",
+    "trace": "-31272.86",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-cf6be3bcab0042",
+    "expected": "-65058.96",
+    "trace": "-65058.96",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-72723646491a8c",
+    "expected": "-160048.92",
+    "trace": "-160048.92",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e5b2f1452e444c",
+    "expected": "-47889.99",
+    "trace": "-47889.99",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e72828b43b3071",
+    "expected": "-23043.33",
+    "trace": "-23043.33",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-12e218110016b6",
+    "expected": "-155834.46",
+    "trace": "-155834.46",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0c72a49c1a31b1",
+    "expected": "-162966.97",
+    "trace": "-162966.97",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7b0fa603b07b58",
+    "expected": "-51183.42",
+    "trace": "-51183.42",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-9a21ab021d9bf9",
+    "expected": "-175163.79",
+    "trace": "-175163.79",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-cc39244a9aae52",
+    "expected": "167214.98",
+    "trace": "167214.98",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-6573bd8ac05cb7",
+    "expected": "-88746.05",
+    "trace": "-88746.05",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0685cb5e83caa0",
+    "expected": "-130449.51",
+    "trace": "-130449.51",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2606632d0ee74c",
+    "expected": "-156292.25",
+    "trace": "-156292.25",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-cd80cd2c4f13a6",
+    "expected": "-119615.53",
+    "trace": "-119615.53",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0e1c24a669ebb1",
+    "expected": "-57146.47",
+    "trace": "-57146.47",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3c326450f9905e",
+    "expected": "-95534.03",
+    "trace": "-95534.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-6fb330d27bfbf2",
+    "expected": "-23448.38",
+    "trace": "-23448.38",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ff8d7089771be0",
+    "expected": "-118839.58",
+    "trace": "-118839.58",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-59af75cb7d8dba",
+    "expected": "-157836.05",
+    "trace": "-157836.05",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-fcd3e3c636d4c3",
+    "expected": "179117.79",
+    "trace": "179117.79",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-acc6eb43a633d0",
+    "expected": "-9811.20",
+    "trace": "-9811.20",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-902366cbb1af44",
+    "expected": "-45282.46",
+    "trace": "-45282.46",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-06547a9df94c9b",
+    "expected": "181564.50",
+    "trace": "181564.50",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-52b894e72f769a",
+    "expected": "154468.03",
+    "trace": "154468.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-827b3f88ba80f1",
+    "expected": "-187.50",
+    "trace": "-187.50",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-11b917892430ba",
+    "expected": "209575.18",
+    "trace": "209575.18",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-9e848f304a4f00",
+    "expected": "-300000.00",
+    "trace": "-300000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-5a2a064b3ab842",
+    "expected": "207215.87",
+    "trace": "207215.87",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ca707138988fee",
+    "expected": "115004.93",
+    "trace": "115004.93",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e3617991559fa6",
+    "expected": "72488.87",
+    "trace": "72488.87",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0200aba26c6bce",
+    "expected": "40011.58",
+    "trace": "40011.58",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3938acd55b559f",
+    "expected": "112819.08",
+    "trace": "112819.08",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f2588a193cd7dd",
+    "expected": "170670.73",
+    "trace": "170670.73",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e48185104f9a51",
+    "expected": "216777.54",
+    "trace": "216777.54",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-aecfeb064b7d6c",
+    "expected": "16409.36",
+    "trace": "16409.36",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-4f2017640fa7ff",
+    "expected": "66606.99",
+    "trace": "66606.99",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-46a58e66c19fc1",
+    "expected": "142931.15",
+    "trace": "142931.15",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f6594c27cfb063",
+    "expected": "117046.27",
+    "trace": "117046.27",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7ebeda93a2d57c",
+    "expected": "77595.09",
+    "trace": "77595.09",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1c9cd1577a750c",
+    "expected": "19089.78",
+    "trace": "19089.78",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-042e38d8eb1d48",
+    "expected": "-240619.49",
+    "trace": "-240619.49",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ce9792a6f23a41",
+    "expected": "-129.90",
+    "trace": "-129.90",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-091953b6af5f0f",
+    "expected": "350000.00",
+    "trace": "350000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c5f930a52c5d31",
+    "expected": "-383630.51",
+    "trace": "-383630.51",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c9e966a0f3274c",
+    "expected": "-259289.88",
+    "trace": "-259289.88",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c94c54d1809582",
+    "expected": "61884.12",
+    "trace": "61884.12",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d14aa7531f6f38",
+    "expected": "-491127.36",
+    "trace": "-491127.36",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3b8b352cd7a082",
+    "expected": "-161736.00",
+    "trace": "-161736.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a6e1e0f3829acd",
+    "expected": "110669.03",
+    "trace": "110669.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1ff7ebe9f039f5",
+    "expected": "176633.74",
+    "trace": "176633.74",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2d551143854d01",
+    "expected": "96119.94",
+    "trace": "96119.94",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-486a9f4b45d855",
+    "expected": "57950.52",
+    "trace": "57950.52",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-81eefbbe244cc8",
+    "expected": "52359.01",
+    "trace": "52359.01",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d75ae18940e5e7",
+    "expected": "89329.09",
+    "trace": "89329.09",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a781dba9f066e4",
+    "expected": "168695.52",
+    "trace": "168695.52",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-85f437ce4689a4",
+    "expected": "67427.81",
+    "trace": "67427.81",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-7568728119a269",
+    "expected": "45284.50",
+    "trace": "45284.50",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-36e842a6736b3d",
+    "expected": "103279.01",
+    "trace": "103279.01",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-963afab72500cf",
+    "expected": "210718.35",
+    "trace": "210718.35",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-98604b6a4b0316",
+    "expected": "13058.48",
+    "trace": "13058.48",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-85ea6d7d66d4ae",
+    "expected": "148766.45",
+    "trace": "148766.45",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-97457a33488a10",
+    "expected": "15996.20",
+    "trace": "15996.20",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-11603165f2597c",
+    "expected": "-264853.10",
+    "trace": "-264853.10",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-0fc11007002e45",
+    "expected": "162128.00",
+    "trace": "162128.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-68a8d82a75036e",
+    "expected": "-330847.90",
+    "trace": "-330847.90",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d98ce6f1fea3b0",
+    "expected": "-258911.16",
+    "trace": "-258911.16",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a0decfcf65a57e",
+    "expected": "420000.00",
+    "trace": "420000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-71977f8fca7220",
+    "expected": "-362392.13",
+    "trace": "-362392.13",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-655402845894f1",
+    "expected": "-1830.44",
+    "trace": "-1830.44",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c864e424e2aa2e",
+    "expected": "-139283.36",
+    "trace": "-139283.36",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c964e1d0392fe4",
+    "expected": "139499.53",
+    "trace": "139499.53",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-248e257f0f18a4",
+    "expected": "117055.54",
+    "trace": "117055.54",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-bce20fe27ac021",
+    "expected": "66913.68",
+    "trace": "66913.68",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-3eccbbcd633fc1",
+    "expected": "197622.85",
+    "trace": "197622.85",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d6f1f9c01824df",
+    "expected": "66282.32",
+    "trace": "66282.32",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1e127dfa54bc7d",
+    "expected": "110194.48",
+    "trace": "110194.48",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-507bb259727387",
+    "expected": "180084.64",
+    "trace": "180084.64",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-561fb4dd35545f",
+    "expected": "124147.70",
+    "trace": "124147.70",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f6362bcc77e708",
+    "expected": "140762.19",
+    "trace": "140762.19",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-55e680edb2dad2",
+    "expected": "63705.48",
+    "trace": "63705.48",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-1a9ec61066d0ef",
+    "expected": "183631.12",
+    "trace": "183631.12",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-624e4259b748b2",
+    "expected": "73314.02",
+    "trace": "73314.02",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ddb7463f4a3c3d",
+    "expected": "15247.22",
+    "trace": "15247.22",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c1d0793b592cb7",
+    "expected": "33341.69",
+    "trace": "33341.69",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-9bf8531848b31a",
+    "expected": "-467019.61",
+    "trace": "-467019.61",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e126dd175cc4db",
+    "expected": "-228339.00",
+    "trace": "-228339.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f0b3d62b14ae60",
+    "expected": "-268675.25",
+    "trace": "-268675.25",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-55677a978ca739",
+    "expected": "18240.00",
+    "trace": "18240.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-6afadef72be8fe",
+    "expected": "-281908.48",
+    "trace": "-281908.48",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-872cc3ba4e15b1",
+    "expected": "-197757.91",
+    "trace": "-197757.91",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-6400aea3f78b73",
+    "expected": "163936.00",
+    "trace": "163936.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-18ca20346fc5c6",
+    "expected": "380000.00",
+    "trace": "380000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e0bb160d592d37",
+    "expected": "-296441.21",
+    "trace": "-296441.21",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-c0def86e2268ff",
+    "expected": "51477.85",
+    "trace": "51477.85",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a7e8069c2a7009",
+    "expected": "119317.66",
+    "trace": "119317.66",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a9e9733afe9952",
+    "expected": "209856.85",
+    "trace": "209856.85",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-5fc3ba5f1ee321",
+    "expected": "21752.32",
+    "trace": "21752.32",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-12df398d3bf6b7",
+    "expected": "14091.03",
+    "trace": "14091.03",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-b8f7466c6b1477",
+    "expected": "88271.57",
+    "trace": "88271.57",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f817720f2b4bea",
+    "expected": "53933.91",
+    "trace": "53933.91",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e9a71998c42e3e",
+    "expected": "190274.07",
+    "trace": "190274.07",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-bc73b9ca0d990e",
+    "expected": "84176.13",
+    "trace": "84176.13",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-afb10cfbe0c4df",
+    "expected": "64836.07",
+    "trace": "64836.07",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-f10cf0560e63e3",
+    "expected": "60405.65",
+    "trace": "60405.65",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-40a84f7090a8b5",
+    "expected": "28819.73",
+    "trace": "28819.73",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-6b287ddbb65ea9",
+    "expected": "-325387.31",
+    "trace": "-325387.31",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-626e10e62b3b51",
+    "expected": "-138304.77",
+    "trace": "-138304.77",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a79263098503b7",
+    "expected": "-233407.97",
+    "trace": "-233407.97",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-b63512e587c530",
+    "expected": "-116870.33",
+    "trace": "-116870.33",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-05eaac76a8b158",
+    "expected": "-198049.00",
+    "trace": "-198049.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-b0ffa0f53f7a27",
+    "expected": "-48.21",
+    "trace": "-48.21",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-5d14bb0e75cb5b",
+    "expected": "-173242.46",
+    "trace": "-173242.46",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-ea17aa138bd8e2",
+    "expected": "106810.96",
+    "trace": "106810.96",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-303b537969e0c2",
+    "expected": "82427.54",
+    "trace": "82427.54",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2c8385d7528c94",
+    "expected": "23213.43",
+    "trace": "23213.43",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e77edf456e9460",
+    "expected": "17281.73",
+    "trace": "17281.73",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-20ae4a3247f6e4",
+    "expected": "40673.79",
+    "trace": "40673.79",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-a9eb05e93e40e3",
+    "expected": "39246.15",
+    "trace": "39246.15",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-60c2e7338a0531",
+    "expected": "8736.80",
+    "trace": "8736.80",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-e3a212dcf1f432",
+    "expected": "28165.34",
+    "trace": "28165.34",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-9862e390d64e15",
+    "expected": "8861.95",
+    "trace": "8861.95",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d89bfc41b7af7c",
+    "expected": "26059.24",
+    "trace": "26059.24",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-2c9905984409f6",
+    "expected": "146817.00",
+    "trace": "146817.00",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-bbef38b537f796",
+    "expected": "-240282.30",
+    "trace": "-240282.30",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-d016a1e5d48ba5",
+    "expected": "3912.66",
+    "trace": "3912.66",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-62a9dc0929118d",
+    "expected": "-141194.63",
+    "trace": "-141194.63",
+    "ok": true
+  },
+  {
+    "id_saida": "BAN-2026-09-b73f6e4912c462",
+    "expected": "-450.00",
+    "trace": "-450.00",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-9a89993bc05a74",
+    "expected": "-5.50",
+    "trace": "-5.50",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-dc58fd806569eb",
+    "expected": "262138.61",
+    "trace": "262138.61",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-c75ccde513e96b",
+    "expected": "235943.10",
+    "trace": "235943.10",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-368d9e37ed38d9",
+    "expected": "15397.42",
+    "trace": "15397.42",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-04a1dd5b780964",
+    "expected": "1546.28",
+    "trace": "1546.28",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-042d562c9f6ff4",
+    "expected": "29.95",
+    "trace": "29.95",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-a0ec823287afa1",
+    "expected": "0",
+    "trace": "0.00",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-eee473fc9dc353",
+    "expected": "-343.76",
+    "trace": "-343.76",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-8d635878d2684c",
+    "expected": "-254.61",
+    "trace": "-254.61",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-8be0cf74abc5b9",
+    "expected": "-146.14",
+    "trace": "-146.14",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-63750b0c988fdf",
+    "expected": "-172.52",
+    "trace": "-172.52",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-68c07849ff1f16",
+    "expected": "1418.85",
+    "trace": "1418.85",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-b78dd8e15f3644",
+    "expected": "39543.45",
+    "trace": "39543.45",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-bc82720289eaf3",
+    "expected": "7350.00",
+    "trace": "7350.00",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-48510af0d03161",
+    "expected": "12400.00",
+    "trace": "12400.00",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-d8d6e88368e38f",
+    "expected": "300000.00",
+    "trace": "300000.00",
+    "ok": true
+  },
+  {
+    "id_saida": "PEN-2026-09-4a359f7b31bb0d",
+    "expected": "18240.00",
+    "trace": "18240.00",
+    "ok": true
+  }
+]

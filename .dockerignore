@@ -1,0 +1,9 @@
+**
+!Dockerfile
+!requirements-api.txt
+!requirements-finance.txt
+!requirements-intelligence.txt
+!src/
+!src/**
+src/**/__pycache__/
+src/**/*.pyc

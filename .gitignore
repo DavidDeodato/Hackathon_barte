@@ -1,0 +1,29 @@
+# Contexto bruto e controle interno; revisar antes de qualquer publicação.
+contexto/originais/
+contexto/data_pack/
+contexto/anexos_email/
+contexto/inventario_dados.json
+contexto/luma_evento.json
+contexto/luma_texto.txt
+docs/agent/
+__pycache__/
+.env
+.env.*
+!.env.example
+.secrets/
+
+# Dependencias, runtime e artefatos privados locais
+node_modules/
+.venv/
+.pytest_cache/
+web/dist/
+.vercel/
+.runtime/
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+
+# Arquivos de compilacao e avaliacoes internas
+*.tsbuildinfo
+tests/independent/reserved_scenarios.json

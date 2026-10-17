@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Lastro</title>
+  <rect width="32" height="32" rx="6" fill="#132B2A"/>
+  <path d="M9 8V23H24M16 8H23M16 15H23" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M7 6H11V10H7ZM7 13H11V17H7ZM22 21H26V25H22Z" fill="#FFFFFF"/>
+</svg>
