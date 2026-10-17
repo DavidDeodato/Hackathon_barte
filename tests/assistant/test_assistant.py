@@ -313,3 +313,86 @@ def test_transport_wire_uses_native_tools_and_private_state():
     assert observed[1]['input'][-1]['type'] == 'function_call_output'
     assert adapter.metrics[-1]['total_tokens'] == 15
     assert 'synthetic-key' not in json.dumps(adapter.metrics)
+
+
+@pytest.mark.parametrize('final_mode', ['answer', 'tool', 'unknown_citation', 'blocked_only'])
+def test_last_request_reserved_for_synthesis_with_same_four_call_budget(workspace, final_mode):
+    """Synthetic HTTP provider; tests wire mechanics, never live model quality.
+
+    CAPTURE03 recorded two blocked queries then a valid CSV query, followed by
+    another tool call instead of synthesis. The actual invalid arguments were
+    not recorded; these deliberately invalid fixture columns are not a replay.
+    """
+    service, context, _ = workspace
+    wire, adapters = [], []
+    class Response:
+        status = 200
+        def __init__(self, value): self.value = value
+        def __enter__(self): return self
+        def __exit__(self, *args): pass
+        def read(self, size): return json.dumps(self.value).encode()
+    def opener(request, timeout):
+        payload = json.loads(request.data)
+        wire.append(payload)
+        number = len(wire)
+        if payload['tool_choice'] == 'none':
+            if final_mode == 'tool':
+                output = [dict(type='function_call', call_id='forbidden-final', name='prepare_close', arguments='{}')]
+            else:
+                citation = 'invented-source' if final_mode == 'unknown_citation' else 'src-1'
+                answer = dict(answer='Fixture synthesis from observed CSV: 3.30', citations=[] if final_mode == 'blocked_only' else [citation])
+                output = [dict(type='message', content=[dict(type='output_text', text=json.dumps(answer))])]
+        else:
+            invalid_column = number <= 2 or final_mode == 'blocked_only'
+            args = dict(output='notas.csv', contains='Teste', sum_column='fixture_invalid_column' if invalid_column else 'valor_nota')
+            output = [dict(type='function_call', call_id=f'query-{number}', name='query_output', arguments=json.dumps(args))]
+        return Response(dict(status='completed', output=output, usage=dict(input_tokens=5,output_tokens=5,total_tokens=10)))
+    def factory():
+        adapter = AssistantTransport('synthetic-key', 'test-model', opener=opener)
+        adapters.append(adapter)
+        return adapter
+    service.transport_factory = factory
+    chat = service.create(context)
+    response = service.message(chat['id'], 'Fixture total with evidence?', 'request_synthesis_1')
+    last = response['messages'][-1]
+    assert len(wire) == 4
+    assert [p['tool_choice'] for p in wire] == ['required','auto','auto','none']
+    assert wire[-1]['input'][-1]['type'] == 'function_call_output'
+    assert len(last['tool_events']) == 3  # No fourth tool is executed.
+    assert [t['status'] for t in last['tool_events']][:2] == ['blocked','blocked']
+    assert last['model_metrics'][-1]['call_index'] == 4
+    from tarvo.agents.openai_transport import OpenAITransportError
+    with pytest.raises(OpenAITransportError, match='call_budget_exceeded'):
+        adapters[0]([])
+    assert len(wire) == 4  # A fifth HTTP request is impossible.
+    if final_mode == 'answer':
+        assert last['status'] == 'completed'
+        assert last['content'] == 'Fixture synthesis from observed CSV: 3.30'
+        assert last['failure_code'] is None
+        assert last['sources'][0]['row_numbers'] == [2,3]
+        observation = json.loads(wire[-1]['input'][-1]['output'])
+        assert observation['exact_sum'] == '3.30'
+    else:
+        assert last['status'] == 'unavailable'
+        assert last['failure_code'] == {'tool':'unexpected_final_tool_call','unknown_citation':'unverified_citation','blocked_only':'no_completed_tool'}[final_mode]
+        assert last['actions'] == []
+        assert 'Fixture synthesis' not in last['content']
+
+
+def test_exhausted_adapter_failure_stays_unavailable_and_history_is_not_rewritten(workspace):
+    service, context, _ = workspace
+    class NeverFinal:
+        def __init__(self): self.calls = 0
+        def __call__(self, messages):
+            self.calls += 1
+            return dict(tool_calls=[dict(id=f'call-{self.calls}',name='run_summary',arguments={})])
+    service.transport_factory = NeverFinal
+    chat = service.create(context)
+    failed = service.message(chat['id'], 'Fixture no final', 'request_exhaustion_1')
+    original_failed = failed['messages'][-1].copy()
+    assert original_failed['status'] == 'unavailable'
+    assert original_failed['failure_code'] == 'turn_limit'
+    service.transport_factory = FakeModel
+    later = service.message(chat['id'], 'Separate fixture turn', 'request_exhaustion_2')
+    assert later['messages'][-1]['status'] == 'completed'
+    assert later['messages'][1] == original_failed

@@ -99,7 +99,7 @@ class AssistantService:
             # as data, never inserted as new system-level instructions.
             messages = [dict(role='system', content=SYSTEM), dict(role='user', content=json.dumps(dict(context=conversation['context'], history=history, question=content), ensure_ascii=False))]
             started, result = time.monotonic(), None
-            status, answer = 'completed', ''
+            status, answer, failure_code = 'completed', '', None
             try:
                 for _ in range(4):
                     if time.monotonic() - started > 58:
@@ -131,10 +131,11 @@ class AssistantService:
                     raise OpenAITransportError('missing_citation')
                 if any(not isinstance(c, str) or c not in known for c in citations):
                     raise OpenAITransportError('unverified_citation')
-            except (OpenAITransportError, OSError, ValueError, KeyError, TypeError):
+            except (OpenAITransportError, OSError, ValueError, KeyError, TypeError) as exc:
                 status = 'unavailable'
+                failure_code = exc.code if isinstance(exc, OpenAITransportError) else 'tool_or_response_invalid'
                 answer = 'Não consegui concluir a consulta às fontes. Sua pergunta foi salva. Tente novamente; nenhuma ação de processamento foi executada.'
-            self.conversations.add(identifier, request_id + ':reply', dict(role='assistant', content=answer, sources=tools.sources, actions=tools.actions if status == 'completed' else [], tool_events=tools.events, model_metrics=getattr(adapter, 'metrics', []), status=status))
+            self.conversations.add(identifier, request_id + ':reply', dict(role='assistant', content=answer, sources=tools.sources, actions=tools.actions if status == 'completed' else [], tool_events=tools.events, model_metrics=getattr(adapter, 'metrics', []), status=status, failure_code=failure_code))
             return self.conversations.get(identifier)
         finally:
             self.capacity.release()
