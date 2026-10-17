@@ -37,7 +37,9 @@ Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [
 
 ## Composição
 
-Canvas 1280 × 720, proporção 16:9. Fundo claro e verde vêm dos tokens do Lastro; capa, consequências e entrada na arquitetura usam o verde escuro. A tipografia é Arial. Os diagramas, textos e conectores são objetos nativos editáveis da apresentação. A marca Lastro usa os SVGs originais do repositório, com proporção preservada.
+Canvas 1280 × 720, proporção 16:9. Fundo claro e verde vêm dos tokens do Lastro. A tipografia é Arial. Os diagramas, textos e conectores são objetos nativos editáveis da apresentação. A marca Lastro usa os SVGs originais do repositório, com proporção preservada.
+
+Os avanços 21–25 receberam uma revisão representativa a partir da apresentação Canva fornecida pela Lorena e dos estudos de abstrações da Barte. O campo verde conduz a fala, as camadas explicam a fundação e o mesmo caso Rota Global permanece no desenho enquanto entram investigador, crítico e Helena. A [direção visual](../direcao-visual-canva.md) distingue observação e adaptação. Os slides 0–20 preservam sua composição anterior e ainda não passaram por essa revisão.
 
 Os slides são estados sucessivos da composição. Há um tópico principal por avanço, com destaque no assunto novo. A apuração acrescenta uma frente de cada vez; a arquitetura mantém as posições e acrescenta pacote do caso, investigador, crítico e decisão humana. Esta versão não configura animação automática entre posições.
 
@@ -74,6 +76,10 @@ O callback preserva slides que já tenham formas e não os sobrescreve ao repeti
 
 As revisões visuais da abertura foram incorporadas à fonte: destaque em “Planilha” e “cada lojista” no slide 3, pergunta “O que foi cobrado?” no slide 4 e “Entre pontas, uma única pessoa” no slide 5. A fala completa continua nas notas. O documento editável é a referência para preservar edições feitas diretamente no visualizador.
 
+Na revisão da arquitetura também foram espelhadas duas edições manuais do documento: “3 frentes que não se conectam” no avanço 2; no avanço 10, título mais estreito, perguntas “O que tem?” e “De onde veio?” e remoção da observação visual sobre estorno. Essas edições foram preservadas na apresentação e registradas nas fontes/prévias, sem aplicar a nova direção visual a esses slides.
+
 [solucao-arquitetura.mjs](solucao-arquitetura.mjs) exporta `buildContinuation` para continuar na mesma sessão, depois dos dez slides de abertura. Executar em lotes consecutivos, aguardando cada chamada terminar: `[10, 11, 12, 13, 14]`, `[15, 16, 17, 18]`, `[19, 20, 21]` e `[22, 23, 24, 25]`. Usar `input.indices` para o lote e, no primeiro, `input.logoPath` apontando para `web/public/brand/lastro-logo.svg`. O callback preserva qualquer slide existente e recusa lacunas de numeração. Reparos posteriores usam os IDs inspecionados da mesma apresentação.
+
+[arquitetura-cenas.mjs](arquitetura-cenas.mjs) exporta `reviseArchitectureScenes`, a revisão dos avanços 21–25 no documento existente. O callback recebe `input.indices`, valida os IDs dos slides e substitui apenas suas formas, conservando notas e quantidade de slides. Executar em lotes consecutivos `[21, 22, 23]` e `[24, 25]`, sempre na mesma sessão. Os IDs são específicos dessa apresentação: se a ordem mudar ou surgirem imagens, reinspecionar antes de adaptar a validação. Não aplicar esse callback a outro deck sem revisão. A fonte anterior continua registrada no histórico.
 
 As imagens em `previews/` são capturas renderizadas da apresentação editável. Servem à revisão visual no repositório e precisam ser atualizadas quando o documento mudar.

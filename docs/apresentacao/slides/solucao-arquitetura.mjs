@@ -132,13 +132,12 @@ async function author(presentation, entry, input) {
   const n = entry.index;
   const slide = base(presentation, entry, n === 21);
   if (n === 10) {
-    title(slide, 'Cada operação\nprecisa da\nregra certa', { size: 60, y: 229, height: 290 });
+    txt(slide, 'main-topic', 'Cada operação\nprecisa da\nregra certa', 88, 229, 552, 290, 60, { bold: true });
     const operation = node(slide, 'operation', 'Operação', 760, 378, 260, 94, true, 32);
-    const contract = node(slide, 'contract', 'Contrato', 678, 220, 208, 76, false, 28);
-    const date = node(slide, 'validity', 'Vigência', 962, 220, 208, 76, false, 28);
+    const contract = node(slide, 'contract', 'O que tem?', 678, 220, 208, 76, false, 28);
+    const date = node(slide, 'validity', 'De onde veio?', 962, 220, 208, 76, false, 28);
     link(slide, contract, operation, { fromSide: 'bottom', toSide: 'top' });
     link(slide, date, operation, { fromSide: 'bottom', toSide: 'top' });
-    txt(slide, 'original-operation', 'Um estorno remete\nà venda original.', 748, 536, 420, 92, 29, { color: C.muted });
   } else if (n === 11) {
     slide.images.add({ svg: await fs.readFile(input.logoPath, 'utf8'), alt: 'Marca Lastro', fit: 'contain',
       position: { left: 88, top: 250, width: 598.4, height: 123.2 } });

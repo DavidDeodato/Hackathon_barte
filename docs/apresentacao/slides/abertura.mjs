@@ -139,7 +139,7 @@ function develop(presentation, indices) {
       tarvo(slide, true);
     } else if (index === 2) {
       tarvo(slide, true);
-      text(slide, 'opening-title', 'Três frentes que\nnão se conectam', 88, 423, 580, 158, 48, { bold: true });
+      text(slide, 'opening-title', '3 frentes que\nnão se conectam', 88, 423, 580, 158, 48, { bold: true });
       triangle(slide, 0);
     } else if (index === 3) {
       tarvo(slide);
