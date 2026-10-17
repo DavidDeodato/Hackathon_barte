@@ -6,6 +6,7 @@ Base de trabalho para desenvolver o pitch e os slides sobre o fechamento finance
 
 - [Direção e roteiro](roteiro.md): capa e abertura dos slides 0 a 9; continuação proposta dos slides 10 a 31, com definição do Lastro, explicação por tópicos, arquitetura progressiva e relação setembro/outubro.
 - [Referências de apresentação](referencias.md): padrões observados na Barte, aplicações possíveis e limites da referência.
+- [Abertura visual](slides/README.md): primeira versão dos dez slides iniciais, com prévias e fonte de construção da apresentação editável.
 - [Orientações do desafio](../../contexto/instrucoes_extraidas.txt): requisitos usados como fonte, sujeitos à conferência com a organização.
 - [Respostas do financeiro](../../contexto/RESPOSTAS_FINANCEIRO.md): contexto recebido sobre regras e decisões do fechamento.
 - [Estado do produto](../../README.md): execução, validação e limites da implementação.
