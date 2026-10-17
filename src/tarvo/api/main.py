@@ -15,11 +15,16 @@ from starlette.exceptions import HTTPException
 from tarvo.storage import Store, QueueFull
 from .config import Settings
 from .worker import Worker, finance_adapter, intelligence_adapter, comparison_adapter, case_review_adapter
+from .session import SessionManager, SessionError
+from .document_store import DocumentStore, DocumentError
+from .documents import create_document_router
 
 
 class RunInput(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    period: str = Field(default="2026-09", pattern=r"^20\d{2}-(0[1-9]|1[0-2])$")
+    period: str | None = Field(default=None, pattern=r"^20\d{2}-(0[1-9]|1[0-2])$")
+    batch_id: str | None = Field(default=None, min_length=1, max_length=100)
+    document_ids: list[str] | None = Field(default=None, min_length=1, max_length=100)
 
 
 class InvestigationInput(BaseModel):
@@ -43,6 +48,11 @@ class CaseReviewInput(BaseModel):
     mode: Literal["deterministic", "llm"] = "deterministic"
 
 
+class SessionInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    password: str = Field(min_length=1, max_length=256)
+
+
 class APIError(Exception):
     def __init__(self, code, message, status=400):
         self.code, self.message, self.status = code, message, status
@@ -53,7 +63,10 @@ def public_run(job):
     return {"run_id": job["id"], "period": job["period"], "status": job["status"],
             "created_at": job["created_at"], "updated_at": job["updated_at"],
             "summary": result.get("summary", {}), "issues": result.get("issues", []),
-            "outputs": [Path(p).name for p in result.get("outputs", [])], "error": job["error"]}
+            "outputs": [Path(p).name for p in result.get("outputs", [])], "error": job["error"],
+            "batch_id": job["payload"].get("batch_id"), "selection_id": job["payload"].get("selection_id"),
+            "source_documents": job["payload"].get("source_documents", []),
+            "selected_input_files": job["payload"].get("input_files")}
 
 
 def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter=intelligence_adapter, start_worker=True, compare_adapter=comparison_adapter, review_adapter=case_review_adapter):
@@ -61,6 +74,15 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
     settings.validate()
     store = Store(settings.state_dir / "tarvo.sqlite3")
     worker = Worker(store, settings, close_adapter, investigate_adapter, compare_adapter, review_adapter)
+    sessions = SessionManager(store, settings)
+    documents = DocumentStore(settings.state_dir / "documents")
+    try:
+        documents.seed_directory(settings.input_dir, period="2026-09")
+    except DocumentError as exc:
+        if exc.code != "ORIGINAL_DIRECTORY_UNAVAILABLE":
+            raise
+        # Explicitly absent originals must not prevent a user from uploading a
+        # new real set. Legacy /runs still returns INPUT_UNAVAILABLE when absent.
 
     @asynccontextmanager
     async def lifespan(app):
@@ -76,10 +98,13 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.store = store
     app.state.settings = settings
+    app.state.documents = documents
     app.add_middleware(CORSMiddleware, allow_origins=list(settings.cors_origins),
-                       allow_methods=["GET", "POST"], allow_headers=["Authorization", "Content-Type"])
+                       allow_methods=["GET", "POST", "PATCH", "DELETE"], allow_headers=["Authorization", "Content-Type"])
 
     @app.exception_handler(APIError)
+    @app.exception_handler(SessionError)
+    @app.exception_handler(DocumentError)
     async def error_handler(request, exc):
         return JSONResponse({"error": {"code": exc.code, "message": exc.message}}, status_code=exc.status)
 
@@ -96,17 +121,10 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
         return JSONResponse({"error": {"code": "INTERNAL_ERROR", "message": "Falha interna; consulte o operador."}}, status_code=500)
 
     def authenticated(request: Request):
-        if settings.api_token:
-            given = request.headers.get("authorization", "")
-            expected = "Bearer " + settings.api_token
-            if not hmac.compare_digest(given.encode(), expected.encode()):
-                raise APIError("UNAUTHORIZED", "Autenticação necessária.", 401)
-        else:
-            host = request.client.host if request.client else ""
-            if host not in {"127.0.0.1", "::1", "localhost", "testclient"}:
-                raise APIError("LOCAL_ONLY", "Acesso remoto exige autenticação configurada.", 403)
+        return sessions.authorize(request)
 
     auth = [Depends(authenticated)]
+    app.include_router(create_document_router(documents), dependencies=auth)
 
     def get_run(run_id):
         job = store.get(run_id)
@@ -120,9 +138,43 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
         except QueueFull:
             raise APIError("QUEUE_FULL", "Fila cheia; aguarde uma execução terminar.", 429) from None
 
+    def run_source_context(job):
+        payload = job["payload"]
+        if payload.get("batch_id") or payload.get("selection_id"):
+            keys = ("selection_id", "input_dir", "input_files", "source_documents")
+            if not all(payload.get(key) for key in keys):
+                raise APIError("RUN_SELECTION_INCOMPLETE", "A seleção de origem desta execução está incompleta. Reprocesse o conjunto com os documentos escolhidos.", 409)
+            return {key: payload[key] for key in keys}
+        # Old runs are outputs-only. Never invent a selected source directory
+        # from current settings or send half a selection to the investigator.
+        return {}
+
     @app.get("/api/health")
     def health():
         return {"status": "ok", "service": "tarvo-api", "version": "1.0.0"}
+
+    @app.get("/api/session")
+    def session_info(request: Request):
+        response = JSONResponse(sessions.info(request))
+        response.headers["Cache-Control"] = "no-store"
+        return response
+
+    @app.post("/api/session")
+    def create_session(request: Request, body: SessionInput):
+        cookie, info = sessions.login(request, body.password)
+        response = JSONResponse(info)
+        response.set_cookie(sessions.cookie_name, cookie, max_age=settings.session_ttl,
+                            httponly=True, secure=settings.production, samesite="strict", path="/")
+        response.headers["Cache-Control"] = "no-store"
+        return response
+
+    @app.delete("/api/session")
+    def delete_session(request: Request):
+        sessions.logout(request)
+        response = JSONResponse({"authenticated": False, "required": sessions.required})
+        response.delete_cookie(sessions.cookie_name, path="/", secure=settings.production, httponly=True, samesite="strict")
+        response.headers["Cache-Control"] = "no-store"
+        return response
 
     @app.get("/api/runs", dependencies=auth)
     def runs():
@@ -130,12 +182,25 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
 
     @app.post("/api/runs", status_code=202, dependencies=auth)
     def create_run(body: RunInput):
-        if not settings.input_dir.is_dir():
-            raise APIError("INPUT_UNAVAILABLE", "Diretório de entradas confiáveis indisponível.", 503)
+        selection = None
+        if body.batch_id:
+            batch = documents.get_batch(body.batch_id)
+            if body.period and body.period != batch["period"]:
+                raise APIError("BATCH_PERIOD_MISMATCH", "A competência escolhida não corresponde ao conjunto. Selecione o conjunto do mês que deseja fechar.", 409)
+            selection = documents.resolve_inputs(body.batch_id, body.document_ids)
+        elif body.document_ids is not None:
+            raise APIError("BATCH_REQUIRED", "Escolha o conjunto ao selecionar documentos.", 422)
+        elif not settings.input_dir.is_dir():
+            raise APIError("INPUT_UNAVAILABLE", "Os documentos originais não estão disponíveis. Envie um conjunto para processar.", 503)
         from uuid import uuid4
         run_id = str(uuid4())
-        job = enqueue("close", body.period,
-                      {"input_dir": str(settings.input_dir), "output_dir": str(settings.state_dir / "runs" / run_id), "period": body.period}, run_id=run_id)
+        period = selection["period"] if selection else body.period or "2026-09"
+        payload = {"input_dir": selection["input_dir"] if selection else str(settings.input_dir),
+                   "output_dir": str(settings.state_dir / "runs" / run_id), "period": period}
+        if selection:
+            payload.update(batch_id=body.batch_id, selection_id=selection["selection_id"],
+                           input_files=selection["input_files"], source_documents=selection["source_documents"])
+        job = enqueue("close", period, payload, run_id=run_id)
         # Store ID is authoritative; its internal run_id must match the output folder.
         return {"run_id": job["id"], "status": job["status"]}
 
@@ -208,7 +273,7 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
         result = job["result"] or {}
         context = {"project_root": str(settings.project_root), "output_dir": job["payload"]["output_dir"],
                    "run_id": run_id, "period": job["period"], "summary": result.get("summary", {}),
-                   "issues": result.get("issues", []), "mode": body.mode}
+                   "issues": result.get("issues", []), "mode": body.mode, **run_source_context(job)}
         inv = enqueue("investigation", job["period"], {"question": body.question, "run_context": context}, run_id=run_id)
         return {"investigation_id": inv["id"], "run_id": run_id, "status": inv["status"]}
 
@@ -289,7 +354,7 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
             raise APIError("LLM_AUTH_REQUIRED", "Revisão assistida exige autenticação configurada no servidor.", 403)
         job, packet = case_packet(run_id, body.case_key)
         context = {"project_root": str(settings.project_root), "output_dir": job["payload"]["output_dir"],
-                   "run_id": run_id, "period": job["period"], "mode": body.mode}
+                   "run_id": run_id, "period": job["period"], "mode": body.mode, **run_source_context(job)}
         review = enqueue("case_review", job["period"], {"case_key": body.case_key, "packet": packet, "run_context": context}, run_id=run_id)
         return {"review_id": review["id"], "run_id": run_id, "case_key": body.case_key, "status": review["status"]}
 

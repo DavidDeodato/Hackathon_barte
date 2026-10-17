@@ -92,7 +92,8 @@ def investigate(question: str, run_context: dict) -> dict:
     root = Path(run_context.get('project_root', Path(__file__).resolve().parents[3])).resolve()
     output_dir = Path(run_context.get('output_dir', root / 'saida')).resolve()
     try:
-        engine = InvestigationEngine(root, output_dir)
+        engine = InvestigationEngine(root, output_dir, run_context=run_context)
+        result['run_sources'] = engine.run_sources
         emit('tool.called', 'running', 'verify_sources: conferir versao das fontes.')
         snapshots = engine.kb.verify_sources()
         healthy = bool(snapshots) and all(x['exists'] and x['matches_snapshot'] for x in snapshots)
@@ -114,6 +115,7 @@ def investigate(question: str, run_context: dict) -> dict:
             return item
 
         def tool(name, args):
+            engine.verify_run_sources()
             if not isinstance(args, dict):
                 raise ValueError('Tool arguments must be an object')
             emit('tool.called', 'running', 'Ferramenta de leitura: ' + name)

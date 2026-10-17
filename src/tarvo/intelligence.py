@@ -11,10 +11,17 @@ from .knowledge import KnowledgeBase, normalize
 
 
 class InvestigationEngine:
-    def __init__(self, project_root: str | Path, output_dir: str | Path | None = None):
+    def __init__(self, project_root: str | Path, output_dir: str | Path | None = None, *, run_context=None):
         self.root = Path(project_root)
         self.output_dir = Path(output_dir) if output_dir else self.root / 'saida'
         self.kb = KnowledgeBase(self.root)
+        self.run_context = run_context or {}
+        self.verify_run_sources()
+
+    def verify_run_sources(self):
+        from .agents.run_sources import verify_run_sources
+        self.run_sources = verify_run_sources(self.run_context, self.output_dir)
+        return self.run_sources
 
     def _read(self, filename: str) -> list[dict]:
         path = self.output_dir / filename
@@ -25,6 +32,7 @@ class InvestigationEngine:
 
     def lookup(self, reference: str) -> dict:
         """Find exact business/output identifiers and their contributing source rows."""
+        self.verify_run_sources()
         hits = []
         for filename in ('comissoes_por_lojista.csv', 'divergencias_taxa.csv',
                          'notas_a_emitir.csv', 'lancamentos_classificados.csv', 'pendencias.csv'):
@@ -37,7 +45,9 @@ class InvestigationEngine:
                  if r.get('id_saida') in output_ids or r.get('ref_origem') == reference]
         checked_files = ('comissoes_por_lojista.csv', 'divergencias_taxa.csv',
                          'notas_a_emitir.csv', 'lancamentos_classificados.csv', 'pendencias.csv', 'rastro.csv')
+        names = {row.get('arquivo_origem') for row in trace}
         return {'reference': reference, 'outputs': hits, 'trace': trace,
+                'source_documents': [doc for doc in self.run_sources['documents'] if doc['input_name'] in names],
                 'files_checked': [{'file': name, 'exists': (self.output_dir / name).is_file()}
                                   for name in checked_files],
                 'status': 'ENCONTRADO' if hits or trace else 'NAO_ENCONTRADO'}

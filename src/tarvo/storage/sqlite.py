@@ -35,6 +35,14 @@ class Store:
               );
               CREATE INDEX IF NOT EXISTS job_queue ON jobs(status, created_at);
               CREATE INDEX IF NOT EXISTS run_events ON events(run_id, seq);
+              CREATE TABLE IF NOT EXISTS access_sessions (
+                token_hash TEXT PRIMARY KEY, created_at INTEGER NOT NULL,
+                expires_at INTEGER NOT NULL, auth_version TEXT NOT NULL
+              );
+              CREATE TABLE IF NOT EXISTS access_login_limits (
+                client_key TEXT PRIMARY KEY, window_start INTEGER NOT NULL,
+                failures INTEGER NOT NULL
+              );
             """)
             # Additive migration: historical event rows remain intact. New jobs
             # bind every imported child event to the actual durable queue job.
@@ -173,3 +181,34 @@ class Store:
             rows = db.execute("SELECT seq,event FROM events WHERE job_id=? AND seq>? ORDER BY seq LIMIT ?", (job_id, after, limit)).fetchall()
         return {"events": [{**json.loads(row["event"]), "cursor": row["seq"]} for row in rows],
                 "next_cursor": rows[-1]["seq"] if rows else None}
+
+    def create_session(self, token_hash, auth_version, now, ttl):
+        with self.connect() as db:
+            db.execute("DELETE FROM access_sessions WHERE expires_at<=?", (now,))
+            db.execute("INSERT INTO access_sessions(token_hash,created_at,expires_at,auth_version) VALUES (?,?,?,?)",
+                       (token_hash, now, now + ttl, auth_version))
+
+    def session(self, token_hash, auth_version, now):
+        with self.connect() as db:
+            row = db.execute("SELECT expires_at FROM access_sessions WHERE token_hash=? AND auth_version=? AND expires_at>?",
+                             (token_hash, auth_version, now)).fetchone()
+            return dict(row) if row else None
+
+    def revoke_session(self, token_hash):
+        with self.connect() as db:
+            db.execute("DELETE FROM access_sessions WHERE token_hash=?", (token_hash,))
+
+    def login_failures(self, client_key, now, window=900):
+        with self.connect() as db:
+            row = db.execute("SELECT window_start,failures FROM access_login_limits WHERE client_key=?", (client_key,)).fetchone()
+            return row["failures"] if row and row["window_start"] > now - window else 0
+
+    def record_login_failure(self, client_key, now, window=900):
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            db.execute("DELETE FROM access_login_limits WHERE window_start<=?", (now - window,))
+            db.execute("INSERT INTO access_login_limits(client_key,window_start,failures) VALUES (?,?,1) ON CONFLICT(client_key) DO UPDATE SET failures=failures+1", (client_key, now))
+
+    def clear_login_failures(self, client_key):
+        with self.connect() as db:
+            db.execute("DELETE FROM access_login_limits WHERE client_key=?", (client_key,))

@@ -15,9 +15,26 @@ import time
 logger = logging.getLogger("tarvo.api")
 
 
+class FinancialInputError(Exception):
+    def __init__(self, message):
+        self.public_message = message
+
+
 def finance_adapter(payload):
     from tarvo.finance import run_close
-    return run_close(payload["input_dir"], payload["output_dir"], payload["period"])
+    try:
+        kwargs = {"input_files": payload["input_files"]} if payload.get("input_files") is not None else {}
+        result = run_close(payload["input_dir"], payload["output_dir"], payload["period"], **kwargs)
+    except ValueError as exc:
+        value = str(exc)
+        allowed = ("Competência inválida", "Conjunto incompleto", "Conjunto incompatível", "Sem registros para a competência",
+                   "Nome de documento inválido", "Documento selecionado", "Tipo de documento incompatível",
+                   "Um mesmo documento", "O arquivo de ajustes", "O ajuste anunciado", "Identificador Orbe conflitante")
+        message = value[:700] if value.startswith(allowed) else "Não foi possível processar este conjunto. Confira a competência, os tipos e a integridade dos arquivos enviados."
+        raise FinancialInputError(message) from None
+    if payload.get("batch_id"):
+        result.update(batch_id=payload["batch_id"], selection_id=payload.get("selection_id"), source_documents=payload.get("source_documents", []))
+    return result
 
 
 def intelligence_adapter(payload):
@@ -56,6 +73,8 @@ def child_main(send, adapter, payload):
             raise TypeError("Adapter must return an object")
         # Serialize before crossing the process boundary; no opaque objects.
         send.send((True, json.loads(json.dumps(result, ensure_ascii=False, allow_nan=False))))
+    except FinancialInputError as exc:
+        send.send((False, {"code": "FINANCIAL_INPUT_REJECTED", "message": exc.public_message}))
     except BaseException as exc:
         # Exception text and traceback can contain credentials or source data.
         send.send((False, {"code": "ADAPTER_FAILED", "message": "Módulo não concluiu a execução.", "exception_type": type(exc).__name__}))

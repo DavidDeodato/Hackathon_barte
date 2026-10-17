@@ -467,11 +467,13 @@ def review_case(packet: dict, run_context: dict) -> dict:
         frozen = deepcopy(packet)
         result.update(packet=frozen, packet_sha256=original_digest, packet_unchanged=True,
                       canonical_packet_sha256=canonical_digest, canonical_packet_verified=True)
-        engine = InvestigationEngine(root, output)
+        engine = InvestigationEngine(root, output, run_context=run_context)
+        result['run_sources'] = engine.run_sources
         result['knowledge_version'] = engine.kb.version
         result['knowledge_sha256'] = engine.kb.digest
 
         def check():
+            engine.verify_run_sources()
             if _digest(packet) != original_digest or _digest(frozen) != original_digest:
                 raise CaseReviewError('packet_mutated')
             _check_packet(frozen, output)

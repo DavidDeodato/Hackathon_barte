@@ -13,6 +13,8 @@ class Settings:
     cors_origins: tuple = ("http://localhost:5173", "http://127.0.0.1:5173")
     job_timeout: float = 180
     max_pending: int = 20
+    access_password: str = ""
+    session_ttl: int = 28800
 
     @classmethod
     def from_env(cls):
@@ -25,7 +27,9 @@ class Settings:
                    production=os.environ.get("TARVO_ENV", "local").lower() == "production",
                    cors_origins=tuple(x.strip() for x in os.environ.get("TARVO_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if x.strip()),
                    job_timeout=float(os.environ.get("TARVO_JOB_TIMEOUT_SECONDS", "180")),
-                   max_pending=int(os.environ.get("TARVO_MAX_PENDING", "20")))
+                   max_pending=int(os.environ.get("TARVO_MAX_PENDING", "20")),
+                   access_password=os.environ.get("TARVO_ACCESS_PASSWORD", ""),
+                   session_ttl=int(os.environ.get("TARVO_SESSION_TTL_SECONDS", "28800")))
 
     def validate(self):
         if self.production and not self.api_token:
@@ -34,3 +38,5 @@ class Settings:
             raise ValueError("Job timeout and queue capacity must be positive")
         if "*" in self.cors_origins:
             raise ValueError("Use explicit CORS origins")
+        if not 300 <= self.session_ttl <= 86400:
+            raise ValueError("Session TTL must be between five minutes and one day")
