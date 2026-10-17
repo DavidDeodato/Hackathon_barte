@@ -47,3 +47,15 @@
 .mcr-operational > .mc { margin: 0 16px 16px; }
 @media (max-width: 720px) { .mcr-roles, .mcr-boundaries { grid-template-columns: minmax(0, 1fr); } .mcr-role + .mcr-role, .mcr-boundaries > div + div { border-left: 0; border-top: 1px solid var(--mcr-border); } .mcr-header, .mcr-role, .mcr-evidence { padding: 18px; } .mcr-identity { padding: 14px 18px; } .mcr-operational > summary { padding: 16px 18px; } .mcr-operational > .mc { margin-inline: 8px; } }
 @media (prefers-reduced-motion: reduce) { .mcr *, .mcr *::before, .mcr *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Carbon theme; scoped, overridable, independent of EXP global palette timing. */
+.mcr { --mcr-accent: var(--motion-accent, #b8f36b); --mcr-border: var(--motion-border, #33383a); --mcr-muted: var(--motion-muted, #a6adb0); --mcr-surface: var(--motion-surface, #181b1d); --mcr-raised: var(--motion-raised, #202426); --mcr-review: var(--motion-review, #d2bfff); --mcr-semantic-bg: var(--motion-semantic-bg, #292532); color: var(--motion-text, #f3f5f3); background: var(--mcr-surface); border-radius: var(--motion-radius, 16px); color-scheme: dark; }
+.mcr-boundaries { background: var(--mcr-raised); }
+.mcr-boundaries > div + div { color: var(--mcr-review); }
+.mcr-boundaries > div + div > span { color: var(--mcr-review); }
+.mcr-alert { color: var(--mcr-review); background: var(--mcr-semantic-bg); border-left-color: var(--mcr-review); }
+.mcr-tone-danger { color: var(--motion-danger, #ffb1a7); }
+.mcr-tone-warning { color: var(--mcr-review); }
+.mcr-tone-info { color: var(--motion-info, #b9caff); }
+.mcr button:focus-visible, .mcr summary:focus-visible { outline-color: var(--motion-info, #b9caff); }
+.mission-context-light .mcr, .mcr.mcr-light { --motion-surface: #f5f5f2; --motion-raised: #e9ebe6; --motion-text: #171b18; --motion-muted: #59615a; --motion-border: #d3d8ce; --motion-accent: #365e18; --motion-info: #3e4c87; --motion-review: #604491; --motion-danger: #963b32; --motion-semantic-bg: #e9e2f2; --motion-success-bg: #e3edda; --motion-success: #365e18; --motion-danger-bg: #f3e0db; color-scheme: light; }

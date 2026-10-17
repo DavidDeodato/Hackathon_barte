@@ -1,0 +1,27 @@
+// UI control tests: explicitly intercepted errors. Not provider/auth deployment proof.
+const fs=require('node:fs'),path=require('node:path');const root=path.resolve(__dirname,'../..'),{chromium}=require(path.join(root,'web/node_modules/playwright'));
+const out=path.join(root,'docs/agent/branches/QA/artifacts/carbon_r011'),run='3c0bd187-5f20-4223-9399-d1ab32aa55a1';
+(async()=>{const browser=await chromium.launch({headless:true,channel:'msedge'}),page=await browser.newPage({viewport:{width:390,height:844}});page.setDefaultTimeout(10000);
+const report={checks:{},observations:{},errors:[],posts:[],limits:['403/500 responses deliberately intercepted in browser. Remaining routes localhost real. No provider, bearer, new close or publication.']};const check=(n,v)=>{report.checks[n]=!!v;console.log(n+': '+!!v)};
+page.on('pageerror',e=>report.errors.push(e.message));page.on('request',r=>{if(r.method()==='POST')report.posts.push({path:new URL(r.url()).pathname,body:r.postDataJSON()})});
+try{
+let packetFailure=true,postStatus=403;
+await page.route('**/api/runs/*/cases/atlas',route=>packetFailure?route.fulfill({status:403,contentType:'application/json',body:JSON.stringify({error:{code:'QA_SIMULATED_403',message:'QA controlled denial'}})}):route.continue());
+await page.route('**/api/runs/*/case-reviews',route=>route.fulfill({status:postStatus,contentType:'application/json',body:JSON.stringify({error:{code:'QA_SIMULATED_ERROR',message:'QA controlled '+postStatus}})}));
+await page.goto('http://127.0.0.1:5173',{waitUntil:'domcontentloaded'});await page.getByLabel('Execução',{exact:true}).selectOption(run);await page.locator('.file-tile').first().waitFor();
+await page.getByRole('button',{name:'Investigação',exact:true}).click();await page.locator('.case-entry-tabs').getByRole('button',{name:'Atlas',exact:true}).click();let cw=page.locator('.case-layer:not([hidden]) .case-workspace');
+await cw.getByRole('alert').waitFor();check('packet403Explicit',await cw.getByRole('alert').innerText().then(t=>t.includes('403')&&t.includes('nenhum modo alternativo')));check('packet403NoFakeDossier',await cw.locator('.cw-dossier').count()===0);
+packetFailure=false;await cw.getByRole('button',{name:'Tentar novamente',exact:true}).click();await cw.locator('.cw-dossier').waitFor();check('packetRetryRealNull',await cw.locator('.cw-amount strong').innerText().then(t=>t==='Não determinado'));
+await cw.getByRole('button',{name:'Conferir pacote',exact:true}).click();await cw.getByRole('alert').waitFor();check('post403Explicit',await cw.getByRole('alert').innerText().then(t=>t.includes('403')&&t.includes('nenhum modo alternativo')));check('post403NoFakeReview',await cw.locator('.cw-job').count()===0&&await cw.innerText().then(t=>t.includes('Aguardando registro')));
+postStatus=500;await cw.getByRole('button',{name:'Conferir pacote',exact:true}).click();await cw.getByRole('alert').filter({hasText:'QA controlled 500'}).waitFor();check('post500Explicit',true);check('errorsDoNotChangeNullAmount',await cw.locator('.cw-amount strong').innerText().then(t=>t==='Não determinado'));check('noSilentAlternative',report.posts.length===2&&report.posts.every(p=>p.body.mode==='deterministic'));
+await page.locator('.case-entry-tabs').getByRole('button',{name:'Casa',exact:true}).click();await page.locator('.case-layer:not([hidden]) .cw-dossier').waitFor();
+report.observations.modeLabels=await page.evaluate(()=>[...document.querySelectorAll('label[for="case-review-mode"]')].map(l=>({hidden:!!l.closest('[hidden]'),targetHidden:!!l.control?.closest('[hidden]'),targetCase:l.control?.closest('.case-workspace')?.querySelector('.cw-identity h2')?.textContent})));
+report.observations.duplicateIds=await page.evaluate(()=>[...new Set([...document.querySelectorAll('[id]')].map(e=>e.id))].filter(id=>document.querySelectorAll('[id="'+CSS.escape(id)+'"]').length>1));check('uniqueModeControlIds',!report.observations.duplicateIds.includes('case-review-mode'));
+await page.getByRole('button',{name:'Pendências',exact:true}).click();const opener=page.locator('.carbon-issue').first();await opener.click();await page.getByLabel('Detalhe do registro',{exact:true}).waitFor();
+report.observations.drawerFocus=await page.evaluate(()=>({active:document.activeElement?.outerHTML?.slice(0,250),inside:!!document.activeElement?.closest('.detail-panel')}));check('drawerFocusEntersPanel',report.observations.drawerFocus.inside);
+await page.keyboard.press('Escape');check('drawerEscapeCloses',await page.locator('.detail-panel').count()===0);if(await page.locator('.detail-panel').count())await page.getByRole('button',{name:'Fechar detalhe',exact:true}).click();
+await page.getByRole('button',{name:'Fechamento',exact:true}).click();await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,'overview-mobile-top.png'),fullPage:false});
+await page.getByRole('button',{name:'Investigação',exact:true}).click();await page.locator('.case-entry-tabs').getByRole('button',{name:'Atlas',exact:true}).click();await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,'atlas-mobile-top.png'),fullPage:false});
+check('noPageErrors',report.errors.length===0);
+}catch(e){report.failure=String(e.stack)}
+fs.writeFileSync(path.join(out,'negative_001.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));await browser.close();})().catch(e=>{console.error(e);process.exitCode=1});

@@ -99,3 +99,29 @@
 }
 @media (max-width: 480px) { .mc-task-list { grid-template-columns: minmax(0, 1fr); } .mc h2 { font-size: 20px; } }
 @media (prefers-reduced-motion: reduce) { .mc *, .mc *::before, .mc *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Carbon approved reference. Local tokens only; no app/global ownership. */
+.mc { --mc-accent: var(--motion-accent, #b8f36b); --mc-text: var(--motion-text, #f3f5f3); --mc-muted: var(--motion-muted, #a6adb0); --mc-border: var(--motion-border, #33383a); --mc-surface: var(--motion-surface, #181b1d); --mc-raised: var(--motion-raised, #202426); --mc-info: var(--motion-info, #b9caff); --mc-warning: var(--motion-review, #d2bfff); --mc-danger: var(--motion-danger, #ffb1a7); --mc-semantic-bg: var(--motion-semantic-bg, #292532); color: var(--mc-text); background: var(--mc-surface); border-radius: var(--motion-radius, 16px); color-scheme: dark; }
+.mc-stats { background: var(--mc-raised); }
+.mc-task { background: var(--mc-surface); border-radius: 11px; }
+.mc-task:hover { background: var(--mc-raised); border-color: var(--mc-muted); }
+.mc-task-selected { --mc-muted: #35432b; color: #101214; background: var(--motion-selection, #b8f36b); border-color: var(--motion-selection, #b8f36b); box-shadow: none; }
+.mc-task-selected:hover { background: var(--motion-selection, #b8f36b); }
+.mc-status { background: var(--mc-raised); color: var(--motion-muted, #a6adb0); }
+.mc-status-running { background: var(--mc-semantic-bg); color: var(--mc-info); }
+.mc-status-completed { background: var(--motion-success-bg, #26351f); color: var(--motion-success, #c8f59e); }
+.mc-status-failed { background: var(--motion-danger-bg, #392522); color: var(--mc-danger); }
+.mc-status-blocked { background: var(--mc-semantic-bg); color: var(--mc-warning); }
+.mc-review { color: var(--mc-warning); }
+.mc-task-selected .mc-review { color: #343044; }
+.mc-task:focus-visible { outline-color: var(--mc-info); }
+.mc-event-marker { background: var(--mc-muted); box-shadow: 0 0 0 4px var(--mc-surface); }
+.mc-event-completed .mc-event-marker { background: var(--mc-accent); }
+.mc-event-failed .mc-event-marker { background: var(--mc-danger); }
+.mc-event-blocked .mc-event-marker { background: var(--mc-warning); }
+.mc-notice { color: var(--mc-warning); background: var(--mc-semantic-bg); border-left-color: var(--mc-warning); }
+.mc-graph-edge { stroke: var(--mc-muted); color: var(--mc-muted); }
+.mc-graph-node rect { fill: var(--mc-surface); stroke: var(--mc-border); }
+.mc-graph-node-selected rect { fill: var(--mc-raised); stroke: var(--mc-accent); }
+.mission-context-light .mc, .mc.mc-light { --motion-surface: #f5f5f2; --motion-raised: #e9ebe6; --motion-text: #171b18; --motion-muted: #59615a; --motion-border: #d3d8ce; --motion-accent: #365e18; --motion-info: #3e4c87; --motion-review: #604491; --motion-danger: #963b32; --motion-semantic-bg: #e9e2f2; --motion-success-bg: #e3edda; --motion-success: #365e18; --motion-danger-bg: #f3e0db; color-scheme: light; }
+.mission-context-light .mc .mc-task-selected, .mc.mc-light .mc-task-selected { --mc-muted: #35432b; color: #101214; background: #b8f36b; }

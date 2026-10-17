@@ -43,6 +43,21 @@ export function makeApi(base: string, token: string) {
     }
     return response.json();
   }
+  async function fileResponse(id: string, name: string): Promise<Response> {
+    let response: Response;
+    try {
+      response = await fetch(`${prefix}/api/runs/${encodeURIComponent(id)}/outputs/${encodeURIComponent(name)}`, {
+        headers: token ? {Authorization: `Bearer ${token}`} : {}, signal: AbortSignal.timeout(25000),
+      });
+    } catch {
+      throw new ApiError('Não foi possível acessar o arquivo. Verifique a conexão e tente novamente.');
+    }
+    if (!response.ok) {
+      const body = await response.json().catch(() => null);
+      throw new ApiError(body?.error?.message || `Arquivo indisponível (HTTP ${response.status}).`, response.status);
+    }
+    return response;
+  }
   return {
     health: (signal?: AbortSignal) => request<JsonRecord>('/api/health', undefined, signal),
     runs: (signal?: AbortSignal) => request<{items: Run[]}>('/api/runs', undefined, signal),
@@ -51,8 +66,7 @@ export function makeApi(base: string, token: string) {
     events: (id: string, cursor?: string | null, signal?: AbortSignal) => request<{items: AgentEvent[]; next_cursor: string | null}>(`/api/runs/${encodeURIComponent(id)}/events${cursor ? `?after=${encodeURIComponent(cursor)}` : ''}`, undefined, signal),
     outputs: (id: string, signal?: AbortSignal) => request<{items: Output[]}>(`/api/runs/${encodeURIComponent(id)}/outputs`, undefined, signal),
     outputText: async (id: string,name: string) => {
-      const response=await fetch(`${prefix}/api/runs/${encodeURIComponent(id)}/outputs/${encodeURIComponent(name)}`,{headers:token ? {Authorization:`Bearer ${token}`} : {},signal:AbortSignal.timeout(25000)});
-      if(!response.ok) throw new ApiError(`Arquivo indisponível (HTTP ${response.status}).`,response.status);
+      const response = await fileResponse(id, name);
       return response.text();
     },
     investigate: (id: string, question: string, mode: 'deterministic'|'llm' = 'deterministic') => request<Investigation>(`/api/runs/${encodeURIComponent(id)}/investigations`, {method: 'POST', body: JSON.stringify({question,mode})}),
@@ -60,8 +74,7 @@ export function makeApi(base: string, token: string) {
     compare: (before: string,after: string) => request<ComparisonJob>('/api/comparisons',{method:'POST',body:JSON.stringify({before_run_id:before,after_run_id:after})}),
     comparison: (id: string,signal?:AbortSignal) => request<ComparisonJob>(`/api/comparisons/${encodeURIComponent(id)}`,undefined,signal),
     download: async (id: string, name: string) => {
-      const response = await fetch(`${prefix}/api/runs/${encodeURIComponent(id)}/outputs/${encodeURIComponent(name)}`, {headers: token ? {Authorization: `Bearer ${token}`} : {}, signal: AbortSignal.timeout(25000)});
-      if (!response.ok) throw new ApiError(`Não foi possível baixar o arquivo (HTTP ${response.status}).`, response.status);
+      const response = await fileResponse(id, name);
       const url = URL.createObjectURL(await response.blob());
       const a = document.createElement('a'); a.href = url; a.download = name; a.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);

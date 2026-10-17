@@ -1,0 +1,33 @@
+/* Carbon v1: opt-in palette. Load after brand-tokens.css; EXP owns activation. */
+.lastro-carbon,
+[data-lastro-theme="carbon"] {
+  --ls-canvas: #101214;
+  --ls-surface: #181B1D;
+  --ls-surface-subtle: #202527;
+  --ls-ink: #F3F5F3;
+  --ls-text: #F3F5F3;
+  --ls-muted: #A3ACA6;
+  --ls-border: #303638;
+  --ls-control-border: #728178;
+  --ls-accent: #B8F36B;
+  --ls-accent-hover: #C7F88B;
+  --ls-accent-soft: #27331F;
+  --ls-on-accent: #101214;
+  --ls-focus: #C9BDFF;
+  --ls-info: #BCD4FA;
+  --ls-info-bg: #202B3A;
+  --ls-review: #C9BDFF;
+  --ls-review-bg: #29243A;
+  --ls-warning: #D7C88B;
+  --ls-warning-bg: #302B1C;
+  --ls-danger: #FFB4AB;
+  --ls-danger-bg: #3A2326;
+  --ls-success: #A6D8BC;
+  --ls-success-bg: #172D24;
+  --ls-neutral: #ADB5B0;
+  --ls-neutral-bg: #242A27;
+  --ls-proof-surface: #F3F5F3;
+  --ls-proof-text: #132B2A;
+  --ls-proof-muted: #586964;
+  --ls-proof-border: #7B8D84;
+}
