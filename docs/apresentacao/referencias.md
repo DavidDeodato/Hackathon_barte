@@ -42,11 +42,11 @@ O [roteiro](roteiro.md) contém a fala e a sequência de execução. A logo da T
 
 A apresentação Canva **Sprint 5** acrescenta uma referência direta de como a Lorena prefere construir uma explicação. A [direção visual documentada](direcao-visual-canva.md) registra os exemplos por página: cenário que permanece enquanto recebe informação, perguntas antes dos mecanismos, desenhos amplos para conceitos técnicos e associações espaciais entre abordagem e algoritmos. A inspeção incluiu a visão geral das 41 páginas e cenas ampliadas do problema e da explicação técnica.
 
-Essa referência orienta ritmo, hierarquia e composição. Os estudos da Barte orientam a escolha da abstração técnica adequada. A primeira aplicação conjunta refaz os avanços 21–25 com uma entrada de capítulo, camadas como fundamento e o mesmo caso Rota Global entre investigação, crítica e decisão. O restante do deck ainda precisa passar por essa revisão de direção.
+Essa referência orienta a continuidade da explicação. A amostra com faixa verde larga e letras em círculos foi rejeitada pela Lorena. A correção atual dos avanços 21–25 dá prioridade à leitura editorial estudada na Barte: fundo claro, título regular, destaque seletivo, ilustração dominante e relações discretas. O restante do deck ainda precisa passar por essa revisão de direção. Não se presume aprovação estética da nova versão.
 
 ## Aplicação à sequência da arquitetura
 
-Nos slides 21 a 25, a adaptação combina a separação entre fontes e decisão do case Comp, a fundação em camadas e a permanência do objeto de trabalho do case Sallve. A construção acumulativa e o contraste entre campos da apresentação Canva ajudam a conduzir a fala. A arquitetura recebe um título explícito antes da construção. Cada avanço acrescenta uma responsabilidade ao mesmo caso.
+Nos slides 21 a 25, a adaptação combina a separação entre fontes e decisão do case Comp, a fundação em camadas e o percurso por estações do case Sallve. O Canva ajuda a preservar a continuidade da fala. A arquitetura recebe um título explícito antes da construção. O percurso mantém as responsabilidades como contexto, e cada avanço destaca uma delas com o vínculo que precisa ser explicado. As ilustrações são originais, com a identidade do Lastro; os estudos Barte não são inseridos como assets do produto.
 
 | Avanço | Elemento revelado | Associação que deve ficar clara |
 |---|---|---|

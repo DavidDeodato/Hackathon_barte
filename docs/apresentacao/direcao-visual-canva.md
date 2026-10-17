@@ -48,18 +48,45 @@ As referências Barte continuam sendo referências de comunicação, sem constit
 - **Cenas diferentes para perguntas diferentes.** Fotografia situa uma realidade; camadas explicam dependência; percurso acompanha transformação; captura de produto comprova comportamento. Não aplicar o mesmo fluxograma a todos os slides.
 - **Fonte e limite perto da evidência.** Valor preparado para revisão continua com esse qualificador. O destaque indica foco da apresentação, sem simular execução ou aprovação.
 
-## 5. Trecho de desenvolvimento revisado
+## 5. Correção visual após a rejeição da amostra
 
-Os avanços **21–25** recebem uma primeira aplicação desta direção. Eles conservam o total de 26 slides e as notas técnicas existentes. Os slides 0–20 ficam fora desta revisão, incluindo edições manuais no documento.
+A amostra registrada em `baa2d59` foi rejeitada pela Lorena. Ela concentrou peso numa faixa verde larga, usou títulos pesados, letras em círculos para os agentes e repetiu um cartão grande do caso. Esses recursos se afastaram da leitura editorial e do tratamento das ilustrações estudados na Barte. A presença de camadas e progressão, isoladamente, não resolveu a composição.
+
+A revisão seguinte mantém do Canva a continuidade da explicação. Para o tratamento visual, dá prioridade ao que foi documentado nas peças Barte: fundo claro, títulos regulares, destaque seletivo, linhas discretas e uma ilustração dominante. A faixa lateral e as letras em círculos foram retiradas. O valor da Rota aparece como evidência na entrada do caso, sem dominar todos os avanços.
+
+Os avanços **21–25** continuam formando o trecho de revisão. O total permanece em 26 slides e as notas técnicas são conservadas. Os slides 0–20 ficam fora da alteração automática, incluindo edições manuais no documento.
 
 | Avanço | Pergunta da fala | Representação |
 |---|---|---|
-| 21 | Em que a investigação se apoia? | Entrada explícita na arquitetura agêntica e planos de fontes, regras e apuração |
-| 22 | O que chega aos agentes? | Caso Rota Global ampliado, sustentado pela apuração e pelo rastro |
-| 23 | Como o investigador busca contexto? | Mesmo caso, investigador e consulta às fontes cadastradas |
-| 24 | Quem confronta a interpretação? | Acréscimo do crítico, com entradas de interpretação, evidências e mesmo pacote |
-| 25 | Quem decide? | Acréscimo da Helena como responsável pelo caso Rota, recebendo o parecer experimental |
+| 21 | Em que a investigação se apoia? | Título explícito de arquitetura agêntica, pilha ilustrada de fontes, regras e apuração, com legendas externas |
+| 22 | O que chega aos agentes? | Início do percurso, valor da Rota como evidência e identificação do resultado que ganha um caso |
+| 23 | Como o investigador busca contexto? | Foco na estação de investigação, com relação de consulta e retorno de evidências |
+| 24 | Quem confronta a interpretação? | Foco no crítico; legenda reúne mesmo caso, interpretação e evidências recebidas |
+| 25 | Quem decide? | Foco na revisão humana; Helena recebe caso e parecer, identificado como experimental |
 
-As figuras são diagramas conceituais editáveis. Não são capturas de interface nem registros de uma execução do modelo. O caso usa dados do pacote publicado em `b43e80e`; não demonstra cobrança enviada, recuperação realizada ou qualidade semântica validada da revisão agêntica. O crítico examina o material recebido, sem uma nova ligação de consulta às fontes.
+O percurso mantém as quatro funções visíveis como contexto, mudando o foco por avanço. A ligação ilustrada indica continuidade do caso. Os rótulos fixam o significado técnico; a imagem não documenta uma fila, protocolo ou chamada de API. A figura humana é uma representação genérica da função de revisão, sem retratar Helena.
 
-Fonte de reprodução: [arquitetura-cenas.mjs](slides/arquitetura-cenas.mjs). A aplicação visual deste trecho serve para revisar a direção antes de estendê-la ao restante do deck.
+O caso usa dados do pacote publicado em `b43e80e`; não demonstra cobrança enviada, recuperação realizada ou qualidade semântica validada da revisão agêntica. O crítico examina o material recebido, sem uma nova ligação de consulta às fontes.
+
+## 6. Especificação visual aplicada ao trecho
+
+| Elemento | Decisão no Lastro | Função transferida da referência |
+|---|---|---|
+| Palco | Canvas 1280 × 720, fundo `#F6F7F4`, margens principais de 88px | Distribuir texto e ilustração com espaço entre os grupos |
+| Marca e seção | Marca original de 105 × 22px; seção discreta de 15px | Situar o material sem competir com o argumento |
+| Título | Arial regular de 50px, duas linhas com 66px entre origens | Tese curta e leve, acompanhando a fala |
+| Destaque | Segunda linha em verde `#1E6654` | Ênfase seletiva com a identidade própria do Lastro |
+| Explicação | Texto de 24–27px em `#586964` | Apoio subordinado ao título e ao objeto visual |
+| Fundação | Pilha com espessura, separação e legendas externas | Tornar a dependência conceitual reconhecível |
+| Percurso | Ilustração compartilhada de quatro estações; ponto, legenda e relação em foco | Preservar orientação ao mudar a responsabilidade explicada |
+| Valor | R$ 1.546,28 na entrada do caso, com natureza e estado | Apresentar uma prova sem transformá-la em promessa de recuperação |
+
+Essas medidas são decisões do Lastro, não tokens extraídos ou uma reprodução do design system Barte. O reconhecimento da referência deve vir da forma de organizar a informação, sem copiar a marca, os desenhos ou as composições distintivas.
+
+## 7. Assets, edição e reprodução
+
+As duas ilustrações são originais, produzidas com a ferramenta integrada `image_gen.imagegen`. A fundação usa [fundacao-lastro-v3.png](slides/assets/fundacao-lastro-v3.png). O percurso usa [percurso-caso-v3b.png](slides/assets/percurso-caso-v3b.png), refinado para ganhar contraste na redução. Os [prompts completos](slides/assets/prompts-v3.json) registram a geração e o refinamento. Nenhuma imagem Barte foi fornecida à geração ou inserida como asset do Lastro.
+
+As ilustrações são raster. Títulos, explicações, valores, legendas, pontos de foco e vínculos de consulta são objetos nativos editáveis. O enquadramento conserva a proporção dos arquivos. O desenho não representa uma captura de produto nem uma execução do modelo.
+
+Fonte de reprodução da revisão atual: [arquitetura-editorial.mjs](slides/arquitetura-editorial.mjs). A versão anterior [arquitetura-cenas.mjs](slides/arquitetura-cenas.mjs) fica como estudo histórico, substituído por esta revisão. A composição ainda está em desenvolvimento, sem aprovação estética presumida.

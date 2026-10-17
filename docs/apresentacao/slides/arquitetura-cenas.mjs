@@ -1,5 +1,8 @@
 import { palette as C } from './abertura.mjs';
 
+// Historical study from baa2d59, rejected in visual review.
+// Current composition: arquitetura-editorial.mjs. Do not restore this study.
+
 // Native editable conceptual diagrams. No application screen or model execution
 // is simulated. Only the five explicitly selected architecture slides are edited.
 const indices = [21, 22, 23, 24, 25];
