@@ -15,3 +15,7 @@ O participante rejeitou a formulação centrada apenas em organizar dados e guar
 ## 4. Corrigir coordenação duplicada e retomar integração
 
 O participante identificou que um chat de discussão estava recebendo retornos de execução e determinou centralizar a gestão no outro chat. Posteriormente, ao encontrar a execução parada, transferiu explicitamente a coordenação ao chat de discussão, que definiu o contrato HTTP faltante e reativou os responsáveis. As duas orientações e sua ordem estão preservadas nas sessões; não houve uma autorização permanente presumida do backup.
+
+## Evidência posterior para a pergunta do momento 1
+
+A participante forneceu a pergunta efetivamente enviada por David e a resposta de manuel.freitas, como Helena, às 13h34. A data da antecipação determina a isenção da tarifa, dispensando a busca das vendas originadoras para esse serviço. O resultado publicado já zerava AN88445172; a resposta confirma o tratamento e resolve a premissa documental. Registro: [contexto/PERGUNTA_DAVID_CASA.md](../contexto/PERGUNTA_DAVID_CASA.md). A sessão parcial e as conversas originais foram preservadas.

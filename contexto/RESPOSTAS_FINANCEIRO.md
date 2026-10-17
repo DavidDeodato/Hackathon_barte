@@ -163,3 +163,7 @@ Tolerância de remessa, conta entre duas aceitas para devolução e hipótese de
 As respostas fecham grande parte das regras de cálculo/competência/NF e confirmam boa parte da causa raiz antes inferida. Pendem: tolerância metodológica, eventual dado histórico ausente, escolha de conta nos casos permitidos, detalhes de rastro/ID, canal final de entrega, atualizações posteriores, nome/composição do time, histórico de prompts e objetivo pessoal do usuário.
 
 Próximo movimento autorizado: discutir com o usuário o sistema de negócio e implicações dessas respostas, antes de escolher escopo/arquitetura. Não realizar cálculo completo, implementar produto, enviar perguntas/rascunhos ou publicar sem nova direção compatível com o escopo.
+
+## 9. Confirmação posterior fornecida para o pitch
+
+**CAN-26 — Pergunta enviada por David; resposta de manuel.freitas, como Helena, às 13h34:** a isenção da antecipação da Casa usa a data da antecipação. Uma antecipação realizada em setembro está dentro da isenção, sem exigir a busca das vendas originadoras para essa tarifa. A transcrição foi fornecida pela participante nesta revisão, sem link de Slack ou nome do time. Registro integral e confronto com AN88445172: [PERGUNTA_DAVID_CASA.md](PERGUNTA_DAVID_CASA.md). Não altera o tratamento dos estornos pela venda original.

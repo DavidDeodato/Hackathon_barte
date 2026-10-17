@@ -1,0 +1,55 @@
+{
+  "source_commit": "0cc8d320fb80828744a80f6d6d13e1b1f6ad18eb",
+  "period": "2026-09",
+  "run_id": "close-2068e24a102ebea3",
+  "checkout": "203735.34",
+  "remessa": "39543.45",
+  "invoices": "243284.29",
+  "invoice_count": 21,
+  "orbe_difference": "1576.23",
+  "ponte_difference": "1418.85",
+  "casa_refund": "15397.42",
+  "adjustment_delta": "-3304.39",
+  "adjustment_rows": 14,
+  "checks": 490,
+  "failed_checks": 0,
+  "pending_count": 17,
+  "trace_rows": 5205,
+  "banks_count": 184,
+  "sources": [
+    {
+      "file": "comissoes_por_lojista.csv",
+      "sha256": "4791e34087e4efb0f7668b53628dd9142d189479290f134d971382a935bdb64b"
+    },
+    {
+      "file": "divergencias_taxa.csv",
+      "sha256": "408852591e0832325f823db2120c5cef52b792533627a1fde3308e261eb7a22e"
+    },
+    {
+      "file": "notas_a_emitir.csv",
+      "sha256": "ce6fb82c8cc36dfc5fef64ac5efe3f47af450ceae1f8da8760a98f505fb4376b"
+    },
+    {
+      "file": "lancamentos_classificados.csv",
+      "sha256": "d2980c2483e7e5f7bf809e88acb6838f932ea763243a74e44c4c36bcba1c3f71"
+    },
+    {
+      "file": "pendencias.csv",
+      "sha256": "4e3c50e156fb45b5e6fc7ff06bea9c279fcd581fee7b6cfb9ddfb75ce027d9e0"
+    },
+    {
+      "file": "rastro.csv",
+      "sha256": "60c3591045953939da8889f4ce0f12c99a40542a4a2ab97d03b5b182cfd5de1c"
+    }
+  ],
+  "anticipation": {
+    "id_transacao": "AN88445172",
+    "date": "2026-09-09",
+    "source": "01_orbe_relatorio_comissoes_set2026.csv",
+    "source_line": 509,
+    "expected_rate": "0",
+    "commission": "0.00",
+    "difference": "103.70",
+    "charged": "103.69"
+  }
+}

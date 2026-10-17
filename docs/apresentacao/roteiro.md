@@ -1,6 +1,6 @@
 # Direção e roteiro da apresentação Lastro
 
-Documento de trabalho para reunir as orientações de tom, narrativa, composição e transição da apresentação. A sequência cobre a capa, o problema, a explicação da solução, a arquitetura agêntica e a relação entre o fechamento de setembro e o uso em outubro. A abertura dos slides 0 a 9 preserva as decisões anteriores; os slides 10 a 31 são o desdobramento proposto a partir das novas orientações do usuário.
+Documento de trabalho para reunir as orientações de tom, narrativa, composição e transição da apresentação. A sequência cobre a capa, o problema, a explicação da solução, a arquitetura agêntica e a relação entre o fechamento de setembro e o uso em outubro. A abertura dos slides 0 a 9 preserva as decisões anteriores; os avanços 10 a 49 desenvolvem a solução e as evidências exigidas pelo desafio. A continuação efetivamente produzida começa no avanço 26 e segue a sequência abaixo.
 
 ## Tom da apresentação
 
@@ -373,88 +373,207 @@ flowchart LR
 
 **Referência visual e adaptação própria:** o [fluxo do case Comp](https://mktbarte.github.io/cases/case-comp.html) ajuda a separar fontes, contexto e ação. A [esteira do case Sallve](https://mktbarte.github.io/cases/case-sallve.html) ajuda a revelar etapas e intervenção humana. A composição do Lastro usa seus próprios cartões, cores e tipografia; as linhas representam somente as relações descritas aqui. Ver [referências](referencias.md).
 
-### Slide 26 — Demo: abrir a revisão do caso
+## Continuação produzida: resultados e avaliação
 
-**Novo tópico na tela:** “A analista acompanha a revisão na mesa do caso.”
+A versão atual tem 50 avanços, um tópico principal por avanço. A base 0–25 foi preservada. Os valores vêm das saídas publicadas na versão 0cc8d32 e da confirmação fornecida sobre a antecipação da Casa. Capturas reais consultam os resultados publicados. O [roteiro da demo](demo.md) detalha os controles, os modos, o tempo e a alternativa em caso de falha.
 
-**Fala:**
+### Slide 26 — Comissão de checkout
 
-- “Na interface, ela parte da pendência e abre a mesa do caso.”
-- “Ali pode conferir o pacote e, quando solicitar a revisão assistida, acompanhar as fontes consultadas e o parecer de cada papel.”
+**Tópico:** resultados.
 
-**O que mostrar:** abrir a mesa pela pendência, localizar valor e responsável, identificar o pacote de origem e mostrar uma execução real da investigação e da crítica. Abrir uma evidência e uma observação relevante. Encerrar apontando a confirmação que continua necessária.
+**Fala:** O checkout de setembro soma R$ 203.735,34 de comissão contratada. Inclui os ajustes tardios e continua sujeito à revisão do financeiro.
 
-**Preparação:** ensaiar esse caminho na versão utilizada. Identificar execução real, consulta sem IA ou replay de teste de acordo com o modo exibido. Se o modelo falhar, mostrar o estado correspondente e continuar a conferência pelo pacote disponível, sem apresentar a falha como revisão concluída.
+**Evidência:** `saida/comissoes_por_lojista.csv`.
 
-### Slide 27 — Quando a informação ainda falta
+### Slide 27 — Comissão de remessas
 
-**Novo tópico na tela:** “A falta de contrato vira uma pendência identificada.”
+**Tópico:** resultados.
 
-**Fala:**
+**Fala:** A participação da Tarvo nas remessas é R$ 39.543,45. É comissão a receber. O recebimento da Ponte ainda precisa ser conferido.
 
-- “Na Atlas, as operações estão identificadas, mas a condição comercial da taxa ainda depende de confirmação.”
-- “Por isso, a comissão fica sem quantificação. As operações permanecem vinculadas ao caso para serem tratadas quando a condição for confirmada.”
+**Evidência:** `saida/comissoes_por_lojista.csv`.
 
-**Visual:** mostrar um cartão de pendência com origem, responsável e condição para faturar. Separar volume movimentado e comissão desconhecida. O bloqueio se refere ao faturamento da taxa; a resposta posterior do financeiro confirma que os repasses dos recursos do lojista continuam.
+### Slide 28 — Notas propostas
 
-## Alcance atual e continuidade: setembro é o fechamento a entregar
+**Tópico:** resultados.
 
-### Slide 28 — O que setembro representa no case
+**Fala:** As 21 notas propostas somam R$ 243.284,29. A comissão negativa de R$ 5,50 da Casa não gera nota. Atlas segue sem taxa confirmada. Estas notas não foram emitidas.
 
-**Novo tópico na tela:** “Setembro é o fechamento que a Tarvo precisa entregar.”
+**Evidência:** `saida/notas_a_emitir.csv`.
 
-**Fala:**
+### Slide 29 — Diferenças Orbe
 
-- “No desafio, setembro é a competência que precisamos fechar: apurar as comissões, conferir as cobranças, preparar as notas e classificar os movimentos dos dois bancos.”
-- “Esse mês recebe efeitos de operações anteriores e deixa obrigações que continuam em outubro.”
+**Tópico:** valores em revisão.
 
-**Visual:** colocar **fechamento de setembro** no centro de uma linha temporal. À esquerda, um estorno de venda de agosto afeta setembro. À direita, uma transferência iniciada em 30 de setembro continua em trânsito até a entrada de outubro. Revelar uma associação por fala, conservando a competência central.
+**Fala:** Há R$ 1.576,23 de diferenças líquidas a revisar com a Orbe. Rota contribui com R$ 1.546,28 e outra pendência com R$ 29,95. Os rascunhos não foram enviados.
 
-**Leitura do requisito:** setembro define a entrega concreta e a base de avaliação dos números. O tratamento entre competências faz parte do problema operacional; restringir a explicação a “um pacote de setembro” esconde essa relação.
+**Evidência:** `saida/pendencias.csv`.
 
-### Slide 29 — Incorporação dos ajustes de setembro
+### Slide 30 — Diferenças Ponte
 
-**Novo tópico na tela:** “O fechamento incorpora os ajustes recebidos.”
+**Tópico:** valores em revisão.
 
-**Fala:**
+**Fala:** O excesso de spread ao lojista soma R$ 1.418,85. A contestação usa o valor integral. A comissão realizada da Tarvo continua separada. Um ajuste é reconhecido na competência em que ocorrer.
 
-- “A organização também enviou ajustes tardios de setembro. Eles entram na mesma competência e passam pela mesma conferência de valores e origens.”
-- “Os 14 ajustes já estão incorporados à apuração atualizada, preservando a origem de cada operação.”
+**Evidência:** `saida/divergencias_taxa.csv`.
 
-**Visual:** acrescentar uma entrada **ajustes tardios** ao fechamento central do slide anterior. Distinguir os estados **recebido**, **processado** e **conferido**, exibindo apenas os que a versão apresentada comprovar.
+### Slide 31 — Devolução Casa
 
-**Fonte e cuidado de atualização:** o [commit `b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/commit/b43e80e521646cc46b09e8f2c920fb035c20644d) incorpora os ajustes na execução `close-2068e24a102ebea3` e publica as novas saídas. Isso atualiza o estado anterior registrado em `7d22eb1`. O README dessa versão relata revisão independente dos eventos adicionais e dos rastros; nesta etapa de apresentação, foram conferidas as fontes publicadas e o exemplo Rota, sem reexecutar o fechamento. A aprovação financeira continua com Helena. Conferir a versão da aplicação no ensaio para que a demo use esse conjunto atualizado.
+**Tópico:** valores em revisão.
 
-### Slide 30 — Como a analista retoma o trabalho em outubro
+**Fala:** A Casa tem R$ 15.397,42 em diferenças líquidas durante a isenção. A destinação é devolução ao lojista após decisão de Helena e Comercial. Este caso não deve virar cobrança contra a Orbe. CAN-22 registra que Casa e Mundo não tinham sido avisadas aos parceiros; não havia responsável fixo por essa comunicação. Essa lacuna de processo ajuda a explicar o erro além da fragmentação dos arquivos.
 
-**Novo tópico na tela:** “Outubro começa com o que setembro deixou identificado.”
+**Evidência:** `saida/pendencias.csv`.
 
-**Fala:**
+### Slide 32 — Ajustes tardios
 
-- “Em outubro, a analista precisa carregar os novos arquivos e conferir as condições aplicáveis, preservando as operações e decisões que vieram de setembro.”
-- “A Atlas é um exemplo: quando o Comercial confirmar a condição, a orientação é faturar setembro junto com outubro, respeitando a vigência desde o início da operação.”
-- “Também será preciso conferir a transferência em trânsito e tratar as respostas às contestações no período correto.”
+**Tópico:** setembro atualizado.
 
-**Visual:** estender a linha temporal até **outubro**. Fazer seguir três cartões com origem preservada: **taxa Atlas a confirmar**, **transferência em trânsito** e **retorno de contestação**. Rotular esse desenho como percurso operacional a validar; carregar os cartões na narrativa não comprova persistência automática entre execuções.
+**Fala:** Os 14 ajustes recebidos reduzem a comissão de checkout e as notas propostas em R$ 3.304,39. Foram incorporados à mesma competência. As demais frentes mantêm seus totais.
 
-**Estado de implementação:** a ingestão e a apuração já existem para o lote trabalhado. Os pacotes de caso suportados estão vinculados a setembro/2026; o acompanhamento completo entre competências e o uso com um lote real de outubro ainda precisam ser demonstrados. A rotina acima explica o uso esperado e os critérios de validação para a continuidade.
+**Evidência:** `README.md`.
 
-### Slide 31 — Prioridade de continuidade
+### Slide 33 — Conferência do rastro
 
-**Novo tópico na tela:** “Próximo passo: validar a continuidade do fechamento.”
+**Tópico:** prova dos números.
 
-**Fala:**
+**Fala:** O relatório registra 490 comparações entre valor de saída e soma do rastro, sem diferença. São 35 comissões, 233 divergências, 21 notas, 184 movimentos e 17 pendências. Isso prova consistência interna e não equivale ao gabarito da banca.
 
-- “Depois de concluir a entrega de setembro, com mais um mês de desenvolvimento a prioridade é validar a próxima competência e acompanhar a resolução das pendências com suas origens.”
-- “Na camada de IA, precisamos medir a qualidade das interpretações e o que a crítica acrescenta. Com a analista, medir o esforço de revisão que esse fluxo exige.”
+**Evidência:** `saida/reconciliacao.json`.
 
-**Visual:** manter setembro e outubro e revelar uma única faixa de próximos passos. Mostrar escopo, responsável e prova esperada no material de apoio. Economia de tempo e redução de erro dependem dessa medição; os oito dias da abertura são o relato do processo atual. Incorporar e conferir os ajustes tardios é requisito da entrega de setembro e deve preceder esse plano de evolução.
+### Slide 34 — Demo: abrir fechamento
+
+**Tópico:** demonstração.
+
+**Fala:** A analista abre setembro e confere o estado de revisão. As comissões, as pendências e os seis arquivos ficam disponíveis. Mostrar a execução escolhida antes de abrir um caso.
+
+**Evidência:** `web/src/App.tsx`.
+
+### Slide 35 — Demo: origem do valor
+
+**Tópico:** demonstração.
+
+**Fala:** Em Pendências, abrir a diferença de R$ 1.546,28 da Orbe e clicar em Conferir rastro desta saída. São 87 componentes. Localizar TX88423647: R$ 66,28, linha 749 da Orbe. O slide 20 mostra as taxas desse registro.
+
+**Evidência:** `saida/rastro.csv`.
+
+### Slide 36 — Demo: revisão do caso
+
+**Tópico:** demonstração.
+
+**Fala:** Abrir Investigação, escolher caso para revisão e selecionar Rota. Conferir pacote, fontes e responsável. A captura usa consulta sem IA. Se optar por revisão assistida, confirmar o modo real, acompanhar as evidências e explicar o estado recebido.
+
+**Evidência:** `web/src/CaseWorkspace.tsx`.
+
+### Slide 37 — Falha: taxa desconhecida
+
+**Tópico:** limites da solução.
+
+**Fala:** Na Atlas, a taxa comercial não está confirmada. R$ 262.138,61 é volume bruto das linhas retidas, não comissão perdida. O Comercial confirma a condição e Helena revisa. Até lá, as origens ficam preservadas e o faturamento da taxa permanece pendente.
+
+**Evidência:** `saida/pendencias.csv`.
+
+### Slide 38 — Direção da IA
+
+**Tópico:** como construímos.
+
+**Fala:** A IA sugeriu uma pergunta genérica sobre revisão após ajustes. O participante rejeitou porque não mudava a implementação. A investigação passou a buscar uma ambiguidade concreta em uma operação identificada.
+
+**Evidência:** `PROMPTS/SESSAO_001.md`.
+
+### Slide 39 — Pergunta enviada
+
+**Tópico:** perguntar antes de assumir.
+
+**Fala:** David perguntou qual data determina a isenção da antecipação da Casa. Usou AN88445172 como exemplo: antecipação em 09/09 sem vínculo com as vendas originais. A dúvida era se essas vendas precisavam ser localizadas antes de calcular.
+
+**Evidência:** `contexto/PERGUNTA_DAVID_CASA.md`.
+
+### Slide 40 — Resposta do financeiro
+
+**Tópico:** regra confirmada.
+
+**Fala:** Manuel, no papel de Helena, respondeu a David às 13h34: vale a data da antecipação. O serviço prestado em setembro está dentro da isenção e não exige buscar as vendas originadoras para essa tarifa.
+
+**Evidência:** `contexto/PERGUNTA_DAVID_CASA.md`.
+
+### Slide 41 — Efeito no cálculo
+
+**Tópico:** regra aplicada.
+
+**Fala:** AN88445172, em 09/09, aparece com taxa esperada zero e comissão R$ 0,00 no resultado publicado. A resposta confirma o tratamento que o motor já aplica. Estornos de vendas continuam respeitando a venda original.
+
+**Evidência:** `saida/detalhes.json`.
+
+### Slide 42 — Premissa declarada
+
+**Tópico:** hipóteses.
+
+**Fala:** A tolerância de remessas é uma escolha metodológica do time: reportar diferença absoluta superior a 0,01 ponto percentual. O cliente autorizou justificar o critério. Essa tolerância não muda a comissão realizada.
+
+**Evidência:** `HIPOTESES.md`.
+
+### Slide 43 — Outubro: arquivos
+
+**Tópico:** próxima competência.
+
+**Fala:** A analista começa por Documentos, escolhe ou cria a competência e envia os novos arquivos. Confere as fontes selecionadas antes de processar. Um conjunto vazio permanece sem apuração. Não há fechamento real de outubro demonstrado.
+
+**Evidência:** `web/src/components/documents/DocumentsWorkspace.tsx`.
+
+### Slide 44 — Outubro: Atlas
+
+**Tópico:** continuidade.
+
+**Fala:** Quando o Comercial confirmar a taxa válida desde 10/09, a orientação é faturar setembro junto com outubro. Preservar a origem das linhas pendentes faz parte do processo. O acompanhamento automático entre competências ainda precisa ser validado.
+
+**Evidência:** `contexto/RESPOSTAS_FINANCEIRO.md`.
+
+### Slide 45 — Outubro: trânsito
+
+**Tópico:** continuidade.
+
+**Fala:** A transferência de R$ 300 mil saiu do Aurora em 30/09 e exige conferência do crédito de 01/10 no Meridiano. O Lastro mantém a pendência identificada em setembro. O crédito de outubro não está nos arquivos de setembro.
+
+**Evidência:** `saida/pendencias.csv`.
+
+### Slide 46 — Um mês: competência
+
+**Tópico:** plano de desenvolvimento.
+
+**Fala:** Nas primeiras duas semanas, validar um lote real de outubro e o acompanhamento de pendências de setembro. A prova esperada é comparar saldos, fontes e decisões nos dois períodos com a analista. Esse é um plano, não uma funcionalidade comprovada.
+
+**Evidência:** `docs/apresentacao/roteiro.md`.
+
+### Slide 47 — Um mês: qualidade da IA
+
+**Tópico:** plano de desenvolvimento.
+
+**Fala:** Na terceira semana, comparar investigador sozinho e investigador com crítico sobre os mesmos casos. Medir interpretações erradas, fontes pertinentes e pedidos corretos de evidência com revisão humana. Não presumir que adicionar um crítico melhora a resposta.
+
+**Evidência:** `src/tarvo/agents/case_review.py`.
+
+### Slide 48 — Um mês: esforço de revisão
+
+**Tópico:** plano de desenvolvimento.
+
+**Fala:** Na quarta semana, medir tempo por caso, retrabalho e correções com o financeiro. Os oito dias úteis da abertura são uma estimativa do processo atual. A economia atribuída ao Lastro ainda precisa ser medida.
+
+**Evidência:** `contexto/RESPOSTAS_FINANCEIRO.md`.
+
+### Slide 49 — Fechamento com evidências
+
+**Tópico:** lastro.
+
+**Fala:** O Lastro prepara o fechamento com valores rastreáveis e decisões identificadas. A analista pode conferir a origem e encaminhar o que depende de confirmação. A aprovação financeira continua com Helena.
+
+**Evidência:** `README.md`.
 
 ## Ritmo e evidências de apoio
 
 Os avanços distribuem a explicação no tempo. Slides 11 e 12 são pausas curtas de entrada e definição; a fala pode ficar mais tempo nas demos. Como referência inicial de ensaio, reservar cerca de 1min30 para a abertura, 3min para contexto e solução, 1min30 para a primeira demo, 2min para a arquitetura, 1min30 para a revisão na interface e 2min para pendências e continuidade. Restam aproximadamente 3min30 dos 15 minutos para evidência do uso de IA na construção, transições e encerramento. Ajustar após o primeiro ensaio completo.
 
-A demonstração de agentes no produto e a evidência de como o time dirigiu e corrigiu a IA na construção são provas diferentes. Ainda é preciso escolher, no histórico real, o momento de erro e correção que será apresentado. O roteiro não transforma essa seleção pendente em evidência já demonstrada.
+A demonstração de agentes no produto e a evidência de como o time dirigiu e corrigiu a IA na construção são provas diferentes. Os avanços 38–41 selecionam uma proposta genérica rejeitada, a investigação dirigida, a pergunta enviada por David, a resposta do financeiro e o tratamento já publicado da operação. O histórico original permanece preservado.
 
 ### Correspondência com as orientações do desafio
 
@@ -473,7 +592,7 @@ Base de código considerada: [`93ffa23`](https://github.com/DavidDeodato/Hackath
 
 Na produção dos slides 10 a 25, a consulta remota avançou até [`b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/commit/b43e80e521646cc46b09e8f2c920fb035c20644d). Essa versão altera a ingestão e o motor para incorporar ajustes tardios, validar entradas e preservar o rastro, além de publicar as saídas e pacotes atualizados. A mudança supera o estado de revisão ainda pendente dos commits documentais `4ebd3f6` e `7d22eb1`. A consulta remota não integra esses commits automaticamente à branch local da apresentação.
 
-O backend agêntico não foi alterado em `b43e80e`. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A arquitetura foi conferida no código e o exemplo Rota nas fontes publicadas dessa versão; não houve novo ensaio da aplicação, execução do fechamento ou chamada de modelo nesta etapa. Os slides 0 a 25 estão produzidos e renderizados na apresentação editável. A prova na interface e a continuação dos slides 26 a 31 ainda precisam ser desenvolvidas.
+O backend agêntico não foi alterado em `b43e80e`. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A arquitetura foi conferida no código e o exemplo Rota nas fontes publicadas dessa versão; não houve novo ensaio da aplicação, execução do fechamento ou chamada de modelo nesta etapa. A base 0–25 foi preservada na apresentação versionada. A versão atual acrescenta os avanços 26–49, com capturas reais da consulta local e roteiro de demo. Essa consulta não equivale a reexecutar o motor ou a uma inferência nova.
 
 ## Novas observações
 
@@ -486,3 +605,7 @@ Acrescentar as próximas orientações neste registro e atualizar a descrição 
 | Explicação da solução | Usar bullets de fala, mais calma e um tópico principal novo por avanço. | Usuário; desdobramento nos slides 10 a 20. | Produzida em slides editáveis; ensaio da interface pendente. |
 | Arquitetura agêntica | Anunciar o bloco e explicar associações com recursos visuais estudados na Barte. | Usuário; composição própria nos slides 21 a 25. | Produzida com conexões explícitas e decisão humana. |
 | Alcance e continuidade | Reinterpretar setembro como fechamento exigido e explicar seus vínculos com outras competências. | Usuário; requisitos e respostas do case; slides 28 a 31. | Incorporado, com estado dos ajustes tardios e limites de outubro. |
+
+## Estado desta revisão
+
+Apresentação versionada: 50 avanços. A pergunta de David confirmou a data da antecipação como base da isenção e resolveu a premissa documental da Casa. O resultado publicado já zerava AN88445172. Hipóteses, mensagens de origem e inferência real são evidências distintas. O uso em outubro foi demonstrado apenas até a criação de conjunto vazio; o acompanhamento completo entre competências segue no plano. Registros de checkpoints e submissão no canal precisam de comprovação própria.
