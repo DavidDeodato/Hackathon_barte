@@ -11,7 +11,7 @@ const descriptions = ['Valor e rastro','Consulta às fontes','Confronto das evid
 
 async function illustration(file,width,height) {
   const bytes=await fs.readFile(path.join(directory,'assets',file));
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><image width="${width}" height="${height}" xlink:href="data:image/png;base64,${bytes.toString('base64')}"/></svg>`;
+  return `data:image/png;base64,${bytes.toString('base64')}`;
 }
 
 function text(s,name,value,x,y,w,h,size,options={}) {
@@ -49,7 +49,7 @@ async function foundation(s) {
   headline(s,'Arquitetura agêntica.','A apuração é a base.',570);
   text(s,'foundation-explanation','Fontes preservadas e regras vigentes\nformam a base de cada caso.',88,347,490,100,27,{color:C.muted});
   text(s,'foundation-scope','O cálculo determina os valores.\nOs agentes investigam as pendências.',88,509,490,104,26,{color:C.muted});
-  s.images.add({svg:await illustration('fundacao-lastro-v3.png',1448,1086),
+  s.images.add({contentType:'image/png',dataUrl:await illustration('fundacao-lastro-v3.png',1448,1086),
     alt:'Lastro: ilustração conceitual original de três camadas, fontes, regras e apuração. Não é infraestrutura de implantação.',
     fit:'contain',crop:{left:.13,top:.07,right:.10,bottom:.03},
     position:{left:752,top:169,width:456,height:460}});
@@ -61,7 +61,7 @@ async function foundation(s) {
   }
 }
 async function pathScene(s,stage) {
-  s.images.add({svg:await illustration('percurso-caso-v3b.png',2172,724),
+  s.images.add({contentType:'image/png',dataUrl:await illustration('percurso-caso-v3b.png',2172,724),
     alt:'Lastro: percurso conceitual de um caso por apuração, investigação, crítica e revisão humana. Ilustração autoral, sem representar execução.',
     fit:'contain',crop:{left:.035,top:.355,right:.035,bottom:.195},
     position:{left:74,top:369,width:1132,height:205}});

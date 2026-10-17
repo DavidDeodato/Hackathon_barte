@@ -82,7 +82,7 @@ Na revisão da arquitetura também foram espelhadas duas edições manuais do do
 
 [arquitetura-editorial.mjs](arquitetura-editorial.mjs) exporta `reviseEditorialArchitecture`, a correção visual atual dos avanços 21–25. Passar `input.indices` e `input.logoPath` apontando para a marca original do Lastro. Executar em lotes pequenos, aguardando cada conclusão, sempre na sessão existente. O callback valida IDs e preserva os demais slides e suas notas. Imagens externas a esta revisão interrompem a substituição para reinspeção. Os IDs são específicos desse documento; adaptar a validação somente depois de inspecionar outro deck.
 
-Os PNGs originais estão em `assets/`, com [prompts completos](assets/prompts-v3.json). Na sessão, são incorporados de forma autocontida em um elemento SVG para manter os bytes disponíveis após reabrir a apresentação. Isso não transforma o conteúdo em vetor. Não há dependência de arquivos remotos para renderizar as ilustrações. Os objetos textuais continuam editáveis.
+Os PNGs originais estão em `assets/`, com [prompts completos](assets/prompts-v3.json). Na sessão, os PNGs são incorporados diretamente com `dataUrl` e `contentType: image/png`. As ilustrações não usam SVG intermediário nem referências a arquivos locais. A marca permanece no SVG original. A verificação reabre o documento e renderiza os 26 slides para conferir a disponibilidade dos assets; isso não equivale a uma inspeção da interface do usuário. Os objetos textuais continuam editáveis.
 
 [arquitetura-cenas.mjs](arquitetura-cenas.mjs) registra a amostra anterior, rejeitada e substituída. Não deve ser usado para restaurar o visual atual.
 

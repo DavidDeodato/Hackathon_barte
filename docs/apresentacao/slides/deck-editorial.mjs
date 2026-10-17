@@ -46,9 +46,8 @@ function circle(s,name,x,y,r,fill='none',stroke=C.border) {
 }
 async function art(s,file,x,y,w,h,options={}) {
   const b=await fs.readFile(path.join(root,'assets',file));
-  const iw=b.readUInt32BE(16),ih=b.readUInt32BE(20);
-  const svg=`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${iw}" height="${ih}" viewBox="0 0 ${iw} ${ih}"><image width="${iw}" height="${ih}" xlink:href="data:image/png;base64,${b.toString('base64')}"/></svg>`;
-  return s.images.add({svg,alt:`Lastro: ilustração original ${file}, sem dados financeiros reais`,fit:'contain',
+  return s.images.add({dataUrl:`data:image/png;base64,${b.toString('base64')}`,contentType:'image/png',
+    alt:`Lastro: ilustração original ${file}, sem dados financeiros reais`,fit:'contain',
     crop:options.crop||crops[file],position:{left:x,top:y,width:w,height:h}});
 }
 async function brand(s,input,x=88,y=51,w=105) {
