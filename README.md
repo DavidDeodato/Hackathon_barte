@@ -6,7 +6,7 @@ Preparar o fechamento de setembro de 2026 com origem por numero, pendencias expl
 
 O pacote original recebido gera os seis CSVs em `saida/`. Auditoria independente cobriu formato, rastro, conservacao e casos materiais. Os nove estornos de vendas anteriores a setembro foram conferidos contra a vigencia da tabela fornecida; a ausencia das vendas brutas de agosto nao equivale a falta dessas taxas. As notas sao propostas para revisao, nao documentos fiscais emitidos.
 
-O comunicado da organizacao de 17/10, as 13h10, anunciou `06_orbe_ajustes_tardios_set2026.csv`, com 14 linhas, e exigiu sua incorporacao na entrega. O conteudo integral desse arquivo ainda nao foi recebido neste conjunto. Portanto, os resultados atuais cobrem o pacote original e nao constituem o fechamento atualizado completo. A transcricao parcial do comunicado nao substitui o CSV. Consulte [atualizacoes do case](contexto/ATUALIZACOES_CASE.md).
+O comunicado da organizacao de 17/10, as 13h10, anunciou `06_orbe_ajustes_tardios_set2026.csv`, com 14 linhas, e exigiu sua incorporacao na entrega. O original completo foi recebido e preservado. O recalculo e a conferencia das novas saidas estao em andamento; os resultados em `saida/` ainda correspondem ao pacote anterior ate a promocao da versao conferida. Consulte [atualizacoes do case](contexto/ATUALIZACOES_CASE.md).
 
 ## Executar do zero
 

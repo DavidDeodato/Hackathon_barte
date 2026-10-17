@@ -8,7 +8,7 @@ Autor indicado: manuel.freitas, comunicação identificada como organização.
 
 Foi anunciado o arquivo `06_orbe_ajustes_tardios_set2026.csv`, com 14 linhas no mesmo formato do arquivo 01. O comunicado exige considerar esses ajustes no fechamento entregue até 18h30.
 
-Estado de recebimento nesta versão: a transcrição contém somente nove linhas visíveis, com separadores decimais corrompidos, e um link de pasta truncado. Isso comprova o anúncio, mas não fornece o arquivo integral para processamento. Os registros ausentes não foram inventados. O pacote original continua processável; a atualização integral permanece dependente do CSV anunciado.
+A primeira transcrição continha somente nove linhas visíveis, com separadores decimais corrompidos, e um link de pasta truncado. Os registros ausentes não foram inventados. Posteriormente, o participante forneceu o ZIP `drive-download-20261017T194155Z-1-001.zip`, contendo o CSV original completo com14linhas. SHA256 do CSV: `b1cfd183945fb194e05cfbe9455ab364c31b676427e6653562f6821f57240292`. Os sete arquivos do pacote base que vieram no mesmo ZIP são byteidênticos aos anteriores. O recebimento está confirmado; processamento e revisão dos resultados são etapas separadas.
 
 ## 17/10/2026, 11h03 — repasses à Atlas
 
