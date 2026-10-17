@@ -90,3 +90,7 @@ As duas ilustrações são originais, produzidas com a ferramenta integrada `ima
 As ilustrações são raster. Títulos, explicações, valores, legendas, pontos de foco e vínculos de consulta são objetos nativos editáveis. O enquadramento conserva a proporção dos arquivos. O desenho não representa uma captura de produto nem uma execução do modelo.
 
 Fonte de reprodução da revisão atual: [arquitetura-editorial.mjs](slides/arquitetura-editorial.mjs). A versão anterior [arquitetura-cenas.mjs](slides/arquitetura-cenas.mjs) fica como estudo histórico, substituído por esta revisão. A composição ainda está em desenvolvimento, sem aprovação estética presumida.
+
+## 8. Aplicação à apresentação completa
+
+A direção editorial foi estendida aos avanços 0–20, conservando os 21–25. Abertura e solução usam o mesmo fundo, hierarquia tipográfica, destaque verde e ilustrações originais. O triângulo das fontes cresce com a fala; as três frentes de apuração entram uma por avanço. O exemplo financeiro conserva números e estado de revisão. A fonte `slides/deck-editorial.mjs`, os assets, as prévias e o PowerPoint completo ficam versionados juntos.

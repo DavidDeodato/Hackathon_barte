@@ -1,6 +1,6 @@
 # Slides do pitch Lastro
 
-Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [roteiro](../roteiro.md). O material cobre capa, problema, entrada da solução, apuração e arquitetura agêntica até a decisão humana. A extensão não sobrescreveu os slides 0 a 9; as edições feitas na abertura durante a revisão foram preservadas. O uso completo na interface e a continuidade entre competências permanecem no roteiro, para uma próxima etapa.
+Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [roteiro](../roteiro.md). O material cobre capa, problema, entrada da solução, apuração e arquitetura agêntica até a decisão humana. A revisão editorial foi aplicada aos 26 avanços, preservando a sequência e as notas de fala. O uso completo na interface e a continuidade entre competências permanecem no roteiro, para uma próxima etapa.
 
 ![Visão geral dos 26 slides](previews/overview.png)
 
@@ -37,9 +37,9 @@ Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [
 
 ## Composição
 
-Canvas 1280 × 720, proporção 16:9. Fundo claro e verde vêm dos tokens do Lastro. A tipografia é Arial. A marca Lastro usa os SVGs originais do repositório, com proporção preservada. Textos e conectores são nativos editáveis. Nos avanços 21–25, a fundação e o percurso usam ilustrações raster originais, com legendas e vínculos editáveis sobrepostos.
+Canvas 1280 × 720, proporção 16:9. Fundo claro e verde vêm dos tokens do Lastro. A tipografia é Arial. A marca Lastro usa os SVGs originais do repositório, com proporção preservada. Textos e conectores são nativos editáveis. Ilustrações raster originais representam as fontes, regras, apuração e arquitetura, com legendas e vínculos editáveis sobrepostos.
 
-Os avanços 21–25 receberam uma nova correção após a rejeição da composição com faixa verde e letras em círculos. A revisão atual aplica fundo claro, títulos regulares, destaque seletivo e ilustrações maiores, a partir dos estudos Barte. A continuidade da explicação observada no Canva permanece no percurso entre apuração, investigador, crítico e revisão humana. A [direção visual](../direcao-visual-canva.md) registra critérios, medidas, prompts e limites. Os slides 0–20 preservam sua composição anterior e ainda não passaram por essa revisão.
+Os avanços 21–25 receberam uma nova correção após a rejeição da composição com faixa verde e letras em círculos. A revisão atual aplica fundo claro, títulos regulares, destaque seletivo e ilustrações maiores, a partir dos estudos Barte. A continuidade da explicação observada no Canva permanece no percurso entre apuração, investigador, crítico e revisão humana. A [direção visual](../direcao-visual-canva.md) registra critérios, medidas, prompts e limites. Os avanços 0–20 também receberam essa direção: fontes em triângulo, junção progressiva, definição do Lastro, frentes de apuração e origem dos valores.
 
 Os slides são estados sucessivos da composição. Há um tópico principal por avanço, com destaque no assunto novo. A apuração acrescenta uma frente de cada vez. Na arquitetura, o percurso conserva as quatro estações como contexto e muda o foco e as relações de apoio. Esta versão não configura animação automática entre posições.
 
@@ -76,7 +76,7 @@ O callback preserva slides que já tenham formas e não os sobrescreve ao repeti
 
 As revisões visuais da abertura foram incorporadas à fonte: destaque em “Planilha” e “cada lojista” no slide 3, pergunta “O que foi cobrado?” no slide 4 e “Entre pontas, uma única pessoa” no slide 5. A fala completa continua nas notas. O documento editável é a referência para preservar edições feitas diretamente no visualizador.
 
-Na revisão da arquitetura também foram espelhadas duas edições manuais do documento: “3 frentes que não se conectam” no avanço 2; no avanço 10, título mais estreito, perguntas “O que tem?” e “De onde veio?” e remoção da observação visual sobre estorno. Essas edições foram preservadas na apresentação e registradas nas fontes/prévias, sem aplicar a nova direção visual a esses slides.
+Na revisão da arquitetura também foram espelhadas duas edições manuais do documento: “3 frentes que não se conectam” no avanço 2; no avanço 10, título mais estreito, perguntas “O que tem?” e “De onde veio?” e remoção da observação visual sobre estorno. Essas edições foram preservadas na apresentação e registradas nas fontes/prévias, com aplicação posterior da direção editorial a esses slides.
 
 [solucao-arquitetura.mjs](solucao-arquitetura.mjs) exporta `buildContinuation` para continuar na mesma sessão, depois dos dez slides de abertura. Executar em lotes consecutivos, aguardando cada chamada terminar: `[10, 11, 12, 13, 14]`, `[15, 16, 17, 18]`, `[19, 20, 21]` e `[22, 23, 24, 25]`. Usar `input.indices` para o lote e, no primeiro, `input.logoPath` apontando para `web/public/brand/lastro-logo.svg`. O callback preserva qualquer slide existente e recusa lacunas de numeração. Reparos posteriores usam os IDs inspecionados da mesma apresentação.
 
@@ -87,3 +87,9 @@ Os PNGs originais estão em `assets/`, com [prompts completos](assets/prompts-v3
 [arquitetura-cenas.mjs](arquitetura-cenas.mjs) registra a amostra anterior, rejeitada e substituída. Não deve ser usado para restaurar o visual atual.
 
 As imagens em `previews/` são capturas renderizadas da apresentação editável. Servem à revisão visual no repositório e precisam ser atualizadas quando o documento mudar.
+
+## Apresentação completa no repositório
+
+[Lastro_pitch.pptx](../Lastro_pitch.pptx) contém os 26 slides desta versão de desenvolvimento, da capa até a decisão humana. Textos e relações permanecem editáveis; ilustrações são raster. As prévias individuais acompanham esta exportação.
+
+[deck-editorial.mjs](deck-editorial.mjs) exporta `reviseFullEditorialDeck` para os avanços 0–20 da sessão existente. Recebe `input.indices` e `input.logoPath`, valida os IDs e preserva os demais slides e notas. Executar em lotes pequenos, inspecionando o documento antes de substituir elementos. A arquitetura 21–25 permanece em `arquitetura-editorial.mjs`. Os novos assets e prompts estão em [assets/prompts-deck-completo.json](assets/prompts-deck-completo.json).

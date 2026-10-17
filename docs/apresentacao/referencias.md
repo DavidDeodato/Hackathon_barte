@@ -63,3 +63,7 @@ Usar rótulos de relação, como **consulta**, **evidências** e **interpretaç�
 As [instruções do desafio](https://docs.google.com/document/d/1GwHs0lgLWXdw-jIrPyYAxyJ_xEJJxViE/edit), também [extraídas no repositório](../../contexto/instrucoes_extraidas.txt), orientam a demonstração: correção dos números, rastreabilidade, hipóteses, perguntas feitas, uso verificável de IA e explicação das falhas e da continuidade. As referências visuais ajudam a apresentar essas provas; não substituem a execução nem definem exigências adicionais da organização.
 
 Para o ensaio, preparar um percurso curto: pendência → composição do valor → operação de origem → regra → investigação e crítica → evidência que ainda falta para encerrar. Confirmar a disponibilidade do modelo e das fontes na versão usada e conservar a possibilidade de conferir o pacote sem IA.
+
+## Aplicação da direção editorial ao deck completo
+
+Os avanços 0–20 receberam a mesma hierarquia e linguagem de abstrações dos 21–25. Os assets são originais do Lastro; as referências Barte orientam a organização da informação. O [PowerPoint completo](Lastro_pitch.pptx), as [prévias](slides/previews/overview.png) e a [fonte da revisão](slides/deck-editorial.mjs) acompanham esta versão.
