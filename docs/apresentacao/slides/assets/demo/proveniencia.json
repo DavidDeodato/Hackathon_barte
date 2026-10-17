@@ -1,0 +1,50 @@
+{
+  "product_commit": "0cc8d320fb80828744a80f6d6d13e1b1f6ad18eb",
+  "financial_run": "close-2068e24a102ebea3",
+  "captures": [
+    {
+      "file": "atlas.jpg",
+      "sha256": "a09012ccb73f6679e1dfafc620ef80091d843d95ddedcf029f06590997a7a31a",
+      "source": "Interface real do Lastro, consulta local das saídas publicadas",
+      "mode": "published_outputs_consultation"
+    },
+    {
+      "file": "fechamento.jpg",
+      "sha256": "d5422d824fc83911df0be3aed56334aac858f70ff08714d06bb7004494b58c8d",
+      "source": "Interface real do Lastro, consulta local das saídas publicadas",
+      "mode": "published_outputs_consultation"
+    },
+    {
+      "file": "mesa-rota.jpg",
+      "sha256": "ec44bf37819b6438167ad4b6ddc370578d7a41768c6afffb8e2af29f614dbd0d",
+      "source": "Interface real do Lastro, consulta local das saídas publicadas",
+      "mode": "published_outputs_consultation"
+    },
+    {
+      "file": "outubro.jpg",
+      "sha256": "a7e5a886b776b249c94c5562812dbf8e17671a41770e14691939365fc3b8a7fe",
+      "source": "Interface real do Lastro, consulta local das saídas publicadas",
+      "mode": "published_outputs_consultation"
+    },
+    {
+      "file": "rastro-rota.jpg",
+      "sha256": "8c269914ffb93812761068cc9aedbb7417b2af1d7305ffe5ad3528f9969b4bbb",
+      "source": "Interface real do Lastro, consulta local das saídas publicadas",
+      "mode": "published_outputs_consultation"
+    }
+  ],
+  "review_check": {
+    "mode": "deterministic",
+    "model_called": false,
+    "status": "review_required",
+    "semantic_quality": "not_validated",
+    "roles_executed": false
+  },
+  "october_check": "Conjunto 2026-10 criado vazio; nenhum processamento de outubro; seleção sem fontes indisponível",
+  "limits": [
+    "Nenhuma apuração nova do pacote bruto nesta revisão",
+    "Nenhuma inferência paga nesta revisão",
+    "Nenhuma aprovação, envio, cobrança ou pagamento",
+    "Enquadramento nativo no slide; pixels das capturas preservados"
+  ]
+}

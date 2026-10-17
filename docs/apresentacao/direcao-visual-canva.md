@@ -94,3 +94,7 @@ Fonte de reprodução da revisão atual: [arquitetura-editorial.mjs](slides/arqu
 ## 8. Aplicação à apresentação completa
 
 A direção editorial foi estendida aos avanços 0–20, conservando os 21–25. Abertura e solução usam o mesmo fundo, hierarquia tipográfica, destaque verde e ilustrações originais. O triângulo das fontes cresce com a fala; as três frentes de apuração entram uma por avanço. O exemplo financeiro conserva números e estado de revisão. A fonte `slides/deck-editorial.mjs`, os assets, as prévias e o PowerPoint completo ficam versionados juntos.
+
+## 9. Continuação por evidências
+
+Os avanços 26–49 conservam o canvas, fundo, Arial regular, verde seletivo e margens da versão anterior. Valores financeiros usam um número dominante e seu qualificador. A demo usa título e legenda editáveis à esquerda, captura real maior à direita. O enquadramento é nativo do slide, sem alterar os pixels da captura. A confirmação da regra e o plano de um mês recebem um tópico por avanço. As ilustrações repetidas mantêm a continuidade conceitual solicitada.

@@ -6,7 +6,7 @@ Base de trabalho para desenvolver o pitch e os slides sobre o fechamento finance
 
 - [Direção e roteiro](roteiro.md): capa e abertura dos slides 0 a 9; continuação proposta dos slides 10 a 31, com definição do Lastro, explicação por tópicos, arquitetura progressiva e relação setembro/outubro.
 - [Referências de apresentação](referencias.md): padrões observados na Barte, aplicações possíveis e limites da referência.
-- [Slides em desenvolvimento](slides/README.md): 26 slides até a arquitetura agêntica e a decisão humana, com prévias e fontes de construção da apresentação editável.
+- [Slides do pitch](slides/README.md): 50 avanços da capa ao encerramento, incluindo resultados, demo, limites e plano de um mês, com prévias e fontes de construção da apresentação editável.
 - [Orientações do desafio](../../contexto/instrucoes_extraidas.txt): requisitos usados como fonte, sujeitos à conferência com a organização.
 - [Respostas do financeiro](../../contexto/RESPOSTAS_FINANCEIRO.md): contexto recebido sobre regras e decisões do fechamento.
 - [Estado do produto](../../README.md): execução, validação e limites da implementação.
@@ -39,3 +39,7 @@ Preservar os commits existentes. Publicar alterações em branch própria e inte
 Incorporada sobre a `main` em `59ee5c8`, de 17/10/2026. O commit `93ffa23` integrou a mesa de casos à interface principal; `59ee5c8` acrescenta registros públicos de conversas. A conferência técnica da interface foi estática. Uma demonstração deve ser ensaiada na versão efetivamente utilizada.
 
 Na construção da continuação visual, foram consultadas remotamente as atualizações até [`b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/commit/b43e80e521646cc46b09e8f2c920fb035c20644d), que incorpora os ajustes tardios e publica novas saídas. O pacote Rota confirma o líquido de R$ 1.546,28 preparado para revisão. O aviso anterior de revisão pendente, baseado em `7d22eb1`, foi atualizado no roteiro. Os commits remotos foram inspecionados como fontes; não foram integrados automaticamente à branch local da apresentação.
+
+## Versão com evidências de avaliação
+
+[PowerPoint completo](Lastro_pitch.pptx): 50 avanços, mantendo a base visual e as notas. [Percurso da demo](demo.md): controles, duração de ensaio, modos de execução e alternativa para falhas. A continuação usa os CSVs publicados, os hashes e a pergunta de David confirmada pelo financeiro. Capturas reais de consulta documental não são apresentadas como processamento novo ou como modelo executado. Benefício de tempo e continuidade integral de outubro seguem como verificações futuras.

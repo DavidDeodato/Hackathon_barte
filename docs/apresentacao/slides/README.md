@@ -1,8 +1,8 @@
 # Slides do pitch Lastro
 
-Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [roteiro](../roteiro.md). O material cobre capa, problema, entrada da solução, apuração e arquitetura agêntica até a decisão humana. A revisão editorial foi aplicada aos 26 avanços, preservando a sequência e as notas de fala. O uso completo na interface e a continuidade entre competências permanecem no roteiro, para uma próxima etapa.
+Versão visual editável com 50 slides, correspondentes aos avanços 0 a 49 do [roteiro](../roteiro.md). O material cobre capa, problema, entrada da solução, apuração e arquitetura agêntica até a decisão humana. Os 26 avanços anteriores foram preservados. A continuação acrescenta resultados, conferência do rastro, capturas reais da interface, pergunta ao financeiro, correção da IA, premissas, outubro e plano de um mês. O [percurso da demo](../demo.md) distingue consulta documental e inferência real.
 
-![Visão geral dos 26 slides](previews/overview.png)
+![Visão geral dos 50 slides](previews/overview.png)
 
 ## Sequência
 
@@ -34,6 +34,30 @@ Versão visual editável com 26 slides, correspondentes aos avanços 0 a 25 do [
 | 23 | [Investigador](previews/23.png) | Consulta às fontes cadastradas por ferramentas de leitura |
 | 24 | [Crítico](previews/24.png) | Mesmo pacote, interpretação e evidências recebidas |
 | 25 | [Decisão humana](previews/25.png) | Parecer encaminhado ao responsável, com o limite experimental visível |
+| 26 | [Comissão de checkout](previews/26.png) | resultados |
+| 27 | [Comissão de remessas](previews/27.png) | resultados |
+| 28 | [Notas propostas](previews/28.png) | resultados |
+| 29 | [Diferenças Orbe](previews/29.png) | valores em revisão |
+| 30 | [Diferenças Ponte](previews/30.png) | valores em revisão |
+| 31 | [Devolução Casa](previews/31.png) | valores em revisão |
+| 32 | [Ajustes tardios](previews/32.png) | setembro atualizado |
+| 33 | [Conferência do rastro](previews/33.png) | prova dos números |
+| 34 | [Demo: abrir fechamento](previews/34.png) | demonstração |
+| 35 | [Demo: origem do valor](previews/35.png) | demonstração |
+| 36 | [Demo: revisão do caso](previews/36.png) | demonstração |
+| 37 | [Falha: taxa desconhecida](previews/37.png) | limites da solução |
+| 38 | [Direção da IA](previews/38.png) | como construímos |
+| 39 | [Pergunta enviada](previews/39.png) | perguntar antes de assumir |
+| 40 | [Resposta do financeiro](previews/40.png) | regra confirmada |
+| 41 | [Efeito no cálculo](previews/41.png) | regra aplicada |
+| 42 | [Premissa declarada](previews/42.png) | hipóteses |
+| 43 | [Outubro: arquivos](previews/43.png) | próxima competência |
+| 44 | [Outubro: Atlas](previews/44.png) | continuidade |
+| 45 | [Outubro: trânsito](previews/45.png) | continuidade |
+| 46 | [Um mês: competência](previews/46.png) | plano de desenvolvimento |
+| 47 | [Um mês: qualidade da IA](previews/47.png) | plano de desenvolvimento |
+| 48 | [Um mês: esforço de revisão](previews/48.png) | plano de desenvolvimento |
+| 49 | [Fechamento com evidências](previews/49.png) | lastro |
 
 ## Composição
 
@@ -90,6 +114,12 @@ As imagens em `previews/` são capturas renderizadas da apresentação editável
 
 ## Apresentação completa no repositório
 
-[Lastro_pitch.pptx](../Lastro_pitch.pptx) contém os 26 slides desta versão de desenvolvimento, da capa até a decisão humana. Textos e relações permanecem editáveis; ilustrações são raster. As prévias individuais acompanham esta exportação.
+[Lastro_pitch.pptx](../Lastro_pitch.pptx) contém os 50 avanços desta versão, da capa ao encerramento, incluindo a continuação baseada nos critérios do desafio. Textos e relações permanecem editáveis; ilustrações são raster. As prévias individuais acompanham esta exportação.
 
 [deck-editorial.mjs](deck-editorial.mjs) exporta `reviseFullEditorialDeck` para os avanços 0–20 da sessão existente. Recebe `input.indices` e `input.logoPath`, valida os IDs e preserva os demais slides e notas. Executar em lotes pequenos, inspecionando o documento antes de substituir elementos. A arquitetura 21–25 permanece em `arquitetura-editorial.mjs`. Os novos assets e prompts estão em [assets/prompts-deck-completo.json](assets/prompts-deck-completo.json).
+
+## Continuação e demonstração
+
+[evidencias-continuacao.mjs](evidencias-continuacao.mjs) exporta `buildEvidenceContinuation` para os avanços 26–49. O callback valida a base, acrescenta avanços consecutivos e preserva slides existentes. Reparos exigem IDs explicitamente inspecionados. Os números vêm de [evidencias-setembro.json](assets/evidencias-setembro.json), com hashes das seis saídas publicadas. Capturas em `assets/demo/` representam a interface real consultando esses resultados, sem nova apuração ou inferência paga. O modo e os limites estão nas legendas e notas.
+
+A pergunta enviada por David e a resposta de Helena foram fornecidas pela participante, registradas em `contexto/PERGUNTA_DAVID_CASA.md` e confrontadas com a operação AN88445172. Não se atribui a esse esclarecimento uma mudança de código que não ocorreu. Outubro aparece como conjunto vazio e continuidade operacional a validar. O plano de semanas 1–4 representa desenvolvimento proposto.
