@@ -1,0 +1,268 @@
+{
+  "generated_at": "2026-10-17T19:37:22.624053+00:00",
+  "source_snapshot_at": "2026-10-17T19:08:00.657665+00:00",
+  "scope": "Mensagens textuais reais de usuario e assistente; recorte publico, nao exportacao integral bruta.",
+  "omissions": [
+    "Corpos e resultados de ferramentas; podem conter memoria, dados e arquivos privados.",
+    "Mensagens internas entre agentes, instrucoes de runtime e registros de raciocinio.",
+    "Imagens, audio, metadados internos, credenciais, emails e identificadores locais pessoais."
+  ],
+  "sessions": [
+    {
+      "file": "rollout-2026-10-17T04-18-25-01a148b9-e7fb-7d50-bc00-075c0aaddca3.jsonl",
+      "sha256": "e4acc78302fcbe025f11c44b460eaada431ef51c8fe67acdc076009acc530384",
+      "source_snapshot_sha256": "1bdd09debbb94223288a413bab75896420bee7e888839a77f5d73d931cf05dbb",
+      "counts": {
+        "source_records": 636,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "redacted_text_parts": 17,
+        "public_messages": 112,
+        "non_conversation_records_omitted": 523,
+        "non_text_parts_omitted": 2
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T11-41-21-01a14a4f-6c7c-7a82-9327-31d8ca103c13.jsonl",
+      "sha256": "e3719dca5e3b14ce4bb61f82f6d33d07764e0847b648f3c949f12066f120c38b",
+      "source_snapshot_sha256": "e209fc647f6c52976c5b37c63b48ebc436e7490f2f113ce4cd1772fc39c29962",
+      "counts": {
+        "source_records": 43,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "redacted_text_parts": 6,
+        "public_messages": 18,
+        "non_conversation_records_omitted": 24
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T11-41-26-01a14a4f-8024-7172-9da6-f9cd3246527c.jsonl",
+      "sha256": "ca27d7c77cf60f644e7d1f7ee38f14e54f5b23a3078c6b63b6ef36eb08a8f98e",
+      "source_snapshot_sha256": "9c617d64b99423293b12b5d792547d882c29f7694717abbba42f22467940f2ff",
+      "counts": {
+        "source_records": 54,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "redacted_text_parts": 6,
+        "public_messages": 18,
+        "non_conversation_records_omitted": 35
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T11-41-31-01a14a4f-94e6-7630-893e-7d3d1123c011.jsonl",
+      "sha256": "526d4e2ff01b2bf3dc4ab38bc48b5bff4277597748cb4da6693d7ddee06a6836",
+      "source_snapshot_sha256": "84630137677071440602d6633e13be651263411043fab169e2d355528c167d0c",
+      "counts": {
+        "source_records": 40,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "redacted_text_parts": 6,
+        "public_messages": 18,
+        "non_conversation_records_omitted": 21
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T12-35-59-01a14a81-6f88-7403-b474-8b5db585a7ef.jsonl",
+      "sha256": "5c200268c27c5ca27c4b8e994a53cdcfe858522101b06ec4dd5106f830886bbd",
+      "source_snapshot_sha256": "6647a62f9d88e69dcdef4c451321756ad08ddc7622d11f266b1ed04c1377d7cf",
+      "counts": {
+        "source_records": 24,
+        "redacted_text_parts": 2,
+        "public_messages": 7,
+        "non_conversation_records_omitted": 17
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T12-36-07-01a14a81-8eea-7fd0-aab0-30605864e635.jsonl",
+      "sha256": "644806101f2b854d004484b37f35426a77dfb2380462a40b77b7160201387c1e",
+      "source_snapshot_sha256": "233b69165ae1b29473dde1a26ee24966d34bc83865e2cd6499a7a13cd27df772",
+      "counts": {
+        "source_records": 18,
+        "redacted_text_parts": 2,
+        "public_messages": 7,
+        "non_conversation_records_omitted": 11
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T12-36-13-01a14a81-a854-78a2-be21-6df4566ef587.jsonl",
+      "sha256": "bc10b5e3830651a60b5b83cf1367403fc74fd8ecfa9cef7020b07e12d30f9b0d",
+      "source_snapshot_sha256": "173a042cbd7d14710bec127d4fd9df9f3557c538f387bcff705b97193bda2889",
+      "counts": {
+        "source_records": 60,
+        "redacted_text_parts": 4,
+        "public_messages": 9,
+        "non_conversation_records_omitted": 51
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-11-21-01a14aa1-d2e6-7c10-8f4d-76777ec9e274.jsonl",
+      "sha256": "c08e6bd4baf86d52aa61c483259e217a7496bb37217781e712b67b425bd2bcd7",
+      "source_snapshot_sha256": "76377607f7a9bf80490bf82ab1677c3b65a71d2affc2596e7f482fef23e60393",
+      "counts": {
+        "source_records": 165,
+        "runtime_instruction_parts_omitted": 8,
+        "empty_or_omitted_messages": 9,
+        "redacted_text_parts": 2,
+        "public_messages": 29,
+        "non_conversation_records_omitted": 127
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-40-34-01a14abc-9355-7fa3-a4c6-7fe7e927bc49.jsonl",
+      "sha256": "32b02d67c6e42087b4b7e752c057c89c33b94a20b768fe8037baa2c81fd76672",
+      "source_snapshot_sha256": "61fa4bdbc32e15a9aa61349b483aa7a2ddfbf025d299f79e1c0eca49f6b0774f",
+      "counts": {
+        "source_records": 50,
+        "redacted_text_parts": 4,
+        "public_messages": 17,
+        "non_text_parts_omitted": 1,
+        "runtime_instruction_parts_omitted": 1,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 32
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-16-01a14ac2-b5d5-7dc2-a0d8-8cadf8b56872.jsonl",
+      "sha256": "86aa5632b7cb156e86f6923539ced24d39927cbe50663b360f18816eab270463",
+      "source_snapshot_sha256": "8d8a71b20662800bd1b0d6699dbae488eca234ad72609df5445d2b4c0fc1598e",
+      "counts": {
+        "source_records": 195,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 165,
+        "redacted_text_parts": 7,
+        "public_messages": 29
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-17-01a14ac2-b9a4-7c90-a517-37e5eb6ecbb8.jsonl",
+      "sha256": "4679e8499bbec571b82c8e065ffe3ab82cc3081ca87bce670f4a44a266b3402a",
+      "source_snapshot_sha256": "a09c168f1d1e4a04d90ba731e29945277c7ddf74ae101cc24a5422722ec26868",
+      "counts": {
+        "source_records": 330,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 295,
+        "redacted_text_parts": 7,
+        "public_messages": 34
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-19-01a14ac2-bee5-7661-914d-432eceee3e74.jsonl",
+      "sha256": "da6cb53371d2fe7530fda2594e7e969da8b7afdd630bf122dac405ad5fc7aa3e",
+      "source_snapshot_sha256": "bd16c61fba23830080b25dc9f4c0eec77b6924043fcdd3b9e237784b733befae",
+      "counts": {
+        "source_records": 261,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 227,
+        "redacted_text_parts": 4,
+        "public_messages": 33
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-20-01a14ac2-c27e-7461-884f-8b3507276268.jsonl",
+      "sha256": "d4ad639e840e340b29c898db92c54bca2c56698d643ff925d933e8d03f474c17",
+      "source_snapshot_sha256": "f8322c8979ce6f32393a38391498621493d6cbbdb9835632b27a93ee54b3b46e",
+      "counts": {
+        "source_records": 455,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 406,
+        "redacted_text_parts": 7,
+        "public_messages": 48,
+        "non_text_parts_omitted": 2
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-21-01a14ac2-c67c-75d1-a287-7841bd3584c3.jsonl",
+      "sha256": "eee4716c1b8bb115bef9c6ed14ae81f9377f67ad5db55549659816f24688a219",
+      "source_snapshot_sha256": "4a98903fc061c22157fbc855dcc008e2d7c756e4efabdf17e72e6668c205d698",
+      "counts": {
+        "source_records": 115,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 91,
+        "redacted_text_parts": 6,
+        "public_messages": 23
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-22-01a14ac2-cb10-7853-bf09-9a3c3edbee56.jsonl",
+      "sha256": "7c149abca7e980623d6b4a9769426730e0509da59f3843d126dec28d1fe83626",
+      "source_snapshot_sha256": "66a19d42ea753d4c0b99cce3a7946f1aa172605783636005c20566a6df291ef9",
+      "counts": {
+        "source_records": 246,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 221,
+        "redacted_text_parts": 3,
+        "public_messages": 24
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-23-01a14ac2-cf08-7ca0-84ef-7a93388eba29.jsonl",
+      "sha256": "777afc32198530f3b6e1708e53a415a1507042221b0fa16f98a25828cc7ab7d5",
+      "source_snapshot_sha256": "2b90429a269353b5f3ff6b6c4b5ce8954be77f16a61d90a9298433e801061700",
+      "counts": {
+        "source_records": 483,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 447,
+        "redacted_text_parts": 2,
+        "public_messages": 35
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T13-47-24-01a14ac2-d40f-7893-a9d9-859c2782177d.jsonl",
+      "sha256": "950ccc709e167e0002499638bce6c8f6f6f53bd2fecdbcfdc7b2daa2dc4ffd74",
+      "source_snapshot_sha256": "8fb19d40c3ab1d16b27c030937d8cf37b4be9926ae6f5a669ea8505dd084a68c",
+      "counts": {
+        "source_records": 312,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 275,
+        "redacted_text_parts": 5,
+        "public_messages": 36
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T14-02-03-01a14ad0-3b29-77c2-81d2-0771ce21b016.jsonl",
+      "sha256": "8b0ff145b2951c753a32c31ca5512f5da506a5d8a333453c3e76ad9adcb4022b",
+      "source_snapshot_sha256": "69772065a4c2e5f969816a7c70a086c1f38b9a325638118b57691da42bb0af08",
+      "counts": {
+        "source_records": 483,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 6,
+        "redacted_text_parts": 5,
+        "public_messages": 77,
+        "non_conversation_records_omitted": 400
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T15-05-03-01a14b09-eb7c-7040-9f64-38dd1f29f824.jsonl",
+      "sha256": "7f001770f559b2be845c9f773a7b5ce43aedacdb950caa1718863a8fe45d5055",
+      "source_snapshot_sha256": "e2a989221c1c615c443902cfead60104edfa97df521d0e8e7b8f21747f78d394",
+      "counts": {
+        "source_records": 3,
+        "runtime_instruction_parts_omitted": 2,
+        "empty_or_omitted_messages": 1,
+        "non_conversation_records_omitted": 1,
+        "redacted_text_parts": 0,
+        "public_messages": 1
+      }
+    },
+    {
+      "file": "rollout-2026-10-17T15-42-25-01a14b2c-1fab-7a23-b9a7-20a4c5b1165c.jsonl",
+      "sha256": "e307a5cf8b028dce35375c234c1ff5784d1c0a236910913200c293f50b985e6d",
+      "source_snapshot_sha256": "1826fe71bd287813a619406a67bb84bdcfd0260b2bea3e9e29d8d2f432709e98",
+      "counts": {
+        "source_records": 69,
+        "redacted_text_parts": 4,
+        "public_messages": 9,
+        "non_conversation_records_omitted": 60,
+        "non_text_parts_omitted": 2
+      }
+    }
+  ]
+}

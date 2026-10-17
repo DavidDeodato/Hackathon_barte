@@ -1,8 +1,11 @@
 # Histórico de uso de IA
 
-Esta pasta registra interações reais e decisões do desenvolvimento para a entrega do Desafio Barte AI. O registro inicial é parcial: ainda não é uma exportação integral das sessões de trabalho. Não foram reconstruídas conversas como se fossem transcrições originais.
+O registro público das conversas está em [conversas_publicas/](conversas_publicas/README.md). Ele preserva mensagens textuais reais de usuário e assistente, na ordem disponível de cada sessão. O manifesto informa o horário do snapshot, as contagens, os hashes e as omissões. Não é uma exportação integral bruta nem um histórico reconstruído.
 
-- `SESSAO_001.md`: trechos reais da conversa, com contexto e resultado observado.
-- `MOMENTOS.md`: momentos de direção e correção pelo participante.
+- [MOMENTOS.md](MOMENTOS.md): decisões e correções materiais pelo participante.
+- [SESSAO_001.md](SESSAO_001.md): recortes iniciais para navegação.
+- [conversas_publicas/manifest.json](conversas_publicas/manifest.json): inventário verificável das sessões publicadas.
 
-Antes da entrega final, completar o histórico das sessões relevantes, removendo chaves, tokens e dados privados. Perguntas apenas preparadas não são perguntas enviadas ao financeiro.
+Por privacidade, não são publicados corpos ou resultados de ferramentas, mensagens internas entre agentes, instruções de sistema/runtime, raciocínio privado, imagens, credenciais ou informações pessoais de contato. Essas omissões são declaradas, sem substituí-las por diálogos fabricados. Os históricos brutos permanecem locais.
+
+Sessões ainda em andamento podem ter mensagens posteriores ao snapshot. Perguntas apenas preparadas não são perguntas enviadas ao financeiro; execução técnica, resultado de modelo e aprovação financeira permanecem distintos.

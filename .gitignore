@@ -27,3 +27,6 @@ web/dist/
 # Arquivos de compilacao e avaliacoes internas
 *.tsbuildinfo
 tests/independent/reserved_scenarios.json
+
+# Snapshots brutos de conversas podem conter ferramentas e contexto privado.
+/PROMPTS/sessoes/
