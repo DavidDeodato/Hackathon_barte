@@ -1,6 +1,6 @@
 # Direção e roteiro da apresentação Lastro
 
-Documento de trabalho para reunir as orientações de tom, narrativa, composição e transição da apresentação. Esta sequência cobre a capa e a abertura sobre o problema da Tarvo. Novas observações devem ser incorporadas aqui, preservando as decisões já estabelecidas pelo usuário.
+Documento de trabalho para reunir as orientações de tom, narrativa, composição e transição da apresentação. A sequência cobre a capa, o problema, a explicação da solução, a arquitetura agêntica e a relação entre o fechamento de setembro e o uso em outubro. A abertura dos slides 0 a 9 preserva as decisões anteriores; os slides 10 a 31 são o desdobramento proposto a partir das novas orientações do usuário.
 
 ## Tom da apresentação
 
@@ -8,6 +8,9 @@ Documento de trabalho para reunir as orientações de tom, narrativa, composiç�
 - Falar de forma direta, próxima e natural, como em uma conversa com o financeiro e o CFO.
 - Começar apresentando a empresa e a organização atual do trabalho. Explicar as consequências depois que as três frentes estiverem compreensíveis.
 - Usar frases curtas. Cada avanço visual acompanha uma ideia da fala.
+- Depois da entrada da solução, definir o Lastro em uma frase antes de explicar seu funcionamento.
+- Explicar a solução com calma, usando tópicos de fala e um tópico principal novo por avanço. Os bullets nas notas orientam a fala; a tela recebe somente o fragmento relevante.
+- Anunciar a entrada na arquitetura agêntica e construir suas relações progressivamente, com responsabilidades nomeadas.
 - Mostrar como o trabalho acontece: quem tem a informação, onde ela está e o esforço necessário para juntar tudo.
 - Manter os detalhes técnicos e as evidências de apoio fora desta abertura.
 - Usar as referências da Barte para estudar clareza, hierarquia e apresentação progressiva da informação. Desenvolver composição e identidade próprias para o Lastro.
@@ -131,12 +134,14 @@ Preservar os dois tópicos anteriores e revelar o terceiro. A composição agora
 
 Organizar as três consequências com hierarquia equivalente. Destacar **oito dias úteis** sem reduzir a legibilidade das outras duas. Simplificar os elementos anteriores para que o público concentre a atenção nas consequências.
 
-Este é o encerramento da abertura sobre o problema. A entrada da proposta Lastro será desenvolvida na continuação do roteiro.
+Este é o encerramento da abertura sobre o problema. A entrada da proposta Lastro começa no slide 11, depois de um contexto curto no slide 10.
 
 ## Continuidade e estilo visual
 
 - Construir a sequência como uma única explicação que evolui. Preservar posições, proporções e identidade dos elementos entre os slides.
 - Nos slides 3 a 5, revelar uma frente por avanço. Nos slides 6 a 8, revelar uma pergunta por avanço.
+- Aplicar a mesma lógica à solução: cada slide acrescenta um tópico principal à composição do bloco. Na mudança de assunto, conservar uma referência discreta do percurso anterior e abrir espaço para o novo desenho.
+- Na arquitetura, manter a base de apuração e acrescentar pacote do caso, investigador, crítico e responsável humano. As setas precisam ter significado legível.
 - Usar destaque para orientar a atenção ao elemento novo, mantendo os anteriores compreensíveis.
 - Fazer a junção depois de apresentar as três frentes, para que o movimento tenha significado.
 - As linhas do triângulo representam dependência e esforço de conexão. O desenho inicial deve conservar a leitura de fragmentação descrita na fala.
@@ -150,46 +155,304 @@ Este é o encerramento da abertura sobre o problema. A entrada da proposta Lastr
 - [ ] Definir se Helena será representada por nome, ícone ou imagem autorizada.
 - [ ] Conferir a leitura do marcador 3 associado a Helena no centro.
 - [ ] Ensaiar a fala com os avanços de slide e ajustar pausas.
+- [ ] Conferir os resultados após incorporar os ajustes tardios antes de fixar valores e capturas da demo.
+- [ ] Separar uma evidência real de orientação, erro e correção da IA no histórico de construção.
+- [ ] Ensaiar a investigação assistida e conferir o estado real do modelo na versão apresentada.
 
-## Continuidade proposta após a explicação do problema
+## Continuação: solução em avanços progressivos
 
-Esta continuação mantém o tom de conversa com o cliente. Acrescenta um contexto curto e depois explica tratamento dos dados, apuração, arquitetura agêntica e alcance da entrega. A distribuição em novos slides permanece em aberto.
+Os slides seguintes propõem a execução das novas orientações. Cada avanço inclui um tópico principal na tela, bullets de fala e a relação visual com o anterior. Os bullets não devem ser projetados juntos como um parágrafo. A numeração representa avanços da apresentação; não exige uma composição inteiramente diferente a cada slide.
 
-### Contexto para entrar na solução
+### Slide 10 — Contexto curto: a regra depende da operação
 
-> Para fechar setembro, essas informações precisam responder quanto a Tarvo ganhou, o que pode faturar e o que ainda precisa de decisão. Uma taxa depende do contrato e da data. Um estorno depende da venda original. Por isso, cada resultado precisa carregar a regra e a origem.
+**Tópico na tela:** “Cada operação precisa da regra certa.”
 
-### Entrada da solução e tratamento das informações
+**Fala:**
 
-> Foi esse processo que a gente organizou no Lastro. Ele recebe os arquivos originais, sem exigir uma limpeza manual antes, identifica as operações e os lojistas e cruza esses registros com as condições comerciais e as orientações do financeiro.
->
-> Essas orientações ficam registradas com suas fontes. Quando uma informação ainda depende de confirmação, ela continua identificada como hipótese ou pendência.
->
-> A apuração segue regras explícitas. No checkout, o sistema considera a taxa contratada e a data aplicável, calcula as comissões e trata os estornos. Nas remessas, calcula a participação da Tarvo sobre o spread elegível e verifica duplicidades e divergências. Os movimentos bancários recebem classificação no plano de contas.
->
-> A partir disso, são preparados os seis arquivos pedidos na entrega: comissões por lojista, divergências, notas a emitir, lançamentos classificados, pendências e rastro. As notas são propostas para revisão; a emissão fiscal continua fora desse fluxo.
+- “Para juntar essas informações, a gente precisa saber qual regra vale para cada operação.”
+- “Uma taxa depende do contrato e da data. Um estorno precisa respeitar a venda original.”
 
-### Rastreabilidade e exemplo
+**Visual:** conservar as três frentes da abertura e aproximar um pequeno cartão de operação de um cartão de regra e vigência. Esse contexto prepara a necessidade do cruzamento; a explicação completa de setembro fica no bloco final.
 
-> Cada valor mantém um vínculo com as linhas que o compõem. Ao abrir uma diferença, a analista consegue conferir a operação, a taxa usada, a fórmula e a regra citada. O sistema também confere se a soma dos componentes corresponde ao resultado apresentado.
->
-> Na Rota Global, por exemplo, as diferenças positivas somam R$ 1.644,72. Os estornos abatem R$ 98,44. O valor líquido preparado para revisão é R$ 1.546,28, com as origens preservadas.
+### Slide 11 — Entrada da solução
 
-### Arquitetura agêntica e revisão do caso
+**Tópico na tela:** “Lastro.”
 
-> Sobre essa apuração entra a investigação assistida. O Lastro organiza um pacote do caso com valor, natureza, operações de origem, regras, responsável e o que falta para encerrar a pendência.
->
-> O agente investigador usa ferramentas para consultar as fontes e localizar as referências que sustentam uma interpretação. Depois, o crítico examina essa conclusão e as evidências recebidas, procurando contradições ou uma decisão que ainda não esteja sustentada.
->
-> O valor financeiro continua vindo da apuração. Os agentes produzem observações e objeções para revisão humana. A execução registra as ferramentas e evidências utilizadas, mas o parecer assistido continua experimental e não comprova aprovação financeira.
+**Fala:**
 
-### Uso na interface, falhas e limites
+- “Foi esse processo que a gente organizou no Lastro.”
 
-> Na interface, a pessoa parte da pendência e abre a mesa do caso. Ali encontra o valor, o destino da ação, quem decide, a composição e as fontes. Pode conferir o pacote sem IA ou solicitar a investigação e o parecer crítico.
->
-> Quando falta uma condição necessária, isso permanece explícito. A Atlas, por exemplo, tem operações identificadas, mas sua comissão continua sem quantificação enquanto o contrato não for confirmado. O volume movimentado permanece separado do valor que poderia ser faturado.
->
-> Hoje, a apuração e os casos suportados estão vinculados ao pacote recebido de setembro. Para outubro, precisamos validar o novo lote e as condições aplicáveis. Completar o acompanhamento das pendências entre competências e medir o esforço do operador são próximos passos do produto.
+**Visual:** introduzir a marca própria do projeto, preservando discretamente as fontes que serão organizadas. Fazer uma pausa antes de avançar para a definição.
+
+### Slide 12 — O que o Lastro é, em uma frase
+
+**Frase na tela e na fala:**
+
+> O Lastro organiza os dados e as regras da Tarvo para apurar o fechamento, mostrar a origem de cada valor e encaminhar o que precisa de decisão.
+
+**Visual:** manter o nome Lastro e revelar, em uma linha de leitura, os três verbos da frase: **apurar → mostrar a origem → encaminhar**. Este slide apresenta a definição; os seguintes explicam cada parte.
+
+### Slide 13 — Receber os arquivos
+
+**Novo tópico na tela:** “Recebe os arquivos como chegam.”
+
+**Fala:**
+
+- “A analista começa pelos arquivos que o financeiro já recebe.”
+- “O Lastro lê o relatório da Orbe, o anexo do e-mail da Ponte, a planilha de taxas e os extratos dos dois bancos, junto com o plano de contas.”
+
+**Visual:** cartões simples de arquivo convergem para uma área de entrada. Nomear as fontes. As conexões representam leitura de arquivos; o relatório da Orbe não deve parecer uma API integrada.
+
+### Slide 14 — Relacionar operação, lojista e condição
+
+**Novo tópico na tela:** “Liga cada operação ao lojista e à condição aplicável.”
+
+**Fala:**
+
+- “Depois, ele relaciona os identificadores da operação ao lojista e à condição comercial válida naquela data.”
+- “As orientações do financeiro ficam registradas com suas fontes. O que ainda depende de confirmação continua como hipótese ou pendência.”
+
+**Visual:** os arquivos permanecem à esquerda. Acrescentar cartões de **lojista**, **contrato e vigência** e **orientação do financeiro** ao lado de uma operação. Esta etapa explica como os dados se encontram, antes de mostrar os cálculos.
+
+**Nota técnica:** as regras de cálculo estão implementadas no motor; registrar uma conversa no catálogo não altera automaticamente uma regra aprovada.
+
+### Slide 15 — Apurar o checkout
+
+**Novo tópico na tela:** “Checkout: calcula a comissão e compara as taxas.”
+
+**Fala:**
+
+- “No checkout, ele calcula a comissão pela condição contratada e compara com a taxa que foi aplicada.”
+- “Estornos e reversões entram com o tratamento da operação original. A soma é feita a partir dos valores de cada linha.”
+
+**Visual:** acrescentar o primeiro bloco de apuração, com uma operação, a taxa contratada e a taxa aplicada. Identificar separadamente **comissão** e **divergência**. A diferença entre elas precisa continuar legível.
+
+### Slide 16 — Apurar as remessas
+
+**Novo tópico na tela:** “Remessas: apura a participação da Tarvo no spread.”
+
+**Fala:**
+
+- “Nas remessas, ele calcula os 50% de participação da Tarvo sobre o spread realizado elegível.”
+- “Também verifica duplicidades e diferenças em relação ao contrato. Os spreads negativos contestados ficam fora da comissão e seguem como pendência.”
+
+**Visual:** manter o checkout e acrescentar a segunda frente de apuração. Uma operação repetida converge para uma única contribuição, com a referência original preservada. Distinguir a participação da Tarvo do valor integral de uma divergência de spread.
+
+### Slide 17 — Classificar os movimentos bancários
+
+**Novo tópico na tela:** “Bancos: classifica cada movimento no plano de contas.”
+
+**Fala:**
+
+- “Nos extratos, ele propõe a classificação de cada movimento no plano de contas.”
+- “Um recebimento pode baixar uma comissão de agosto. Uma transferência pode continuar em trânsito no fim de setembro. O tratamento depende da natureza do movimento.”
+
+**Visual:** acrescentar a terceira frente, ligando uma linha de extrato à conta proposta e à justificativa. Mostrar uma transferência em trânsito como exemplo; o destino ERP representa a classificação preparada, sem simular lançamento realizado no Fênix.
+
+### Slide 18 — Preparar as entregas do fechamento
+
+**Novo tópico na tela:** “Reúne os resultados do fechamento.”
+
+**Fala:**
+
+- “As três frentes alimentam as entregas pedidas no desafio.”
+- “São seis arquivos: comissões, divergências, notas a emitir, lançamentos classificados, pendências e rastro.”
+- “As notas ficam preparadas para revisão. A emissão fiscal depende da continuidade da operação.”
+
+**Visual:** fazer as frentes convergirem para um conjunto de seis cartões, com nomes curtos e hierarquia equivalente. Revelar o conjunto neste avanço, sem abrir seis tabelas ao mesmo tempo.
+
+### Slide 19 — Conferir a origem de cada valor
+
+**Novo tópico na tela:** “Cada valor aponta para as linhas que o compõem.”
+
+**Fala:**
+
+- “Ao abrir um valor, a analista encontra as operações que formam aquele total, a regra aplicada e a referência da fonte.”
+- “A soma dessas contribuições precisa conferir com o resultado apresentado.”
+
+**Visual:** ampliar um cartão de resultado do slide anterior e ligá-lo a suas linhas de origem. Usar o mesmo valor e a mesma referência ao passar para a demo.
+
+### Slide 20 — Demo: do valor à operação
+
+**Tópico na tela:** “Uma diferença que pode ser conferida.”
+
+**Fala:**
+
+- “Vamos abrir a Rota Global para conferir esse caminho.”
+- “Aqui estão o total, os componentes e a taxa usada em cada operação.”
+
+**O que mostrar:** abrir a composição do caso Rota, selecionar uma operação e mostrar bruto, taxa contratada, taxa aplicada, diferença monetária e origem. Voltar ao total para concluir a relação entre soma e resultado.
+
+**Referência do lote anterior aos ajustes tardios:** diferenças positivas de R$ 1.644,72, abatimento de R$ 98,44 e líquido de R$ 1.546,28 preparado para revisão. Esses valores foram reproduzidos naquele lote. Conferir novamente após os ajustes antes de fixá-los no slide ou falar como resultado atualizado. Se a revisão ainda estiver pendente, manter o lote e o estado identificados na demo.
+
+## Entrada explícita na arquitetura agêntica
+
+### Slide 21 — Mudar a pergunta: como a investigação funciona
+
+**Título na tela:** “Arquitetura agêntica.”
+
+**Tópico de apoio:** “Como o Lastro investiga um caso.”
+
+**Fala:**
+
+- “Até aqui, vimos como o Lastro apura os valores e mostra suas origens.”
+- “Agora vamos entrar na arquitetura agêntica: como esses resultados viram um caso para investigação e revisão.”
+
+**Visual:** reduzir o percurso anterior a uma base reconhecível, rotulada **apuração e rastro**. Acima ou à direita, reservar a faixa **investigação assistida**. Construir o novo fluxo sobre essa base nos próximos quatro avanços. O título anuncia a mudança de assunto.
+
+### Slide 22 — Formar o pacote do caso
+
+**Novo tópico na tela:** “O caso reúne o valor e o contexto da decisão.”
+
+**Fala:**
+
+- “A partir da apuração, o sistema monta um pacote do caso.”
+- “Ele reúne valor, composição, natureza da ação, fontes, responsável e o que falta para encerrar a pendência.”
+
+**Visual:** revelar o cartão **pacote do caso**, ligado à base de apuração. Mostrar três grupos visuais: **valor e origens**, **regras e contexto**, **ação e responsável**. Esse cartão é um artefato de dados, sem representação de agente.
+
+### Slide 23 — Agente investigador
+
+**Novo tópico na tela:** “O investigador consulta as fontes do caso.”
+
+**Fala:**
+
+- “O investigador recebe esse pacote e usa ferramentas para localizar as regras e as referências que ajudam a interpretar o caso.”
+- “Ele pode buscar regras, consultar uma referência, ler uma fonte cadastrada e verificar pendências. A interpretação vem acompanhada das evidências consultadas.”
+
+**Visual:** revelar **investigador** à direita do pacote. Abaixo, acrescentar uma pequena área de ferramentas ligada às fontes. Rotular a ida como **consulta** e a volta como **evidências**. A saída do investigador recebe o nome **interpretação e fontes citadas**.
+
+**Nota técnica:** mostrar os nomes de ferramenta apenas se ajudarem na demo: `search_rules`, `lookup_reference`, `read_source` e `review_pending`. Acesso às fontes é limitado ao catálogo e aos limites da execução.
+
+### Slide 24 — Agente crítico
+
+**Novo tópico na tela:** “O crítico confronta a interpretação com as evidências recebidas.”
+
+**Fala:**
+
+- “Depois, outro papel examina a interpretação: o crítico.”
+- “Ele recebe o pacote, a conclusão do investigador e as evidências recuperadas. Procura contradições, generalizações e decisões sem sustentação suficiente.”
+
+**Visual:** revelar **crítico** depois do investigador. Desenhar uma ligação do pacote ao crítico e outra do investigador ao crítico, rotulada **interpretação + evidências**. Acrescentar na saída **observações, objeções e limites**.
+
+**Limite da associação:** o crítico trabalha com o material recebido e não faz uma nova busca de ferramentas nesta implementação. Dois papéis não demonstram, por si, correção semântica ou benefício adicional medido.
+
+### Slide 25 — Encaminhar para decisão humana
+
+**Novo tópico na tela:** “A revisão volta para quem precisa decidir.”
+
+**Fala:**
+
+- “O resultado dessa investigação volta para a analista com as fontes, as observações e o que ainda precisa de confirmação.”
+- “Os valores continuam vinculados à apuração. Helena e o Comercial mantêm as decisões que lhes cabem.”
+
+**Visual:** completar o percurso com **revisão humana**, acompanhada do responsável do caso. A base financeira continua visível. As conexões terminam em revisão e encaminhamento; a aprovação ou o envio só podem aparecer quando houver registro correspondente.
+
+**Estado da entrega:** a revisão assistida é experimental, com qualidade semântica ainda não validada e estado `needs_evidence`. Explicar esse limite junto da demonstração, com linguagem simples: “O parecer ajuda a revisar; ainda precisa ser conferido.”
+
+### Mapa de relações para orientar a composição
+
+Este esquema é referência de produção. Nos slides 21 a 25, revelar um componente por avanço e conservar os anteriores em segundo plano. O grafo completo não deve disputar atenção com a fala desde o início.
+
+```mermaid
+flowchart LR
+    A["Arquivos originais"] --> M["Apuração determinística"]
+    R["Regras implementadas e condições aplicáveis"] --> M
+    M --> O["Resultados e rastro"]
+    O --> P["Pacote do caso"]
+    P --> I["Investigador"]
+    I -->|"consulta"| T["Ferramentas de leitura"]
+    T -->|"evidências das fontes cadastradas"| I
+    P --> C["Crítico"]
+    I -->|"interpretação e evidências"| C
+    C -->|"observações, objeções e limites"| H["Revisão humana"]
+    P -->|"valor, origens e responsável"| H
+```
+
+**Referência visual e adaptação própria:** o [fluxo do case Comp](https://mktbarte.github.io/cases/case-comp.html) ajuda a separar fontes, contexto e ação. A [esteira do case Sallve](https://mktbarte.github.io/cases/case-sallve.html) ajuda a revelar etapas e intervenção humana. A composição do Lastro usa seus próprios cartões, cores e tipografia; as linhas representam somente as relações descritas aqui. Ver [referências](referencias.md).
+
+### Slide 26 — Demo: abrir a revisão do caso
+
+**Novo tópico na tela:** “A analista acompanha a revisão na mesa do caso.”
+
+**Fala:**
+
+- “Na interface, ela parte da pendência e abre a mesa do caso.”
+- “Ali pode conferir o pacote e, quando solicitar a revisão assistida, acompanhar as fontes consultadas e o parecer de cada papel.”
+
+**O que mostrar:** abrir a mesa pela pendência, localizar valor e responsável, identificar o pacote de origem e mostrar uma execução real da investigação e da crítica. Abrir uma evidência e uma observação relevante. Encerrar apontando a confirmação que continua necessária.
+
+**Preparação:** ensaiar esse caminho na versão utilizada. Identificar execução real, consulta sem IA ou replay de teste de acordo com o modo exibido. Se o modelo falhar, mostrar o estado correspondente e continuar a conferência pelo pacote disponível, sem apresentar a falha como revisão concluída.
+
+### Slide 27 — Quando a informação ainda falta
+
+**Novo tópico na tela:** “A falta de contrato vira uma pendência identificada.”
+
+**Fala:**
+
+- “Na Atlas, as operações estão identificadas, mas a condição comercial da taxa ainda depende de confirmação.”
+- “Por isso, a comissão fica sem quantificação. As operações permanecem vinculadas ao caso para serem tratadas quando a condição for confirmada.”
+
+**Visual:** mostrar um cartão de pendência com origem, responsável e condição para faturar. Separar volume movimentado e comissão desconhecida. O bloqueio se refere ao faturamento da taxa; a resposta posterior do financeiro confirma que os repasses dos recursos do lojista continuam.
+
+## Alcance atual e continuidade: setembro é o fechamento a entregar
+
+### Slide 28 — O que setembro representa no case
+
+**Novo tópico na tela:** “Setembro é o fechamento que a Tarvo precisa entregar.”
+
+**Fala:**
+
+- “No desafio, setembro é a competência que precisamos fechar: apurar as comissões, conferir as cobranças, preparar as notas e classificar os movimentos dos dois bancos.”
+- “Esse mês recebe efeitos de operações anteriores e deixa obrigações que continuam em outubro.”
+
+**Visual:** colocar **fechamento de setembro** no centro de uma linha temporal. À esquerda, um estorno de venda de agosto afeta setembro. À direita, uma transferência iniciada em 30 de setembro continua em trânsito até a entrada de outubro. Revelar uma associação por fala, conservando a competência central.
+
+**Leitura do requisito:** setembro define a entrega concreta e a base de avaliação dos números. O tratamento entre competências faz parte do problema operacional; restringir a explicação a “um pacote de setembro” esconde essa relação.
+
+### Slide 29 — O que ainda falta conferir em setembro
+
+**Novo tópico na tela:** “O fechamento precisa incorporar os ajustes recebidos.”
+
+**Fala:**
+
+- “A organização também enviou ajustes tardios de setembro. Eles precisam entrar na mesma entrega e passar pela mesma conferência de valores e origens.”
+- “O arquivo integral já foi recebido. Ainda precisamos concluir a conferência do recálculo antes de promover as saídas atualizadas.”
+
+**Visual:** acrescentar uma entrada **ajustes tardios** ao fechamento central do slide anterior. Distinguir os estados **recebido**, **processado** e **conferido**, exibindo apenas os que a versão apresentada comprovar.
+
+**Fonte e cuidado de atualização:** o [registro do case em `7d22eb1`](https://github.com/DavidDeodato/Hackathon_barte/blob/7d22eb10d5cdf8d85275eb6bf2c07e4eb93a3db8/contexto/ATUALIZACOES_CASE.md) confirma o recebimento de 14 linhas e a revisão ainda em andamento. Conferir o estado mais recente no ensaio. O recebimento não comprova incorporação nas saídas publicadas. O fechamento pode registrar pendências comerciais legítimas; uma pendência identificada não justifica omitir uma entrada obrigatória recebida.
+
+### Slide 30 — Como a analista retoma o trabalho em outubro
+
+**Novo tópico na tela:** “Outubro começa com o que setembro deixou identificado.”
+
+**Fala:**
+
+- “Em outubro, a analista precisa carregar os novos arquivos e conferir as condições aplicáveis, preservando as operações e decisões que vieram de setembro.”
+- “A Atlas é um exemplo: quando o Comercial confirmar a condição, a orientação é faturar setembro junto com outubro, respeitando a vigência desde o início da operação.”
+- “Também será preciso conferir a transferência em trânsito e tratar as respostas às contestações no período correto.”
+
+**Visual:** estender a linha temporal até **outubro**. Fazer seguir três cartões com origem preservada: **taxa Atlas a confirmar**, **transferência em trânsito** e **retorno de contestação**. Rotular esse desenho como percurso operacional a validar; carregar os cartões na narrativa não comprova persistência automática entre execuções.
+
+**Estado de implementação:** a ingestão e a apuração já existem para o lote trabalhado. Os pacotes de caso suportados estão vinculados a setembro/2026; o acompanhamento completo entre competências e o uso com um lote real de outubro ainda precisam ser demonstrados. A rotina acima explica o uso esperado e os critérios de validação para a continuidade.
+
+### Slide 31 — Prioridade de continuidade
+
+**Novo tópico na tela:** “Próximo passo: validar a continuidade do fechamento.”
+
+**Fala:**
+
+- “Depois de concluir a entrega de setembro, com mais um mês de desenvolvimento a prioridade é validar a próxima competência e acompanhar a resolução das pendências com suas origens.”
+- “Na camada de IA, precisamos medir a qualidade das interpretações e o que a crítica acrescenta. Com a analista, medir o esforço de revisão que esse fluxo exige.”
+
+**Visual:** manter setembro e outubro e revelar uma única faixa de próximos passos. Mostrar escopo, responsável e prova esperada no material de apoio. Economia de tempo e redução de erro dependem dessa medição; os oito dias da abertura são o relato do processo atual. Incorporar e conferir os ajustes tardios é requisito da entrega de setembro e deve preceder esse plano de evolução.
+
+## Ritmo e evidências de apoio
+
+Os avanços distribuem a explicação no tempo. Slides 11 e 12 são pausas curtas de entrada e definição; a fala pode ficar mais tempo nas demos. Como referência inicial de ensaio, reservar cerca de 1min30 para a abertura, 3min para contexto e solução, 1min30 para a primeira demo, 2min para a arquitetura, 1min30 para a revisão na interface e 2min para pendências e continuidade. Restam aproximadamente 3min30 dos 15 minutos para evidência do uso de IA na construção, transições e encerramento. Ajustar após o primeiro ensaio completo.
+
+A demonstração de agentes no produto e a evidência de como o time dirigiu e corrigiu a IA na construção são provas diferentes. Ainda é preciso escolher, no histórico real, o momento de erro e correção que será apresentado. O roteiro não transforma essa seleção pendente em evidência já demonstrada.
 
 ### Correspondência com as orientações do desafio
 
@@ -198,14 +461,17 @@ Esta continuação mantém o tom de conversa com o cliente. Acrescenta um contex
 - **Entregas:** apresentar as duas linhas de negócio, divergências monetárias, notas propostas, classificação e pendências com responsável.
 - **Hipóteses e perguntas:** preservar a diferença entre orientação recebida, hipótese e decisão confirmada. Uma pergunta preparada não equivale a pergunta enviada.
 - **Uso de IA:** mostrar onde os agentes atuam e um registro real de verificação/correção da IA, acompanhado do histórico correspondente. A descrição da arquitetura não substitui essa evidência.
-- **Falhas e outubro:** nomear o que exige confirmação e distinguir o escopo de setembro da continuidade ainda em desenvolvimento.
+- **Setembro:** apresentar o fechamento exigido e seu estado real, incluindo a incorporação e conferência dos ajustes tardios.
+- **Falhas e outubro:** nomear o que exige confirmação e explicar como operações, obrigações e decisões atravessam competências, distinguindo uso esperado e continuidade demonstrada.
 - **Mais um mês:** priorizar novas entradas, continuidade das pendências, validação semântica e medição com operador.
 
 ### Estado técnico usado nesta proposta
 
 Base de código considerada: [`93ffa23`](https://github.com/DavidDeodato/Hackathon_barte/commit/93ffa2352463e79c0c0b9faf78795bd103afca4a). A mesa de casos passou a integrar a aplicação principal por `CaseWorkspace`. O trecho sobre painel disponível somente em entrada separada, registrado em análises anteriores, foi superado por esse commit. Esta documentação foi incorporada sobre a `main` em [`59ee5c8`](https://github.com/DavidDeodato/Hackathon_barte/commit/59ee5c883477d17bf55210ecf5a859a51a18223d), atualização posterior que publica registros de conversas e não altera o código da aplicação.
 
-O motor financeiro e o backend agêntico não foram alterados nessa atualização de interface. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A integração foi conferida no código; não houve novo ensaio de navegador ou chamada de modelo nesta etapa. Os valores de Rota foram reproduzidos anteriormente com o mesmo motor financeiro.
+Nesta revisão do roteiro, foram consultados os commits documentais posteriores `4ebd3f6` e [`7d22eb1`](https://github.com/DavidDeodato/Hackathon_barte/commit/7d22eb10d5cdf8d85275eb6bf2c07e4eb93a3db8). Eles atualizam o estado dos ajustes tardios e acrescentam contexto do case, sem alterar código ou saídas financeiras. A consulta remota não integra esses commits automaticamente à branch local da apresentação.
+
+O motor financeiro e o backend agêntico não foram alterados nas atualizações citadas. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A integração foi conferida no código; não houve novo ensaio de navegador ou chamada de modelo nesta etapa. Os valores de Rota foram reproduzidos anteriormente com o mesmo motor financeiro e o lote anterior aos ajustes tardios. Sua manutenção na apresentação depende da conferência da versão que será demonstrada.
 
 ## Novas observações
 
@@ -214,3 +480,7 @@ Acrescentar as próximas orientações neste registro e atualizar a descrição 
 | Slide ou trecho | Observação | Origem | Situação |
 |---|---|---|---|
 | Capa e abertura | Sequência dos slides 0 a 9 registrada neste documento. | Usuário; desdobramento de execução identificado no texto. | Base para desenvolvimento. |
+| Entrada da solução | Acrescentar definição do Lastro em uma frase, depois da entrada. | Usuário; frase proposta no slide 12. | Incorporado ao roteiro. |
+| Explicação da solução | Usar bullets de fala, mais calma e um tópico principal novo por avanço. | Usuário; desdobramento nos slides 10 a 20. | Incorporado ao roteiro. |
+| Arquitetura agêntica | Anunciar o bloco e explicar associações com recursos visuais estudados na Barte. | Usuário; composição própria proposta nos slides 21 a 25. | Incorporado ao roteiro; produção visual pendente. |
+| Alcance e continuidade | Reinterpretar setembro como fechamento exigido e explicar seus vínculos com outras competências. | Usuário; requisitos e respostas do case; slides 28 a 31. | Incorporado, com estado dos ajustes tardios e limites de outubro. |

@@ -38,6 +38,20 @@ Essas abstrações respondem a perguntas diferentes. Escolher a forma pelo vínc
 
 O [roteiro](roteiro.md) contém a fala e a sequência de execução. A logo da Tarvo e a representação de Helena permanecem pendentes; não substituir por marcas ou retratos da Barte.
 
+## Aplicação à sequência da arquitetura
+
+Nos slides 21 a 25, a adaptação proposta combina a separação entre fontes e decisão do case Comp com o foco progressivo das estações do case Sallve. A arquitetura recebe um título explícito antes da construção. Cada avanço acrescenta uma responsabilidade ao mesmo desenho.
+
+| Avanço | Elemento revelado | Associação que deve ficar clara |
+|---|---|---|
+| 21 | Base de apuração e rastro; título Arquitetura agêntica | A investigação se apoia em resultados já apurados |
+| 22 | Pacote do caso | Valor, origens, contexto e responsável chegam juntos à revisão |
+| 23 | Investigador e ferramentas de leitura | O agente consulta fontes e devolve interpretação acompanhada de evidências |
+| 24 | Crítico | Recebe o pacote, a interpretação e as evidências; confronta o material recebido, sem uma nova busca nesta implementação |
+| 25 | Revisão humana | Observações e objeções ajudam a decidir; os valores continuam vinculados à apuração |
+
+Usar rótulos de relação, como **consulta**, **evidências** e **interpretação**, junto às setas. Atenuar os elementos anteriores quando o foco muda. O destaque indica o assunto da fala; não deve simular execução real ou validação do modelo. O mapa completo em Mermaid no roteiro serve como referência de composição, sem exigir que todos os detalhes apareçam ao mesmo tempo.
+
 ## Requisitos que orientam a escolha de evidências
 
 As [instruções do desafio](https://docs.google.com/document/d/1GwHs0lgLWXdw-jIrPyYAxyJ_xEJJxViE/edit), também [extraídas no repositório](../../contexto/instrucoes_extraidas.txt), orientam a demonstração: correção dos números, rastreabilidade, hipóteses, perguntas feitas, uso verificável de IA e explicação das falhas e da continuidade. As referências visuais ajudam a apresentar essas provas; não substituem a execução nem definem exigências adicionais da organização.
