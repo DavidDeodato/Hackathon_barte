@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import { taskKey } from './model';
+import { observedCaseRole, taskKey } from './model';
 import type { MissionTask } from './types';
 
 /** Overview only: the complete, keyboard-operable relation list stays in task cards. */
@@ -15,7 +15,7 @@ export function DependencyGraph({ tasks, selectedKey }: { tasks: MissionTask[]; 
   if (edges.length === 0) return null;
   return <details className="mc-graph">
     <summary>Mapa de relações declaradas · {edges.length} conexões</summary>
-    <p className="mc-caption">Seta da tarefa de origem para a tarefa derivada. A direção não representa aprovação.</p>
+    <p className="mc-caption">Seta da tarefa de origem para a tarefa derivada. Relação recebida não representa aprovação nem execução em paralelo.</p>
     <div className="mc-graph-scroll" tabIndex={0} role="region" aria-label="Mapa de dependências com rolagem horizontal">
       <svg viewBox={`0 0 750 ${Math.ceil(nodes.length / 3) * 90 + 12}`} role="img" aria-label="Relações entre as tarefas recebidas">
         <title>Relações declaradas pelos eventos</title>
@@ -27,7 +27,7 @@ export function DependencyGraph({ tasks, selectedKey }: { tasks: MissionTask[]; 
           return <g key={task.key} className={selectedKey === task.key ? 'mc-graph-node mc-graph-node-selected' : 'mc-graph-node'}>
             <title>{`${task.runId} / ${task.id}: ${task.actors.join(', ')}`}</title>
             <rect x={point.x} y={point.y} width="210" height="48" rx="5" />
-            <text x={point.x + 10} y={point.y + 20}>{task.id.length > 25 ? `${task.id.slice(0, 24)}…` : task.id}</text>
+            <text x={point.x + 10} y={point.y + 20}>{observedCaseRole(task.actors) ?? (task.id.length > 25 ? `${task.id.slice(0, 24)}…` : task.id)}</text>
             <text className="mc-graph-actor" x={point.x + 10} y={point.y + 36}>{task.actors.join(' · ').slice(0, 30)}</text>
           </g>;
         })}

@@ -13,6 +13,12 @@ export function taskKey(runId: string, taskId: string): string {
   return JSON.stringify([runId, taskId]);
 }
 
+/** Labels only explicit role actors; never infers an agent from a task name or summary. */
+export function observedCaseRole(actors: readonly string[]): string | undefined {
+  const roles = [actors.includes('INT:investigator') ? 'Investigador' : '', actors.includes('INT:critic') ? 'Crítico' : ''].filter(Boolean);
+  return roles.length ? roles.join(' + ') : undefined;
+}
+
 function isEvent(value: unknown): value is AgentEvent {
   if (!value || typeof value !== 'object') return false;
   const event = value as Record<string, unknown>;

@@ -15,9 +15,9 @@ Instrucoes oficiais e respostas do financeiro fornecidas orientam o motor. Cada 
 ## Pendencias e premissas a conferir
 
 1. Arquivo integral `06_orbe_ajustes_tardios_set2026.csv` nao incorporado. Baseline recebido nao equivale ao fechamento atualizado completo.
-2. Nove referencias de checkout anteriores a setembro exigem revisao da fonte historica. Checks independentes nao certificam taxa historica sem evidencia suficiente.
+2. Revisao dirigida dos nove estornos anteriores a setembro confirmou datas cobertas pela vigencia da tabela recebida e valores correspondentes. As vendas brutas originais de agosto nao constam do lote; suas datas sao informadas nas linhas dos estornos. Nao tratar essa ausencia como nove taxas desconhecidas nem usar aba antiga de 2025.
 3. Base temporal da isencao de antecipacao da Casa exige confronto com a resposta especifica do cliente; nao inferir data das vendas a partir da antecipacao sem agenda.
-4. Tolerancia de divergencia de remessa e criterio de classificacao de devolucao bancaria precisam permanecer documentados na implementacao e na evidencia de revisao.
+4. Remessa: reportar diferenca de taxa quando a diferenca absoluta excede 0.01 ponto percentual, tolerancia escolhida para evitar alertas de arredondamento da cotacao. A tolerancia nao altera comissao realizada; o financeiro autorizou que o time explicitasse seu criterio. A classificacao da devolucao bancaria segue uma conta consistente dentre as alternativas aceitas e deve ser conferida em cada origem.
 5. Proposta de regra nova fica pendente de evidencia especifica de autoridade. Recuperar uma regra geral de aprovadores nao e suficiente.
 
 ## Hipoteses de produto em teste

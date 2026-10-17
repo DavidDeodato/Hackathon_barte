@@ -28,6 +28,9 @@
 .mc-task-selected { border-color: var(--mc-accent); background: var(--ls-accent-soft, #e7f1ec); box-shadow: inset 2px 0 0 var(--mc-accent); }
 .mc-task-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 7px; }
 .mc-task-id { font-size: 13px; font-weight: 650; }
+.mc-task-identity { display: grid; gap: 3px; min-width: 0; }
+.mc-task-identity > strong { font-size: 14px; font-weight: 650; }
+.mc-task-identity > strong + .mc-task-id { font-size: 11px; font-weight: 400; color: var(--mc-muted); }
 .mc-status { display: inline-flex; align-items: center; gap: 5px; padding: 1px 6px; border-radius: 4px; font-size: 11px; line-height: 1.7; font-weight: 550; background: #eef0f3; color: #505b6a; }
 .mc-status::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 .mc-status-running { color: #2944b3; background: #edf0ff; }

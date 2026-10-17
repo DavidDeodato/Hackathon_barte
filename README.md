@@ -4,11 +4,11 @@ Preparar o fechamento de setembro de 2026 com origem por numero, pendencias expl
 
 ## Estado verificavel
 
-O pacote recebido gera os seis CSVs em `saida/`. Auditoria independente cobriu formato, rastro, conservacao e casos materiais; existem limites de revisao historica e a entrada integral de ajustes tardios ainda nao foi incorporada. As notas sao propostas para revisao, nao documentos fiscais emitidos. Nao apresentar este baseline como fechamento atualizado completo.
+O pacote recebido gera os seis CSVs em `saida/`. Auditoria independente cobriu formato, rastro, conservacao e casos materiais. Os nove estornos de vendas anteriores a setembro foram conferidos contra a vigencia da tabela fornecida; a ausencia das vendas brutas de agosto nao equivale a falta dessas taxas. A entrada integral de ajustes tardios ainda nao foi incorporada. As notas sao propostas para revisao, nao documentos fiscais emitidos. Nao apresentar este baseline como fechamento atualizado completo.
 
 ## Executar do zero
 
-Requer Python 3.14 e Node.js 22 ou superior. A verificacao local usa Python 3.14 e Node 24. Os arquivos originais devem estar em `contexto/data_pack/`, sem limpeza manual. O pack nao esta embutido na imagem Docker nem nas credenciais.
+Requer Python 3.14 e Node.js compativel com Vite 7 (22.12+ recomendado). A verificacao local usa Python 3.14 e Node 24. Obtenha o `Tarvo_Data_Pack_set2026.zip` fornecido pela organizacao e extraia os arquivos originais para `contexto/data_pack/`, sem limpeza manual. O pack e ignorado pelo Git: um clone sozinho nao contem os insumos. O relatorio Ponte e lido do anexo do EML; preserve o arquivo completo. O pack nao esta embutido na imagem Docker canonica nem nas credenciais.
 
 ```powershell
 python -m venv .venv
@@ -56,7 +56,7 @@ Os testes de transporte com respostas simuladas nao comprovam chamada real ao mo
 - Pendencias sao preservadas; isso nao demonstra faturamento automatico de outubro.
 - Integracoes diretas Slack/WhatsApp/email nao foram implementadas. O conhecimento usado vem das fontes fornecidas e do catalogo identificado.
 - Persistencia local SQLite exige volume persistente quando hospedada; disco efemero nao garante continuidade.
-- Comparacao semantica de execucoes implementada; UI validada em baselines equivalentes. Testes isolados de mudancas controladas nao equivalem a ajustes reais recebidos.
+- Comparacao semantica de execucoes implementada; UI validada em baselines equivalentes e em alteracao sintetica isolada de R$ 64,49, sem modificar o lote oficial. Testes isolados de mudancas controladas nao equivalem a ajustes reais recebidos.
 - Investigacao OpenAI executada pela API hospedada, com fontes e estado de revisao. Uma resposta com citacoes ainda pode interpretar mal uma regra; nao ha aprovacao automatica.
 
 Backend de demonstracao: https://api-production-6bfe.up.railway.app (autenticacao obrigatoria; /api/health publico). Teste hospedado gerou seis CSVs e uma investigacao com modelo real; fechamento continua parcial e sujeito a revisao. A entrega local funciona sem cadastro AWS.

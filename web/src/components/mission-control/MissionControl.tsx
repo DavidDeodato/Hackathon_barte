@@ -1,5 +1,5 @@
 import { useId, useMemo, useState } from 'react';
-import { buildMission, taskKey, utcTime } from './model';
+import { buildMission, observedCaseRole, taskKey, utcTime } from './model';
 import { DependencyGraph } from './DependencyGraph';
 import type { AgentEventStatus, MissionControlProps } from './types';
 import './mission-control.css';
@@ -66,7 +66,7 @@ export function MissionControl({ events, loading = false }: MissionControlProps)
                 {mission.tasks.map((task) => (
                   <li key={task.key}>
                     <button type="button" className={`mc-task${selected?.key === task.key ? ' mc-task-selected' : ''}`} aria-pressed={selected?.key === task.key} onClick={() => chooseTask(selected?.key === task.key ? null : task.key)}>
-                      <span className="mc-task-top"><span className="mc-task-id">{task.id}</span><span className={`mc-status mc-status-${task.lifecycleObserved ? task.status : 'unknown'}`}>
+                      <span className="mc-task-top"><span className="mc-task-identity">{observedCaseRole(task.actors) ? <strong>{observedCaseRole(task.actors)}</strong> : null}<span className="mc-task-id">{task.id}</span></span><span className={`mc-status mc-status-${task.lifecycleObserved ? task.status : 'unknown'}`}>
                         {task.lifecycleObserved ? STATUS_LABEL[task.status] : 'Sem estado de tarefa'}</span></span>
                       <span className="mc-task-actors">{task.actors.join(' · ')}</span>
                       <span className="mc-task-summary">{task.latest.summary}</span>

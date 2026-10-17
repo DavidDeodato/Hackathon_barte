@@ -34,6 +34,21 @@ def comparison_adapter(payload):
     return compare_runs(payload["before_dir"], payload["after_dir"])
 
 
+def case_review_adapter(payload):
+    from tarvo.agents.case_review import review_case
+    run_context = dict(payload["run_context"])
+    if run_context.get("mode") == "llm":
+        from tarvo.agents.openai_transport import create_openai_adapter
+
+        def role_factory(role):
+            # A fresh transport/history per role; never serialize callables or
+            # accept a provider factory/configuration from public HTTP input.
+            return create_openai_adapter()
+
+        run_context["case_adapter_factory"] = role_factory
+    return review_case(payload["packet"], run_context)
+
+
 def child_main(send, adapter, payload):
     try:
         result = adapter(payload)
@@ -78,12 +93,13 @@ class StateLock:
 
 
 class Worker:
-    def __init__(self, store, settings, close_adapter=finance_adapter, investigate_adapter=intelligence_adapter, compare_adapter=comparison_adapter):
+    def __init__(self, store, settings, close_adapter=finance_adapter, investigate_adapter=intelligence_adapter, compare_adapter=comparison_adapter, review_adapter=case_review_adapter):
         self.store = store
         self.settings = settings
         self.close_adapter = close_adapter
         self.investigate_adapter = investigate_adapter
         self.compare_adapter = compare_adapter
+        self.review_adapter = review_adapter
         self.stop_event = threading.Event()
         self.thread = None
         self.lock = StateLock(settings.state_dir / "worker.lock")
@@ -113,8 +129,10 @@ class Worker:
                 self.stop_event.wait(.2)
 
     def execute(self, job):
-        adapter = {"close": self.close_adapter, "investigation": self.investigate_adapter, "comparison": self.compare_adapter}[job["kind"]]
+        adapter = {"close": self.close_adapter, "investigation": self.investigate_adapter, "comparison": self.compare_adapter, "case_review": self.review_adapter}[job["kind"]]
         payload = dict(job["payload"])
+        if job["kind"] == "case_review":
+            payload["run_context"] = {**payload["run_context"], "parent_task_id": job["id"]}
         if job["kind"] == "close":
             Path(payload["output_dir"]).mkdir(parents=True, exist_ok=True)
         context = multiprocessing.get_context("spawn")
@@ -141,10 +159,10 @@ class Worker:
                     except EOFError:
                         ok, result = False, {"code": "WORKER_EXITED", "message": "Processo terminou sem resultado."}
                     if ok:
-                        if job["kind"] == "investigation":
+                        if job["kind"] in {"investigation", "case_review"}:
                             self.store.append_events(job, result.get("events", []))
                         status = result.get("status", "pending_review" if job["kind"] == "close" else "completed")
-                        if status == "needs_review":
+                        if status in {"needs_review", "review_required", "needs_evidence"}:
                             status = "pending_review"
                         allowed = {"completed", "pending_review", "blocked", "unavailable", "failed", "replay"}
                         if status not in allowed:

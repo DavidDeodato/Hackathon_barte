@@ -4,6 +4,7 @@ import json
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from copy import deepcopy
 from pathlib import Path
 
@@ -57,8 +58,14 @@ class CaseReviewTests(unittest.TestCase):
                        'owner': 'Helena', 'closure_evidence': ['Decisao especifica e comprovante vinculado.'],
                        'status': 'prepared_for_review', 'approved': False, 'sent': False}
         self.context = {'project_root': str(self.root), 'output_dir': str(self.output), 'run_id': 'FIX-RUN'}
+        # Synthetic fixture packet is authenticated by a stubbed DOM builder.
+        # Production binding is exercised separately against real DOM packets.
+        self.canonical_packet = deepcopy(self.packet)
+        self.builder_patch = patch('tarvo.finance.cases.build_case_packet', side_effect=lambda *_: deepcopy(self.canonical_packet))
+        self.builder_patch.start()
 
     def tearDown(self):
+        self.builder_patch.stop()
         self.temp.cleanup()
 
     def adapters(self, investigator_final=None, critic_final=None):
@@ -97,6 +104,8 @@ class CaseReviewTests(unittest.TestCase):
         critic_input = json.loads(critic.requests[0]['messages'][1]['content'])
         self.assertEqual(critic_input['investigator_conclusion']['role'], 'investigator')
         self.assertEqual(critic_input['evidence'][0]['data']['id'], 'R1')
+        self.assertEqual(critic_input['decision_under_review'], self.packet['action_type'])
+        self.assertIn('estorno', critic_input['case_challenge'].lower())
         self.assertEqual(critic.requests[0]['tools'], [])
         self.assertEqual(result['packet']['amount'], '12.35')
         self.assertFalse(result['model_called'])  # explicit replay
@@ -132,12 +141,13 @@ class CaseReviewTests(unittest.TestCase):
 
     def test_unknown_amount_stays_null_and_not_zero(self):
         self.packet.update(case_key='atlas', amount=None, amount_nature='comissao_desconhecida')
+        self.canonical_packet = deepcopy(self.packet)
         result = self.run_assisted()
         self.assertIsNone(result['packet']['amount'])
         self.assertEqual(result['status'], 'review_required')
 
     def test_critic_objection_preserves_packet_and_requires_evidence(self):
-        inv, critic = self.adapters(critic_final=verdict(objections=['Destino proposto precisa de evidencia especifica.']))
+        inv, critic = self.adapters(critic_final=verdict(objections=['Decisao: preparar devolucao | Fonte: R1 e packet.recipient | Efeito: manter o item sem envio ate conferir a origem.']))
         before = deepcopy(self.packet)
         result = self.run_assisted(inv, critic)
         self.assertEqual(result['status'], 'needs_evidence')
@@ -217,6 +227,47 @@ class CaseReviewTests(unittest.TestCase):
         result = self.run_assisted(inv, critic)
         self.assertEqual(result['status'], 'needs_evidence')
         self.assertFalse(result['approved'])
+
+    def test_qa_explicit_absence_and_positive_certainty_are_distinct(self):
+        inv, critic = self.adapters(critic_final=verdict(summary='Não há evidência de que Helena aprovou esta condição.', needs_evidence=True))
+        self.assertEqual(self.run_assisted(inv, critic)['status'], 'needs_evidence')
+        inv, critic = self.adapters(critic_final=verdict(summary='Não há dúvida de que Helena aprovou esta condição.'))
+        self.assertEqual(self.run_assisted(inv, critic)['status'], 'failed')
+        inv, critic = self.adapters(critic_final=verdict(summary='Helena aprovou esta devolução.'))
+        self.assertEqual(self.run_assisted(inv, critic)['status'], 'failed')
+
+    def test_same_csv_snapshot_does_not_authenticate_forged_packet_content(self):
+        for key, value in [('amount', '0.00'), ('recipient', 'Orbe'), ('rows', []), ('case_id', 'forged')]:
+            forged = dict(self.packet, **{key: value})
+            result = review_case(forged, self.context)
+            self.assertEqual(result['status'], 'failed')
+            self.assertEqual(result['error_code'], 'packet_not_canonical')
+            self.assertFalse(result['integration_allowed'])
+
+    def test_unqualified_objection_is_preserved_without_accepted_counterevidence(self):
+        text = 'Falta toda a tabela historica e provas de outras partes.'
+        inv, critic = self.adapters(critic_final=verdict(objections=[text]))
+        result = self.run_assisted(inv, critic)
+        role = result['roles'][1]
+        self.assertEqual(result['status'], 'needs_evidence')
+        self.assertEqual(role['objections'], [])
+        self.assertEqual(role['model_objections'], [text])
+        self.assertEqual(role['rejected_objections'][0]['text'], text)
+        self.assertEqual(role['rejected_objections'][0]['reason'], 'missing_concrete_decision_source_effect')
+
+    def test_not_found_is_observed_abstention_not_global_absence(self):
+        inv, critic = self.adapters()
+        inv.responses[0] = {'tool_calls': [{'id': 'nf', 'name': 'lookup_reference', 'arguments': {'reference': 'DOES-NOT-EXIST'}}]}
+        inv.responses[1] = verdict(needs_evidence=True)
+        inv.responses[1]['citations'] = ['packet:' + self.packet['case_id']]
+        critic.responses[0]['citations'] = ['packet:' + self.packet['case_id']]
+        result = self.run_assisted(inv, critic)
+        self.assertEqual(result['status'], 'needs_evidence')
+        record = result['evidence'][0]
+        self.assertEqual(record['kind'], 'lookup_not_found')
+        self.assertEqual(record['data']['reference'], 'DOES-NOT-EXIST')
+        self.assertTrue(record['data']['files_checked'])
+        self.assertTrue(any('ausência global' in item for item in result['roles'][0]['limitations']))
 
     def test_investigator_must_actually_retrieve_and_cite_evidence(self):
         inv, critic = self.adapters()
@@ -311,6 +362,21 @@ class CaseReviewTests(unittest.TestCase):
         self.assertEqual(sum(metric['total_tokens'] for metric in result['model_metrics']), 39)
         self.assertNotIn('SYNTHETIC-KEY', json.dumps(result))
         self.assertFalse(result['model_called'])
+
+
+class CanonicalDOMRegressionTests(unittest.TestCase):
+    @unittest.skipUnless((ROOT / 'saida/manifest.json').is_file(), 'Requires generated baseline outputs')
+    def test_real_dom_packet_binding_rejects_same_snapshot_forgery(self):
+        from tarvo.finance.cases import build_case_packet
+        context = {'project_root': str(ROOT), 'output_dir': str(ROOT / 'saida')}
+        mundo = build_case_packet(str(ROOT / 'saida'), 'mundo')
+        original = deepcopy(mundo)
+        self.assertEqual(review_case(mundo, context)['status'], 'review_required')
+        forged = dict(mundo, amount='0.00')
+        self.assertEqual(review_case(forged, context)['error_code'], 'packet_not_canonical')
+        casa = build_case_packet(str(ROOT / 'saida'), 'casa')
+        self.assertEqual(review_case(dict(casa, recipient='Orbe'), context)['error_code'], 'packet_not_canonical')
+        self.assertEqual(mundo, original)
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ from starlette.exceptions import HTTPException
 
 from tarvo.storage import Store, QueueFull
 from .config import Settings
-from .worker import Worker, finance_adapter, intelligence_adapter, comparison_adapter
+from .worker import Worker, finance_adapter, intelligence_adapter, comparison_adapter, case_review_adapter
 
 
 class RunInput(BaseModel):
@@ -33,6 +33,15 @@ class ComparisonInput(BaseModel):
     after_run_id: str = Field(min_length=1, max_length=100)
 
 
+CaseKey = Literal["casa", "rota", "mundo", "atlas"]
+
+
+class CaseReviewInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    case_key: CaseKey
+    mode: Literal["deterministic", "llm"] = "deterministic"
+
+
 class APIError(Exception):
     def __init__(self, code, message, status=400):
         self.code, self.message, self.status = code, message, status
@@ -46,11 +55,11 @@ def public_run(job):
             "outputs": [Path(p).name for p in result.get("outputs", [])], "error": job["error"]}
 
 
-def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter=intelligence_adapter, start_worker=True, compare_adapter=comparison_adapter):
+def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter=intelligence_adapter, start_worker=True, compare_adapter=comparison_adapter, review_adapter=case_review_adapter):
     settings = settings or Settings.from_env()
     settings.validate()
     store = Store(settings.state_dir / "tarvo.sqlite3")
-    worker = Worker(store, settings, close_adapter, investigate_adapter, compare_adapter)
+    worker = Worker(store, settings, close_adapter, investigate_adapter, compare_adapter, review_adapter)
 
     @asynccontextmanager
     async def lifespan(app):
@@ -251,5 +260,62 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
     def cancel_comparison(comparison_id: str):
         get_comparison(comparison_id)
         return comparison_view(store.cancel(comparison_id))
+
+    def case_packet(run_id, case_key):
+        from tarvo.finance.cases import build_case_packet
+        job = get_run(run_id)
+        if job["status"] not in {"pending_review", "completed"} or not (job["result"] or {}).get("outputs"):
+            raise APIError("RUN_NOT_READY", "Caso exige fechamento processado com arquivos de saída.", 409)
+        root = Path(job["payload"]["output_dir"]).resolve()
+        if not root.is_relative_to((settings.state_dir / "runs").resolve()):
+            raise APIError("CASE_PACKET_INVALID", "Diretório de saída fora do escopo da execução.", 409)
+        try:
+            for name in public_run(job)["outputs"]:
+                output_path(job, name)
+            packet = build_case_packet(str(root), case_key)
+        except (ValueError, FileNotFoundError, OSError, KeyError, APIError):
+            raise APIError("CASE_PACKET_INVALID", "Pacote indisponível ou versão de saída inconsistente; revisar o fechamento.", 409) from None
+        return job, packet
+
+    @app.get("/api/runs/{run_id}/cases/{case_key}", dependencies=auth)
+    def get_case_packet(run_id: str, case_key: CaseKey):
+        _, packet = case_packet(run_id, case_key)
+        return {"run_id": run_id, "case_key": case_key, "packet": packet}
+
+    @app.post("/api/runs/{run_id}/case-reviews", status_code=202, dependencies=auth)
+    def create_case_review(run_id: str, body: CaseReviewInput):
+        if body.mode == "llm" and not settings.api_token:
+            raise APIError("LLM_AUTH_REQUIRED", "Revisão assistida exige autenticação configurada no servidor.", 403)
+        job, packet = case_packet(run_id, body.case_key)
+        context = {"project_root": str(settings.project_root), "output_dir": job["payload"]["output_dir"],
+                   "run_id": run_id, "period": job["period"], "mode": body.mode}
+        review = enqueue("case_review", job["period"], {"case_key": body.case_key, "packet": packet, "run_context": context}, run_id=run_id)
+        return {"review_id": review["id"], "run_id": run_id, "case_key": body.case_key, "status": review["status"]}
+
+    def get_case_review(review_id):
+        job = store.get(review_id)
+        if job is None or job["kind"] != "case_review":
+            raise APIError("CASE_REVIEW_NOT_FOUND", "Revisão de caso não encontrada.", 404)
+        return job
+
+    def review_view(job):
+        return {"review_id": job["id"], "run_id": job["run_id"], "case_key": job["payload"]["case_key"],
+                "status": job["status"], "result": job["result"], "error": job["error"]}
+
+    @app.get("/api/case-reviews/{review_id}", dependencies=auth)
+    def get_case_review_result(review_id: str):
+        return review_view(get_case_review(review_id))
+
+    @app.get("/api/case-reviews/{review_id}/events", dependencies=auth)
+    def case_review_events(review_id: str, after: int = 0, limit: int = 100):
+        get_case_review(review_id)
+        if after < 0 or not 1 <= limit <= 500:
+            raise APIError("INVALID_CURSOR", "Cursor ou limite inválido.", 422)
+        return store.job_events(review_id, after, limit)
+
+    @app.post("/api/case-reviews/{review_id}/cancel", status_code=202, dependencies=auth)
+    def cancel_case_review(review_id: str):
+        get_case_review(review_id)
+        return review_view(store.cancel(review_id))
 
     return app

@@ -31,11 +31,16 @@ class Store:
               );
               CREATE TABLE IF NOT EXISTS events (
                 seq INTEGER PRIMARY KEY AUTOINCREMENT, run_id TEXT NOT NULL,
-                event TEXT NOT NULL
+                event TEXT NOT NULL, job_id TEXT
               );
               CREATE INDEX IF NOT EXISTS job_queue ON jobs(status, created_at);
               CREATE INDEX IF NOT EXISTS run_events ON events(run_id, seq);
             """)
+            # Additive migration: historical event rows remain intact. New jobs
+            # bind every imported child event to the actual durable queue job.
+            if "job_id" not in {row["name"] for row in db.execute("PRAGMA table_info(events)")}:
+                db.execute("ALTER TABLE events ADD COLUMN job_id TEXT")
+            db.execute("CREATE INDEX IF NOT EXISTS job_events ON events(job_id,seq)")
 
     @contextmanager
     def connect(self):
@@ -57,13 +62,13 @@ class Store:
         return item
 
     @staticmethod
-    def _event(db, run_id, task_id, type_, status, summary, actor="api", evidence_refs=None, parent_task_id=None):
+    def _event(db, run_id, task_id, type_, status, summary, actor="api", evidence_refs=None, parent_task_id=None, job_id=None):
         event = dict(id=str(uuid4()), run_id=run_id, task_id=task_id,
                      timestamp=utc_now(), actor=actor, type=type_, status=status,
                      summary=summary, evidence_refs=evidence_refs or [])
         if parent_task_id:
             event["parent_task_id"] = parent_task_id
-        db.execute("INSERT INTO events(run_id,event) VALUES (?,?)", (run_id, json.dumps(event)))
+        db.execute("INSERT INTO events(run_id,event,job_id) VALUES (?,?,?)", (run_id, json.dumps(event), job_id or task_id))
 
     def enqueue(self, kind, period, payload, run_id=None, max_pending=20):
         job_id = run_id if kind == "close" and run_id else str(uuid4())
@@ -76,7 +81,7 @@ class Store:
                 raise QueueFull()
             db.execute("INSERT INTO jobs(id,kind,run_id,status,period,created_at,updated_at,payload) VALUES (?,?,?,'queued',?,?,?,?)",
                        (job_id, kind, run_id, period, stamp, stamp, json.dumps(payload)))
-            label = {"close": "Fechamento enfileirado", "investigation": "Investigação enfileirada", "comparison": "Comparação enfileirada"}[kind]
+            label = {"close": "Fechamento enfileirado", "investigation": "Investigação enfileirada", "comparison": "Comparação enfileirada", "case_review": "Revisão de caso enfileirada"}[kind]
             self._event(db, run_id, job_id, "task.created", "queued", label)
         return self.get(job_id)
 
@@ -141,6 +146,7 @@ class Store:
 
     def append_events(self, job, events):
         allowed = {"task.created", "task.started", "tool.called", "evidence.found", "handoff.requested", "task.completed", "task.failed", "decision.proposed", "review.required"}
+        observed_tasks = {str(event.get("task_id"))[:160] for event in events if isinstance(event, dict) and event.get("task_id")}
         with self.connect() as db:
             for event in events:
                 if not isinstance(event, dict) or event.get("type") not in allowed:
@@ -149,12 +155,21 @@ class Store:
                 if status not in {"queued", "running", "completed", "failed", "blocked"}:
                     status = "completed"
                 task_id = str(event.get("task_id") or job["id"])[:160]
+                parent = str(event.get("parent_task_id") or "")[:160]
+                if parent == task_id or parent not in observed_tasks | {job["id"]}:
+                    parent = job["id"] if task_id != job["id"] else None
                 self._event(db, job["run_id"], task_id, event["type"], status,
                             str(event.get("summary", ""))[:2000], str(event.get("actor", "investigator"))[:100], event.get("evidence_refs", []),
-                            parent_task_id=job["id"] if task_id != job["id"] else None)
+                            parent_task_id=parent, job_id=job["id"])
 
     def events(self, run_id, after=0, limit=100):
         with self.connect() as db:
             rows = db.execute("SELECT seq,event FROM events WHERE run_id=? AND seq>? ORDER BY seq LIMIT ?", (run_id, after, limit)).fetchall()
         items = [{**json.loads(r["event"]), "cursor": r["seq"]} for r in rows]
         return {"items": items, "next_cursor": rows[-1]["seq"] if rows else None}
+
+    def job_events(self, job_id, after=0, limit=100):
+        with self.connect() as db:
+            rows = db.execute("SELECT seq,event FROM events WHERE job_id=? AND seq>? ORDER BY seq LIMIT ?", (job_id, after, limit)).fetchall()
+        return {"events": [{**json.loads(row["event"]), "cursor": row["seq"]} for row in rows],
+                "next_cursor": rows[-1]["seq"] if rows else None}
