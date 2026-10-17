@@ -130,7 +130,7 @@ class FullPackInvariants(unittest.TestCase):
         self.assertEqual(before,{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in self.out.glob('*.csv')})
 
     def test_missing_period_is_not_fabricated(self):
-        with self.assertRaisesRegex(ValueError,'No source records'):
+        with self.assertRaisesRegex(ValueError,'Sem registros para a competência|fora da competência selecionada'):
             run_close(str(ROOT/'contexto/data_pack'),str(self.out),'2026-10')
 
 

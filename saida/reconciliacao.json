@@ -13,14 +13,14 @@
   },
   {
     "id_saida": "COM-2026-09-ab4a6f905adb1c",
-    "expected": "16077.90",
-    "trace": "16077.90",
+    "expected": "13845.71",
+    "trace": "13845.71",
     "ok": true
   },
   {
     "id_saida": "COM-2026-09-09fc2436650351",
-    "expected": "10711.41",
-    "trace": "10711.41",
+    "expected": "10886.22",
+    "trace": "10886.22",
     "ok": true
   },
   {
@@ -31,8 +31,8 @@
   },
   {
     "id_saida": "COM-2026-09-f25bcb08fdba34",
-    "expected": "11906.08",
-    "trace": "11906.08",
+    "expected": "11876.37",
+    "trace": "11876.37",
     "ok": true
   },
   {
@@ -43,8 +43,8 @@
   },
   {
     "id_saida": "COM-2026-09-3a91c12bba7ecd",
-    "expected": "11916.02",
-    "trace": "11916.02",
+    "expected": "11769.74",
+    "trace": "11769.74",
     "ok": true
   },
   {
@@ -61,8 +61,8 @@
   },
   {
     "id_saida": "COM-2026-09-afbf6a07ddfc6e",
-    "expected": "18522.09",
-    "trace": "18522.09",
+    "expected": "18508.09",
+    "trace": "18508.09",
     "ok": true
   },
   {
@@ -91,14 +91,14 @@
   },
   {
     "id_saida": "COM-2026-09-345366890b797d",
-    "expected": "12070.17",
-    "trace": "12070.17",
+    "expected": "11858.16",
+    "trace": "11858.16",
     "ok": true
   },
   {
     "id_saida": "COM-2026-09-fb39aa7aaecf6e",
-    "expected": "15010.78",
-    "trace": "15010.78",
+    "expected": "14165.77",
+    "trace": "14165.77",
     "ok": true
   },
   {
@@ -1615,14 +1615,14 @@
   },
   {
     "id_saida": "NF-2026-09-ab4a6f905adb1c",
-    "expected": "16077.90",
-    "trace": "16077.90",
+    "expected": "13845.71",
+    "trace": "13845.71",
     "ok": true
   },
   {
     "id_saida": "NF-2026-09-09fc2436650351",
-    "expected": "10711.41",
-    "trace": "10711.41",
+    "expected": "10886.22",
+    "trace": "10886.22",
     "ok": true
   },
   {
@@ -1633,8 +1633,8 @@
   },
   {
     "id_saida": "NF-2026-09-f25bcb08fdba34",
-    "expected": "11906.08",
-    "trace": "11906.08",
+    "expected": "11876.37",
+    "trace": "11876.37",
     "ok": true
   },
   {
@@ -1645,8 +1645,8 @@
   },
   {
     "id_saida": "NF-2026-09-3a91c12bba7ecd",
-    "expected": "11916.02",
-    "trace": "11916.02",
+    "expected": "11769.74",
+    "trace": "11769.74",
     "ok": true
   },
   {
@@ -1663,8 +1663,8 @@
   },
   {
     "id_saida": "NF-2026-09-afbf6a07ddfc6e",
-    "expected": "18522.09",
-    "trace": "18522.09",
+    "expected": "18508.09",
+    "trace": "18508.09",
     "ok": true
   },
   {
@@ -1693,14 +1693,14 @@
   },
   {
     "id_saida": "NF-2026-09-345366890b797d",
-    "expected": "12070.17",
-    "trace": "12070.17",
+    "expected": "11858.16",
+    "trace": "11858.16",
     "ok": true
   },
   {
     "id_saida": "NF-2026-09-fb39aa7aaecf6e",
-    "expected": "15010.78",
-    "trace": "15010.78",
+    "expected": "14165.77",
+    "trace": "14165.77",
     "ok": true
   },
   {

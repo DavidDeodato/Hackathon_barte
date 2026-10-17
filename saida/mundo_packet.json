@@ -1,0 +1,3643 @@
+{
+  "schema_version": "case-packet-v1",
+  "case_id": "case-ed8ee531f8db38b39efe",
+  "case_key": "mundo",
+  "run_id": "close-2068e24a102ebea3",
+  "period": "2026-09",
+  "snapshot": {
+    "comissoes_por_lojista.csv": "4791e34087e4efb0f7668b53628dd9142d189479290f134d971382a935bdb64b",
+    "divergencias_taxa.csv": "408852591e0832325f823db2120c5cef52b792533627a1fde3308e261eb7a22e",
+    "notas_a_emitir.csv": "ce6fb82c8cc36dfc5fef64ac5efe3f47af450ceae1f8da8760a98f505fb4376b",
+    "lancamentos_classificados.csv": "d2980c2483e7e5f7bf809e88acb6838f932ea763243a74e44c4c36bcba1c3f71",
+    "pendencias.csv": "4e3c50e156fb45b5e6fc7ff06bea9c279fcd581fee7b6cfb9ddfb75ce027d9e0",
+    "rastro.csv": "60c3591045953939da8889f4ce0f12c99a40542a4a2ab97d03b5b182cfd5de1c"
+  },
+  "snapshot_id": "snapshot-b97bd050903c54d80d07",
+  "entity": {
+    "identifier": "17217888000111",
+    "identifier_type": "CNPJ",
+    "name": "Mundo Aberto"
+  },
+  "line_of_business": "REMESSA",
+  "source_refs": [
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0011@L10",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0016@L14",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0033@L23",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0039@L25",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0045@L28",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0075@L40",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0098@L49",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0141@L68",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0145@L69",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0180@L85",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0188@L88",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0236@L106",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0240@L107",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0266@L118",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0364@L157",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0373@L161",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0388@L167",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0409@L175",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0434@L184",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0487@L202",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0492@L206",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0516@L217",
+    "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0566@L236"
+  ],
+  "rule_refs": [
+    "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+    "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05"
+  ],
+  "rows": [
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "29.56",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "10",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0011",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5007",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-a9a2e5003a347c",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "29.56",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "10",
+          "ref_origem": "PC-0926-0011",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "29.56"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0011@L10"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "68.32",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "14",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0016",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5006",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-7e1993de1fe653",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "68.32",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "14",
+          "ref_origem": "PC-0926-0016",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "68.32"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0016@L14"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "68.2",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "23",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0033",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5001",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-c46a9d0fdb0cf6",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "68.20",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "23",
+          "ref_origem": "PC-0926-0033",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "68.2"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0033@L23"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "63.59",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "25",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0039",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5001",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-6e91d2562d1907",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "63.59",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "25",
+          "ref_origem": "PC-0926-0039",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "63.59"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0039@L25"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "45.66",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "28",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0045",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5003",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-ebb738c7810fd9",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "45.66",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "28",
+          "ref_origem": "PC-0926-0045",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "45.66"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0045@L28"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "75.41",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "40",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0075",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4993",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-c5e688fc34c0f5",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "75.41",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "40",
+          "ref_origem": "PC-0926-0075",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "75.41"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0075@L40"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "18.59",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "49",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0098",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5002",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-ba7a2283e64698",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "18.59",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "49",
+          "ref_origem": "PC-0926-0098",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "18.59"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0098@L49"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "44.4",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "68",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0141",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5009",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-30aaaa00696736",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "44.40",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "68",
+          "ref_origem": "PC-0926-0141",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "44.4"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0141@L68"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "65.71",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "69",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0145",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5003",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-2124c3e447978b",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "65.71",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "69",
+          "ref_origem": "PC-0926-0145",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "65.71"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0145@L69"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "69.12",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "85",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0180",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5002",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-636e7589df2d87",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "69.12",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "85",
+          "ref_origem": "PC-0926-0180",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "69.12"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0180@L85"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "40.38",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "88",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0188",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4991",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-70de167a86c63d",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "40.38",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "88",
+          "ref_origem": "PC-0926-0188",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "40.38"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0188@L88"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "71.36",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "106",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0236",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5009",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-7e19be80ec521e",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "71.36",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "106",
+          "ref_origem": "PC-0926-0236",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "71.36"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0236@L106"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "16.71",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "107",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0240",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5003",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-aa0bf376987912",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "16.71",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "107",
+          "ref_origem": "PC-0926-0240",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "16.71"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0240@L107"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "65.78",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "118",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0266",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4996",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-9fbc856cc1a937",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "65.78",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "118",
+          "ref_origem": "PC-0926-0266",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "65.78"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0266@L118"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "43.42",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "157",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0364",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5002",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-8a96855d352ba6",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "43.42",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "157",
+          "ref_origem": "PC-0926-0364",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "43.42"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0364@L157"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "113.41",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "161",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0373",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4998",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-d304483a106afa",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "113.41",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "161",
+          "ref_origem": "PC-0926-0373",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "113.41"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0373@L161"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "62.4",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "167",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0388",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4993",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-044e21c484e893",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "62.40",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "167",
+          "ref_origem": "PC-0926-0388",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "62.4"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0388@L167"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "19.9",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "175",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0409",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4996",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-ccf33d71ddbb78",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "19.90",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "175",
+          "ref_origem": "PC-0926-0409",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "19.9"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0409@L175"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "235.74",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "184",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0434",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4996",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-360c6e85268cec",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "235.74",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "184",
+          "ref_origem": "PC-0926-0434",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "235.74"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0434@L184"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "65.02",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "202",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0487",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4995",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-71d095ecd01d13",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "65.02",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "202",
+          "ref_origem": "PC-0926-0487",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "65.02"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0487@L202"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "36.13",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "206",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0492",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.4998",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-6247e9d011c68e",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "36.13",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "206",
+          "ref_origem": "PC-0926-0492",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "36.13"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0492@L206"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "23.28",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "217",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0516",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5001",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-e95e65f871acd8",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "23.28",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "217",
+          "ref_origem": "PC-0926-0516",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "23.28"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0516@L217"
+      ]
+    },
+    {
+      "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+      "cnpj": "17217888000111",
+      "contestar_parceiro": "REVISAO_HELENA",
+      "diferenca_brl": "76.76",
+      "linha_negocio": "REMESSA",
+      "linha_origem": "236",
+      "natureza": "SPREAD_LOJISTA_VALOR_INTEGRAL",
+      "quem_decide": "Helena",
+      "ref_origem": "PC-0926-0566",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04",
+      "taxa_aplicada_pct": "1.5001",
+      "taxa_contratada_pct": "1.2",
+      "id_saida": "DIV-2026-09-8c5d9bc9b75a16",
+      "output_file": "divergencias_taxa.csv",
+      "amount": "76.76",
+      "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+      "trace_rows": [
+        {
+          "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+          "campo_origem": "Spread %;PTAX Ref.;Valor ME",
+          "formula": "(aplicado - contratado) * PTAX * Valor ME; integral; tolerância >0.01 p.p.",
+          "linha_origem": "236",
+          "ref_origem": "PC-0926-0566",
+          "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04",
+          "valor": "76.76"
+        }
+      ],
+      "source_refs": [
+        "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0566@L236"
+      ]
+    }
+  ],
+  "output_ids": [
+    "DIV-2026-09-044e21c484e893",
+    "DIV-2026-09-2124c3e447978b",
+    "DIV-2026-09-30aaaa00696736",
+    "DIV-2026-09-360c6e85268cec",
+    "DIV-2026-09-6247e9d011c68e",
+    "DIV-2026-09-636e7589df2d87",
+    "DIV-2026-09-6e91d2562d1907",
+    "DIV-2026-09-70de167a86c63d",
+    "DIV-2026-09-71d095ecd01d13",
+    "DIV-2026-09-7e1993de1fe653",
+    "DIV-2026-09-7e19be80ec521e",
+    "DIV-2026-09-8a96855d352ba6",
+    "DIV-2026-09-8c5d9bc9b75a16",
+    "DIV-2026-09-9fbc856cc1a937",
+    "DIV-2026-09-a9a2e5003a347c",
+    "DIV-2026-09-aa0bf376987912",
+    "DIV-2026-09-ba7a2283e64698",
+    "DIV-2026-09-c46a9d0fdb0cf6",
+    "DIV-2026-09-c5e688fc34c0f5",
+    "DIV-2026-09-ccf33d71ddbb78",
+    "DIV-2026-09-d304483a106afa",
+    "DIV-2026-09-e95e65f871acd8",
+    "DIV-2026-09-ebb738c7810fd9",
+    "PEN-2026-09-68c07849ff1f16"
+  ],
+  "amount": "1418.85",
+  "amount_nature": "excesso_integral_de_spread_pago_pelo_lojista",
+  "amount_reconciliation": {
+    "metric": "excesso_integral_de_spread_pago_pelo_lojista",
+    "component_sum": "1418.85",
+    "reported_amount": "1418.85",
+    "matches": true,
+    "method": "Soma assinada das divergências por origem, reconciliada com pendência e rastro; sem somar duas representações."
+  },
+  "supporting_metrics": [],
+  "related_outputs": {
+    "pending": [
+      {
+        "estado": "PENDENTE",
+        "metrica_valor": "excesso integral de spread",
+        "motivo": "Contestar excesso integral ao lojista, mantendo participação realizada setembro. Ajuste só na competência futura em que ocorrer.",
+        "quem_decide": "Helena / Ponte Câmbio",
+        "ref_origem": "17217888000111",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+        "tipo": "CONTESTACAO_PONTE",
+        "valor_brl": "1418.85",
+        "id_saida": "PEN-2026-09-68c07849ff1f16",
+        "output_file": "pendencias.csv",
+        "amount": "1418.85",
+        "amount_nature": "excesso integral de spread",
+        "trace_rows": [
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "10",
+            "ref_origem": "PC-0926-0011",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "29.56"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "106",
+            "ref_origem": "PC-0926-0236",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "71.36"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "107",
+            "ref_origem": "PC-0926-0240",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "16.71"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "118",
+            "ref_origem": "PC-0926-0266",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "65.78"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "14",
+            "ref_origem": "PC-0926-0016",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "68.32"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "157",
+            "ref_origem": "PC-0926-0364",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "43.42"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "161",
+            "ref_origem": "PC-0926-0373",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "113.41"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "167",
+            "ref_origem": "PC-0926-0388",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "62.4"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "175",
+            "ref_origem": "PC-0926-0409",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "19.9"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "184",
+            "ref_origem": "PC-0926-0434",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "235.74"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "202",
+            "ref_origem": "PC-0926-0487",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "65.02"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "206",
+            "ref_origem": "PC-0926-0492",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "36.13"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "217",
+            "ref_origem": "PC-0926-0516",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "23.28"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "23",
+            "ref_origem": "PC-0926-0033",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "68.2"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "236",
+            "ref_origem": "PC-0926-0566",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "76.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "25",
+            "ref_origem": "PC-0926-0039",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "63.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "28",
+            "ref_origem": "PC-0926-0045",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "45.66"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "40",
+            "ref_origem": "PC-0926-0075",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "75.41"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "49",
+            "ref_origem": "PC-0926-0098",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "18.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "68",
+            "ref_origem": "PC-0926-0141",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "44.4"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "69",
+            "ref_origem": "PC-0926-0145",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "65.71"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "85",
+            "ref_origem": "PC-0926-0180",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "69.12"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "excesso integral de spread",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "88",
+            "ref_origem": "PC-0926-0188",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R04/REG-R05",
+            "valor": "40.38"
+          }
+        ],
+        "source_refs": [
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0011@L10",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0016@L14",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0033@L23",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0039@L25",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0045@L28",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0075@L40",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0098@L49",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0141@L68",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0145@L69",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0180@L85",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0188@L88",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0236@L106",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0240@L107",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0266@L118",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0364@L157",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0373@L161",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0388@L167",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0409@L175",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0434@L184",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0487@L202",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0492@L206",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0516@L217",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0566@L236"
+        ]
+      }
+    ],
+    "commissions": [
+      {
+        "cnpj": "17217888000111",
+        "comissao_brl": "3547.69",
+        "linha_negocio": "REMESSA",
+        "lojista": "Mundo Aberto",
+        "id_saida": "COM-2026-09-e2219ef38d62a4",
+        "output_file": "comissoes_por_lojista.csv",
+        "amount": "3547.69",
+        "amount_nature": "participacao_sobre_realizado_elegivel",
+        "trace_rows": [
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "10",
+            "ref_origem": "PC-0926-0011",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "73.77"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "106",
+            "ref_origem": "PC-0926-0236",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "177.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "107",
+            "ref_origem": "PC-0926-0240",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "41.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "118",
+            "ref_origem": "PC-0926-0266",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "164.63"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "14",
+            "ref_origem": "PC-0926-0016",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.54"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "157",
+            "ref_origem": "PC-0926-0364",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "108.49"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "161",
+            "ref_origem": "PC-0926-0373",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "283.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "167",
+            "ref_origem": "PC-0926-0388",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "156.31"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "175",
+            "ref_origem": "PC-0926-0409",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "49.8"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "184",
+            "ref_origem": "PC-0926-0434",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "589.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "202",
+            "ref_origem": "PC-0926-0487",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "162.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "206",
+            "ref_origem": "PC-0926-0492",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "90.38"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "217",
+            "ref_origem": "PC-0926-0516",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "58.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "23",
+            "ref_origem": "PC-0926-0033",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "236",
+            "ref_origem": "PC-0926-0566",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "191.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "25",
+            "ref_origem": "PC-0926-0039",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "158.95"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "28",
+            "ref_origem": "PC-0926-0045",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "114.05"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "40",
+            "ref_origem": "PC-0926-0075",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "188.86"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "49",
+            "ref_origem": "PC-0926-0098",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "46.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "68",
+            "ref_origem": "PC-0926-0141",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "110.74"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "69",
+            "ref_origem": "PC-0926-0145",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "164.15"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "85",
+            "ref_origem": "PC-0926-0180",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "172.71"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "Spread R$ * 50%; ROUND_HALF_UP por operação",
+            "linha_origem": "88",
+            "ref_origem": "PC-0926-0188",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "101.19"
+          }
+        ],
+        "source_refs": [
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0011@L10",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0016@L14",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0033@L23",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0039@L25",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0045@L28",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0075@L40",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0098@L49",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0141@L68",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0145@L69",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0180@L85",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0188@L88",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0236@L106",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0240@L107",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0266@L118",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0364@L157",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0373@L161",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0388@L167",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0409@L175",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0434@L184",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0487@L202",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0492@L206",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0516@L217",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0566@L236"
+        ]
+      }
+    ],
+    "invoices": [
+      {
+        "discriminacao": "Intermediação de câmbio - competência 2026-09",
+        "estado": "PREPARADA_NAO_EMITIDA",
+        "linha_negocio": "REMESSA",
+        "tomador": "Ponte Câmbio S.A.",
+        "tomador_cnpj": "75374179000146",
+        "valor_brl": "39543.45",
+        "id_saida": "NF-2026-09-a5cf5825486f8e",
+        "output_file": "notas_a_emitir.csv",
+        "amount": "39543.45",
+        "amount_nature": "NF_total_Ponte_nao_somente_Mundo",
+        "trace_rows": [
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "10",
+            "ref_origem": "PC-0926-0011",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "73.77"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "100",
+            "ref_origem": "PC-0926-0222",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "141.8"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "101",
+            "ref_origem": "PC-0926-0226",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "98.21"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "102",
+            "ref_origem": "PC-0926-0228",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "128.21"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "103",
+            "ref_origem": "PC-0926-0230",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "135.07"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "104",
+            "ref_origem": "PC-0926-0231",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "70.18"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "105",
+            "ref_origem": "PC-0926-0234",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "134.83"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "106",
+            "ref_origem": "PC-0926-0236",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "177.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "107",
+            "ref_origem": "PC-0926-0240",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "41.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "108",
+            "ref_origem": "PC-0926-0242",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "116.54"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "109",
+            "ref_origem": "PC-0926-0243",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "173.43"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "11",
+            "ref_origem": "PC-0926-0012",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "189.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "110",
+            "ref_origem": "PC-0926-0247",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "48.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "111",
+            "ref_origem": "PC-0926-0249",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "159.82"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "112",
+            "ref_origem": "PC-0926-0250",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "169.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "113",
+            "ref_origem": "PC-0926-0254",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "251.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "114",
+            "ref_origem": "PC-0926-0258",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "96.14"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "115",
+            "ref_origem": "PC-0926-0260",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "124.12"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "116",
+            "ref_origem": "PC-0926-0261",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "283.24"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "117",
+            "ref_origem": "PC-0926-0265",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "221.96"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "118",
+            "ref_origem": "PC-0926-0266",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "164.63"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "119",
+            "ref_origem": "PC-0926-0267",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "132.78"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "12",
+            "ref_origem": "PC-0926-0013",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "140.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "120",
+            "ref_origem": "PC-0926-0271",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "135.57"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "121",
+            "ref_origem": "PC-0926-0275",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "68.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "122",
+            "ref_origem": "PC-0926-0276",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "226.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "123",
+            "ref_origem": "PC-0926-0279",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "116.31"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "124",
+            "ref_origem": "PC-0926-0280",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "102.13"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "125",
+            "ref_origem": "PC-0926-0284",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "171.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "126",
+            "ref_origem": "PC-0926-0286",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "64.34"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "127",
+            "ref_origem": "PC-0926-0288",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "441.23"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "128",
+            "ref_origem": "PC-0926-0291",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "87.88"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "129",
+            "ref_origem": "PC-0926-0293",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "137"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "13",
+            "ref_origem": "PC-0926-0014",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "446.1"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "130",
+            "ref_origem": "PC-0926-0296",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "308.77"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "131",
+            "ref_origem": "PC-0926-0300",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "130.63"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "132",
+            "ref_origem": "PC-0926-0303",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "122.73"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "133",
+            "ref_origem": "PC-0926-0304",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "101.09"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "134",
+            "ref_origem": "PC-0926-0307",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "134.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "135",
+            "ref_origem": "PC-0926-0311",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "81.1"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "136",
+            "ref_origem": "PC-0926-0313",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "80.15"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "137",
+            "ref_origem": "PC-0926-0316",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "209.51"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "138",
+            "ref_origem": "PC-0926-0318",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "475.67"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "139",
+            "ref_origem": "PC-0926-0321",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "383.22"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "14",
+            "ref_origem": "PC-0926-0016",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.54"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "140",
+            "ref_origem": "PC-0926-0322",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "93.18"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "142",
+            "ref_origem": "PC-0926-0329",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "250.72"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "143",
+            "ref_origem": "PC-0926-0333",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "73.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "144",
+            "ref_origem": "PC-0926-0337",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "203.43"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "145",
+            "ref_origem": "PC-0926-0341",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "172.33"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "146",
+            "ref_origem": "PC-0926-0343",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "254.78"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "147",
+            "ref_origem": "PC-0926-0344",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "91.35"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "148",
+            "ref_origem": "PC-0926-0346",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "95.58"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "149",
+            "ref_origem": "PC-0926-0350",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "209.2"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "15",
+            "ref_origem": "PC-0926-0020",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "135.51"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "150",
+            "ref_origem": "PC-0926-0352",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "129.96"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "151",
+            "ref_origem": "PC-0926-0355",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "189.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "152",
+            "ref_origem": "PC-0926-0356",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "76.88"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "153",
+            "ref_origem": "PC-0926-0358",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "112.16"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "154",
+            "ref_origem": "PC-0926-0360",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "251.58"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "155",
+            "ref_origem": "PC-0926-0361",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "51.99"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "156",
+            "ref_origem": "PC-0926-0362",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "367.37"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "157",
+            "ref_origem": "PC-0926-0364",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "108.49"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "158",
+            "ref_origem": "PC-0926-0367",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "125.33"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "159",
+            "ref_origem": "PC-0926-0370",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "146.66"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "16",
+            "ref_origem": "PC-0926-0023",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "87.57"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "160",
+            "ref_origem": "PC-0926-0371",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "197.58"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "161",
+            "ref_origem": "PC-0926-0373",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "283.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "162",
+            "ref_origem": "PC-0926-0374",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "149.14"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "163",
+            "ref_origem": "PC-0926-0377",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "103.97"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "164",
+            "ref_origem": "PC-0926-0380",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "262.2"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "165",
+            "ref_origem": "PC-0926-0384",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "207.37"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "166",
+            "ref_origem": "PC-0926-0385",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "49.32"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "167",
+            "ref_origem": "PC-0926-0388",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "156.31"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "168",
+            "ref_origem": "PC-0926-0392",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "191.5"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "169",
+            "ref_origem": "PC-0926-0395",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "117.74"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "17",
+            "ref_origem": "PC-0926-0024",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "171.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "170",
+            "ref_origem": "PC-0926-0399",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "65.25"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "171",
+            "ref_origem": "PC-0926-0403",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "180.72"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "172",
+            "ref_origem": "PC-0926-0405",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "100.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "173",
+            "ref_origem": "PC-0926-0406",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "140.61"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "174",
+            "ref_origem": "PC-0926-0407",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "382.15"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "175",
+            "ref_origem": "PC-0926-0409",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "49.8"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "176",
+            "ref_origem": "PC-0926-0410",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "423.24"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "177",
+            "ref_origem": "PC-0926-0413",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "59.7"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "178",
+            "ref_origem": "PC-0926-0416",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "87.66"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "179",
+            "ref_origem": "PC-0926-0418",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "519.97"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "18",
+            "ref_origem": "PC-0926-0025",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "165.57"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "180",
+            "ref_origem": "PC-0926-0419",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "80.45"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "181",
+            "ref_origem": "PC-0926-0422",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "239.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "182",
+            "ref_origem": "PC-0926-0426",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "79.61"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "183",
+            "ref_origem": "PC-0926-0430",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "117.57"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "184",
+            "ref_origem": "PC-0926-0434",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "589.98"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "185",
+            "ref_origem": "PC-0926-0436",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "53.79"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "186",
+            "ref_origem": "PC-0926-0440",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "89.36"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "187",
+            "ref_origem": "PC-0926-0443",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "56.42"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "188",
+            "ref_origem": "PC-0926-0447",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "775.6"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "189",
+            "ref_origem": "PC-0926-0448",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "46.4"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "19",
+            "ref_origem": "PC-0926-0026",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "171.99"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "190",
+            "ref_origem": "PC-0926-0449",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.67"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "191",
+            "ref_origem": "PC-0926-0450",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "156.1"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "192",
+            "ref_origem": "PC-0926-0454",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "54.27"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "193",
+            "ref_origem": "PC-0926-0456",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "252.38"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "194",
+            "ref_origem": "PC-0926-0459",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "95.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "195",
+            "ref_origem": "PC-0926-0463",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "100.1"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "196",
+            "ref_origem": "PC-0926-0466",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "28.51"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "197",
+            "ref_origem": "PC-0926-0470",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "375.87"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "198",
+            "ref_origem": "PC-0926-0473",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "181.24"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "199",
+            "ref_origem": "PC-0926-0477",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "109.92"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "20",
+            "ref_origem": "PC-0926-0027",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "119.16"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "200",
+            "ref_origem": "PC-0926-0481",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "51.53"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "201",
+            "ref_origem": "PC-0926-0484",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "36.34"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "202",
+            "ref_origem": "PC-0926-0487",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "162.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "203",
+            "ref_origem": "PC-0926-0488",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "224.44"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "204",
+            "ref_origem": "PC-0926-0489",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "245.48"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "206",
+            "ref_origem": "PC-0926-0492",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "90.38"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "207",
+            "ref_origem": "PC-0926-0494",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "291.67"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "208",
+            "ref_origem": "PC-0926-0496",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "428"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "209",
+            "ref_origem": "PC-0926-0500",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "193.53"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "21",
+            "ref_origem": "PC-0926-0031",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "174.53"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "210",
+            "ref_origem": "PC-0926-0502",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "121.62"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "211",
+            "ref_origem": "PC-0926-0505",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "140.81"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "212",
+            "ref_origem": "PC-0926-0507",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "37.26"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "213",
+            "ref_origem": "PC-0926-0509",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "124.35"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "214",
+            "ref_origem": "PC-0926-0510",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "205.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "215",
+            "ref_origem": "PC-0926-0514",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "186.99"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "216",
+            "ref_origem": "PC-0926-0515",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "232.02"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "217",
+            "ref_origem": "PC-0926-0516",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "58.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "218",
+            "ref_origem": "PC-0926-0517",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "310.83"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "219",
+            "ref_origem": "PC-0926-0521",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "78.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "22",
+            "ref_origem": "PC-0926-0032",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "265.8"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "220",
+            "ref_origem": "PC-0926-0524",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "84.02"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "221",
+            "ref_origem": "PC-0926-0528",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "532.44"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "222",
+            "ref_origem": "PC-0926-0529",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "45.73"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "223",
+            "ref_origem": "PC-0926-0530",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "146.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "224",
+            "ref_origem": "PC-0926-0534",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "402.52"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "225",
+            "ref_origem": "PC-0926-0536",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "124.47"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "226",
+            "ref_origem": "PC-0926-0540",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "93.99"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "227",
+            "ref_origem": "PC-0926-0543",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "146.67"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "229",
+            "ref_origem": "PC-0926-0549",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "139.54"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "23",
+            "ref_origem": "PC-0926-0033",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "230",
+            "ref_origem": "PC-0926-0553",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "225.24"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "231",
+            "ref_origem": "PC-0926-0557",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "789.42"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "232",
+            "ref_origem": "PC-0926-0558",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "53.25"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "233",
+            "ref_origem": "PC-0926-0561",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "272.82"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "234",
+            "ref_origem": "PC-0926-0562",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "144.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "235",
+            "ref_origem": "PC-0926-0563",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "51.21"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "236",
+            "ref_origem": "PC-0926-0566",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "191.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "237",
+            "ref_origem": "PC-0926-0569",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "487.22"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "238",
+            "ref_origem": "PC-0926-0570",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "110.42"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "24",
+            "ref_origem": "PC-0926-0035",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "76.34"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "25",
+            "ref_origem": "PC-0926-0039",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "158.95"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "26",
+            "ref_origem": "PC-0926-0040",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "56.58"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "27",
+            "ref_origem": "PC-0926-0041",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "132.21"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "28",
+            "ref_origem": "PC-0926-0045",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "114.05"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "29",
+            "ref_origem": "PC-0926-0046",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "129.09"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "30",
+            "ref_origem": "PC-0926-0047",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "122.59"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "31",
+            "ref_origem": "PC-0926-0048",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "122.6"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "32",
+            "ref_origem": "PC-0926-0052",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "244.85"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "33",
+            "ref_origem": "PC-0926-0056",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "177.88"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "34",
+            "ref_origem": "PC-0926-0059",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "110.57"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "35",
+            "ref_origem": "PC-0926-0060",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "208.22"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "36",
+            "ref_origem": "PC-0926-0063",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "252.35"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "37",
+            "ref_origem": "PC-0926-0067",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "61.51"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "38",
+            "ref_origem": "PC-0926-0071",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "156.92"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "39",
+            "ref_origem": "PC-0926-0074",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "31.06"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "40",
+            "ref_origem": "PC-0926-0075",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "188.86"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "41",
+            "ref_origem": "PC-0926-0078",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "127.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "42",
+            "ref_origem": "PC-0926-0082",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "40.47"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "43",
+            "ref_origem": "PC-0926-0085",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "84.62"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "44",
+            "ref_origem": "PC-0926-0089",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "649.38"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "45",
+            "ref_origem": "PC-0926-0093",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "292.86"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "46",
+            "ref_origem": "PC-0926-0095",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "103.7"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "47",
+            "ref_origem": "PC-0926-0096",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "260.84"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "48",
+            "ref_origem": "PC-0926-0097",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "158.04"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "49",
+            "ref_origem": "PC-0926-0098",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "46.46"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "50",
+            "ref_origem": "PC-0926-0100",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "83.83"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "51",
+            "ref_origem": "PC-0926-0102",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "102.6"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "52",
+            "ref_origem": "PC-0926-0103",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "126.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "53",
+            "ref_origem": "PC-0926-0107",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "233.68"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "54",
+            "ref_origem": "PC-0926-0108",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "120.76"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "55",
+            "ref_origem": "PC-0926-0110",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "209.79"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "56",
+            "ref_origem": "PC-0926-0113",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "83.97"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "57",
+            "ref_origem": "PC-0926-0117",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "286.87"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "58",
+            "ref_origem": "PC-0926-0120",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "128.42"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "59",
+            "ref_origem": "PC-0926-0123",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "113.14"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "6",
+            "ref_origem": "PC-0926-0002",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "131.01"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "60",
+            "ref_origem": "PC-0926-0125",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "388.13"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "61",
+            "ref_origem": "PC-0926-0127",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "170.03"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "62",
+            "ref_origem": "PC-0926-0130",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "179.15"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "63",
+            "ref_origem": "PC-0926-0132",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "224.11"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "64",
+            "ref_origem": "PC-0926-0135",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "307.72"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "65",
+            "ref_origem": "PC-0926-0136",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "160.25"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "66",
+            "ref_origem": "PC-0926-0137",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "193.13"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "67",
+            "ref_origem": "PC-0926-0140",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "58.65"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "68",
+            "ref_origem": "PC-0926-0141",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "110.74"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "69",
+            "ref_origem": "PC-0926-0145",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "164.15"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "7",
+            "ref_origem": "PC-0926-0003",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "270.39"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "70",
+            "ref_origem": "PC-0926-0147",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "58.93"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "71",
+            "ref_origem": "PC-0926-0149",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "111.1"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "72",
+            "ref_origem": "PC-0926-0153",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "302.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "73",
+            "ref_origem": "PC-0926-0156",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "64.69"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "74",
+            "ref_origem": "PC-0926-0157",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "71.54"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "75",
+            "ref_origem": "PC-0926-0159",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "53.96"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "76",
+            "ref_origem": "PC-0926-0162",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "410.94"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "78",
+            "ref_origem": "PC-0926-0166",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "130.53"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "79",
+            "ref_origem": "PC-0926-0170",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "108.02"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "8",
+            "ref_origem": "PC-0926-0004",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "244.23"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "80",
+            "ref_origem": "PC-0926-0171",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "84.35"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "81",
+            "ref_origem": "PC-0926-0173",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "202.16"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "82",
+            "ref_origem": "PC-0926-0174",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "221.41"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "83",
+            "ref_origem": "PC-0926-0176",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "37.9"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "84",
+            "ref_origem": "PC-0926-0177",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "199.55"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "85",
+            "ref_origem": "PC-0926-0180",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "172.71"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "86",
+            "ref_origem": "PC-0926-0183",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "35.01"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "87",
+            "ref_origem": "PC-0926-0185",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "172.66"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "88",
+            "ref_origem": "PC-0926-0188",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "101.19"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "89",
+            "ref_origem": "PC-0926-0192",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "278.23"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "9",
+            "ref_origem": "PC-0926-0007",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "130.93"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "90",
+            "ref_origem": "PC-0926-0196",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "288.66"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "91",
+            "ref_origem": "PC-0926-0197",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "38.22"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "92",
+            "ref_origem": "PC-0926-0200",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "134.75"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "93",
+            "ref_origem": "PC-0926-0203",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "242.06"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "94",
+            "ref_origem": "PC-0926-0207",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "416.47"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "95",
+            "ref_origem": "PC-0926-0208",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "122.81"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "97",
+            "ref_origem": "PC-0926-0214",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "223.5"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "98",
+            "ref_origem": "PC-0926-0218",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "228.72"
+          },
+          {
+            "arquivo_origem": "03_email_ponte_cambio_relatorio_set2026.eml",
+            "campo_origem": "Spread R$",
+            "formula": "participação Tarvo; não estimado D-1",
+            "linha_origem": "99",
+            "ref_origem": "PC-0926-0221",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-R01/REG-R02/REG-R05",
+            "valor": "118.72"
+          }
+        ],
+        "source_refs": [
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0002@L6",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0003@L7",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0004@L8",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0007@L9",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0011@L10",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0012@L11",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0013@L12",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0014@L13",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0016@L14",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0020@L15",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0023@L16",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0024@L17",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0025@L18",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0026@L19",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0027@L20",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0031@L21",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0032@L22",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0033@L23",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0035@L24",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0039@L25",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0040@L26",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0041@L27",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0045@L28",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0046@L29",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0047@L30",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0048@L31",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0052@L32",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0056@L33",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0059@L34",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0060@L35",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0063@L36",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0067@L37",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0071@L38",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0074@L39",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0075@L40",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0078@L41",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0082@L42",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0085@L43",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0089@L44",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0093@L45",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0095@L46",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0096@L47",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0097@L48",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0098@L49",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0100@L50",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0102@L51",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0103@L52",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0107@L53",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0108@L54",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0110@L55",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0113@L56",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0117@L57",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0120@L58",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0123@L59",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0125@L60",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0127@L61",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0130@L62",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0132@L63",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0135@L64",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0136@L65",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0137@L66",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0140@L67",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0141@L68",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0145@L69",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0147@L70",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0149@L71",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0153@L72",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0156@L73",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0157@L74",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0159@L75",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0162@L76",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0166@L78",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0170@L79",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0171@L80",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0173@L81",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0174@L82",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0176@L83",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0177@L84",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0180@L85",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0183@L86",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0185@L87",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0188@L88",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0192@L89",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0196@L90",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0197@L91",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0200@L92",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0203@L93",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0207@L94",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0208@L95",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0214@L97",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0218@L98",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0221@L99",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0222@L100",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0226@L101",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0228@L102",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0230@L103",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0231@L104",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0234@L105",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0236@L106",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0240@L107",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0242@L108",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0243@L109",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0247@L110",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0249@L111",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0250@L112",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0254@L113",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0258@L114",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0260@L115",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0261@L116",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0265@L117",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0266@L118",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0267@L119",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0271@L120",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0275@L121",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0276@L122",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0279@L123",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0280@L124",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0284@L125",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0286@L126",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0288@L127",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0291@L128",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0293@L129",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0296@L130",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0300@L131",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0303@L132",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0304@L133",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0307@L134",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0311@L135",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0313@L136",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0316@L137",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0318@L138",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0321@L139",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0322@L140",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0329@L142",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0333@L143",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0337@L144",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0341@L145",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0343@L146",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0344@L147",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0346@L148",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0350@L149",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0352@L150",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0355@L151",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0356@L152",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0358@L153",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0360@L154",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0361@L155",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0362@L156",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0364@L157",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0367@L158",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0370@L159",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0371@L160",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0373@L161",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0374@L162",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0377@L163",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0380@L164",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0384@L165",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0385@L166",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0388@L167",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0392@L168",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0395@L169",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0399@L170",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0403@L171",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0405@L172",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0406@L173",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0407@L174",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0409@L175",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0410@L176",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0413@L177",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0416@L178",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0418@L179",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0419@L180",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0422@L181",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0426@L182",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0430@L183",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0434@L184",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0436@L185",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0440@L186",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0443@L187",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0447@L188",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0448@L189",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0449@L190",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0450@L191",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0454@L192",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0456@L193",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0459@L194",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0463@L195",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0466@L196",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0470@L197",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0473@L198",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0477@L199",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0481@L200",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0484@L201",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0487@L202",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0488@L203",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0489@L204",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0492@L206",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0494@L207",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0496@L208",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0500@L209",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0502@L210",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0505@L211",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0507@L212",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0509@L213",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0510@L214",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0514@L215",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0515@L216",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0516@L217",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0517@L218",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0521@L219",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0524@L220",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0528@L221",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0529@L222",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0530@L223",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0534@L224",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0536@L225",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0540@L226",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0543@L227",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0549@L229",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0553@L230",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0557@L231",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0558@L232",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0561@L233",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0562@L234",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0563@L235",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0566@L236",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0569@L237",
+          "03_email_ponte_cambio_relatorio_set2026.eml#PC-0926-0570@L238"
+        ]
+      }
+    ],
+    "other_pending": []
+  },
+  "action_type": "prepare_ponte_dispute",
+  "recipient": "Ponte Câmbio",
+  "owner": "Helena",
+  "action_prepared": "Preparar contestação do excesso integral pago pelo lojista. Manter comissão e NF de setembro pelo realizado elegível; eventual ajuste só na competência em que ocorrer.",
+  "closure_evidence": [
+    "Revisão documentada de Helena sobre operações e excesso integral a contestar.",
+    "Registro do envio por Helena e resposta documentada da Ponte Câmbio.",
+    "Crédito/débito no relatório seguinte e conferência de Helena antes de reconhecer eventual ajuste."
+  ],
+  "status": "prepared_for_review",
+  "sent": false,
+  "approved": false,
+  "model_used": false,
+  "limitations": [
+    "Ação documental preparada para revisão, sem envio, aprovação, emissão ou movimentação financeira.",
+    "Valores extraídos das saídas e do rastro deste snapshot; não houve recálculo por modelo.",
+    "Rascunho não resolve pendência nem comprova recuperação/devolução ou ganho econômico.",
+    "Comissão, NF, divergência e pendência podem representar o mesmo dinheiro; não somar naturezas sobrepostas.",
+    "Hashes identificam os seis CSVs; não certificam autenticidade externa de contrato ou aprovação.",
+    "Contestação Mundo usa excesso integral, não 50%. Comissão realizada e NF única Ponte são contexto separado e permanecem intactas."
+  ]
+}

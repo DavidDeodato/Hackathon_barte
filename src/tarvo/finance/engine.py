@@ -14,10 +14,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .ingest import (D, ZERO, cnpj, find_file, money, norm, read_banks,
-                     read_contracts, read_orbe, read_remittances, read_text)
+                     read_contracts, read_orbe, read_remittances, read_text, merge_orbe)
 
 RULES = 'contexto/RESPOSTAS_FINANCEIRO.md'
-VERSION = 'dom-v1.0'
+VERSION = 'dom-v1.2'
 FIELDS = {
     'comissoes_por_lojista.csv': ['id_saida', 'cnpj', 'lojista', 'linha_negocio', 'comissao_brl'],
     'divergencias_taxa.csv': ['id_saida', 'cnpj', 'linha_negocio', 'ref_origem', 'taxa_contratada_pct', 'taxa_aplicada_pct', 'diferenca_brl', 'natureza', 'quem_decide', 'contestar_parceiro', 'regra_fonte', 'arquivo_origem', 'linha_origem'],
@@ -374,33 +374,96 @@ class Close:
         return checks
 
 
-def run_close(input_dir: str, output_dir: str, period: str = '2026-09') -> dict:
+def run_close(input_dir: str, output_dir: str, period: str = '2026-09', *, input_files: dict | None = None) -> dict:
     if not re.fullmatch(r'\d{4}-(0[1-9]|1[0-2])',period):
-        raise ValueError('period must be YYYY-MM')
+        raise ValueError('Competência inválida: informe ano e mês no formato AAAA-MM.')
     src,out = Path(input_dir).resolve(),Path(output_dir).resolve()
     if src == out or src in out.parents:
         raise ValueError('Output directory must be outside original input directory')
-    paths = {key:find_file(src,prefix,suffix) for key,prefix,suffix in [
+    role_specs = [
         ('orbe','01_','.csv'),('contracts','02_','.xlsx'),('remessa','03_','.eml'),
-        ('accounts','04_','.csv'),('aurora','05a_','.csv'),('meridiano','05b_','.ofx')]}
+        ('accounts','04_','.csv'),('aurora','05a_','.csv'),('meridiano','05b_','.ofx')]
+    if input_files is not None:
+        required={r for r,_,_ in role_specs}
+        if not isinstance(input_files,dict) or not required.issubset(input_files) or set(input_files)-required-{'adjustments'}:
+            raise ValueError('Conjunto incompleto ou inválido: selecione os seis tipos de documento e, quando disponível, o arquivo de ajustes.')
+        paths={}
+        for role,name in input_files.items():
+            if not isinstance(name,str) or not name or Path(name).name != name or '/' in name or '\\' in name:
+                raise ValueError('Nome de documento inválido: selecione somente arquivos do conjunto, sem caminhos externos.')
+            try:
+                p=(src/name).resolve(strict=True)
+            except OSError:
+                raise ValueError('Documento selecionado não está disponível no conjunto. Selecione ou envie novamente.') from None
+            if p.parent != src or not p.is_file():
+                raise ValueError('Documento selecionado precisa ser um arquivo disponível dentro do conjunto.')
+            expected=next((s for r,_,s in role_specs if r==role),'.csv')
+            if p.suffix.lower()!=expected:
+                raise ValueError(f'Tipo de documento incompatível: {role} precisa de arquivo {expected}.')
+            paths[role]=p
+        if len(set(paths.values())) != len(paths):
+            raise ValueError('Um mesmo documento não pode preencher dois tipos de entrada do conjunto.')
+        paths={role:paths[role] for role in [*[r for r,_,_ in role_specs],'adjustments'] if role in paths}
+    else:
+        paths={key:find_file(src,prefix,suffix) for key,prefix,suffix in role_specs}
+        adjustments=sorted(p for p in src.iterdir() if p.is_file() and p.name.startswith('06_') and p.suffix.lower()=='.csv')
+        if len(adjustments)>1:
+            raise ValueError('Multiple adjustment files: choose one explicitly through input_files')
+        if adjustments:
+            paths['adjustments']=adjustments[0]
+    announcement_path=Path(__file__).parent/'data/announced_inputs.json'
+    announcement_digest=hashlib.sha256(announcement_path.read_bytes()).hexdigest()
+    announcements=[a for a in json.loads(announcement_path.read_text(encoding='utf-8'))['announcements'] if a['period']==period]
     inputs = [{'path':str(p),'file':p.name,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths.values()]
-    rows = read_orbe(paths['orbe']); contracts = read_contracts(paths['contracts'])
+    base_rows=read_orbe(paths['orbe'])
+    adjustment_rows=read_orbe(paths['adjustments']) if 'adjustments' in paths else []
+    if any(not r['date'].startswith(period) for r in adjustment_rows):
+        raise ValueError('O arquivo de ajustes contém movimento fora da competência selecionada.')
+    for announcement in announcements:
+        if 'adjustments' in paths and len(adjustment_rows)!=announcement['expected_rows']:
+            raise ValueError(f'O ajuste anunciado de setembro exige {announcement["expected_rows"]} linhas. Envie o CSV original integral; arquivo parcial não foi processado.')
+    rows,orbe_duplicates=merge_orbe(base_rows+adjustment_rows)
+    contracts = read_contracts(paths['contracts'])
     remits,partner = read_remittances(paths['remessa'])
     banks = read_banks(paths['aurora'],paths['meridiano'])
     if not any(r['date'].startswith(period) for r in rows + remits + banks):
-        raise ValueError(f'No source records for {period}; refusing to label September as a different month')
+        raise ValueError(f'Sem registros para a competência {period}. Selecione os documentos desse mês; alterar o mês na tela não altera as datas dos arquivos.')
+    missing_period=[role for role,events in [('checkout',rows),('remessa',remits),
+        ('aurora',[r for r in banks if r['bank']=='AURORA']),('meridiano',[r for r in banks if r['bank']=='MERIDIANO'])]
+        if not any(r['date'].startswith(period) for r in events)]
+    if missing_period:
+        labels={'checkout':'checkout','remessa':'remessas','aurora':'Banco Aurora','meridiano':'Banco Meridiano'}
+        raise ValueError(f'Conjunto incompatível com a competência {period}: sem movimentos de '+', '.join(labels[r] for r in missing_period)+'. Selecione os arquivos correspondentes ao mês.')
     accounts = list(csv.DictReader(read_text(paths['accounts']).splitlines(),delimiter=';'))
     close = Close(period)
     close.checkout(rows,contracts)
     close.remittances(remits,contracts,partner)
     close.banks(banks,accounts)
-    extras = sorted(p.name for p in src.glob('06*'))
-    close.pending('AJUSTES_TARDIOS_NAO_INCORPORADOS','06_orbe_ajustes_tardios_set2026.csv',
-        'Baseline das seis fontes originais. Arquivo integral de ajustes tardios ausente ou sem parser homologado; fechamento final depende da incorporação e reexecução.' if not extras else
-        'Arquivo adicional localizado mas não incorporado: '+', '.join(extras)+'. Exige inspeção de schema e rastro antes de promover resultado.',
-        'Helena / coordenador',rule='aviso de ajustes tardios; PROJECT_CONTROL R004')
+    for original,duplicate in orbe_duplicates:
+        close.pending('DUPLICATA_CHECKOUT',duplicate['id_transacao'],
+            f'Payload idêntico já contado em {original["source"]} L{original["source_line"]}; preservar cópias sem duplicar comissão.',
+            'Responsável pelos dados / Helena',[(duplicate,ZERO)],'identidade exata por id_transacao e 14 campos Orbe','impacto adicional após deduplicação')
+        close.details['checkout'].append(dict(duplicate,state='duplicata_excluida',commission=ZERO,duplicate_of=dict(file=original['source'],line=original['source_line'])))
+    missing_announcements=[]
+    for announcement in announcements:
+        if announcement['role'] not in paths:
+            missing_announcements.append(announcement)
+            close.pending('ENTRADA_ANUNCIADA_AUSENTE',announcement['expected_file'],
+                f'Comunicado da organização anuncia {announcement["expected_rows"]} linhas no schema01 para esta competência e exige incorporação. Fornecer CSV original integral; não reconstruir transcrição parcial. As partes independentes do lote original foram calculadas.',
+                'Responsável pelos documentos / Helena',rule=announcement['source_ref'],metric='entrada operacional anunciada; efeito financeiro não quantificado')
+    # A possible external update is not a financial obligation. Only observed
+    # extra input files are reported, without assuming their content/authority.
+    extra_paths = sorted(p for p in src.iterdir() if p.is_file() and p not in paths.values()
+                         and p.name != '00_LEIA-ME.md' and not p.name.startswith('.'))
+    extras = [p.name for p in extra_paths]
+    for extra in extra_paths:
+        digest = hashlib.sha256(extra.read_bytes()).hexdigest()
+        inputs.append(dict(path=str(extra),file=extra.name,sha256=digest))
+        close.pending('INPUT_ADICIONAL_NAO_HOMOLOGADO',extra.name,
+            'Arquivo adicional observado, ainda não processado. Conferir origem, competência, schema e natureza antes de incorporar; conteúdo e efeito financeiro não inferidos.',
+            'Responsável pelos dados / Helena',rule=f'arquivo observado: {extra.name}; sha256={digest}')
     checks = close.reconcile()
-    identity = json.dumps([VERSION,period,inputs],sort_keys=True).encode()
+    identity = json.dumps([VERSION,period,inputs,announcement_digest],sort_keys=True).encode()
     run_id = 'close-'+hashlib.sha256(identity).hexdigest()[:16]
     out.mkdir(parents=True,exist_ok=True)
     outputs = []
@@ -421,15 +484,21 @@ def run_close(input_dir: str, output_dir: str, period: str = '2026-09') -> dict:
         casa_refund_brl=sum((r['diferenca_brl'] for r in divergences if r['natureza']=='DEVOLUCAO_CASA_SEM_COBRANCA_ORBE'),ZERO),
         remessa_rate_difference_brl=sum((r['diferenca_brl'] for r in divergences if r['linha_negocio']=='REMESSA'),ZERO),
         counts={name:len(lines) for name,lines in close.tables.items()},
-        input_counts=dict(orbe=len(rows),contracts=len(contracts),remessa_rows=len(remits),bank_movements=len(banks)),
+        input_counts=dict(orbe=len(rows),contracts=len(contracts),remessa_rows=len(remits),bank_movements=len(banks),
+                          orbe_raw=len(base_rows)+len(adjustment_rows),adjustment_rows=len(adjustment_rows),orbe_duplicates=len(orbe_duplicates)),
         trace_checks=len(checks),trace_reconciled=True,financial_approval='PENDENTE_HELENA',
-        late_adjustments='PENDENTE',mode='DETERMINISTICO',completeness='BASELINE_SEM_AJUSTES_TARDIOS')
+        late_adjustments='ENTRADA_ANUNCIADA_AUSENTE' if missing_announcements else 'INPUT_ADICIONAL_NAO_HOMOLOGADO' if extras else 'INCORPORADO' if adjustment_rows else 'NAO_ANUNCIADO_PARA_COMPETENCIA',
+        operational_input_issues=len(missing_announcements)+len(extras),
+        selected_input_files={role:p.name for role,p in paths.items()},
+        mode='DETERMINISTICO',completeness='LOTE_ORIGINAL_PROCESSADO_ATUALIZACAO_PENDENTE' if missing_announcements else 'ENTRADAS_ADICIONAIS_NAO_PROCESSADAS' if extras else 'CONJUNTO_FORNECIDO_PROCESSADO')
     result = dict(run_id=run_id,period=period,status='pending_review',outputs=outputs,summary=summary,issues=close.issues)
     # All additional files are explicit, auditable source-level evidence; not a second calculation engine.
     dump(out/'detalhes.json',dict(run_id=run_id,period=period,contracts=contracts,**close.details))
     dump(out/'reconciliacao.json',checks)
     dump(out/'manifest.json',dict(version=VERSION,run_id=run_id,period=period,created_at=datetime.now(timezone.utc).isoformat(),
-        inputs=inputs,additional_files=extras,outputs=[dict(file=Path(p).name,sha256=hashlib.sha256(Path(p).read_bytes()).hexdigest()) for p in outputs],
+        inputs=inputs,additional_files=extras,processed_adjustment_files=[paths['adjustments'].name] if 'adjustments' in paths else [],
+        announced_inputs=announcements,announcement_source_sha256=announcement_digest,
+        outputs=[dict(file=Path(p).name,sha256=hashlib.sha256(Path(p).read_bytes()).hexdigest()) for p in outputs],
         policies=dict(rounding='Decimal ROUND_HALF_UP por evento antes da soma',
                       remessa_tolerance='diferença absoluta de spread > 0.01 p.p.; escolha metodológica do time, não regra aprovada pelo cliente',
                       pending_values='valores de pendências têm métricas distintas e não devem ser somados',

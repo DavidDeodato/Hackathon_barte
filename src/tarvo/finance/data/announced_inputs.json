@@ -1,0 +1,24 @@
+{
+  "version": "tarvo-announced-inputs-20261017-v1",
+  "announcements": [
+    {
+      "id": "ORBE-2026-09-LATE",
+      "period": "2026-09",
+      "role": "adjustments",
+      "expected_file": "06_orbe_ajustes_tardios_set2026.csv",
+      "expected_rows": 14,
+      "schema": "orbe_01",
+      "required": true,
+      "source_ref": "src/tarvo/finance/data/announced_inputs.json#ORBE-2026-09-LATE",
+      "source": {
+        "kind": "user_provided_attachment_transcript",
+        "attachment_name": "Pasted text.txt",
+        "attachment_id": "0d41719e-9fcf-47a2-a640-e7b23aa51439",
+        "sha256": "903c333da31edbd6b14aa26bc5535382173bdeb535d8a9e96b81e6bfae5e0910",
+        "locator": "lines 333-340; manuel.freitas; 13h10; [Logística] Chegou um arquivo novo",
+        "text": "A Orbe mandou os ajustes de setembro que ficaram fora do relatório: 06_orbe_ajustes_tardios_set2026.csv. São só 14 linhas, no mesmo formato do arquivo 01. O fechamento entregue às 18h30 precisa considerar esse arquivo.",
+        "verification_limit": "Comunicado conferido no anexo do usuário; não houve autenticação online do Slack/Drive. Transcrição parcial/corrompida das linhas não substitui o CSV integral."
+      }
+    }
+  ]
+}

@@ -15,6 +15,9 @@ import openpyxl
 
 D = Decimal
 ZERO = D('0')
+ORBE_FIELDS = ('id_transacao','data_movimento','cod_estabelecimento','nome_estabelecimento',
+               'tipo_lancamento','modalidade','qtd_parcelas','bandeira','valor_bruto',
+               'taxa_aplicada_pct','valor_taxa','valor_liquido','id_referencia','data_venda_original')
 
 
 def money(value):
@@ -68,7 +71,17 @@ def find_file(folder, prefix, suffix):
 
 def read_orbe(path):
     rows = []
-    for line, r in enumerate(csv.DictReader(read_text(path).splitlines(), delimiter=';'), 2):
+    reader = csv.DictReader(read_text(path).splitlines(), delimiter=';')
+    if len(reader.fieldnames or []) != len(ORBE_FIELDS) or set(reader.fieldnames or []) != set(ORBE_FIELDS):
+        raise ValueError(f'{path.name}: formato Orbe incompatível. São necessárias as 14 colunas originais; envie o arquivo integral, não uma transcrição truncada.')
+    for line, r in enumerate(reader, 2):
+        if None in r or any(v is None or '\t' in v for v in r.values()):
+            raise ValueError(f'{path.name} L{line}: linha incompleta ou corrompida. Envie o CSV original integral.')
+        if not r['id_transacao'] or not re.fullmatch(r'\d+',r['cod_estabelecimento']):
+            raise ValueError(f'{path.name} L{line}: falta identificador da transação ou do estabelecimento.')
+        for field in ('valor_bruto','taxa_aplicada_pct','valor_taxa','valor_liquido'):
+            if not re.fullmatch(r'[+-]?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?',r[field]):
+                raise ValueError(f'{path.name} L{line}: valor decimal inválido no campo {field}. Preserve o formato do arquivo original.')
         rows.append(dict(r, source=path.name, source_line=line,
                          date=iso(r['data_movimento']),
                          original_date=iso(r['data_venda_original']) if r['data_venda_original'] else '',
@@ -76,6 +89,20 @@ def read_orbe(path):
                          applied=dec(r['taxa_aplicada_pct'], True) / 100,
                          charged=dec(r['valor_taxa'], True)))
     return rows
+
+
+def merge_orbe(rows):
+    """Retain one exact payload per ID, preserve identical duplicates as evidence."""
+    seen,unique,duplicates = {},[],[]
+    for row in rows:
+        key=row['id_transacao']
+        if key not in seen:
+            seen[key]=row; unique.append(row); continue
+        original=seen[key]
+        if any(row[f] != original[f] for f in ORBE_FIELDS):
+            raise ValueError(f'Identificador Orbe conflitante {key}: {original["source"]} L{original["source_line"]} e {row["source"]} L{row["source_line"]}. Valores diferentes exigem conferência; nenhuma linha foi substituída.')
+        duplicates.append((original,row))
+    return unique,duplicates
 
 
 def read_contracts(path):

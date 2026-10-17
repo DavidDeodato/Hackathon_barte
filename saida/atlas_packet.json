@@ -1,0 +1,1764 @@
+{
+  "schema_version": "case-packet-v1",
+  "case_id": "case-230d43585e860cdc747d",
+  "case_key": "atlas",
+  "run_id": "close-2068e24a102ebea3",
+  "period": "2026-09",
+  "snapshot": {
+    "comissoes_por_lojista.csv": "4791e34087e4efb0f7668b53628dd9142d189479290f134d971382a935bdb64b",
+    "divergencias_taxa.csv": "408852591e0832325f823db2120c5cef52b792533627a1fde3308e261eb7a22e",
+    "notas_a_emitir.csv": "ce6fb82c8cc36dfc5fef64ac5efe3f47af450ceae1f8da8760a98f505fb4376b",
+    "lancamentos_classificados.csv": "d2980c2483e7e5f7bf809e88acb6838f932ea763243a74e44c4c36bcba1c3f71",
+    "pendencias.csv": "4e3c50e156fb45b5e6fc7ff06bea9c279fcd581fee7b6cfb9ddfb75ce027d9e0",
+    "rastro.csv": "60c3591045953939da8889f4ce0f12c99a40542a4a2ab97d03b5b182cfd5de1c"
+  },
+  "snapshot_id": "snapshot-b97bd050903c54d80d07",
+  "entity": {
+    "identifier": "1076801732",
+    "identifier_type": "EC_ORBE",
+    "name": "Atlas Idiomas"
+  },
+  "line_of_business": "CHECKOUT",
+  "source_refs": [
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88445637@L949",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88445646@L951",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88445703@L971",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88445766@L976",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88446030@L1122",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88446517@L1520",
+    "01_orbe_relatorio_comissoes_set2026.csv#AN88446660@L1642",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88410188@L803",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88410385@L1519",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88411311@L1354",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88412107@L936",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88412755@L1796",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88413380@L1944",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88413600@L902",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88413941@L1883",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88414356@L1139",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88415360@L1500",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88417174@L879",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88417414@L1484",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88417783@L919",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88418299@L687",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88419007@L1768",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88419921@L1222",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88421353@L608",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88422170@L716",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88423234@L681",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88423562@L786",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88425538@L820",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88425685@L848",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88427530@L966",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88428032@L950",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88428488@L957",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88428508@L1052",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88429366@L1025",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88430278@L1104",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88430524@L1123",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88430812@L1177",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88430846@L1129",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88431921@L1252",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88433374@L1318",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88433440@L1279",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88433459@L1304",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88433751@L1321",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88434732@L1388",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88435925@L1410",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88435943@L1439",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88436129@L1399",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88437771@L1551",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88437854@L1552",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88438901@L1556",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88440207@L1640",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88442802@L1871",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88443476@L1865",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88444140@L1928",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88444426@L1913",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88444518@L1882",
+    "01_orbe_relatorio_comissoes_set2026.csv#TX88446499@L1512"
+  ],
+  "rule_refs": [
+    "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19"
+  ],
+  "rows": [
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1025",
+      "ref_origem": "TX88429366",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2506.25",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2506.25",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88429366@L1025"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1052",
+      "ref_origem": "TX88428508",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1008.53",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1008.53",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88428508@L1052"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1104",
+      "ref_origem": "TX88430278",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "521.25",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "521.25",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88430278@L1104"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1122",
+      "ref_origem": "AN88446030",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "-52361.86",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "-52361.86",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88446030@L1122"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1123",
+      "ref_origem": "TX88430524",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "298.85",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "298.85",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88430524@L1123"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1129",
+      "ref_origem": "TX88430846",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1569.79",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1569.79",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88430846@L1129"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1139",
+      "ref_origem": "TX88414356",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "5617.94",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "5617.94",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88414356@L1139"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1177",
+      "ref_origem": "TX88430812",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3760.11",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3760.11",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88430812@L1177"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1222",
+      "ref_origem": "TX88419921",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3479.67",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3479.67",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88419921@L1222"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1252",
+      "ref_origem": "TX88431921",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3538.98",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3538.98",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88431921@L1252"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1279",
+      "ref_origem": "TX88433440",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1782.57",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1782.57",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88433440@L1279"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1304",
+      "ref_origem": "TX88433459",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "256.15",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "256.15",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88433459@L1304"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1318",
+      "ref_origem": "TX88433374",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "583.72",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "583.72",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88433374@L1318"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1321",
+      "ref_origem": "TX88433751",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "710.35",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "710.35",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88433751@L1321"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1354",
+      "ref_origem": "TX88411311",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2821.87",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2821.87",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88411311@L1354"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1388",
+      "ref_origem": "TX88434732",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2850.33",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2850.33",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88434732@L1388"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1399",
+      "ref_origem": "TX88436129",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2672.89",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2672.89",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88436129@L1399"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1410",
+      "ref_origem": "TX88435925",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "444.02",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "444.02",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88435925@L1410"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1439",
+      "ref_origem": "TX88435943",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3752.96",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3752.96",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88435943@L1439"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1484",
+      "ref_origem": "TX88417414",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "5687.98",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "5687.98",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88417414@L1484"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1500",
+      "ref_origem": "TX88415360",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1599.33",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1599.33",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88415360@L1500"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1512",
+      "ref_origem": "TX88446499",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "-521.25",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "-521.25",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88446499@L1512"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1519",
+      "ref_origem": "TX88410385",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1033.78",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1033.78",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88410385@L1519"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1520",
+      "ref_origem": "AN88446517",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "56350.28",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "56350.28",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88446517@L1520"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1551",
+      "ref_origem": "TX88437771",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2853.15",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2853.15",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88437771@L1551"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1552",
+      "ref_origem": "TX88437854",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "5011.64",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "5011.64",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88437854@L1552"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1556",
+      "ref_origem": "TX88438901",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "569.26",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "569.26",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88438901@L1556"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1640",
+      "ref_origem": "TX88440207",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3017.94",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3017.94",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88440207@L1640"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1642",
+      "ref_origem": "AN88446660",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "-56350.28",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "-56350.28",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88446660@L1642"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1768",
+      "ref_origem": "TX88419007",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "5981.11",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "5981.11",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88419007@L1768"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1796",
+      "ref_origem": "TX88412755",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2370.93",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2370.93",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88412755@L1796"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1865",
+      "ref_origem": "TX88443476",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3117.97",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3117.97",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88443476@L1865"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1871",
+      "ref_origem": "TX88442802",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1862.08",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1862.08",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88442802@L1871"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1882",
+      "ref_origem": "TX88444518",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3030.59",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3030.59",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88444518@L1882"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1883",
+      "ref_origem": "TX88413941",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2916.27",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2916.27",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88413941@L1883"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1913",
+      "ref_origem": "TX88444426",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "246.2",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "246.20",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88444426@L1913"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1928",
+      "ref_origem": "TX88444140",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "875.69",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "875.69",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88444140@L1928"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "1944",
+      "ref_origem": "TX88413380",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1721.25",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1721.25",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88413380@L1944"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "608",
+      "ref_origem": "TX88421353",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1292.63",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1292.63",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88421353@L608"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "681",
+      "ref_origem": "TX88423234",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "7551.55",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "7551.55",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88423234@L681"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "687",
+      "ref_origem": "TX88418299",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "957.7",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "957.70",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88418299@L687"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "716",
+      "ref_origem": "TX88422170",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "7810.21",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "7810.21",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88422170@L716"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "786",
+      "ref_origem": "TX88423562",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "6218.54",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "6218.54",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88423562@L786"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "803",
+      "ref_origem": "TX88410188",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1918.29",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1918.29",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88410188@L803"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "820",
+      "ref_origem": "TX88425538",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "203.46",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "203.46",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88425538@L820"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "848",
+      "ref_origem": "TX88425685",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "5461.51",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "5461.51",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88425685@L848"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "879",
+      "ref_origem": "TX88417174",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "7567.58",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "7567.58",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88417174@L879"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "902",
+      "ref_origem": "TX88413600",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "2794.19",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "2794.19",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88413600@L902"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "919",
+      "ref_origem": "TX88417783",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "3742.59",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "3742.59",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88417783@L919"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "936",
+      "ref_origem": "TX88412107",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "1394.81",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "1394.81",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88412107@L936"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "949",
+      "ref_origem": "AN88445637",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "52361.86",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "52361.86",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88445637@L949"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "950",
+      "ref_origem": "TX88428032",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "504.6",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "504.60",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88428032@L950"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "951",
+      "ref_origem": "AN88445646",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "22223.8",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "22223.80",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88445646@L951"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "957",
+      "ref_origem": "TX88428488",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "939.45",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "939.45",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88428488@L957"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "966",
+      "ref_origem": "TX88427530",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "7000.39",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "7000.39",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#TX88427530@L966"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "971",
+      "ref_origem": "AN88445703",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "51942.03",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "51942.03",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88445703@L971"
+      ]
+    },
+    {
+      "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+      "campo_origem": "volume bruto pendente; não é comissão",
+      "formula": "soma dos componentes; não implica aprovação",
+      "linha_origem": "976",
+      "ref_origem": "AN88445766",
+      "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+      "valor": "53065.13",
+      "id_saida": "PEN-2026-09-dc58fd806569eb",
+      "output_file": "pendencias.csv",
+      "amount": null,
+      "observed_amount": "53065.13",
+      "value_nature": "volume_bruto_pendente_nao_comissao",
+      "source_refs": [
+        "01_orbe_relatorio_comissoes_set2026.csv#AN88445766@L976"
+      ]
+    }
+  ],
+  "output_ids": [
+    "PEN-2026-09-dc58fd806569eb"
+  ],
+  "amount": null,
+  "amount_nature": "comissao_nao_quantificada_sem_contrato",
+  "amount_reconciliation": {
+    "metric": "volume_bruto_pendente_nao_comissao",
+    "component_sum": "262138.61",
+    "reported_amount": "262138.61",
+    "matches": true,
+    "commission_amount": null,
+    "method": "Soma do volume bruto assinado retido no rastro da pendência; não converte volume em comissão."
+  },
+  "supporting_metrics": [
+    {
+      "name": "volume_bruto_retido",
+      "amount": "262138.61",
+      "nature": "volume_bruto_pendente_nao_comissao",
+      "output_ids": [
+        "PEN-2026-09-dc58fd806569eb"
+      ]
+    }
+  ],
+  "related_outputs": {
+    "pending": [
+      {
+        "estado": "PENDENTE",
+        "metrica_valor": "volume bruto pendente; não é comissão",
+        "motivo": "Linhas retidas sem faturar nem inventar taxa/CNPJ. Atlas: confirmar contrato desde 10/09 e faturar setembro junto com outubro.",
+        "quem_decide": "Comercial + Helena",
+        "ref_origem": "1076801732",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+        "tipo": "CONTRATO_NAO_CONFIRMADO",
+        "valor_brl": "262138.61",
+        "id_saida": "PEN-2026-09-dc58fd806569eb",
+        "output_file": "pendencias.csv",
+        "amount": "262138.61",
+        "amount_nature": "volume bruto pendente; não é comissão",
+        "trace_rows": [
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1025",
+            "ref_origem": "TX88429366",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2506.25"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1052",
+            "ref_origem": "TX88428508",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1008.53"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1104",
+            "ref_origem": "TX88430278",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "521.25"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1122",
+            "ref_origem": "AN88446030",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "-52361.86"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1123",
+            "ref_origem": "TX88430524",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "298.85"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1129",
+            "ref_origem": "TX88430846",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1569.79"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1139",
+            "ref_origem": "TX88414356",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "5617.94"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1177",
+            "ref_origem": "TX88430812",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3760.11"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1222",
+            "ref_origem": "TX88419921",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3479.67"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1252",
+            "ref_origem": "TX88431921",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3538.98"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1279",
+            "ref_origem": "TX88433440",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1782.57"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1304",
+            "ref_origem": "TX88433459",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "256.15"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1318",
+            "ref_origem": "TX88433374",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "583.72"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1321",
+            "ref_origem": "TX88433751",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "710.35"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1354",
+            "ref_origem": "TX88411311",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2821.87"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1388",
+            "ref_origem": "TX88434732",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2850.33"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1399",
+            "ref_origem": "TX88436129",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2672.89"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1410",
+            "ref_origem": "TX88435925",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "444.02"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1439",
+            "ref_origem": "TX88435943",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3752.96"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1484",
+            "ref_origem": "TX88417414",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "5687.98"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1500",
+            "ref_origem": "TX88415360",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1599.33"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1512",
+            "ref_origem": "TX88446499",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "-521.25"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1519",
+            "ref_origem": "TX88410385",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1033.78"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1520",
+            "ref_origem": "AN88446517",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "56350.28"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1551",
+            "ref_origem": "TX88437771",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2853.15"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1552",
+            "ref_origem": "TX88437854",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "5011.64"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1556",
+            "ref_origem": "TX88438901",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "569.26"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1640",
+            "ref_origem": "TX88440207",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3017.94"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1642",
+            "ref_origem": "AN88446660",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "-56350.28"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1768",
+            "ref_origem": "TX88419007",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "5981.11"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1796",
+            "ref_origem": "TX88412755",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2370.93"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1865",
+            "ref_origem": "TX88443476",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3117.97"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1871",
+            "ref_origem": "TX88442802",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1862.08"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1882",
+            "ref_origem": "TX88444518",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3030.59"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1883",
+            "ref_origem": "TX88413941",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2916.27"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1913",
+            "ref_origem": "TX88444426",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "246.2"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1928",
+            "ref_origem": "TX88444140",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "875.69"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1944",
+            "ref_origem": "TX88413380",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1721.25"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "608",
+            "ref_origem": "TX88421353",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1292.63"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "681",
+            "ref_origem": "TX88423234",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "7551.55"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "687",
+            "ref_origem": "TX88418299",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "957.7"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "716",
+            "ref_origem": "TX88422170",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "7810.21"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "786",
+            "ref_origem": "TX88423562",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "6218.54"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "803",
+            "ref_origem": "TX88410188",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1918.29"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "820",
+            "ref_origem": "TX88425538",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "203.46"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "848",
+            "ref_origem": "TX88425685",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "5461.51"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "879",
+            "ref_origem": "TX88417174",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "7567.58"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "902",
+            "ref_origem": "TX88413600",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "2794.19"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "919",
+            "ref_origem": "TX88417783",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "3742.59"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "936",
+            "ref_origem": "TX88412107",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "1394.81"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "949",
+            "ref_origem": "AN88445637",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "52361.86"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "950",
+            "ref_origem": "TX88428032",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "504.6"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "951",
+            "ref_origem": "AN88445646",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "22223.8"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "957",
+            "ref_origem": "TX88428488",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "939.45"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "966",
+            "ref_origem": "TX88427530",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "7000.39"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "971",
+            "ref_origem": "AN88445703",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "51942.03"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto pendente; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "976",
+            "ref_origem": "AN88445766",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19",
+            "valor": "53065.13"
+          }
+        ],
+        "source_refs": [
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445637@L949",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445646@L951",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445703@L971",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445766@L976",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88446030@L1122",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88446517@L1520",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88446660@L1642",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88410188@L803",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88410385@L1519",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88411311@L1354",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88412107@L936",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88412755@L1796",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88413380@L1944",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88413600@L902",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88413941@L1883",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88414356@L1139",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88415360@L1500",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88417174@L879",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88417414@L1484",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88417783@L919",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88418299@L687",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88419007@L1768",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88419921@L1222",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88421353@L608",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88422170@L716",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88423234@L681",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88423562@L786",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88425538@L820",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88425685@L848",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88427530@L966",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88428032@L950",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88428488@L957",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88428508@L1052",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88429366@L1025",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88430278@L1104",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88430524@L1123",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88430812@L1177",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88430846@L1129",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88431921@L1252",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88433374@L1318",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88433440@L1279",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88433459@L1304",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88433751@L1321",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88434732@L1388",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88435925@L1410",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88435943@L1439",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88436129@L1399",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88437771@L1551",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88437854@L1552",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88438901@L1556",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88440207@L1640",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88442802@L1871",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88443476@L1865",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88444140@L1928",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88444426@L1913",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88444518@L1882",
+          "01_orbe_relatorio_comissoes_set2026.csv#TX88446499@L1512"
+        ]
+      }
+    ],
+    "commissions": [],
+    "invoices": [],
+    "other_pending": [
+      {
+        "estado": "PENDENTE",
+        "metrica_valor": "volume bruto antecipado; não é comissão",
+        "motivo": "Antecipações sem taxa/contrato confirmado; conferir vendido e lastro sem inventar limite de crédito.",
+        "quem_decide": "Helena + comercial",
+        "ref_origem": "1076801732",
+        "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+        "tipo": "ANTECIPACAO_SEM_LASTRO_CONFIRMADO",
+        "valor_brl": "235943.1",
+        "id_saida": "PEN-2026-09-c75ccde513e96b",
+        "output_file": "pendencias.csv",
+        "amount": "235943.10",
+        "amount_nature": "volume bruto antecipado; não é comissão",
+        "trace_rows": [
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto antecipado; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "1520",
+            "ref_origem": "AN88446517",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+            "valor": "56350.28"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto antecipado; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "949",
+            "ref_origem": "AN88445637",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+            "valor": "52361.86"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto antecipado; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "951",
+            "ref_origem": "AN88445646",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+            "valor": "22223.8"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto antecipado; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "971",
+            "ref_origem": "AN88445703",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+            "valor": "51942.03"
+          },
+          {
+            "arquivo_origem": "01_orbe_relatorio_comissoes_set2026.csv",
+            "campo_origem": "volume bruto antecipado; não é comissão",
+            "formula": "soma dos componentes; não implica aprovação",
+            "linha_origem": "976",
+            "ref_origem": "AN88445766",
+            "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#CAN-17",
+            "valor": "53065.13"
+          }
+        ],
+        "source_refs": [
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445637@L949",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445646@L951",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445703@L971",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88445766@L976",
+          "01_orbe_relatorio_comissoes_set2026.csv#AN88446517@L1520"
+        ]
+      }
+    ]
+  },
+  "action_type": "request_contract_confirmation",
+  "recipient": "Comercial da Tarvo, com revisão de Helena",
+  "owner": "Comercial + Helena",
+  "action_prepared": "Manter faturamento destas linhas bloqueado e solicitar contrato/taxas confirmados desde 10/09. Preservar as origens para reprocessamento; não inferir taxa aplicada nem usar tabela antiga.",
+  "closure_evidence": [
+    "Contrato ou confirmação comercial documentada com taxas, modalidades e vigência desde 10/09.",
+    "Registro da regra por Helena, com fonte, autoridade e data.",
+    "Novo cálculo rastreável e revisão do faturamento de setembro junto com outubro; não emitir automaticamente."
+  ],
+  "status": "prepared_for_review",
+  "sent": false,
+  "approved": false,
+  "model_used": false,
+  "limitations": [
+    "Ação documental preparada para revisão, sem envio, aprovação, emissão ou movimentação financeira.",
+    "Valores extraídos das saídas e do rastro deste snapshot; não houve recálculo por modelo.",
+    "Rascunho não resolve pendência nem comprova recuperação/devolução ou ganho econômico.",
+    "Comissão, NF, divergência e pendência podem representar o mesmo dinheiro; não somar naturezas sobrepostas.",
+    "Hashes identificam os seis CSVs; não certificam autenticidade externa de contrato ou aprovação.",
+    "Comissão Atlas desconhecida: amount=null. Volume bruto inclui eventos de naturezas distintas e não é receita nem taxa.",
+    "Linhas preservadas não demonstram resolução intercompetência; confirmação e faturamento futuro ainda exigem documentos/reexecução."
+  ]
+}

@@ -177,7 +177,11 @@ def build_case_packet(output_dir,case_key):
     snapshot_id = 'snapshot-'+hashlib.sha256(_token(snapshot).encode()).hexdigest()[:20]
     identity = _token(dict(schema=CASE_SCHEMA,case_key=case_key,period=run['period'],snapshot=snapshot))
     if any(r['row'].get('tipo')=='AJUSTES_TARDIOS_NAO_INCORPORADOS' for r in records['pendencias.csv'].values()):
-        limitations.append('Baseline contém ajustes tardios não incorporados; pacote não completa a entrada ausente.')
+        limitations.append('Snapshot histórico contém aviso de ajustes tardios sem fonte primária confirmada; esse aviso não comprova requisito externo nem invalida os valores do lote original.')
+    if any(r['row'].get('tipo')=='INPUT_ADICIONAL_NAO_HOMOLOGADO' for r in records['pendencias.csv'].values()):
+        limitations.append('Existe arquivo adicional observado ainda não homologado/processado; seu conteúdo e impacto financeiro não foram inferidos.')
+    if any(r['row'].get('tipo')=='ENTRADA_ANUNCIADA_AUSENTE' for r in records['pendencias.csv'].values()):
+        limitations.append('Entrada adicional anunciada por fonte da organização ainda ausente. Lote original calculado; atualização não incorporada e efeito financeiro não quantificado até receber o CSV integral.')
     return dict(schema_version=CASE_SCHEMA,case_id='case-'+hashlib.sha256(identity.encode()).hexdigest()[:20],
                 case_key=case_key,run_id=run['run_id'],period=run['period'],snapshot=snapshot,snapshot_id=snapshot_id,
                 entity=dict(identifier=spec['entity'],identifier_type='EC_ORBE' if case_key=='atlas' else 'CNPJ',name=spec['name']),

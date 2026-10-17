@@ -4,13 +4,24 @@ Preparar o fechamento de setembro de 2026 com origem por numero, pendencias expl
 
 ## Estado verificavel
 
-O pacote original recebido gera os seis CSVs em `saida/`. Auditoria independente cobriu formato, rastro, conservacao e casos materiais. Os nove estornos de vendas anteriores a setembro foram conferidos contra a vigencia da tabela fornecida; a ausencia das vendas brutas de agosto nao equivale a falta dessas taxas. As notas sao propostas para revisao, nao documentos fiscais emitidos.
+Os arquivos recebidos, incluindo os 14 ajustes tardios, foram processados nos seis CSVs de `saida/`. A revisao independente conferiu cada evento adicional, seus vinculos e taxas, a conservacao dos valores e os rastros. Os nove estornos de vendas anteriores a setembro foram conferidos contra a vigencia da tabela fornecida; a ausencia das vendas brutas de agosto nao equivale a falta dessas taxas. As notas sao propostas para revisao, nao documentos fiscais emitidos.
 
-O comunicado da organizacao de 17/10, as 13h10, anunciou `06_orbe_ajustes_tardios_set2026.csv`, com 14 linhas, e exigiu sua incorporacao na entrega. O original completo foi recebido e preservado. O recalculo e a conferencia das novas saidas estao em andamento; os resultados em `saida/` ainda correspondem ao pacote anterior ate a promocao da versao conferida. Consulte [atualizacoes do case](contexto/ATUALIZACOES_CASE.md).
+O arquivo `06_orbe_ajustes_tardios_set2026.csv` foi incorporado na execucao `close-2068e24a102ebea3`. Os ajustes reduzem a comissao de checkout e as notas propostas em R$ 3.304,39; remessas, classificacoes bancarias e divergencias de taxa permanecem iguais. Consulte [atualizacoes do case](contexto/ATUALIZACOES_CASE.md).
+
+| Resultado de setembro/2026 | Valor ou quantidade |
+| --- | ---: |
+| Comissao de checkout | R$ 203.735,34 |
+| Comissao de remessas | R$ 39.543,45 |
+| Notas propostas | R$ 243.284,29 em 21 notas |
+| Movimentos bancarios classificados | 184 |
+| Pendencias financeiras | 17 |
+| Vinculos de rastreabilidade | 5.205 |
+
+Os totais representam naturezas distintas e nao devem ser somados entre si. A comissao negativa de R$ 5,50 da Casa nao gera nota; a taxa da Atlas continua sem faturamento ate confirmacao comercial. A aprovacao financeira permanece com Helena.
 
 ## Executar do zero
 
-Requer Python 3.14 e Node.js compativel com Vite 7 (22.12+ recomendado). A verificacao local usa Python 3.14 e Node 24. Obtenha o `Tarvo_Data_Pack_set2026.zip` fornecido pela organizacao e extraia os arquivos originais para `contexto/data_pack/`, sem limpeza manual. O pack e ignorado pelo Git: um clone sozinho nao contem os insumos. O relatorio Ponte e lido do anexo do EML; preserve o arquivo completo. O pack nao esta embutido na imagem Docker canonica nem nas credenciais.
+Requer Python 3.14 e Node.js compativel com Vite 7 (22.12+ recomendado). A verificacao local usa Python 3.14 e Node 24. Obtenha o `Tarvo_Data_Pack_set2026.zip` fornecido pela organizacao e extraia os arquivos originais para `contexto/data_pack/`, sem limpeza manual. Acrescente nesse mesmo diretorio o arquivo original `06_orbe_ajustes_tardios_set2026.csv`, recebido separadamente. Os dados brutos sao ignorados pelo Git: um clone sozinho nao contem os insumos. O relatorio Ponte e lido do anexo do EML; preserve o arquivo completo. O pack nao esta embutido na imagem Docker canonica nem nas credenciais.
 
 ```powershell
 python -m venv .venv

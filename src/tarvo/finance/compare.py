@@ -227,6 +227,10 @@ def compare_runs(before_dir: str, after_dir: str) -> dict:
     if any(side['manifest'].get('dataset_kind') == 'synthetic_test' for side in (before,after)):
         limits.append('Cenário sintético de teste: não representa ajuste tardio recebido, outubro real ou decisão aprovada do cliente.')
     if any(r.get('tipo')=='AJUSTES_TARDIOS_NAO_INCORPORADOS' for side in (before,after) for r in (x['row'] for x in side['records']['pendencias.csv'].values())):
-        limits.append('Ao menos um run é baseline com ajustes tardios não incorporados; a comparação não completa o arquivo ausente.')
+        limits.append('Ao menos um snapshot histórico contém aviso de ajustes tardios sem fonte primária confirmada; isso não comprova requisito externo nem invalida o lote original.')
+    if any(r.get('tipo')=='INPUT_ADICIONAL_NAO_HOMOLOGADO' for side in (before,after) for r in (x['row'] for x in side['records']['pendencias.csv'].values())):
+        limits.append('Ao menos um run registra arquivo adicional observado não homologado; a comparação não interpreta seu conteúdo nem presume impacto financeiro.')
+    if any(r.get('tipo')=='ENTRADA_ANUNCIADA_AUSENTE' for side in (before,after) for r in (x['row'] for x in side['records']['pendencias.csv'].values())):
+        limits.append('Ao menos um run tem entrada anunciada ausente com fonte registrada; comparação do lote disponível não incorpora nem estima o conteúdo faltante.')
     return dict(status='completed',before_run_id=before['run_id'],after_run_id=after['run_id'],
                 input_changes=changes,outputs=outputs,limitations=limits)

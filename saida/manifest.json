@@ -1,45 +1,75 @@
 {
-  "version": "dom-v1.0",
-  "run_id": "close-1d52e6ba5c2cd969",
+  "version": "dom-v1.2",
+  "run_id": "close-2068e24a102ebea3",
   "period": "2026-09",
-  "created_at": "2026-10-17T16:50:18.791658+00:00",
+  "created_at": "2026-10-17T19:43:33.103267+00:00",
   "inputs": [
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\01_orbe_relatorio_comissoes_set2026.csv",
+      "path": "contexto/data_pack/01_orbe_relatorio_comissoes_set2026.csv",
       "file": "01_orbe_relatorio_comissoes_set2026.csv",
       "sha256": "fdbc2bad2dd38dde8bf3af9d5c1f21116f0eae8d71d6a5a16b0dfd82de3cc7ec"
     },
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\02_tabela_taxas_contratadas.xlsx",
+      "path": "contexto/data_pack/02_tabela_taxas_contratadas.xlsx",
       "file": "02_tabela_taxas_contratadas.xlsx",
       "sha256": "d0c7d2b13ac41c2a036a40362eb26c341666feef74d7199284742c255885dfc4"
     },
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\03_email_ponte_cambio_relatorio_set2026.eml",
+      "path": "contexto/data_pack/03_email_ponte_cambio_relatorio_set2026.eml",
       "file": "03_email_ponte_cambio_relatorio_set2026.eml",
       "sha256": "e36808cab907df4b598d0022ae92af99c9b7c281a5d619d91e64d163f42e6f8f"
     },
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\04_plano_de_contas_fenix_erp.csv",
+      "path": "contexto/data_pack/04_plano_de_contas_fenix_erp.csv",
       "file": "04_plano_de_contas_fenix_erp.csv",
       "sha256": "fb99c63b151c2a029c86475eb2551e4af7722a055dc24137244a2411e7876d72"
     },
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\05a_extrato_banco_aurora_cc4471_set2026.csv",
+      "path": "contexto/data_pack/05a_extrato_banco_aurora_cc4471_set2026.csv",
       "file": "05a_extrato_banco_aurora_cc4471_set2026.csv",
       "sha256": "7303b72fa76d227a863279a36726411605d93fb63237f0cae638c111a70d2d92"
     },
     {
-      "path": "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\contexto\\data_pack\\05b_extrato_banco_meridiano_cc90233_set2026.ofx",
+      "path": "contexto/data_pack/05b_extrato_banco_meridiano_cc90233_set2026.ofx",
       "file": "05b_extrato_banco_meridiano_cc90233_set2026.ofx",
       "sha256": "27f11fae20c1fb69e2ca47885f6082690fe5db5cd13ddf3e407ef3cb29e33283"
+    },
+    {
+      "path": "contexto/data_pack/06_orbe_ajustes_tardios_set2026.csv",
+      "file": "06_orbe_ajustes_tardios_set2026.csv",
+      "sha256": "b1cfd183945fb194e05cfbe9455ab364c31b676427e6653562f6821f57240292"
     }
   ],
   "additional_files": [],
+  "processed_adjustment_files": [
+    "06_orbe_ajustes_tardios_set2026.csv"
+  ],
+  "announced_inputs": [
+    {
+      "id": "ORBE-2026-09-LATE",
+      "period": "2026-09",
+      "role": "adjustments",
+      "expected_file": "06_orbe_ajustes_tardios_set2026.csv",
+      "expected_rows": 14,
+      "schema": "orbe_01",
+      "required": true,
+      "source_ref": "src/tarvo/finance/data/announced_inputs.json#ORBE-2026-09-LATE",
+      "source": {
+        "kind": "user_provided_attachment_transcript",
+        "attachment_name": "Pasted text.txt",
+        "attachment_id": "0d41719e-9fcf-47a2-a640-e7b23aa51439",
+        "sha256": "903c333da31edbd6b14aa26bc5535382173bdeb535d8a9e96b81e6bfae5e0910",
+        "locator": "lines 333-340; manuel.freitas; 13h10; [Logística] Chegou um arquivo novo",
+        "text": "A Orbe mandou os ajustes de setembro que ficaram fora do relatório: 06_orbe_ajustes_tardios_set2026.csv. São só 14 linhas, no mesmo formato do arquivo 01. O fechamento entregue às 18h30 precisa considerar esse arquivo.",
+        "verification_limit": "Comunicado conferido no anexo do usuário; não houve autenticação online do Slack/Drive. Transcrição parcial/corrompida das linhas não substitui o CSV integral."
+      }
+    }
+  ],
+  "announcement_source_sha256": "53031170e83cb7f7194bb20421e561d60740721eacbbee4518fbc6fd64e25667",
   "outputs": [
     {
       "file": "comissoes_por_lojista.csv",
-      "sha256": "e69f9e9abdcba8041012a080563f89b182f73fe00760f341a8989d0b7089ba42"
+      "sha256": "4791e34087e4efb0f7668b53628dd9142d189479290f134d971382a935bdb64b"
     },
     {
       "file": "divergencias_taxa.csv",
@@ -47,7 +77,7 @@
     },
     {
       "file": "notas_a_emitir.csv",
-      "sha256": "ada2de2c01d03a63c43b7323cbc7357bafc71dc930f6fd8199179228113d537b"
+      "sha256": "ce6fb82c8cc36dfc5fef64ac5efe3f47af450ceae1f8da8760a98f505fb4376b"
     },
     {
       "file": "lancamentos_classificados.csv",
@@ -55,11 +85,11 @@
     },
     {
       "file": "pendencias.csv",
-      "sha256": "0909c8b1470ac3d2008a034cee6d4b6207424d1c02d93c043c2162b4a4d41434"
+      "sha256": "4e3c50e156fb45b5e6fc7ff06bea9c279fcd581fee7b6cfb9ddfb75ce027d9e0"
     },
     {
       "file": "rastro.csv",
-      "sha256": "6865a7a8f2c673176b2b7ca46d3fccd811b7a9693df6bd15bd3af048aa0c24cf"
+      "sha256": "60c3591045953939da8889f4ce0f12c99a40542a4a2ab97d03b5b182cfd5de1c"
     }
   ],
   "policies": {
@@ -70,21 +100,21 @@
     "unknown_amount": "campo vazio significa não quantificado; nunca zero inventado"
   },
   "result": {
-    "run_id": "close-1d52e6ba5c2cd969",
+    "run_id": "close-2068e24a102ebea3",
     "period": "2026-09",
     "status": "pending_review",
     "outputs": [
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\comissoes_por_lojista.csv",
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\divergencias_taxa.csv",
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\notas_a_emitir.csv",
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\lancamentos_classificados.csv",
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\pendencias.csv",
-      "C:\\Users\\lucas\\Desktop\\projetos\\Hackathon_barte\\saida\\rastro.csv"
+      "saida/comissoes_por_lojista.csv",
+      "saida/divergencias_taxa.csv",
+      "saida/notas_a_emitir.csv",
+      "saida/lancamentos_classificados.csv",
+      "saida/pendencias.csv",
+      "saida/rastro.csv"
     ],
     "summary": {
-      "checkout_commission_brl": "207039.73",
+      "checkout_commission_brl": "203735.34",
       "remessa_commission_brl": "39543.45",
-      "invoices_brl": "246588.68",
+      "invoices_brl": "243284.29",
       "checkout_rate_difference_brl": "1576.23",
       "casa_refund_brl": "15397.42",
       "remessa_rate_difference_brl": "1418.85",
@@ -93,21 +123,34 @@
         "divergencias_taxa.csv": 233,
         "notas_a_emitir.csv": 21,
         "lancamentos_classificados.csv": 184,
-        "pendencias.csv": 18,
-        "rastro.csv": 5177
+        "pendencias.csv": 17,
+        "rastro.csv": 5205
       },
       "input_counts": {
-        "orbe": 1943,
+        "orbe": 1957,
         "contracts": 25,
         "remessa_rows": 233,
-        "bank_movements": 184
+        "bank_movements": 184,
+        "orbe_raw": 1957,
+        "adjustment_rows": 14,
+        "orbe_duplicates": 0
       },
       "trace_checks": 490,
       "trace_reconciled": true,
       "financial_approval": "PENDENTE_HELENA",
-      "late_adjustments": "PENDENTE",
+      "late_adjustments": "INCORPORADO",
+      "operational_input_issues": 0,
+      "selected_input_files": {
+        "orbe": "01_orbe_relatorio_comissoes_set2026.csv",
+        "contracts": "02_tabela_taxas_contratadas.xlsx",
+        "remessa": "03_email_ponte_cambio_relatorio_set2026.eml",
+        "accounts": "04_plano_de_contas_fenix_erp.csv",
+        "aurora": "05a_extrato_banco_aurora_cc4471_set2026.csv",
+        "meridiano": "05b_extrato_banco_meridiano_cc90233_set2026.ofx",
+        "adjustments": "06_orbe_ajustes_tardios_set2026.csv"
+      },
       "mode": "DETERMINISTICO",
-      "completeness": "BASELINE_SEM_AJUSTES_TARDIOS"
+      "completeness": "CONJUNTO_FORNECIDO_PROCESSADO"
     },
     "issues": [
       {
@@ -296,17 +339,6 @@
         "estado": "PENDENTE",
         "regra_fonte": "contexto/RESPOSTAS_FINANCEIRO.md#REG-B08",
         "metrica_valor": "recurso de lojista para remessa futura"
-      },
-      {
-        "id_saida": "PEN-2026-09-c57bac96e315e0",
-        "tipo": "AJUSTES_TARDIOS_NAO_INCORPORADOS",
-        "ref_origem": "06_orbe_ajustes_tardios_set2026.csv",
-        "valor_brl": "",
-        "motivo": "Baseline das seis fontes originais. Arquivo integral de ajustes tardios ausente ou sem parser homologado; fechamento final depende da incorporação e reexecução.",
-        "quem_decide": "Helena / coordenador",
-        "estado": "PENDENTE",
-        "regra_fonte": "aviso de ajustes tardios; PROJECT_CONTROL R004",
-        "metrica_valor": "não quantificado"
       }
     ]
   }

@@ -135,7 +135,8 @@ class SemanticComparison(unittest.TestCase):
     def test_actual_baseline_replay_is_zero(self):
         result=compare_runs(str(ROOT/'saida'),str(ROOT/'saida'))
         self.assertTrue(all(not x['changed'] and not x['added'] and not x['removed'] for x in result['outputs']))
-        self.assertEqual(sum(x['unchanged_count'] for x in result['outputs']),5668)
+        actual_rows=sum(len(list(csv.DictReader(p.read_text(encoding='utf-8').splitlines(),delimiter=';'))) for p in (ROOT/'saida').glob('*.csv'))
+        self.assertEqual(sum(x['unchanged_count'] for x in result['outputs']),actual_rows)
 
 
 if __name__=='__main__':
