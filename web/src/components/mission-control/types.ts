@@ -28,6 +28,26 @@ export interface AgentEvent {
 export interface MissionControlProps {
   events: AgentEvent[];
   loading?: boolean;
+  context?: MissionContext;
+  onNavigate?: (target: MissionNavigationTarget) => void;
+}
+
+export interface MissionContext {
+  runId: string;
+  period?: string;
+  status?: string;
+  batchId?: string;
+  kind?: 'close' | 'investigation' | 'case_review' | 'comparison';
+  mode?: 'live' | 'history' | 'replay';
+}
+
+export interface MissionNavigationTarget {
+  kind: 'documents' | 'results' | 'case' | 'investigation' | 'evidence';
+  runId: string;
+  batchId?: string;
+  taskId?: string;
+  evidenceRef?: string;
+  output?: string;
 }
 
 export interface MissionTask {

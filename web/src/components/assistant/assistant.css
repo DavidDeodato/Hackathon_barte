@@ -5,3 +5,13 @@
 .lastro-assistant-root .la-speaker,.lastro-assistant-root .la-consulted,.lastro-assistant-root .la-sources>span,.lastro-assistant-root .la-sources button,.lastro-assistant-root .la-action small,.lastro-assistant-root .la-confirm p,.lastro-assistant-root .la-context label,.lastro-assistant-root .la-context-alert,.lastro-assistant-root .la-no-data{font-size:12px}
 
 .la-confirm details{font-size:12px;margin:6px 0}.la-confirm ul{max-height:90px;overflow:auto;padding-left:18px;margin:5px 0;overflow-wrap:anywhere}.la-confirm{max-height:45dvh;overflow:auto}
+
+/* R016: explicit switch to current close without reassigning old sources. */
+.lastro-assistant-root .la-context-alert{margin-top:8px;padding:10px;border:1px solid #5a4c66;border-radius:8px;background:#25202a;display:flex;flex-direction:column;gap:7px}
+.lastro-assistant-root .la-context-alert-title{font-size:12px;color:#e0c9f3;text-transform:none;line-height:1.4}
+.lastro-assistant-root .la-context-target{font-size:12px;line-height:1.4;color:var(--la-text)}
+.lastro-assistant-root .la-context-alert .la-context-switch{width:100%;min-height:42px;padding:9px 10px;border:1px solid var(--la-lime);background:var(--la-lime);color:#172013;font-size:12px;line-height:1.4;font-weight:650;text-align:left}
+.lastro-assistant-root .la-context-alert p{font-size:12px;line-height:1.45;color:#c5becb}
+.lastro-assistant-root .la-context.la-has-mismatch{flex-shrink:1;min-height:0;overflow-y:auto}
+
+.lastro-assistant-root .la-context.la-has-mismatch .la-context-alert{margin-top:5px;padding:8px;gap:5px}

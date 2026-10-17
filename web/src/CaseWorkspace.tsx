@@ -14,7 +14,7 @@ type CasePacket = {
   supporting_metrics?: { amount?: string | null; amount_nature?: string; metric?: string; name?: string; nature?: string }[];
 };
 type ReviewEnvelope = { review_id: string; status: string; result?: CaseReviewResult | null; error?: string | { message?: string; code?: string } | null };
-export type CaseWorkspaceProps = { base: string; token?: string; runId: string; caseKey: string; onClose: () => void };
+export type CaseWorkspaceProps = { base: string; token?: string; runId: string; caseKey: string; onClose: () => void; onCentral?: () => void; onEvents?: (events: AgentEvent[]) => void; onActivity?: (caseKey: string, active: boolean) => void };
 
 const ACTIONS: Record<string, string> = {
   prepare_merchant_refund: 'Devolução ao lojista', request_contract_confirmation: 'Confirmação de contrato',
@@ -33,7 +33,7 @@ function money(value?: string | null) {
 function failure(error: unknown) { return error instanceof Error ? error.message : 'Não foi possível carregar este registro.'; }
 function serviceError(error: ReviewEnvelope['error']) { return typeof error === 'string' ? error : error?.message || 'Não foi possível concluir a revisão.'; }
 
-export default function CaseWorkspace({ base, token = '', runId, caseKey, onClose }: CaseWorkspaceProps) {
+export default function CaseWorkspace({ base, token = '', runId, caseKey, onClose, onCentral, onEvents, onActivity }: CaseWorkspaceProps) {
   const modeId = useId();
   const [packet, setPacket] = useState<CasePacket | null>(null);
   const [loading, setLoading] = useState(true);
@@ -51,6 +51,7 @@ export default function CaseWorkspace({ base, token = '', runId, caseKey, onClos
   const generation = useRef(0);
   const reviewByCase = useRef(new Map<string, string>());
   const session = useRef({ base, token });
+  useEffect(() => { onActivity?.(caseKey, busy); }, [caseKey, busy, onActivity]);
   const request = useCallback(async <T,>(path: string, signal: AbortSignal, body?: unknown): Promise<T> => {
     const response = await fetch(`${base.replace(/\/$/, '')}${path}`, {
       method: body ? 'POST' : 'GET', signal: AbortSignal.any([signal, AbortSignal.timeout(25000)]),
@@ -93,6 +94,7 @@ export default function CaseWorkspace({ base, token = '', runId, caseKey, onClos
         const stream = await request<{ events: AgentEvent[] }>(`/api/case-reviews/${encodeURIComponent(jobId)}/events`, controller.signal);
         if (controller.signal.aborted) return;
         setEvents(Array.isArray(stream.events) ? stream.events : []);
+        onEvents?.(Array.isArray(stream.events) ? stream.events : []);
         if (ACTIVE.has(current.status)) {
           if (Date.now() - started > 180000) throw new Error('A revisão ainda está em andamento. Consulte novamente para acompanhar o resultado.');
           timer = setTimeout(poll, 1800);
@@ -105,7 +107,7 @@ export default function CaseWorkspace({ base, token = '', runId, caseKey, onClos
     };
     void poll();
     return () => { controller.abort(); clearTimeout(timer); };
-  }, [jobId, pollRevision, request]);
+  }, [jobId, pollRevision, request, onEvents]);
 
   async function startReview() {
     if (!packet || submitting.current || busy || (jobId && ACTIVE.has(review?.status || '')) || !context.current) return;
@@ -122,7 +124,7 @@ export default function CaseWorkspace({ base, token = '', runId, caseKey, onClos
   }
 
   return <section className="case-workspace" aria-label="Mesa de decisão do caso">
-    <header className="cw-top"><button type="button" onClick={onClose}><ArrowLeft size={16} /> Voltar ao fechamento</button><span>Mesa de decisão</span></header>
+    <header className="cw-top"><button type="button" onClick={onClose}><ArrowLeft size={16} /> Voltar ao fechamento</button>{onCentral && <button type="button" onClick={onCentral}><Layers3 size={16} /> Acompanhar na Central</button>}</header>
     {loading ? <div className="cw-loading" role="status">Abrindo caso e evidências…</div> : packetError ? <div className="cw-error" role="alert">{packetError}<button type="button" onClick={() => setReload(value => value + 1)}>Tentar novamente</button></div> : packet ? <>
       <div className="cw-layout">
         <article className="cw-dossier">
@@ -139,8 +141,8 @@ export default function CaseWorkspace({ base, token = '', runId, caseKey, onClos
         </article>
         <div className="cw-review-area">
           <header className="cw-review-heading"><span className="cw-eyebrow">Revisão do caso</span><h2>Parecer para revisão</h2><p>{mode === 'llm' || review?.result?.mode === 'llm' ? 'Parecer experimental. Confira as evidências; a aprovação do fechamento cabe a Helena.' : 'Confira os documentos e as evidências para a revisão de Helena.'}</p></header>
-          <div className="cw-review-controls"><label htmlFor={modeId}>Como deseja revisar?<select id={modeId} value={mode} disabled={busy} onChange={event => { setMode(event.target.value as 'deterministic' | 'llm'); setReviewError(''); }}><option value="deterministic">Conferir documentos</option><option value="llm">Investigar com IA</option></select></label><button type="button" className="cw-start" disabled={busy || Boolean(jobId && ACTIVE.has(review?.status || ''))} onClick={() => void startReview()}><Sparkles size={16} />{busy ? 'Revisão em andamento…' : mode === 'llm' ? 'Investigar com IA' : 'Conferir documentos'}</button></div>
-          {reviewError && <div className="cw-error" role="alert">{reviewError}{jobId && !busy && <button type="button" onClick={() => setPollRevision(value => value + 1)}>Consultar esta revisão novamente</button>}</div>}
+          <div className="cw-review-controls"><label htmlFor={modeId}>Como deseja revisar?<select id={modeId} value={mode} disabled={busy} onChange={event => { setMode(event.target.value as 'deterministic' | 'llm'); setReviewError(''); }}><option value="deterministic">Conferir documentos</option><option value="llm">Investigar com IA</option></select></label><button type="button" className="cw-start" disabled={busy || Boolean(jobId && ACTIVE.has(review?.status || ''))} onClick={() => void startReview()}><Sparkles size={16} />{busy ? 'Revisão em andamento…' : mode === 'llm' ? 'Executar revisão com IA' : 'Executar revisão'}</button></div>
+          {busy && <p role="status" className="cw-access">Revisão em andamento. Os eventos e o parecer aparecerão aqui; você também pode acompanhar na Central.</p>}{reviewError && <div className="cw-error" role="alert">{reviewError}{jobId && !busy && <button type="button" onClick={() => setPollRevision(value => value + 1)}>Consultar esta revisão novamente</button>}</div>}
           <CaseReviewTrace result={review?.result ?? null} events={events} loading={busy} />
           {review?.review_id && <details className="cw-job"><summary>Registro da revisão</summary><code>{review.review_id}</code><p>Andamento: {ACTIVE.has(review.status) ? 'Em andamento' : review.status === 'failed' ? 'Revisão interrompida' : 'Consulte o parecer acima'}</p></details>}
         </div>

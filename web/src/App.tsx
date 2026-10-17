@@ -5,6 +5,7 @@ import { ArrowDownToLine, ArrowRight, Building2, ChartNoAxesCombined, ChevronRig
 import { ApiError, makeApi, type AgentEvent, type Investigation, type JsonRecord, type Output, type Run } from './api';
 
 import MissionControl from './components/mission-control/MissionControl';
+import type {MissionNavigationTarget} from './components/mission-control/types';
 
 import Papa from 'papaparse';
 
@@ -132,6 +133,16 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
   const [caseKey,setCaseKey]=useState<string|null>(null);
 
   const [openedCases,setOpenedCases]=useState<string[]>([]);
+  const [casePicker,setCasePicker]=useState(false);
+  const [caseActivity,setCaseActivity]=useState<Record<string,boolean>>({});
+  const reportCaseActivity=useCallback((key:string,active:boolean)=>setCaseActivity(current=>current[key]===active?current:{...current,[key]:active}),[]);
+  const mergeCaseEvents=useCallback((incoming:AgentEvent[])=>setEvents(current=>{
+    const merged=new Map(current.map(event=>[event.id,event]));
+    for(const event of incoming)if(event.run_id===runId)merged.set(event.id,event);
+    return [...merged.values()];
+  }),[runId]);
+  function returnToCentral(){setRefresh(value=>value+1);navigate('agents');}
+
 
   const [detail,setDetail] = useState<JsonRecord | null>(null);
 
@@ -215,7 +226,7 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
     setRun(null);setEvents([]);setOutputs([]);setSelectedOutput('');setInvestigation(null);setInvestigationId('');setQuestionError('');
 
-    setAsking(false);setCaseKey(null);
+    setAsking(false);setCaseKey(null);setCaseActivity({});
 
   },[connected,runId,api]);
 
@@ -277,6 +288,9 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
         if (abort.signal.aborted) return;
 
         setInvestigation(result.result ?? result);
+        const stream = await api.events(runId,null,abort.signal);
+        if(abort.signal.aborted)return;
+        mergeCaseEvents(stream.items ?? []);
 
         if (isBusy(result.status)) timer = setTimeout(poll,1500);else {setAsking(false);setInvestigationId('');setRefresh(n => n+1);}
 
@@ -286,7 +300,7 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
     void poll();return () => {abort.abort();clearTimeout(timer);};
 
-  },[api,connected,runId,investigationId]);
+  },[api,connected,runId,investigationId,mergeCaseEvents]);
 
 
 
@@ -337,6 +351,19 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
     }else navigate('close');
   }
   function assistantRunCreated(id:string){setRunId(id);setCaseKey(null);setRefresh(value=>value+1);navigate('close');}
+  function teamNavigate(target:MissionNavigationTarget){
+    if(target.kind==='documents'){assistantNavigate({view:'documents',batchId:target.batchId});return;}
+    if(target.kind==='results'){assistantNavigate({view:'results',runId:target.runId,output:target.output});return;}
+    if(target.kind==='evidence'){
+      const namedOutput=outputs.find(output=>target.evidenceRef?.includes(output.name));
+      if(namedOutput){assistantNavigate({view:'results',runId:target.runId,output:namedOutput.name});return;}
+      openDetail({referencia_registrada:target.evidenceRef??'Não informada',etapa:target.taskId??'Não informada',fechamento:target.runId});
+      return;
+    }
+    if(target.runId!==runId)setRunId(target.runId);
+    setCaseKey(null);setCasePicker(target.kind==='case');navigate('investigate');
+  }
+
   useEffect(()=>{
     if(!assistantOutput||run?.run_id!==assistantOutput.runId||runId!==assistantOutput.runId||!outputs.length)return;
     if(outputs.some(output=>output.name===assistantOutput.name))setSelectedOutput(assistantOutput.name);
@@ -360,7 +387,7 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
       const id = result.investigation_id ?? result.id;
 
-      if (isBusy(result.status) && id) setInvestigationId(id);else setAsking(false);
+      if (isBusy(result.status) && id) setInvestigationId(id);else {setAsking(false);setRefresh(value=>value+1);}
 
     } catch(e) {if(epoch===contextEpoch.current){setQuestionError(investigationMode==='llm'&&e instanceof ApiError&&[401,403].includes(e.status??0)?'A investigação com IA não está disponível para este acesso.':message(e));setAsking(false);}}
 
@@ -376,7 +403,7 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
   const visibleIssues=previewRows.filter(row=>text(row).toLocaleLowerCase('pt-BR').includes(filter.toLocaleLowerCase('pt-BR'))).filter(row=>issueScope==='all'||String(row.quem_decide).toLowerCase().includes(issueScope==='commercial'?'comercial':'helena'));
 
-  const startCase=(key:string)=>{setCaseKey(key);setOpenedCases(current=>current.includes(key)?current:[...current,key]);setDetail(null);setView('investigate');};
+  const startCase=(key:string)=>{setCasePicker(false);setCaseKey(key);setOpenedCases(current=>current.includes(key)?current:[...current,key]);setDetail(null);setView('investigate');};
 
   const busy = creating || isBusy(run?.status);
 
@@ -443,15 +470,15 @@ function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
 
 
-        {view === 'investigate' && <><div className="case-entry-tabs filter-chips"><button className={!caseKey?'selected':''} onClick={()=>setCaseKey(null)}>Pergunta livre</button>{(run?.period==='2026-09'?['casa','atlas','mundo','rota']:[]).map(key=><button key={key} className={caseKey===key?'selected':''} onClick={()=>startCase(key)}>{key.charAt(0).toUpperCase()+key.slice(1)}</button>)}</div><div className="investigation-layout" hidden={!!caseKey}><section className="surface question-panel"><div className="section-heading"><h2>Investigar com evidências</h2><span className="small-label">{runId ? 'Fechamento selecionado' : 'Selecione um fechamento'}</span></div><label className="investigation-mode" htmlFor="investigation-mode">Método da investigação<select id="investigation-mode" value={investigationMode} disabled={asking} onChange={e=>{setInvestigationMode(e.target.value as 'deterministic'|'llm');setInvestigation(null);setQuestionError('');}}><option value="deterministic">Consulta às fontes</option><option value="llm">Investigação com IA</option></select></label><p className="investigation-method">{investigationMode==='deterministic'?'Localize registros e regras nos documentos do fechamento.':'Compare evidências e receba um parecer para revisão.'}</p><p className="muted">A investigação pode explicar e propor. Regras e valores não são alterados por esta tela.</p><label htmlFor="question">O que você precisa conferir?</label><textarea id="question" value={question} onChange={e=>setQuestion(e.target.value)} placeholder="Ex.: Qual a origem desta divergência e quem pode decidir?" rows={5} maxLength={6000}/><div className="question-footer"><span>{question.length}/6000</span><button className="button primary" onClick={ask} disabled={!connected || !runId || !question.trim() || asking || busy}>{asking ? <LoaderCircle className="spin" size={17}/> : <Search size={17}/>}Investigar</button></div><div className="suggestions"><span>Pontos de partida</span>{['Quais divergências precisam de revisão?','Quais pendências exigem decisão de Helena?','Como rastrear uma comissão até sua origem?'].map(q=><button key={q} onClick={()=>setQuestion(q)}>{q}<ArrowRight size={14}/></button>)}</div></section><section className="surface answer-panel"><h2>Evidência e proposta</h2>{questionError && <div className="notice error" role="alert">{questionError}</div>}{investigation ? <><Status status={investigation.status}/><InvestigationMetrics result={investigation}/>{investigation.answer && <p className="answer-text">{investigation.answer}</p>}{investigation.error && <div className="notice error">{typeof investigation.error === 'string' ? investigation.error : investigation.error.message}</div>}{investigation.evidence?.length ? <><h3>Evidências localizadas</h3>{investigation.evidence.map((item,i)=><EvidenceCard key={i} item={item} index={i}/>)}</> : <p className="muted">Nenhuma evidência retornada até o momento.</p>}{investigation.proposed_changes?.length ? <><h3>Propostas · revisão necessária</h3>{investigation.proposed_changes.map((item,i)=><ProposalCard key={i} item={item} index={i}/>)}<p className="inline-help">O impacto depende da validação da regra proposta.</p></> : null}{investigation.limitations?.length ? <><h3>Limites da resposta</h3><ul className="limitations">{investigation.limitations.map((item,i)=><li key={i}>{item}</li>)}</ul></> : null}</> : <Empty title={asking ? 'Investigação em andamento' : 'A resposta precisa de lastro'}>{asking ? 'Consultando as evidências do fechamento.' : 'Faça uma pergunta para consultar os documentos e suas referências.'}</Empty>}</section></div></>}
+        {view === 'investigate' && <><div className="section-heading"><div><button className="text-button" onClick={returnToCentral}><ArrowRight size={16}/>Voltar à Central de agentes</button>{asking&&<p role="status">Investigação em andamento. Você pode acompanhar a Central.</p>}</div><button className="button secondary" onClick={()=>{setCaseKey(null);setCasePicker(true);}}>Escolher caso para revisão</button></div>{casePicker&&<section className="surface case-picker" aria-label="Escolher caso para revisão"><h2>Qual caso você quer revisar?</h2><p>Selecione o caso, confira o método e clique em Executar revisão. A aprovação financeira continua com Helena.</p>{run?.period==='2026-09'?<div className="case-picker-grid">{[['casa','Casa','Devolução ao lojista'],['atlas','Atlas','Condição contratual'],['mundo','Mundo','Contestação ao parceiro'],['rota','Rota','Contestação de spread']].map(([key,name,description])=><button className="button secondary" key={key} onClick={()=>startCase(key)}><span><strong>{name}</strong><small>{description}</small></span><ArrowRight size={18}/></button>)}</div>:<p>Os casos preparados são de setembro de 2026. Para este fechamento, use a pergunta livre para consultar suas fontes.</p>}<button className="text-button" onClick={()=>setCasePicker(false)}>Usar pergunta livre<ArrowRight size={16}/></button></section>}<div className="case-entry-tabs" hidden={casePicker}><div className="case-entry-tabs filter-chips"><button className={!caseKey?'selected':''} onClick={()=>{setCaseKey(null);setCasePicker(false);}}>Pergunta livre</button>{(run?.period==='2026-09'?['casa','atlas','mundo','rota']:[]).map(key=><button key={key} className={caseKey===key?'selected':''} onClick={()=>startCase(key)}>{key.charAt(0).toUpperCase()+key.slice(1)}</button>)}</div></div><div className="investigation-layout" hidden={!!caseKey||casePicker}><section className="surface question-panel"><div className="section-heading"><h2>Investigar com evidências</h2><span className="small-label">{runId ? 'Fechamento selecionado' : 'Selecione um fechamento'}</span></div><label className="investigation-mode" htmlFor="investigation-mode">Método da investigação<select id="investigation-mode" value={investigationMode} disabled={asking} onChange={e=>{setInvestigationMode(e.target.value as 'deterministic'|'llm');setInvestigation(null);setQuestionError('');}}><option value="deterministic">Consulta às fontes</option><option value="llm">Investigação com IA</option></select></label><p className="investigation-method">{investigationMode==='deterministic'?'Localize registros e regras nos documentos do fechamento.':'Compare evidências e receba um parecer para revisão.'}</p><p className="muted">A investigação pode explicar e propor. Regras e valores não são alterados por esta tela.</p><label htmlFor="question">O que você precisa conferir?</label><textarea id="question" value={question} onChange={e=>setQuestion(e.target.value)} placeholder="Ex.: Qual a origem desta divergência e quem pode decidir?" rows={5} maxLength={6000}/><div className="question-footer"><span>{question.length}/6000</span><button className="button primary" onClick={ask} disabled={!connected || !runId || !question.trim() || asking || busy}>{asking ? <LoaderCircle className="spin" size={17}/> : <Search size={17}/>}Investigar</button></div><div className="suggestions"><span>Pontos de partida</span>{['Quais divergências precisam de revisão?','Quais pendências exigem decisão de Helena?','Como rastrear uma comissão até sua origem?'].map(q=><button key={q} onClick={()=>setQuestion(q)}>{q}<ArrowRight size={14}/></button>)}</div></section><section className="surface answer-panel"><h2>Evidência e proposta</h2>{questionError && <div className="notice error" role="alert">{questionError}</div>}{investigation ? <><Status status={investigation.status}/><InvestigationMetrics result={investigation}/>{investigation.answer && <p className="answer-text">{investigation.answer}</p>}{investigation.error && <div className="notice error">{typeof investigation.error === 'string' ? investigation.error : investigation.error.message}</div>}{investigation.evidence?.length ? <><h3>Evidências localizadas</h3>{investigation.evidence.map((item,i)=><EvidenceCard key={i} item={item} index={i}/>)}</> : <p className="muted">Nenhuma evidência retornada até o momento.</p>}{investigation.proposed_changes?.length ? <><h3>Propostas · revisão necessária</h3>{investigation.proposed_changes.map((item,i)=><ProposalCard key={i} item={item} index={i}/>)}<p className="inline-help">O impacto depende da validação da regra proposta.</p></> : null}{investigation.limitations?.length ? <><h3>Limites da resposta</h3><ul className="limitations">{investigation.limitations.map((item,i)=><li key={i}>{item}</li>)}</ul></> : null}</> : <Empty title={asking ? 'Investigação em andamento' : 'A resposta precisa de lastro'}>{asking ? 'Consultando as evidências do fechamento.' : 'Faça uma pergunta para consultar os documentos e suas referências.'}</Empty>}</section></div></>}
 
 
 
-        {connected&&runId&&run?.period==='2026-09'&&openedCases.map(key=><div key={key} className="case-layer" hidden={view!=='investigate'||caseKey!==key}><CaseWorkspace base={base} token={token} runId={runId} caseKey={key} onClose={()=>{setCaseKey(null);navigate('close');}}/></div>)}
+        {connected&&runId&&run?.period==='2026-09'&&openedCases.map(key=><div key={key} className="case-layer" hidden={view!=='investigate'||caseKey!==key}><CaseWorkspace base={base} token={token} runId={runId} caseKey={key} onCentral={returnToCentral} onEvents={mergeCaseEvents} onActivity={reportCaseActivity} onClose={()=>{setCaseKey(null);navigate('close');}}/></div>)}
 
         {view === 'investigate'&&caseKey&&(!connected||!runId)&&<Empty title="Selecione um fechamento">Selecione um fechamento para abrir os casos vinculados.</Empty>}
 
-        {view === 'agents' && <section className="agents-surface"><div className="notice subtle"><ShieldCheck size={17}/><span>Histórico das verificações e análises deste fechamento.</span></div><MissionControl events={events} loading={loading || busy}/></section>}
+        {view === 'agents' && <section className="agents-surface"><div className="notice subtle"><ShieldCheck size={17}/><span>Histórico das verificações e análises deste fechamento.</span></div><MissionControl events={events} loading={loading || busy || asking || Object.values(caseActivity).some(Boolean)} context={{runId,period:run?.run_id===runId?run.period:undefined,status:run?.run_id===runId?run.status:undefined,batchId:run?.run_id===runId?run.batch_id??undefined:undefined,kind:'close',mode:isBusy(run?.status)||asking||Object.values(caseActivity).some(Boolean)?'live':'history'}} onNavigate={teamNavigate}/></section>}
 
         {view==='close'&&<details className="closing-details comparison-toggle"><summary><Layers3 size={17}/>Comparar fechamentos</summary><ComparisonPanel api={api} runs={runs} connected={connected}/></details>}
 
