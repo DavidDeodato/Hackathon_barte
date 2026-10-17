@@ -1,4 +1,4 @@
-"""Bounded investigator -> independent critic over an immutable DOM packet.
+"""Experimental assisted review of an immutable DOM packet, never approval.
 
 No environment reads, provider construction, financial writes or approvals.
 Backend injects a distinct adapter per role inside its trusted subprocess.
@@ -28,6 +28,11 @@ BASE_PROMPT = (
     'destinatario da acao e responsavel; um parceiro nao vira lojista por aparecer no resumo anterior. '
     'O contexto e uma selecao explicitamente limitada do pacote, nao todo o corpus. Nao consultar uma tabela '
     'nao demonstra que ela falta: diga nao verificado nesta revisao, sem inventar lacuna global. '
+    'Contrato dos campos: closure_evidence enumera evidencias EXIGIDAS PARA ENCERRAMENTO FUTURO; '
+    'nao significa documentos existentes, recebidos, aprovados ou comprovantes apresentados. '
+    'amount e montante de ACAO PREPARADA, nunca prova de pagamento, devolucao, recebimento ou envio realizado. '
+    'rows e uma amostra com cobertura declarada; oito linhas limitam esta revisao, nao demonstram ausencia '
+    'de corpus, contrato ou taxa historica. Nao converter requisito futuro, preparo ou amostra em fato consumado. '
     'Objeção ao calculo/destino deve manter pacote intacto e pedir revisao humana. '
     'Nao exponha raciocinio privado. Responda JSON estritamente com '
     '{"answer":{"summary":"texto","observations":["texto"],"objections":["texto"],'
@@ -114,7 +119,84 @@ def _model_packet(packet):
                                for group, values in packet.get('related_outputs', {}).items() if isinstance(values, list)}
     view['party_roles'] = {'merchant_entity': deepcopy(packet.get('entity')), 'prepared_action_recipient': packet['recipient'],
                            'responsible_person_or_team': packet['owner']}
+    view['field_semantics'] = {
+        'closure_evidence': {'meaning': 'requirements_for_future_closure', 'proves_existing_documents': False},
+        'amount': {'meaning': 'prepared_action_amount', 'proves_payment_or_refund': False},
+        'rows': {'meaning': 'declared_review_sample', 'omission_proves_missing_corpus_or_rate': False},
+    }
     return view
+
+
+def _resolve_knowledge_reference(engine, reference):
+    """Resolve registered source#locator/locator, without interpreting answers.
+
+    None means a business/output identifier for the existing lookup adapter.
+    A list means actual catalog/source resolution, including scoped misses.
+    """
+    registered = {Path(row['path']).as_posix(): row for row in engine.kb.catalog['sources']}
+    source_name, fragment = None, reference
+    if '#' in reference:
+        prefix, fragment = reference.split('#', 1)
+        relative = Path(prefix.replace('\\', '/'))
+        if relative.is_absolute() or '..' in relative.parts or any(part in ('.env', '.secrets') for part in relative.parts):
+            raise CaseReviewError('unsafe_source_reference')
+        source_name = relative.as_posix()
+        if source_name not in registered:
+            raise CaseReviewError('unregistered_source_reference')
+    elif reference in registered:
+        source_name, fragment = reference, ''
+    else:
+        ids = {row['id'] for row in engine.kb.rules}
+        prefixes = {key.rsplit('-', 1)[0] + '-' for key in ids if '-' in key}
+        segments = reference.split('/')
+        if not all(segment in ids or any(segment.startswith(prefix) for prefix in prefixes) for segment in segments):
+            return None
+
+    segments = fragment.split('/') if fragment else []
+    if len(segments) > 20 or any(not re.fullmatch(r'[A-Za-z0-9_.:-]+', item) or item in ('.', '..') for item in segments):
+        raise CaseReviewError('invalid_source_locators')
+    if source_name is not None:
+        relative = Path(source_name)
+        if relative.is_absolute() or '..' in relative.parts or any(part in ('.env', '.secrets') for part in relative.parts):
+            raise CaseReviewError('unsafe_source_reference')
+        path = (engine.root / source_name).resolve()
+        if not path.is_relative_to(engine.root.resolve()) or not path.is_file():
+            raise CaseReviewError('source_outside_project_or_missing')
+    results = []
+    if not segments:
+        text = path.read_text(encoding='utf-8')
+        if len(text) > 60000:
+            raise CaseReviewError('source_too_large')
+        return [('source_text', {'path': source_name, 'text': text, 'requested_reference': reference}, [source_name, reference])]
+    for locator in segments:
+        matches = []
+        for row in engine.kb.rules:
+            row_source = row.get('source_path') or next(iter(row.get('source_refs', [])), '').split('#', 1)[0]
+            if locator.upper() in (row['id'].upper(), str(row.get('locator', '')).upper()) and (source_name is None or row_source == source_name):
+                if Path(row_source).as_posix() not in registered:
+                    raise CaseReviewError('unregistered_rule_source')
+                matches.append(row)
+        if matches:
+            for row in matches:
+                data = dict(deepcopy(row), reference_resolution={'requested_reference': reference,
+                            'requested_locator': locator, 'resolved_locator': row.get('locator', row['id']),
+                            'method': 'registered_catalog_locator'})
+                results.append(('rule', data, [row['id'], reference, *row.get('source_refs', [])]))
+        elif source_name and re.fullmatch(r'L\d+(?:-L?\d+)?', locator, re.I):
+            numbers = [int(value) for value in re.findall(r'\d+', locator)]
+            first, last = numbers[0], numbers[-1]
+            lines = path.read_text(encoding='utf-8').splitlines()
+            if not 1 <= first <= last <= len(lines) or last - first >= 20:
+                raise CaseReviewError('invalid_source_line_range')
+            results.append(('source_excerpt', {'path': source_name, 'locator': locator,
+                            'text': '\n'.join(lines[first - 1:last]), 'requested_reference': reference,
+                            'source_sha256': hashlib.sha256(path.read_bytes()).hexdigest()}, [reference, source_name + '#' + locator]))
+        else:
+            results.append(('catalog_reference_not_found', {'requested_reference': reference, 'locator': locator,
+                            'source_path': source_name, 'knowledge_version': engine.kb.version,
+                            'scope': 'Locator not found in the registered source catalog; not global document absence.'},
+                            [reference, 'knowledge:' + engine.kb.digest]))
+    return results
 
 
 def _check_packet(packet, output_dir):
@@ -264,8 +346,11 @@ def _run_role(role, adapter, packet, context, engine, evidence, prior, emit, che
             return [record('rule', row, [row['id'], *row.get('source_refs', [])]) for row in rows]
         if name == 'lookup_reference':
             ref = args.get('reference')
-            if set(args) != {'reference'} or not isinstance(ref, str) or not ref or len(ref) > 100:
+            if set(args) != {'reference'} or not isinstance(ref, str) or not ref or len(ref) > 500:
                 raise CaseReviewError('invalid_reference')
+            resolved = _resolve_knowledge_reference(engine, ref)
+            if resolved is not None:
+                return [record(kind, data, refs) for kind, data, refs in resolved]
             data = engine.lookup(ref)
             return record('output_trace' if data['status'] == 'ENCONTRADO' else 'lookup_not_found', data, [ref])
         if name == 'review_pending':
@@ -292,7 +377,11 @@ def _run_role(role, adapter, packet, context, engine, evidence, prior, emit, che
             emit('tool.called', 'running', role + ': adaptador, chamada ' + str(turn + 1), role, task_id)
             result['executed'] = True
             result['model_calls'] += 1
-            response = adapter({'messages': messages, 'tools': TOOL_SCHEMA if role == 'investigator' else [],
+            tools = deepcopy(TOOL_SCHEMA) if role == 'investigator' else []
+            for definition in tools:
+                if definition['name'] == 'lookup_reference':
+                    definition['description'] = 'Resolve an exact output/origin ID, catalog rule ID, or registered source#locator/locator (compound anchors are split and retrieved). Never infer a missing document from an unresolved identifier.'
+            response = adapter({'messages': messages, 'tools': tools,
                                 'max_output_tokens': 1800})
             check()
             if not isinstance(response, dict):
@@ -313,7 +402,7 @@ def _run_role(role, adapter, packet, context, engine, evidence, prior, emit, che
             if role == 'investigator' and not any(row['role'] == 'investigator' for row in evidence):
                 raise CaseReviewError('investigator_without_retrieved_evidence')
             result.update(_validate_answer(response, known_ids))
-            if role == 'investigator' and not any(row['role'] == role and row['kind'] not in ('search_not_found', 'lookup_not_found') for row in evidence):
+            if role == 'investigator' and not any(row['role'] == role and row['kind'] not in ('search_not_found', 'lookup_not_found', 'catalog_reference_not_found') for row in evidence):
                 result['needs_evidence'] = True
                 result['limitations'].append('Busca executada sem resultado neste snapshot/catálogo; não demonstra ausência global nem valor zero.')
             result['status'] = 'needs_evidence' if result['needs_evidence'] or result['objections'] else 'review_required'
@@ -347,6 +436,8 @@ def review_case(packet: dict, run_context: dict) -> dict:
     review_id = 'CASE-REVIEW-' + uuid4().hex
     result = {'review_id': review_id, 'case_id': packet.get('case_id') if isinstance(packet, dict) else None,
               'status': 'needs_evidence', 'mode': mode, 'model_called': False, 'packet': None,
+              'analysis_kind': 'deterministic_packet_only' if mode == 'deterministic' else 'experimental_assisted_review',
+              'semantic_quality': 'not_validated',
               'packet_unchanged': False, 'roles': [], 'evidence': [], 'observations': [],
               'objections': [], 'limitations': [], 'events': [], 'model_metrics': [], 'approved': False,
               'applied_to_calculation': False, 'integration_allowed': False}
@@ -427,7 +518,11 @@ def review_case(packet: dict, run_context: dict) -> dict:
                 result['observations'].extend({'role': role, 'text': text} for text in role_result['observations'])
                 result['objections'].extend({'role': role, 'text': text} for text in role_result['objections'])
             else:
-                result['status'] = 'needs_evidence' if any(row['status'] == 'needs_evidence' for row in result['roles']) else 'review_required'
+                # Current assisted analysis has no demonstrated semantic or
+                # incremental-critic validation. Technical completion cannot
+                # promote the review beyond evidence still required.
+                result['status'] = 'needs_evidence'
+                result['limitations'].append('Analise assistida experimental; qualidade semantica e beneficio incremental do critico nao demonstrados.')
                 result['integration_allowed'] = True
         check()
         emit('task.failed' if result['status'] == 'failed' else 'review.required',

@@ -98,13 +98,19 @@ class CaseReviewTests(unittest.TestCase):
     def test_roles_have_distinct_instances_and_critic_gets_observed_sources(self):
         inv, critic = self.adapters()
         result = self.run_assisted(inv, critic)
-        self.assertEqual(result['status'], 'review_required')
+        self.assertEqual(result['status'], 'needs_evidence')
         self.assertEqual(len(inv.requests), 2)
         self.assertEqual(len(critic.requests), 1)
         critic_input = json.loads(critic.requests[0]['messages'][1]['content'])
         self.assertEqual(critic_input['investigator_conclusion']['role'], 'investigator')
         self.assertEqual(critic_input['evidence'][0]['data']['id'], 'R1')
         self.assertEqual(critic_input['decision_under_review'], self.packet['action_type'])
+        semantics = critic_input['packet']['field_semantics']
+        self.assertFalse(semantics['closure_evidence']['proves_existing_documents'])
+        self.assertFalse(semantics['amount']['proves_payment_or_refund'])
+        self.assertFalse(semantics['rows']['omission_proves_missing_corpus_or_rate'])
+        self.assertEqual(result['analysis_kind'], 'experimental_assisted_review')
+        self.assertEqual(result['semantic_quality'], 'not_validated')
         self.assertIn('estorno', critic_input['case_challenge'].lower())
         self.assertEqual(critic.requests[0]['tools'], [])
         self.assertEqual(result['packet']['amount'], '12.35')
@@ -136,7 +142,7 @@ class CaseReviewTests(unittest.TestCase):
             return inv if role == 'investigator' else critic
         result = review_case(self.packet, dict(self.context, mode='replay', case_adapter_factory=factory))
         self.assertEqual(roles, ['investigator', 'critic'])
-        self.assertEqual(result['status'], 'review_required')
+        self.assertEqual(result['status'], 'needs_evidence')
         json.dumps(result)
 
     def test_unknown_amount_stays_null_and_not_zero(self):
@@ -144,7 +150,7 @@ class CaseReviewTests(unittest.TestCase):
         self.canonical_packet = deepcopy(self.packet)
         result = self.run_assisted()
         self.assertIsNone(result['packet']['amount'])
-        self.assertEqual(result['status'], 'review_required')
+        self.assertEqual(result['status'], 'needs_evidence')
 
     def test_critic_objection_preserves_packet_and_requires_evidence(self):
         inv, critic = self.adapters(critic_final=verdict(objections=['Decisao: preparar devolucao | Fonte: R1 e packet.recipient | Efeito: manter o item sem envio ate conferir a origem.']))
@@ -354,7 +360,7 @@ class CaseReviewTests(unittest.TestCase):
         inv = OpenAITransport('SYNTHETIC-KEY', 'fixture-model', max_calls=2, opener=opener('investigator'))
         critic = OpenAITransport('SYNTHETIC-KEY', 'fixture-model', max_calls=2, opener=opener('critic'))
         result = self.run_assisted(inv, critic)
-        self.assertEqual(result['status'], 'review_required')
+        self.assertEqual(result['status'], 'needs_evidence')
         self.assertEqual(len(requests['investigator']), 2)
         self.assertEqual(len(requests['critic']), 1)
         self.assertEqual(requests['critic'][0]['tools'], [])
@@ -377,6 +383,57 @@ class CanonicalDOMRegressionTests(unittest.TestCase):
         casa = build_case_packet(str(ROOT / 'saida'), 'casa')
         self.assertEqual(review_case(dict(casa, recipient='Orbe'), context)['error_code'], 'packet_not_canonical')
         self.assertEqual(mundo, original)
+
+    @unittest.skipUnless((ROOT / 'saida/manifest.json').is_file(), 'Requires generated baseline outputs')
+    def test_compound_source_references_retrieve_real_case_rules(self):
+        from tarvo.finance.cases import build_case_packet
+        cases = [
+            ('casa', 'contexto/RESPOSTAS_FINANCEIRO.md#CAN-07/CAN-17/REG-C02', ['CAN-07', 'CAN-17', 'REG-C02']),
+            ('mundo', 'contexto/RESPOSTAS_FINANCEIRO.md#REG-R03/REG-R04/REG-R05', ['REG-R03', 'REG-R04', 'REG-R05']),
+            ('atlas', 'contexto/RESPOSTAS_FINANCEIRO.md#CAN-04/CAN-19', ['CAN-04', 'CAN-19']),
+        ]
+        for key, reference, ids in cases:
+            with self.subTest(case=key):
+                packet = build_case_packet(str(ROOT / 'saida'), key)
+                answer = verdict()
+                answer['citations'] = ids
+                inv = ScriptedAdapter([{'tool_calls': [{'id': 'composite', 'name': 'lookup_reference',
+                                                       'arguments': {'reference': reference}}]}, answer])
+                critic = ScriptedAdapter([answer])
+                result = review_case(packet, {'project_root': str(ROOT), 'output_dir': str(ROOT / 'saida'),
+                                              'mode': 'replay', 'investigator_adapter': inv, 'critic_adapter': critic})
+                self.assertEqual(result['status'], 'needs_evidence')
+                self.assertEqual([row['data']['id'] for row in result['evidence']], ids)
+                self.assertTrue(all(row['kind'] == 'rule' for row in result['evidence']))
+                self.assertTrue(all(row['data']['reference_resolution']['requested_reference'] == reference for row in result['evidence']))
+                self.assertEqual(result['packet'], packet)
+                self.assertFalse(result['model_called'])
+
+    def test_registered_line_locators_and_bare_rule_ids(self):
+        from tarvo.agents.case_review import _resolve_knowledge_reference
+        from tarvo.intelligence import InvestigationEngine
+        engine = InvestigationEngine(ROOT)
+        bare = _resolve_knowledge_reference(engine, 'CAN-07/CAN-17')
+        self.assertEqual([item[1]['id'] for item in bare], ['CAN-07', 'CAN-17'])
+        line = _resolve_knowledge_reference(engine, 'contexto/RESPOSTAS_FINANCEIRO.md#L62')
+        self.assertEqual(line[0][1]['reference_resolution']['resolved_locator'], 'L62')
+        excerpt = _resolve_knowledge_reference(engine, 'contexto/RESPOSTAS_FINANCEIRO.md#L1-L2')
+        self.assertEqual(excerpt[0][0], 'source_excerpt')
+        self.assertEqual(excerpt[0][1]['locator'], 'L1-L2')
+        self.assertIn('Regras e esclarecimentos', excerpt[0][1]['text'])
+
+    def test_unknown_or_unsafe_compound_sources_do_not_trigger_arbitrary_read(self):
+        from tarvo.agents.case_review import _resolve_knowledge_reference, CaseReviewError
+        from tarvo.intelligence import InvestigationEngine
+        engine = InvestigationEngine(ROOT)
+        for reference in ('../.env#L1', 'unknown.txt#CAN-07',
+                          'contexto/RESPOSTAS_FINANCEIRO.md#../.env',
+                          'contexto/RESPOSTAS_FINANCEIRO.md#L1-L99999'):
+            with self.subTest(reference=reference), self.assertRaises(CaseReviewError):
+                _resolve_knowledge_reference(engine, reference)
+        missing = _resolve_knowledge_reference(engine, 'contexto/RESPOSTAS_FINANCEIRO.md#CAN-99999')
+        self.assertEqual(missing[0][0], 'catalog_reference_not_found')
+        self.assertEqual(missing[0][1]['locator'], 'CAN-99999')
 
 
 if __name__ == '__main__':
