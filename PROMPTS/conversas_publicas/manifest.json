@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-10-17T19:50:01.293729+00:00",
+  "generated_at": "2026-10-17T20:22:49.833380+00:00",
   "scope": "Textos públicos reais com omissões explícitas; não é exportação integral.",
   "omissions_index": {
     "file": "omissions.jsonl",
-    "records": 6891,
-    "sha256": "754f5eb10b75eca7e9d965280ef43dd54792430c02f8c490a2298d93255df76b"
+    "records": 8625,
+    "sha256": "5687e74b54c91af23c16be31babe58596e407eeff0c0e1e21764e4218a440961"
   },
   "sessions": [
     {
@@ -124,19 +124,19 @@
     },
     {
       "file": "rollout-2026-10-17T13-11-21-01a14aa1-d2e6-7c10-8f4d-76777ec9e274.jsonl",
-      "sha256": "5ae1165aecf0f2dfca678809dab0853b76d7856a2a46166220dc00ff457a84a6",
-      "source_snapshot_sha256": "8884f3aeda5faa3b272f05954e0305568c483b72e15d20d17bd1ceadc9fbd011",
+      "sha256": "79bc3e69b3f97e60437710910e8ec74b36c880fdb0e794b7dc692ca4a18bc012",
+      "source_snapshot_sha256": "cb8fda3655ecb6b797ed6eccfce7b98b13c2b2602340f1da7d068d115519d0c9",
       "counts": {
-        "non_response_metadata_excluded": 671,
-        "omission": 383,
-        "omission:system_or_developer": 12,
-        "message": 64,
-        "fully_omitted_messages": 18,
-        "omission:runtime_instructions_or_internal_message": 17,
-        "visible_messages": 46,
-        "redacted_messages": 2,
-        "omission:tool_or_internal_record": 249,
-        "omission:private_reasoning": 122
+        "non_response_metadata_excluded": 882,
+        "omission": 506,
+        "omission:system_or_developer": 13,
+        "message": 84,
+        "fully_omitted_messages": 26,
+        "omission:runtime_instructions_or_internal_message": 25,
+        "visible_messages": 58,
+        "redacted_messages": 3,
+        "omission:tool_or_internal_record": 331,
+        "omission:private_reasoning": 162
       }
     },
     {
@@ -159,155 +159,155 @@
     },
     {
       "file": "rollout-2026-10-17T13-47-16-01a14ac2-b5d5-7dc2-a0d8-8cadf8b56872.jsonl",
-      "sha256": "5f1fd230d854a201b3aa7dec3cba4283c8681fbee0fed1efa50b9563be476257",
-      "source_snapshot_sha256": "e2ac767b01f3b7b07f6c1aa714051cade3b9b295d048b4ade7aab9164be1d0d6",
+      "sha256": "cd5deab0cebec7803f65db7f9c02911b48c97c9f9d662defcddd9e6b898af842",
+      "source_snapshot_sha256": "2c1b0fe2960a280614e7a353ee6f4909562bceb42157c1e3870acdc942a70032",
       "counts": {
-        "non_response_metadata_excluded": 629,
-        "omission": 369,
-        "omission:system_or_developer": 11,
-        "message": 40,
+        "non_response_metadata_excluded": 672,
+        "omission": 394,
+        "omission:system_or_developer": 12,
+        "message": 43,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 237,
-        "visible_messages": 39,
-        "omission:private_reasoning": 121,
-        "redacted_messages": 10
+        "omission:tool_or_internal_record": 250,
+        "visible_messages": 42,
+        "omission:private_reasoning": 132,
+        "redacted_messages": 11
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-17-01a14ac2-b9a4-7c90-a517-37e5eb6ecbb8.jsonl",
-      "sha256": "0b4164fa059e705baa54df7c656e7ff24ad04b2f24f642c7f7f13753cc68e24c",
-      "source_snapshot_sha256": "44b183d64fe51140132268cc94f1ee8d654ebeb7829b69df4531f113760d24f4",
+      "sha256": "7d797c73e514514732f4af151d4b185afa4ab9057425e2e7250aab96006d0db4",
+      "source_snapshot_sha256": "a44295b348b48dcc38c1005cecbf32231abce49f53af72719ae268ca2ba429ee",
       "counts": {
-        "non_response_metadata_excluded": 950,
-        "omission": 592,
-        "omission:system_or_developer": 14,
-        "message": 44,
+        "non_response_metadata_excluded": 1034,
+        "omission": 634,
+        "omission:system_or_developer": 16,
+        "message": 49,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 377,
-        "visible_messages": 43,
-        "omission:private_reasoning": 201,
-        "redacted_messages": 9
+        "omission:tool_or_internal_record": 406,
+        "visible_messages": 48,
+        "omission:private_reasoning": 212,
+        "redacted_messages": 10
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-19-01a14ac2-bee5-7661-914d-432eceee3e74.jsonl",
-      "sha256": "1ddd3d5fa88a174991dbee13dce43851944153d2fdd882ef9f5a6d896031b2bc",
-      "source_snapshot_sha256": "a53b7bcea566e8aa83e0d1194fc075d59fad8c628a8ab2356a9bbd38f0f97014",
+      "sha256": "14892fe5cb46413149e837cf0b72f8585b4e6c6fd254875ce70854f9ab048206",
+      "source_snapshot_sha256": "bb7d558d5b15c0a046ce97768af563a435d5bfbe5fc4ed4cdc96a7cfdf338236",
       "counts": {
-        "non_response_metadata_excluded": 823,
-        "omission": 500,
+        "non_response_metadata_excluded": 1221,
+        "omission": 758,
         "omission:system_or_developer": 12,
-        "message": 38,
+        "message": 47,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 310,
-        "visible_messages": 37,
-        "omission:private_reasoning": 178,
+        "omission:tool_or_internal_record": 479,
+        "visible_messages": 46,
+        "omission:private_reasoning": 267,
         "redacted_messages": 4
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-20-01a14ac2-c27e-7461-884f-8b3507276268.jsonl",
-      "sha256": "ec8dc2f6306b19d9fc1688d60d3c12304efd15cbe5beb47f1bad6e61ea2fb9da",
-      "source_snapshot_sha256": "3f9e8c588712a38a7263bc9f4d8796b1531dc2d4369fad6a55d0fa776f7d91a9",
+      "sha256": "f64de0fd87f34c834e66bdae778f1c541468f3515edc8a8937263d68a96c921d",
+      "source_snapshot_sha256": "5a7acf819777473c7f8e17d1363ace669466d45130552b97f9c489ec7fd429ac",
       "counts": {
-        "non_response_metadata_excluded": 1364,
-        "omission": 855,
+        "non_response_metadata_excluded": 1848,
+        "omission": 1187,
         "omission:system_or_developer": 26,
-        "message": 62,
+        "message": 73,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 595,
-        "visible_messages": 61,
-        "omission:private_reasoning": 234,
+        "omission:tool_or_internal_record": 832,
+        "visible_messages": 72,
+        "omission:private_reasoning": 329,
         "redacted_messages": 6,
         "omission:non_text_attachment": 2
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-21-01a14ac2-c67c-75d1-a287-7841bd3584c3.jsonl",
-      "sha256": "b7e8464f7ae86ad269589f80c374a9a839bf14d548185d6f198344cfe281258e",
-      "source_snapshot_sha256": "ac80d26c9afef31e873277a2e8be8cc6ae49862bd445a332846b43c88e5fddf4",
+      "sha256": "7f1e0c877b573e1a536b158c0abc64446ef633a69349a02c965560ea3496bc85",
+      "source_snapshot_sha256": "5a1a914fbb5a65ea9520eeabb4d39af15f808f54472b5ed8dbf3c63d9ba626b1",
       "counts": {
-        "non_response_metadata_excluded": 313,
-        "omission": 158,
-        "omission:system_or_developer": 15,
-        "message": 29,
+        "non_response_metadata_excluded": 550,
+        "omission": 296,
+        "omission:system_or_developer": 17,
+        "message": 40,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 99,
-        "visible_messages": 28,
-        "omission:private_reasoning": 44,
-        "redacted_messages": 7
+        "omission:tool_or_internal_record": 189,
+        "visible_messages": 39,
+        "omission:private_reasoning": 90,
+        "redacted_messages": 10
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-22-01a14ac2-cb10-7853-bf09-9a3c3edbee56.jsonl",
-      "sha256": "6177b0815012f97acb2ebd92fbd9fff733ed98a29ffc0e823fa5499a686851aa",
-      "source_snapshot_sha256": "28b97348308a1f3259a8b95f0053eed772520abfaa7d61390f1fdfc383c1dbb7",
+      "sha256": "35f60f82511a4e08094791f559433bbb038a809a228a772d6083b463d0bfe5c5",
+      "source_snapshot_sha256": "5a7d7fae8427b2b0d74cf914b240bae6f12937a3216e4093d14eb691632f4833",
       "counts": {
-        "non_response_metadata_excluded": 926,
-        "omission": 589,
-        "omission:system_or_developer": 17,
-        "message": 35,
+        "non_response_metadata_excluded": 1244,
+        "omission": 775,
+        "omission:system_or_developer": 20,
+        "message": 47,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 336,
-        "visible_messages": 34,
-        "omission:private_reasoning": 236,
-        "redacted_messages": 3
+        "omission:tool_or_internal_record": 446,
+        "visible_messages": 46,
+        "omission:private_reasoning": 309,
+        "redacted_messages": 5
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-23-01a14ac2-cf08-7ca0-84ef-7a93388eba29.jsonl",
-      "sha256": "e6df1c8d2a3ee59bad485c37e841cde0dcb2e93288e8e533392efafa5cfb6202",
-      "source_snapshot_sha256": "3e4360aadde22e36762659fba3d284506253342975b212608a250db940c26dd8",
+      "sha256": "8574c16303aac5fa9aa3c23265bba70e122087bdc3551153fd07471dde973fa7",
+      "source_snapshot_sha256": "51a0f87c6d9afac269c0b93661c9e55a5c348c4acbc0bc76b7f44279194a11d9",
       "counts": {
-        "non_response_metadata_excluded": 1353,
-        "omission": 881,
+        "non_response_metadata_excluded": 1678,
+        "omission": 1113,
         "omission:system_or_developer": 15,
-        "message": 45,
+        "message": 50,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 549,
-        "visible_messages": 44,
-        "omission:private_reasoning": 317,
+        "omission:tool_or_internal_record": 679,
+        "visible_messages": 49,
+        "omission:private_reasoning": 419,
         "redacted_messages": 3
       }
     },
     {
       "file": "rollout-2026-10-17T13-47-24-01a14ac2-d40f-7893-a9d9-859c2782177d.jsonl",
-      "sha256": "6746daca9a3fde48670c6e0d79bcdabd56b4547b99c4d68ec936bfb4fd460c56",
-      "source_snapshot_sha256": "b35313e511873ce552bd2942d5a30c1419436198e482f2b2b11399faa620d995",
+      "sha256": "070fac35b6a24b6c103a89a70e99390ef63e7574366720025aa7ccdbd1025419",
+      "source_snapshot_sha256": "b340f8094fad890682b9c485c0f0858ac669164f3caaae39b93953134a142f70",
       "counts": {
-        "non_response_metadata_excluded": 797,
-        "omission": 497,
+        "non_response_metadata_excluded": 1130,
+        "omission": 707,
         "omission:system_or_developer": 12,
-        "message": 42,
+        "message": 55,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 2,
-        "omission:tool_or_internal_record": 303,
-        "visible_messages": 41,
-        "omission:private_reasoning": 182,
+        "omission:tool_or_internal_record": 456,
+        "visible_messages": 54,
+        "omission:private_reasoning": 239,
         "redacted_messages": 6
       }
     },
     {
       "file": "rollout-2026-10-17T14-02-03-01a14ad0-3b29-77c2-81d2-0771ce21b016.jsonl",
-      "sha256": "487645c5c010671a10d3d00ed5e156bdc14338df3975c76c509fafff2ef32010",
-      "source_snapshot_sha256": "08c0c494f372a5dfcf98422b813c44fc0d560b6398063de1ee9ee9454a3dd1c8",
+      "sha256": "0e374ceebd99b0d559590ad28b145c6b4587ba3c3abdcf81f0ec3abbc548115a",
+      "source_snapshot_sha256": "44008a819d7594b70ae101351dc8bd80695a73c5c7e1b3284859a021c3ac18f8",
       "counts": {
-        "non_response_metadata_excluded": 1497,
-        "omission": 859,
-        "omission:system_or_developer": 36,
-        "message": 114,
-        "fully_omitted_messages": 13,
-        "omission:runtime_instructions_or_internal_message": 9,
-        "visible_messages": 101,
-        "omission:tool_or_internal_record": 597,
-        "omission:private_reasoning": 226,
+        "non_response_metadata_excluded": 1804,
+        "omission": 1036,
+        "omission:system_or_developer": 42,
+        "message": 129,
+        "fully_omitted_messages": 16,
+        "omission:runtime_instructions_or_internal_message": 12,
+        "visible_messages": 113,
+        "omission:tool_or_internal_record": 732,
+        "omission:private_reasoning": 262,
         "redacted_messages": 7
       }
     },
@@ -345,16 +345,16 @@
     },
     {
       "file": "rollout-2026-10-17T16-42-38-01a14b63-3f3c-7ef0-bc3f-760c1ec6c47c.jsonl",
-      "sha256": "b778bd932121fbe447f4fa355751db51b8491720f22a9bfe59c4f15d9365d7d3",
-      "source_snapshot_sha256": "ca87b73acf81b30837c69e2a64908622dac8d06ae4e018e79c4e13ba65326cdf",
+      "sha256": "910c1fcba6081c4b1f550f5cbc210dd8d376366bbc012a0ec16c08ccaab1a467",
+      "source_snapshot_sha256": "1e4bf9adfbecdabeb84b4e49e62f64baced0f9b63c2835e4dd055857c3b15137",
       "counts": {
-        "non_response_metadata_excluded": 13,
+        "non_response_metadata_excluded": 36,
         "omission": 3,
         "omission:system_or_developer": 3,
-        "message": 4,
+        "message": 10,
         "fully_omitted_messages": 1,
         "omission:runtime_instructions_or_internal_message": 1,
-        "visible_messages": 3
+        "visible_messages": 9
       }
     }
   ]
