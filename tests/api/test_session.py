@@ -84,3 +84,17 @@ def test_local_open_and_vite_cookie_login(tmp_path):
         login = client.post("/api/session", json={"password": secured.access_password}, headers={"Origin": "http://127.0.0.1:5173"})
         assert login.status_code == 200 and "Secure" not in login.headers["set-cookie"]
         assert client.get("/api/runs").status_code == 200
+
+
+def test_assistant_router_shares_session_and_origin_protection(tmp_path):
+    config = settings(tmp_path)
+    with TestClient(create_app(config, start_worker=False), base_url=ORIGIN) as client:
+        assert client.get('/api/assistant/context').status_code == 401
+        assert client.get('/api/assistant/conversations').status_code == 401
+        assert client.post('/api/assistant/conversations', json={'period': '2099-01'}).status_code == 401
+        client.post('/api/session', json={'password': config.access_password}, headers={'Origin': ORIGIN})
+        assert client.get('/api/assistant/context').status_code == 200
+        assert client.post('/api/assistant/conversations', json={'period': '2099-01'}, headers={'Origin': 'https://other.test'}).status_code == 403
+        created = client.post('/api/assistant/conversations', json={'period': '2099-01'}, headers={'Origin': ORIGIN})
+        assert created.status_code == 201
+        assert client.get('/api/assistant/conversations/' + created.json()['id']).status_code == 200

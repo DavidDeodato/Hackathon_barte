@@ -1,6 +1,7 @@
 export type JsonRecord = Record<string, unknown>;
 export interface Run {
   run_id: string; period: string; status: string; created_at?: string; updated_at?: string;
+  batch_id?: string | null;
   summary: JsonRecord; issues: unknown[]; outputs: unknown[];
   error?: {code: string; message: string} | null;
 }
@@ -35,11 +36,12 @@ export function makeApi(base: string, token: string) {
       }});
     } catch (error) {
       if (signal?.aborted) throw error;
-      throw new ApiError('Não foi possível acessar a API. Verifique a conexão e tente novamente.');
+      throw new ApiError('Não foi possível carregar o fechamento. Confira sua conexão e tente novamente.');
     }
     if (!response.ok) {
       const body = await response.json().catch(() => null);
-      throw new ApiError(body?.error?.message || (response.status === 401 ? 'Sessão não autorizada. Confira o token de acesso.' : `API retornou HTTP ${response.status}.`), response.status);
+      if(response.status === 401) window.dispatchEvent(new Event('lastro:session-expired'));
+      throw new ApiError(response.status === 401 ? 'Sua sessão terminou. Entre novamente para continuar.' : body?.error?.message || 'Não foi possível concluir esta ação. Tente novamente.', response.status);
     }
     return response.json();
   }
@@ -54,6 +56,7 @@ export function makeApi(base: string, token: string) {
     }
     if (!response.ok) {
       const body = await response.json().catch(() => null);
+      if(response.status === 401) window.dispatchEvent(new Event('lastro:session-expired'));
       throw new ApiError(body?.error?.message || `Arquivo indisponível (HTTP ${response.status}).`, response.status);
     }
     return response;
@@ -62,7 +65,7 @@ export function makeApi(base: string, token: string) {
     health: (signal?: AbortSignal) => request<JsonRecord>('/api/health', undefined, signal),
     runs: (signal?: AbortSignal) => request<{items: Run[]}>('/api/runs', undefined, signal),
     run: (id: string, signal?: AbortSignal) => request<Run>(`/api/runs/${encodeURIComponent(id)}`, undefined, signal),
-    create: (period: string) => request<{run_id: string; status: string}>('/api/runs', {method: 'POST', body: JSON.stringify({period})}),
+    create: (period: string, selection?: {batch_id:string;document_ids:string[]}) => request<{run_id: string; status: string}>('/api/runs', {method: 'POST', body: JSON.stringify({period,...selection})}),
     events: (id: string, cursor?: string | null, signal?: AbortSignal) => request<{items: AgentEvent[]; next_cursor: string | null}>(`/api/runs/${encodeURIComponent(id)}/events${cursor ? `?after=${encodeURIComponent(cursor)}` : ''}`, undefined, signal),
     outputs: (id: string, signal?: AbortSignal) => request<{items: Output[]}>(`/api/runs/${encodeURIComponent(id)}/outputs`, undefined, signal),
     outputText: async (id: string,name: string) => {

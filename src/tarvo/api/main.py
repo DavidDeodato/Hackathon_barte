@@ -18,6 +18,7 @@ from .worker import Worker, finance_adapter, intelligence_adapter, comparison_ad
 from .session import SessionManager, SessionError
 from .document_store import DocumentStore, DocumentError
 from .documents import create_document_router
+from tarvo.assistant.router import create_assistant_router
 
 
 class RunInput(BaseModel):
@@ -203,6 +204,11 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
         job = enqueue("close", period, payload, run_id=run_id)
         # Store ID is authoritative; its internal run_id must match the output folder.
         return {"run_id": job["id"], "status": job["status"]}
+
+    app.include_router(create_assistant_router(
+        store=store, documents=documents, settings=settings,
+        create_run=lambda payload: create_run(RunInput(**payload)),
+    ), dependencies=auth)
 
     @app.get("/api/runs/{run_id}", dependencies=auth)
     def run(run_id: str):

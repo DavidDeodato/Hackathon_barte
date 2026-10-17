@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import { ArrowLeft, ArrowUpRight, FileText, Layers3, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, FileText, Layers3, Sparkles } from 'lucide-react';
 import CaseReviewTrace, { type CaseReviewResult } from './components/mission-control/CaseReviewTrace';
 import type { AgentEvent } from './components/mission-control/types';
 import './case-workspace.css';
@@ -14,7 +14,7 @@ type CasePacket = {
   supporting_metrics?: { amount?: string | null; amount_nature?: string; metric?: string; name?: string; nature?: string }[];
 };
 type ReviewEnvelope = { review_id: string; status: string; result?: CaseReviewResult | null; error?: string | { message?: string; code?: string } | null };
-export type CaseWorkspaceProps = { base: string; token: string; runId: string; caseKey: string; onClose: () => void };
+export type CaseWorkspaceProps = { base: string; token?: string; runId: string; caseKey: string; onClose: () => void };
 
 const ACTIONS: Record<string, string> = {
   prepare_merchant_refund: 'Devolução ao lojista', request_contract_confirmation: 'Confirmação de contrato',
@@ -31,9 +31,9 @@ function money(value?: string | null) {
   return `R$ ${whole.replace(/\B(?=(\d{3})+(?!\d))/g, '.')},${cents.padEnd(2, '0')}`;
 }
 function failure(error: unknown) { return error instanceof Error ? error.message : 'Não foi possível carregar este registro.'; }
-function serviceError(error: ReviewEnvelope['error']) { return typeof error === 'string' ? error : error?.message || error?.code || 'A revisão falhou no servidor.'; }
+function serviceError(error: ReviewEnvelope['error']) { return typeof error === 'string' ? error : error?.message || 'Não foi possível concluir a revisão.'; }
 
-export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: CaseWorkspaceProps) {
+export default function CaseWorkspace({ base, token = '', runId, caseKey, onClose }: CaseWorkspaceProps) {
   const modeId = useId();
   const [packet, setPacket] = useState<CasePacket | null>(null);
   const [loading, setLoading] = useState(true);
@@ -54,14 +54,18 @@ export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: 
   const request = useCallback(async <T,>(path: string, signal: AbortSignal, body?: unknown): Promise<T> => {
     const response = await fetch(`${base.replace(/\/$/, '')}${path}`, {
       method: body ? 'POST' : 'GET', signal: AbortSignal.any([signal, AbortSignal.timeout(25000)]),
+      credentials: 'same-origin',
       headers: { ...(token ? { Authorization: `Bearer ${token}` } : {}), ...(body ? { 'Content-Type': 'application/json' } : {}) },
       ...(body ? { body: JSON.stringify(body) } : {}),
     });
+    if (response.status === 401) {
+      window.dispatchEvent(new Event('lastro:session-expired'));
+      throw new Error('Sua sessão expirou. Entre novamente para continuar.');
+    }
+    if (response.status === 403) throw new Error('Ação indisponível para este acesso.');
     const data = await response.json().catch(() => null);
-    if (!response.ok) throw new Error(response.status === 401 || response.status === 403
-      ? `Acesso não autorizado (HTTP ${response.status}). Confira a sessão; nenhum modo alternativo foi executado.`
-      : data?.error?.message || `O serviço retornou HTTP ${response.status}.`);
-    if (!data) throw new Error('O serviço retornou uma resposta vazia.');
+    if (!response.ok) throw new Error(data?.error?.message || 'Não foi possível acessar este registro. Tente novamente.');
+    if (!data) throw new Error('Este registro está indisponível. Tente novamente.');
     return data as T;
   }, [base, token]);
 
@@ -71,7 +75,7 @@ export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: 
     submitting.current = false; setPacket(null); setLoading(true); setPacketError(''); setMode('deterministic');
     setReview(null); setReviewError(''); setEvents([]); setJobId(reviewByCase.current.get(`${runId}/${caseKey}`) || ''); setBusy(false);
     request<{ packet: CasePacket }>(`/api/runs/${encodeURIComponent(runId)}/cases/${encodeURIComponent(caseKey)}`, controller.signal)
-      .then(data => { if (!controller.signal.aborted) { if (!data.packet || data.packet.schema_version !== 'case-packet-v1') throw new Error('Versão do pacote não reconhecida.'); setPacket(data.packet); } })
+      .then(data => { if (!controller.signal.aborted) { if (!data.packet || data.packet.schema_version !== 'case-packet-v1') throw new Error('Este caso precisa ser atualizado antes da revisão.'); setPacket(data.packet); } })
       .catch(error => { if (!controller.signal.aborted) setPacketError(failure(error)); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
@@ -90,12 +94,12 @@ export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: 
         if (controller.signal.aborted) return;
         setEvents(Array.isArray(stream.events) ? stream.events : []);
         if (ACTIVE.has(current.status)) {
-          if (Date.now() - started > 180000) throw new Error('A revisão continua no servidor. A consulta automática foi pausada; retome para acompanhar o mesmo registro.');
+          if (Date.now() - started > 180000) throw new Error('A revisão ainda está em andamento. Consulte novamente para acompanhar o resultado.');
           timer = setTimeout(poll, 1800);
         } else {
           setBusy(false);
           if (current.status === 'failed' || current.error) setReviewError(serviceError(current.error));
-          else if (!current.result) setReviewError('A execução terminou sem resultado disponível.');
+          else if (!current.result) setReviewError('O parecer ainda não está disponível. Consulte novamente.');
         }
       } catch (error) { if (!controller.signal.aborted) { setReviewError(failure(error)); setBusy(false); } }
     };
@@ -105,13 +109,12 @@ export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: 
 
   async function startReview() {
     if (!packet || submitting.current || busy || (jobId && ACTIVE.has(review?.status || '')) || !context.current) return;
-    if (mode === 'llm' && !token.trim()) { setReviewError('Conecte uma sessão autorizada para usar a investigação com IA.'); return; }
     const controller = context.current; const version = generation.current;
     submitting.current = true; setBusy(true); setReviewError(''); setReview(null); setEvents([]); setJobId('');
     try {
       const created = await request<ReviewEnvelope>(`/api/runs/${encodeURIComponent(runId)}/case-reviews`, controller.signal, { case_key: caseKey, mode });
       if (controller.signal.aborted || version !== generation.current) return;
-      if (!created.review_id) throw new Error('O serviço não retornou o identificador da revisão.');
+      if (!created.review_id) throw new Error('Não foi possível acompanhar esta revisão. Atualize o caso e tente novamente.');
       reviewByCase.current.set(`${runId}/${caseKey}`, created.review_id);
       setReview(created); setJobId(created.review_id);
     } catch (error) { if (!controller.signal.aborted && version === generation.current) { setReviewError(failure(error)); setBusy(false); } }
@@ -120,28 +123,26 @@ export default function CaseWorkspace({ base, token, runId, caseKey, onClose }: 
 
   return <section className="case-workspace" aria-label="Mesa de decisão do caso">
     <header className="cw-top"><button type="button" onClick={onClose}><ArrowLeft size={16} /> Voltar ao fechamento</button><span>Mesa de decisão</span></header>
-    {loading ? <div className="cw-loading" role="status">Abrindo pacote e evidências…</div> : packetError ? <div className="cw-error" role="alert">{packetError}<button type="button" onClick={() => setReload(value => value + 1)}>Tentar novamente</button></div> : packet ? <>
+    {loading ? <div className="cw-loading" role="status">Abrindo caso e evidências…</div> : packetError ? <div className="cw-error" role="alert">{packetError}<button type="button" onClick={() => setReload(value => value + 1)}>Tentar novamente</button></div> : packet ? <>
       <div className="cw-layout">
         <article className="cw-dossier">
           <header className="cw-identity"><div className="cw-icon"><Layers3 size={22} /></div><div><p>{packet.period || 'Período não informado'}</p><h2>{packet.entity?.name || label(caseKey)}</h2></div><span className="cw-pending">Revisão humana</span></header>
           <div className="cw-amount"><p>{ACTIONS[packet.action_type || ''] || label(packet.action_type)}</p><strong>{money(packet.amount)}</strong><span>{NATURES[packet.amount_nature || ''] || label(packet.amount_nature)}</span></div>
           <dl className="cw-parties"><div><dt>Destino da ação</dt><dd>{packet.recipient || 'Não informado'}</dd></div><div><dt>Responsável pela decisão</dt><dd>{packet.owner || 'Não informado'}</dd></div></dl>
-          <section className="cw-next"><h3>Ação preparada</h3><p>{packet.action_prepared || 'Ação ainda não recebida.'}</p><span><ShieldCheck size={14} /> Preparação não equivale a aprovação ou envio.</span></section>
+          <section className="cw-next"><h3>Ação preparada</h3><p>{packet.action_prepared || 'Ação ainda não definida.'}</p></section>
           <details className="cw-detail" open><summary>O que falta para encerrar <ArrowUpRight size={15} /></summary><ol>{(packet.closure_evidence || []).map((item, index) => <li key={index}>{item}</li>)}</ol>{!packet.closure_evidence?.length && <p>Evidência de encerramento não informada.</p>}</details>
           {!!packet.supporting_metrics?.length && <details className="cw-detail"><summary>Valores de contexto</summary>{packet.supporting_metrics.map((metric, index) => <p key={index}><strong>{money(metric.amount)}</strong><br />{label(metric.nature || metric.amount_nature || metric.metric || metric.name)}</p>)}</details>}
           <details className="cw-detail"><summary>Regras e limites</summary>{packet.rule_refs?.map(ref => <code key={ref}>{ref}</code>)}<ul>{packet.limitations?.map((item, index) => <li key={index}>{item}</li>)}</ul></details>
           <details className="cw-detail"><summary><span><FileText size={15} /> Fontes vinculadas</span><span>{packet.source_refs?.length ?? '—'}</span></summary><div className="cw-source-list">{packet.source_refs?.map(ref => <code key={ref}>{ref}</code>)}</div></details>
-          <details className="cw-detail"><summary>Composição do valor <span>{packet.rows?.length ?? '—'} registros</span></summary><p>Linhas do pacote recebido. Naturezas diferentes não são somadas nesta vista.</p><div className="cw-row-list">{packet.rows?.map((row, index) => <article key={`${row.id_saida}-${index}`}><div><strong>{money(row.amount)}</strong><span>{label(row.amount_nature)}</span></div><code>{row.id_saida}</code><small>{row.output_file}</small>{row.source_refs?.map((ref, ri) => <code key={ri}>{ref}</code>)}</article>)}</div></details>
+          <details className="cw-detail"><summary>Composição do valor <span>{packet.rows?.length ?? '—'} registros</span></summary><p>Valores e documentos de origem, separados por natureza.</p><div className="cw-row-list">{packet.rows?.map((row, index) => <article key={`${row.id_saida}-${index}`}><div><strong>{money(row.amount)}</strong><span>{label(row.amount_nature)}</span></div><code>{row.id_saida}</code><small>{row.output_file}</small>{row.source_refs?.map((ref, ri) => <code key={ri}>{ref}</code>)}</article>)}</div></details>
           <details className="cw-detail cw-version"><summary>Versão e rastreabilidade</summary><code>{packet.case_id}</code><code>{packet.snapshot_id}</code>{Object.entries(packet.snapshot || {}).map(([file, hash]) => <p key={file}>{file}<code>{hash}</code></p>)}</details>
         </article>
         <div className="cw-review-area">
-          <header className="cw-review-heading"><span className="cw-eyebrow">Revisão do caso</span><h2>Uma decisão com lastro.</h2><p>Confira o pacote. Quando necessário, confronte a análise com um parecer crítico e suas fontes.</p></header>
-          <div className="cw-review-controls"><label htmlFor={modeId}>Modo de revisão<select id={modeId} value={mode} disabled={busy} onChange={event => { setMode(event.target.value as 'deterministic' | 'llm'); setReviewError(''); }}><option value="deterministic">Conferir pacote · sem IA</option><option value="llm">Investigar e criticar · com IA</option></select></label><button type="button" className="cw-start" disabled={busy || Boolean(jobId && ACTIVE.has(review?.status || '')) || (mode === 'llm' && !token.trim())} onClick={() => void startReview()}><Sparkles size={16} />{busy ? 'Revisão em andamento…' : mode === 'llm' ? 'Iniciar investigação' : 'Conferir pacote'}</button></div>
-          {mode === 'llm' && !token.trim() && <p className="cw-access">A investigação com IA precisa de uma sessão autorizada. Configure o acesso na conexão.</p>}
-          {(mode === 'llm' || review?.result?.mode === 'llm') && <p className="cw-access">Análise assistida experimental · exige conferência das evidências. Montantes, destino e ação vêm exclusivamente do pacote determinístico. Pareceres não aprovam o fechamento.</p>}
+          <header className="cw-review-heading"><span className="cw-eyebrow">Revisão do caso</span><h2>Parecer para revisão</h2><p>{mode === 'llm' || review?.result?.mode === 'llm' ? 'Parecer experimental. Confira as evidências; a aprovação do fechamento cabe a Helena.' : 'Confira os documentos e as evidências para a revisão de Helena.'}</p></header>
+          <div className="cw-review-controls"><label htmlFor={modeId}>Como deseja revisar?<select id={modeId} value={mode} disabled={busy} onChange={event => { setMode(event.target.value as 'deterministic' | 'llm'); setReviewError(''); }}><option value="deterministic">Conferir documentos</option><option value="llm">Investigar com IA</option></select></label><button type="button" className="cw-start" disabled={busy || Boolean(jobId && ACTIVE.has(review?.status || ''))} onClick={() => void startReview()}><Sparkles size={16} />{busy ? 'Revisão em andamento…' : mode === 'llm' ? 'Investigar com IA' : 'Conferir documentos'}</button></div>
           {reviewError && <div className="cw-error" role="alert">{reviewError}{jobId && !busy && <button type="button" onClick={() => setPollRevision(value => value + 1)}>Consultar esta revisão novamente</button>}</div>}
           <CaseReviewTrace result={review?.result ?? null} events={events} loading={busy} />
-          {review?.review_id && <details className="cw-job"><summary>Registro da execução</summary><code>{review.review_id}</code><p>Estado técnico recebido: {label(review.status)}</p></details>}
+          {review?.review_id && <details className="cw-job"><summary>Registro da revisão</summary><code>{review.review_id}</code><p>Andamento: {ACTIVE.has(review.status) ? 'Em andamento' : review.status === 'failed' ? 'Revisão interrompida' : 'Consulte o parecer acima'}</p></details>}
         </div>
       </div>
     </> : null}

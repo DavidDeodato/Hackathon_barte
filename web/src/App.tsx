@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { ArrowDownToLine, ArrowRight, Building2, ChartNoAxesCombined, Check, ChevronRight, Clock3, Database, FileSearch, FileText, Layers3, LoaderCircle, Play, RefreshCw, Search, Settings2, ShieldCheck, Unplug, Users, X, AlertTriangle } from 'lucide-react';
+import { ArrowDownToLine, ArrowRight, Building2, ChartNoAxesCombined, ChevronRight, Clock3, Database, FileSearch, FileText, FolderOpen, Layers3, LoaderCircle, Plus, RefreshCw, Search, LogOut, ShieldCheck, Users, X, AlertTriangle } from 'lucide-react';
 
 import { ApiError, makeApi, type AgentEvent, type Investigation, type JsonRecord, type Output, type Run } from './api';
 
@@ -11,6 +11,11 @@ import Papa from 'papaparse';
 import ComparisonPanel from './ComparisonPanel';
 
 import {EvidenceCard,ProposalCard} from './EvidenceCard';
+import AccessGate from './AccessGate';
+import DocumentsWorkspace from './components/documents/DocumentsWorkspace';
+import type {DocumentsNavigationRequest} from './components/documents/types';
+import LastroAssistant from './components/assistant/LastroAssistant';
+import type {NavigationTarget} from './components/assistant/types';
 
 import InvestigationMetrics from './InvestigationMetrics';
 
@@ -20,7 +25,7 @@ import CarbonOverview,{IssueCards,FileTile,outputRows,formatMoney,issueTitle,cas
 
 
 
-type View = 'close' | 'issues' | 'sources' | 'investigate' | 'agents';
+type View = 'close' | 'issues' | 'documents' | 'sources' | 'investigate' | 'agents';
 
 const NAV = [
 
@@ -28,7 +33,9 @@ const NAV = [
 
   {id: 'issues', label: 'Pendências', icon: Clock3},
 
-  {id: 'sources', label: 'Fontes', icon: Database},
+  {id: 'documents', label: 'Documentos', icon: FolderOpen},
+
+  {id: 'sources', label: 'Resultados', icon: Database},
 
   {id: 'investigate', label: 'Investigação', icon: Search},
 
@@ -37,22 +44,6 @@ const NAV = [
 ] as const;
 
 const LABELS: Record<string, string> = {queued: 'Na fila', running: 'Em processamento', processing: 'Em processamento', completed: 'Processado', succeeded: 'Processado', success: 'Processado', failed: 'Falhou', blocked: 'Bloqueado', unavailable: 'Indisponível', pending: 'Aguardando execução', review_required: 'Revisão necessária', needs_review: 'Revisão necessária', pending_review: 'Revisão pendente', interrupted: 'Interrompido', timed_out: 'Tempo esgotado', cancelled: 'Cancelado', completed_with_issues: 'Processado com pendências'};
-
-const SOURCES = [
-
-  ['01_orbe_relatorio_comissoes_set2026.csv', 'Checkout', 'Transações, taxas aplicadas e antecipações da Orbe.'],
-
-  ['02_tabela_taxas_contratadas.xlsx', 'Condições comerciais', 'Cadastro, identidade e taxas contratadas por lojista.'],
-
-  ['03_email_ponte_cambio_relatorio_set2026.eml', 'Remessas internacionais', 'E-mail e relatório de operações da Ponte Câmbio.'],
-
-  ['04_plano_de_contas_fenix_erp.csv', 'Plano de contas', 'Contas disponíveis para classificação bancária.'],
-
-  ['05a_extrato_banco_aurora_cc4471_set2026.csv', 'Banco Aurora', 'Movimentações da conta corrente.'],
-
-  ['05b_extrato_banco_meridiano_cc90233_set2026.ofx', 'Banco Meridiano', 'Movimentações e identificadores OFX.'],
-
-];
 
 const text = (value: unknown): string => value == null ? 'Não informado' : typeof value === 'object' ? JSON.stringify(value) : String(value);
 
@@ -86,31 +77,31 @@ function FinancialSummary({run,onOutput}: {run: Run;onOutput:(name:string)=>void
 
   const counts=summary.counts && typeof summary.counts==='object' ? summary.counts as JsonRecord : {};
 
-  return <><div className="summary-heading"><Status status={run.status}/><span>Cálculo determinístico · não aprovado financeiramente</span></div><div className="financial-summary">{rows.filter(([key])=>key in summary).map(([key,label,file])=><button key={key} onClick={()=>onOutput(file)}><span>{label}</span><strong>{money(summary[key]) ?? 'Não informado'}</strong><ChevronRight size={15}/></button>)}</div><p className="inline-help">Comissões, notas, divergências e pendências representam naturezas distintas. Estes valores não devem ser somados.</p><div className="validation-row"><ShieldCheck size={17}/><span>{summary.trace_reconciled===true ? 'Conservação do rastro conferida pelo motor' : 'Conferência do rastro não informada'}</span><strong>{summary.trace_checks == null ? 'n/a' : `${text(summary.trace_checks)} checagens`}</strong></div><div className="output-counts">{Object.entries(counts).map(([name,count])=><button key={name} onClick={()=>onOutput(name)}><FileText size={14}/><span>{name}</span><strong>{text(count)}</strong></button>)}</div><details className="technical"><summary>Detalhes técnicos da execução</summary><Fields data={summary}/></details></>;
+  return <><div className="summary-heading"><Status status={run.status}/><span>Valores apurados · revisão pendente</span></div><div className="financial-summary">{rows.filter(([key])=>key in summary).map(([key,label,file])=><button key={key} onClick={()=>onOutput(file)}><span>{label}</span><strong>{money(summary[key]) ?? 'Não informado'}</strong><ChevronRight size={15}/></button>)}</div><p className="inline-help">Comissões, notas, divergências e pendências representam naturezas distintas. Estes valores não devem ser somados.</p><div className="validation-row"><ShieldCheck size={17}/><span>{summary.trace_reconciled===true ? 'Valores vinculados às fontes' : 'Vínculos às fontes ainda não conferidos'}</span><strong>{summary.trace_checks == null ? '—' : `${text(summary.trace_checks)} checagens`}</strong></div><div className="output-counts">{Object.entries(counts).map(([name,count])=><button key={name} onClick={()=>onOutput(name)}><FileText size={14}/><span>{name}</span><strong>{text(count)}</strong></button>)}</div><details className="technical"><summary>Detalhes da apuração</summary><Fields data={summary}/></details></>;
 
 }
 
 
 
-export default function App() {
+const SERVICE_BASE='';
+export default function App(){return <AccessGate base={SERVICE_BASE}>{onSignOut=><Workspace onSignOut={onSignOut}/>}</AccessGate>;}
+
+function Workspace({onSignOut}:{onSignOut?:()=>void}) {
 
   const [view, setView] = useState<View>('close');
 
   const [tab, setTab] = useState<'summary'|'outputs'>('summary');
+  const [createBatchRequest,setCreateBatchRequest]=useState(0);
+  const [selectedBatchId,setSelectedBatchId]=useState<string|null>(null);
+  const [documentsNavigation,setDocumentsNavigation]=useState<DocumentsNavigationRequest>();
+  const [assistantOutput,setAssistantOutput]=useState<{runId:string;name:string}|null>(null);
+  const documentNavigationId=useRef(0);
 
   const [period,setPeriod] = useState('2026-09');
 
-  const [connected,setConnected] = useState(!!import.meta.env.VITE_API_BASE_URL || import.meta.env.DEV);
-
-  const [base,setBase] = useState(import.meta.env.VITE_API_BASE_URL ?? '');
-
-  const [token,setToken] = useState('');
-
-  const [config,setConfig] = useState(false);
-
-  const [draftBase,setDraftBase] = useState(base);
-
-  const [draftToken,setDraftToken] = useState('');
+  const connected=true;
+  const base=SERVICE_BASE;
+  const token='';
 
   const [runs,setRuns] = useState<Run[]>([]);
 
@@ -224,7 +215,7 @@ export default function App() {
 
     setRun(null);setEvents([]);setOutputs([]);setSelectedOutput('');setInvestigation(null);setInvestigationId('');setQuestionError('');
 
-    setAsking(false);
+    setAsking(false);setCaseKey(null);
 
   },[connected,runId,api]);
 
@@ -245,6 +236,7 @@ export default function App() {
         if (abort.signal.aborted) return;
 
         setRun(next);setError('');setFresh(new Date().toISOString());
+        setRuns(current=>current.map(item=>item.run_id===next.run_id?{...item,status:next.status,updated_at:next.updated_at}:item));
 
         setEvents(current => {const all = new Map(current.map(e => [e.id,e]));for(const event of eventPage.items ?? []) all.set(event.id,event);return [...all.values()];});
 
@@ -267,32 +259,6 @@ export default function App() {
     void poll();return () => {abort.abort();clearTimeout(timer);};
 
   },[api,connected,runId,refresh]);
-
-
-
-  useEffect(() => {
-
-    if (!config) return;
-
-    function keyboard(event: KeyboardEvent) {
-
-      if(event.key === 'Escape') {setConfig(false);return;}
-
-      if(event.key !== 'Tab') return;
-
-      const controls=[...document.querySelectorAll<HTMLElement>('.connection-dialog button,.connection-dialog input')].filter(el=>!el.hasAttribute('disabled'));
-
-      const first=controls[0],last=controls[controls.length-1];
-
-      if(event.shiftKey && document.activeElement===first){event.preventDefault();last?.focus();}
-
-      else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first?.focus();}
-
-    }
-
-    document.addEventListener('keydown',keyboard);return ()=>document.removeEventListener('keydown',keyboard);
-
-  },[config]);
 
 
 
@@ -350,23 +316,39 @@ export default function App() {
 
 
 
-  async function createRun() {
-
-    if (!connected) {setConfig(true);return;}
-
+  const processDocuments=useCallback(async(batchId:string,documentIds:string[],competence:string)=>{
     setCreating(true);setError('');
-
-    try {const next = await api.create(period);setRunId(next.run_id);setRefresh(n => n+1);navigate('close');}
-
-    catch(e) {setError(message(e));}finally {setCreating(false);}
-
+    try{const next=await api.create(competence,{batch_id:batchId,document_ids:documentIds});setPeriod(competence);setRunId(next.run_id);setCaseKey(null);setRefresh(n=>n+1);navigate('close');}
+    finally{setCreating(false);}
+  },[api,navigate]);
+  const selectedBatchChanged=useCallback((batchId:string|null,competence:string)=>{setSelectedBatchId(batchId);if(competence)setPeriod(competence);},[]);
+  function newClosing(){navigate('documents');setCreateBatchRequest(value=>value+1);}
+  function assistantNavigate(target:NavigationTarget){
+    if(target.view==='documents'){
+      navigate('documents');
+      setDocumentsNavigation({requestId:++documentNavigationId.current,batchId:target.batchId,create:target.newClosing===true,period:target.period});
+      return;
+    }
+    const nextRun=target.runId||runId;
+    if(target.runId){setRunId(target.runId);setCaseKey(null);setRefresh(value=>value+1);}
+    if(target.view==='results'){
+      if(target.output&&nextRun)setAssistantOutput({runId:nextRun,name:target.output});
+      navigate('sources');
+    }else navigate('close');
   }
+  function assistantRunCreated(id:string){setRunId(id);setCaseKey(null);setRefresh(value=>value+1);navigate('close');}
+  useEffect(()=>{
+    if(!assistantOutput||run?.run_id!==assistantOutput.runId||runId!==assistantOutput.runId||!outputs.length)return;
+    if(outputs.some(output=>output.name===assistantOutput.name))setSelectedOutput(assistantOutput.name);
+    else setError('O arquivo indicado não está disponível neste fechamento.');
+    setAssistantOutput(null);
+  },[assistantOutput,run,runId,outputs]);
+
 
   async function ask() {
 
     if (!connected || !runId || !question.trim()) return;
 
-    if(investigationMode==='llm'&&!token.trim()){setQuestionError('Investigação com IA exige um token de sessão. Abra Conexão da API e informe o bearer autorizado.');return;}
 
     const epoch=contextEpoch.current;
 
@@ -380,7 +362,7 @@ export default function App() {
 
       if (isBusy(result.status) && id) setInvestigationId(id);else setAsking(false);
 
-    } catch(e) {if(epoch===contextEpoch.current){setQuestionError(investigationMode==='llm'&&e instanceof ApiError&&[401,403].includes(e.status??0)?'Investigação com IA não autorizada. Confira o token de sessão e a habilitação do backend. Nenhuma consulta determinística foi usada como substituta.':message(e));setAsking(false);}}
+    } catch(e) {if(epoch===contextEpoch.current){setQuestionError(investigationMode==='llm'&&e instanceof ApiError&&[401,403].includes(e.status??0)?'A investigação com IA não está disponível para este acesso.':message(e));setAsking(false);}}
 
   }
 
@@ -414,71 +396,76 @@ export default function App() {
 
       <nav aria-label="Navegação principal">{NAV.map(item => <button key={item.id} aria-label={item.label} className={view === item.id ? 'nav-item active' : 'nav-item'} aria-current={view === item.id ? 'page' : undefined} onClick={() => navigate(item.id)}><item.icon size={19}/><span>{item.label}</span>{item.id === 'issues' && (run?.issues?.length ?? 0) > 0 && <span className="nav-count">{run!.issues.length}</span>}</button>)}</nav>
 
-      <div className="sidebar-bottom"><div><ShieldCheck size={17}/><span>Rastro antes de resultado</span></div><button className="nav-item" aria-label="Conexão da API" onClick={() => {setDraftBase(base);setConfig(true);}}><Settings2 size={18}/><span>Conexão da API</span></button></div>
+      <div className="sidebar-bottom">{onSignOut&&<button className="nav-item" aria-label="Sair" onClick={onSignOut}><LogOut size={18}/><span>Sair</span></button>}</div>
 
     </aside>
 
     <div className="workspace-shell">
 
-      <header className="topbar"><div className="topbar-brand"><Layers3 size={26}/><span>LASTRO</span></div><form className="global-search" onSubmit={e=>{e.preventDefault();navigate('issues');setFilter(globalQuery);}}><Search size={17}/><input aria-label="Buscar pendências" placeholder="Buscar pendências, valores, referências…" value={globalQuery} onChange={e=>setGlobalQuery(e.target.value)}/><button aria-label="Buscar" type="submit"><ArrowRight size={15}/></button></form><label className="period"><span className="sr-only">Competência de processamento</span><input aria-label="Competência de processamento" type="month" value={period} onChange={e=>setPeriod(e.target.value)}/></label><button className={`connection ${connected ? 'live' : 'demo'}`} onClick={() => setConfig(true)}><span className="connection-dot"/>{connected ? error ? 'Conexão com falha' : 'API configurada' : 'Modo demonstração'}</button></header>
+      <header className="topbar"><div className="topbar-brand"><Layers3 size={26}/><span>LASTRO</span></div><form className="global-search" onSubmit={e=>{e.preventDefault();navigate('issues');setFilter(globalQuery);}}><Search size={17}/><input aria-label="Buscar pendências" placeholder="Buscar pendências, valores, referências…" value={globalQuery} onChange={e=>setGlobalQuery(e.target.value)}/><button aria-label="Buscar" type="submit"><ArrowRight size={15}/></button></form><span className="topbar-competence">{view==='documents'?period:run?.period??period}</span></header>
 
       <main id="main" tabIndex={-1}>
 
-        <div className="page-heading"><div><h1 ref={headingRef}>{view === 'close' ? 'Fechamento' : displayed.label}</h1><p>{view === 'close' ? 'Apure o mês. Revise as exceções. Decida com evidências.' : view === 'issues' ? 'O que ainda exige uma decisão, com motivo e responsável.' : view === 'sources' ? 'Os arquivos de origem e os registros que sustentam a apuração.' : view === 'investigate' ? 'Da pergunta à evidência. Toda mudança começa como proposta.' : 'Acompanhe ações observadas, ferramentas e evidências da execução.'}</p></div><div className="heading-actions"><label className="period"><span className="sr-only">Competência</span><input aria-label="Competência" type="month" value={period} onChange={e=>setPeriod(e.target.value)} /></label><button className="button primary" onClick={createRun} disabled={busy || !period}>{busy ? <LoaderCircle className="spin" size={17}/> : <Play size={16}/>}<span>{busy ? 'Processando' : 'Processar fechamento'}</span></button></div></div>
+        <div className="page-heading"><div><h1 ref={headingRef}>{view === 'close' ? 'Fechamento' : displayed.label}</h1><p>{view === 'close' ? 'Apure o mês. Revise as exceções. Decida com evidências.' : view === 'issues' ? 'O que ainda exige uma decisão, com motivo e responsável.' : view === 'documents' ? 'Originais, conjuntos e competência para cada apuração.' : view === 'sources' ? 'Os resultados da apuração e seus registros de origem.' : view === 'investigate' ? 'Da pergunta à evidência. Toda mudança começa como proposta.' : 'Acompanhe ações observadas, ferramentas e evidências da execução.'}</p></div><div className="heading-actions"><button className="button primary" onClick={newClosing} disabled={creating}><Plus size={17}/><span>Novo fechamento</span></button></div></div>
 
 
 
-        {!connected && <div className="notice demo-notice" role="status"><AlertTriangle size={18}/><span>Demonstração de interface. Nenhum valor financeiro foi calculado.</span><button onClick={() => setConfig(true)}>Conectar API <ArrowRight size={14}/></button></div>}
+
 
         {error && <div className="notice error" role="alert"><AlertTriangle size={18}/><span>{error}</span><button onClick={() => setRefresh(n => n+1)}>Tentar novamente</button></div>}
 
-        {connected && <div className="runbar"><label>Execução <select aria-label="Execução" value={runId} onChange={e=>setRunId(e.target.value)}><option value="">{loading ? 'Carregando…' : 'Selecione uma execução'}</option>{runs.map(item => <option key={item.run_id} value={item.run_id}>{item.period} · {LABELS[item.status]??item.status} · {item.run_id.slice(0,6)}</option>)}{runId && !runs.some(item=>item.run_id === runId) && <option value={runId}>{runId}</option>}</select></label>{run && <Status status={run.status}/>}<span className="sync">{prettyDate ? `Sincronizado às ${prettyDate}` : 'Aguardando sincronização'}</span><button className="icon-button" aria-label="Atualizar execução" onClick={() => setRefresh(n=>n+1)}><RefreshCw size={16} className={loading ? 'spin' : ''}/></button></div>}
+        {connected && view!=='documents' && <div className="runbar"><label>Fechamento <select aria-label="Fechamento" value={runId} onChange={e=>setRunId(e.target.value)}><option value="">{loading ? 'Carregando…' : 'Selecione um fechamento'}</option>{runs.map(item => <option key={item.run_id} value={item.run_id}>{item.period} · {LABELS[item.status]??item.status}{item.created_at ? ` · ${new Date(item.created_at).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}` : ''}</option>)}{runId && !runs.some(item=>item.run_id === runId) && <option value={runId}>Fechamento selecionado</option>}</select></label>{run && <Status status={run.status}/>}<span className="sync">{prettyDate ? `Sincronizado às ${prettyDate}` : 'Aguardando sincronização'}</span><button className="icon-button" aria-label="Atualizar fechamento" onClick={() => setRefresh(n=>n+1)}><RefreshCw size={16} className={loading ? 'spin' : ''}/></button></div>}
 
 
 
-        {run?.status === 'pending_review' && <div className="notice demo-notice" role="status"><AlertTriangle size={18}/><span>{run.summary?.completeness === 'LOTE_ORIGINAL_PROCESSADO' ? 'Pacote recebido processado · revisão de Helena pendente.' : run.summary?.completeness === 'ENTRADAS_ADICIONAIS_NAO_PROCESSADAS' ? 'Entradas adicionais ainda não processadas · revisão de Helena pendente.' : run.summary?.completeness === 'BASELINE_SEM_AJUSTES_TARDIOS' ? 'Execução histórica · sinalização de ajustes não confirmada · revisão de Helena pendente.' : 'Revisão de Helena pendente.'}</span></div>}
+
+
+        <div hidden={view!=='documents'}><DocumentsWorkspace base={base} createRequest={createBatchRequest} navigationRequest={documentsNavigation} onProcess={processDocuments} onBatchChange={selectedBatchChanged}/></div>
 
         {view === 'close' && <>
 
+          {run?.error&&<div className="notice error" role="alert"><AlertTriangle size={18}/><span>{run.error.message || 'Não foi possível concluir esta apuração.'}</span><button onClick={()=>navigate('documents')}>Revisar documentos<ArrowRight size={14}/></button></div>}
           <CarbonOverview run={run} outputs={outputs} onOutput={openOutput} onAllIssues={()=>navigate('issues')} onRecord={openDetail} onCase={startCase} onInvestigate={q=>{setCaseKey(null);navigate('investigate');if(q)setQuestion(q);}}/>
 
-          <details className="closing-details"><summary><Layers3 size={17}/>Resumo financeiro e saídas</summary><section className="surface"><div role="tablist" aria-label="Visão do fechamento" className="tabs"><button role="tab" aria-selected={tab==='summary'} onClick={()=>setTab('summary')}>Resumo</button><button role="tab" aria-selected={tab==='outputs'} onClick={()=>setTab('outputs')}>Saídas</button></div>{tab==='summary'?<div role="tabpanel" aria-label="Resumo">{run?<FinancialSummary run={run} onOutput={openOutput}/>:<Empty title="Selecione uma execução"/>}</div>:<div className="output-list" role="tabpanel" aria-label="Saídas">{outputs.map(item=><button key={item.name} onClick={()=>openOutput(item.name)}><FileText size={20}/><span><strong>{outputLabel(item.name)}</strong><small>{item.preview?.total_rows??'—'} registros · CSV</small></span><ChevronRight size={17}/></button>)}</div>}</section></details>
+          <details className="closing-details"><summary><Layers3 size={17}/>Resumo financeiro e saídas</summary><section className="surface"><div role="tablist" aria-label="Visão do fechamento" className="tabs"><button role="tab" aria-selected={tab==='summary'} onClick={()=>setTab('summary')}>Resumo</button><button role="tab" aria-selected={tab==='outputs'} onClick={()=>setTab('outputs')}>Saídas</button></div>{tab==='summary'?<div role="tabpanel" aria-label="Resumo">{run?<FinancialSummary run={run} onOutput={openOutput}/>:<Empty title="Selecione um fechamento"/>}</div>:<div className="output-list" role="tabpanel" aria-label="Saídas">{outputs.map(item=><button key={item.name} onClick={()=>openOutput(item.name)}><FileText size={20}/><span><strong>{outputLabel(item.name)}</strong><small>{item.preview?.total_rows??'—'} registros · CSV</small></span><ChevronRight size={17}/></button>)}</div>}</section></details>
 
-          <details className="closing-details"><summary><Clock3 size={17}/>Atividade da execução <span className="count-badge">{events.length}</span></summary><section className="surface activity"><div className="section-heading"><h2>Atividade registrada</h2><button className="text-button" onClick={()=>navigate('agents')}>Ver central <ArrowRight size={14}/></button></div>{events.length?<div className="activity-list">{events.slice(-4).reverse().map(event=><div key={event.id}><span className={`activity-dot activity-${event.status}`}/><div><strong>{event.summary}</strong><small>{event.actor} · {event.type}</small></div><time>{new Date(event.timestamp).toLocaleTimeString('pt-BR')}</time></div>)}</div>:<Empty title="Nenhum evento disponível">As ações aparecem quando registradas pela API.</Empty>}</section></details>
+          <details className="closing-details"><summary><Clock3 size={17}/>Histórico do fechamento <span className="count-badge">{events.length}</span></summary><section className="surface activity"><div className="section-heading"><h2>Atividade registrada</h2><button className="text-button" onClick={()=>navigate('agents')}>Ver central <ArrowRight size={14}/></button></div>{events.length?<div className="activity-list">{events.slice(-4).reverse().map(event=><div key={event.id}><span className={`activity-dot activity-${event.status}`}/><div><strong>{event.summary}</strong><small>{event.actor} · {event.type}</small></div><time>{new Date(event.timestamp).toLocaleTimeString('pt-BR')}</time></div>)}</div>:<Empty title="Nenhum evento disponível">As atividades deste fechamento aparecerão aqui.</Empty>}</section></details>
 
         </>}
 
 
 
-        {view === 'issues' && <div className="issues-page"><section className="surface"><div className="section-heading"><h2>Revisões pendentes <span className="count-badge">{previewRows.length}</span></h2><label className="search-box"><Search size={16}/><input aria-label="Filtrar pendências" placeholder="Buscar motivo, valor ou referência" value={filter} onChange={e=>setFilter(e.target.value)}/></label></div><div className="filter-chips" aria-label="Responsável pela decisão">{[['all','Todas'],['commercial','Comercial'],['helena','Helena']].map(([id,label])=><button className={issueScope===id?'selected':''} key={id} onClick={()=>setIssueScope(id as typeof issueScope)}>{label}</button>)}</div><p className="issue-result-count">{visibleIssues.length} pendências nesta seleção · valores de naturezas distintas</p>{visibleIssues.length?<IssueCards rows={visibleIssues} onSelect={openDetail}/>:<Empty title={filter?'Nenhuma pendência corresponde à busca':run?'Nenhuma pendência nesta seleção':'Selecione uma execução'}/>}</section><aside className="surface issues-guidance"><ShieldCheck size={26}/><h2>Da exceção à decisão.</h2><p>Abra um caso para conferir o motivo, a natureza do valor e quem pode decidir.</p><p>O rastro mantém cada saída ligada aos registros e à regra que a sustentam.</p><button className="text-button" onClick={()=>{setCaseKey(null);navigate('investigate');}}>Investigar uma diferença<ArrowRight size={15}/></button></aside></div>}
+        {view === 'issues' && <div className="issues-page"><section className="surface"><div className="section-heading"><h2>Revisões pendentes <span className="count-badge">{previewRows.length}</span></h2><label className="search-box"><Search size={16}/><input aria-label="Filtrar pendências" placeholder="Buscar motivo, valor ou referência" value={filter} onChange={e=>setFilter(e.target.value)}/></label></div><div className="filter-chips" aria-label="Responsável pela decisão">{[['all','Todas'],['commercial','Comercial'],['helena','Helena']].map(([id,label])=><button className={issueScope===id?'selected':''} key={id} onClick={()=>setIssueScope(id as typeof issueScope)}>{label}</button>)}</div><p className="issue-result-count">{visibleIssues.length} pendências nesta seleção · valores de naturezas distintas</p>{visibleIssues.length?<IssueCards rows={visibleIssues} onSelect={openDetail}/>:<Empty title={run?.status==='failed'?'Fechamento não concluído':run&&['queued','running'].includes(run.status)?'Apuração em andamento':filter?'Nenhuma pendência corresponde à busca':run?'Nenhuma pendência nesta seleção':'Selecione um fechamento'}/>}</section><aside className="surface issues-guidance"><ShieldCheck size={26}/><h2>Da exceção à decisão.</h2><p>Abra um caso para conferir o motivo, a natureza do valor e quem pode decidir.</p><p>O rastro mantém cada saída ligada aos registros e à regra que a sustentam.</p><button className="text-button" onClick={()=>{setCaseKey(null);navigate('investigate');}}>Investigar uma diferença<ArrowRight size={15}/></button></aside></div>}
 
 
 
-        {view === 'sources' && <><div className="source-file-grid">{outputs.map(item=><FileTile key={item.name} output={item} onOpen={()=>{setSelectedOutput(item.name);setFilter('');}}/>)}</div><div className="source-layout"><section className="surface"><div className="section-heading"><h2>{outputs.length ? 'Arquivos da apuração' : 'Fontes do case'}</h2><span className="muted">{outputs.length ? `${outputs.length} arquivos` : 'Catálogo local · conteúdo não carregado'}</span></div>{outputs.length ? <div className="file-selector">{outputs.map(item=><button className={selectedOutput === item.name ? 'selected' : ''} key={item.name} onClick={()=>{setSelectedOutput(item.name);setFilter('');}}><FileText size={16}/>{item.name}</button>)}</div> : <div className="source-catalog">{SOURCES.map(([file,label,description])=><div key={file}><FileText size={22}/><div><h3>{label}</h3><code>{file}</code><p>{description}</p></div><span className="source-state">Não inspecionada pela interface</span></div>)}</div>}{output && <><div className="output-toolbar"><div><h3>{output.name}</h3><small>{output.preview?.total_rows ?? 'n/a'} registros · {output.preview?.truncated ? 'Prévia parcial' : 'Prévia da API'}</small></div><button className="button secondary" onClick={()=>api.download(runId,output.name).catch(e=>setError(message(e)))}><ArrowDownToLine size={16}/>Baixar CSV</button></div><label className="search-box table-search"><Search size={16}/><input aria-label="Filtrar registros" value={filter} onChange={e=>setFilter(e.target.value)} placeholder="Buscar nesta prévia"/></label><DataTable output={output} filter={filter} onSelect={openDetail}/></> }</section><aside className="surface provenance"><Layers3 size={25}/><h2>O caminho do número</h2><p>Saída → rastro → registro de origem.</p><ol><li>Selecione um arquivo e um registro.</li><li>Confira o <code>id_saida</code> e a referência original.</li><li>Consulte <code>rastro.csv</code> para verificar os componentes do valor.</li></ol><p className="muted">A prévia preserva as colunas retornadas pela API. O catálogo de fontes não comprova ingestão.</p></aside></div></>}
+        {view === 'sources' && <><div className="source-file-grid">{outputs.map(item=><FileTile key={item.name} output={item} onOpen={()=>{setSelectedOutput(item.name);setFilter('');}}/>)}</div><div className="source-layout"><section className="surface"><div className="section-heading"><h2>{outputs.length ? 'Arquivos da apuração' : 'Arquivos da apuração'}</h2><span className="muted">{outputs.length ? `${outputs.length} arquivos` : 'Selecione um fechamento'}</span></div>{outputs.length ? <div className="file-selector">{outputs.map(item=><button className={selectedOutput === item.name ? 'selected' : ''} key={item.name} onClick={()=>{setSelectedOutput(item.name);setFilter('');}}><FileText size={16}/>{item.name}</button>)}</div> : <Empty title="Nenhum arquivo de apuração">Selecione um fechamento para consultar seus resultados.</Empty>}{output && <><div className="output-toolbar"><div><h3>{output.name}</h3><small>{output.preview?.total_rows ?? '—'} registros · {output.preview?.truncated ? 'Prévia parcial' : 'Prévia do arquivo'}</small></div><button className="button secondary" onClick={()=>api.download(runId,output.name).catch(e=>setError(message(e)))}><ArrowDownToLine size={16}/>Baixar CSV</button></div><label className="search-box table-search"><Search size={16}/><input aria-label="Filtrar registros" value={filter} onChange={e=>setFilter(e.target.value)} placeholder="Buscar nesta prévia"/></label><DataTable output={output} filter={filter} onSelect={openDetail}/></> }</section><aside className="surface provenance"><Layers3 size={25}/><h2>O caminho do número</h2><p>Saída → rastro → registro de origem.</p><ol><li>Selecione um arquivo e um registro.</li><li>Confira o <code>id_saida</code> e a referência original.</li><li>Consulte <code>rastro.csv</code> para verificar os componentes do valor.</li></ol><p className="muted">Baixe o arquivo para consultar todos os registros.</p></aside></div></>}
 
 
 
-        {view === 'investigate' && <><div className="case-entry-tabs filter-chips"><button className={!caseKey?'selected':''} onClick={()=>setCaseKey(null)}>Pergunta livre</button>{['casa','atlas','mundo','rota'].map(key=><button key={key} className={caseKey===key?'selected':''} onClick={()=>startCase(key)}>{key.charAt(0).toUpperCase()+key.slice(1)}</button>)}</div><div className="investigation-layout" hidden={!!caseKey}><section className="surface question-panel"><div className="section-heading"><h2>Investigar com evidências</h2><span className="small-label">{runId ? 'Contexto da execução selecionada' : 'Selecione uma execução'}</span></div><label className="investigation-mode" htmlFor="investigation-mode">Método da investigação<select id="investigation-mode" value={investigationMode} disabled={asking} onChange={e=>{setInvestigationMode(e.target.value as 'deterministic'|'llm');setInvestigation(null);setQuestionError('');}}><option value="deterministic">Consulta às fontes</option><option value="llm">Investigação com IA</option></select></label><p className="investigation-method">{investigationMode==='deterministic'?'Busca determinística nas fontes locais · sem chamada de modelo':'IA via backend · requer sessão autorizada; execução e métricas serão confirmadas pela API'}</p>{investigationMode==='llm'&&!token.trim()&&<div className="notice demo-notice"><span>Para usar IA, conecte uma sessão com bearer autorizado. Nenhuma chamada será enviada sem token.</span><button onClick={()=>setConfig(true)}>Configurar sessão</button></div>}<p className="muted">A investigação pode explicar e propor. Regras e valores não são alterados por esta tela.</p><label htmlFor="question">O que você precisa conferir?</label><textarea id="question" value={question} onChange={e=>setQuestion(e.target.value)} placeholder="Ex.: Qual a origem desta divergência e quem pode decidir?" rows={5} maxLength={6000}/><div className="question-footer"><span>{question.length}/6000</span><button className="button primary" onClick={ask} disabled={!connected || !runId || !question.trim() || asking || busy || (investigationMode==='llm'&&!token.trim())}>{asking ? <LoaderCircle className="spin" size={17}/> : <Search size={17}/>}Investigar</button></div>{!connected && <p className="inline-help">Conecte a API para executar uma investigação. Nenhuma resposta é gerada na demonstração.</p>}<div className="suggestions"><span>Pontos de partida</span>{['Por que a devolução da Casa não é cobrada da Orbe?','Quais pendências exigem decisão de Helena?','Como rastrear uma comissão até sua origem?'].map(q=><button key={q} onClick={()=>setQuestion(q)}>{q}<ArrowRight size={14}/></button>)}</div></section><section className="surface answer-panel"><h2>Evidência e proposta</h2>{questionError && <div className="notice error" role="alert">{questionError}</div>}{investigation ? <><Status status={investigation.status}/><InvestigationMetrics result={investigation}/>{investigation.answer && <p className="answer-text">{investigation.answer}</p>}{investigation.error && <div className="notice error">{typeof investigation.error === 'string' ? investigation.error : investigation.error.message}</div>}{investigation.evidence?.length ? <><h3>Evidências localizadas</h3>{investigation.evidence.map((item,i)=><EvidenceCard key={i} item={item} index={i}/>)}</> : <p className="muted">Nenhuma evidência retornada até o momento.</p>}{investigation.proposed_changes?.length ? <><h3>Propostas · revisão necessária</h3>{investigation.proposed_changes.map((item,i)=><ProposalCard key={i} item={item} index={i}/>)}<p className="inline-help">Impacto financeiro não calculado por esta tela. Proposta não é regra ativa.</p></> : null}{investigation.limitations?.length ? <><h3>Limites da resposta</h3><ul className="limitations">{investigation.limitations.map((item,i)=><li key={i}>{item}</li>)}</ul></> : null}</> : <Empty title={asking ? 'Investigação em andamento' : 'A resposta precisa de lastro'}>{asking ? 'Aguardando retorno da API, sem inferir conclusão.' : 'A resposta, suas fontes e os limites aparecerão aqui após uma investigação real.'}</Empty>}</section></div></>}
+        {view === 'investigate' && <><div className="case-entry-tabs filter-chips"><button className={!caseKey?'selected':''} onClick={()=>setCaseKey(null)}>Pergunta livre</button>{(run?.period==='2026-09'?['casa','atlas','mundo','rota']:[]).map(key=><button key={key} className={caseKey===key?'selected':''} onClick={()=>startCase(key)}>{key.charAt(0).toUpperCase()+key.slice(1)}</button>)}</div><div className="investigation-layout" hidden={!!caseKey}><section className="surface question-panel"><div className="section-heading"><h2>Investigar com evidências</h2><span className="small-label">{runId ? 'Fechamento selecionado' : 'Selecione um fechamento'}</span></div><label className="investigation-mode" htmlFor="investigation-mode">Método da investigação<select id="investigation-mode" value={investigationMode} disabled={asking} onChange={e=>{setInvestigationMode(e.target.value as 'deterministic'|'llm');setInvestigation(null);setQuestionError('');}}><option value="deterministic">Consulta às fontes</option><option value="llm">Investigação com IA</option></select></label><p className="investigation-method">{investigationMode==='deterministic'?'Localize registros e regras nos documentos do fechamento.':'Compare evidências e receba um parecer para revisão.'}</p><p className="muted">A investigação pode explicar e propor. Regras e valores não são alterados por esta tela.</p><label htmlFor="question">O que você precisa conferir?</label><textarea id="question" value={question} onChange={e=>setQuestion(e.target.value)} placeholder="Ex.: Qual a origem desta divergência e quem pode decidir?" rows={5} maxLength={6000}/><div className="question-footer"><span>{question.length}/6000</span><button className="button primary" onClick={ask} disabled={!connected || !runId || !question.trim() || asking || busy}>{asking ? <LoaderCircle className="spin" size={17}/> : <Search size={17}/>}Investigar</button></div><div className="suggestions"><span>Pontos de partida</span>{['Quais divergências precisam de revisão?','Quais pendências exigem decisão de Helena?','Como rastrear uma comissão até sua origem?'].map(q=><button key={q} onClick={()=>setQuestion(q)}>{q}<ArrowRight size={14}/></button>)}</div></section><section className="surface answer-panel"><h2>Evidência e proposta</h2>{questionError && <div className="notice error" role="alert">{questionError}</div>}{investigation ? <><Status status={investigation.status}/><InvestigationMetrics result={investigation}/>{investigation.answer && <p className="answer-text">{investigation.answer}</p>}{investigation.error && <div className="notice error">{typeof investigation.error === 'string' ? investigation.error : investigation.error.message}</div>}{investigation.evidence?.length ? <><h3>Evidências localizadas</h3>{investigation.evidence.map((item,i)=><EvidenceCard key={i} item={item} index={i}/>)}</> : <p className="muted">Nenhuma evidência retornada até o momento.</p>}{investigation.proposed_changes?.length ? <><h3>Propostas · revisão necessária</h3>{investigation.proposed_changes.map((item,i)=><ProposalCard key={i} item={item} index={i}/>)}<p className="inline-help">O impacto depende da validação da regra proposta.</p></> : null}{investigation.limitations?.length ? <><h3>Limites da resposta</h3><ul className="limitations">{investigation.limitations.map((item,i)=><li key={i}>{item}</li>)}</ul></> : null}</> : <Empty title={asking ? 'Investigação em andamento' : 'A resposta precisa de lastro'}>{asking ? 'Consultando as evidências do fechamento.' : 'Faça uma pergunta para consultar os documentos e suas referências.'}</Empty>}</section></div></>}
 
 
 
-        {connected&&runId&&openedCases.map(key=><div key={key} className="case-layer" hidden={view!=='investigate'||caseKey!==key}><CaseWorkspace base={base} token={token} runId={runId} caseKey={key} onClose={()=>{setCaseKey(null);navigate('close');}}/></div>)}
+        {connected&&runId&&run?.period==='2026-09'&&openedCases.map(key=><div key={key} className="case-layer" hidden={view!=='investigate'||caseKey!==key}><CaseWorkspace base={base} token={token} runId={runId} caseKey={key} onClose={()=>{setCaseKey(null);navigate('close');}}/></div>)}
 
-        {view === 'investigate'&&caseKey&&(!connected||!runId)&&<Empty title="Selecione uma execução">Conecte a API e selecione uma execução para abrir o caso.</Empty>}
+        {view === 'investigate'&&caseKey&&(!connected||!runId)&&<Empty title="Selecione um fechamento">Selecione um fechamento para abrir os casos vinculados.</Empty>}
 
-        {view === 'agents' && <section className="agents-surface"><div className="notice subtle"><ShieldCheck size={17}/><span>Eventos registram ações observadas. Uma tarefa concluída não equivale a fechamento aprovado.</span></div><MissionControl events={events} loading={loading || busy}/></section>}
+        {view === 'agents' && <section className="agents-surface"><div className="notice subtle"><ShieldCheck size={17}/><span>Histórico das verificações e análises deste fechamento.</span></div><MissionControl events={events} loading={loading || busy}/></section>}
 
-        {view==='close'&&<details className="closing-details comparison-toggle"><summary><Layers3 size={17}/>Comparar execuções</summary><ComparisonPanel api={api} runs={runs} connected={connected}/></details>}
+        {view==='close'&&<details className="closing-details comparison-toggle"><summary><Layers3 size={17}/>Comparar fechamentos</summary><ComparisonPanel api={api} runs={runs} connected={connected}/></details>}
 
-        <footer className="page-footer"><span>Competência {run?.period ?? period} · Valores e regras dependem da execução</span><span>Preparação ≠ aprovação financeira</span></footer>
+        <footer className="page-footer"><span>Competência {view==='documents'?period:run?.period ?? period}</span><span>Lastro · Financeiro</span></footer>
 
       </main>
 
     </div>
 
-    {config && <div className="dialog-backdrop" onClick={e=>{if(e.target===e.currentTarget)setConfig(false);}}><section className="connection-dialog" role="dialog" aria-modal="true" aria-labelledby="connection-title"><button className="icon-button close-dialog" aria-label="Fechar conexão" onClick={()=>setConfig(false)}><X size={20}/></button><Settings2 size={27}/><h2 id="connection-title">Conectar o ambiente</h2><p>Use a API do projeto. O token fica somente na memória desta aba e é descartado ao recarregar.</p><label htmlFor="api-base">Endereço da API</label><input id="api-base" autoFocus value={draftBase} onChange={e=>setDraftBase(e.target.value)} placeholder="Vazio = proxy local /api"/><small>Desenvolvimento: deixe vazio para o proxy localhost:8000.</small><button className="text-button published-api" onClick={()=>setDraftBase('https://api-production-6bfe.up.railway.app')}>Usar API publicada</button><label htmlFor="api-token">Token da sessão, se exigido</label><input id="api-token" type="password" value={draftToken} onChange={e=>setDraftToken(e.target.value)} autoComplete="off" placeholder="Token de acesso"/><div className="dialog-actions"><button className="button secondary" onClick={()=>{setConnected(false);setToken('');setDraftToken('');setRunId('');setRuns([]);setRun(null);setEvents([]);setOutputs([]);setError('');setConfig(false);}}><Unplug size={16}/>Demonstração</button><button className="button primary" onClick={()=>{const value=draftBase.trim();if(value && !/^https?:\/\//i.test(value)){setError('Use endereço HTTP(S) válido para a API.');setConfig(false);return;}setBase(value);setToken(draftToken);setDraftToken('');setConnected(true);setRefresh(n=>n+1);setConfig(false);}}><Check size={16}/>Conectar</button></div></section></div>}
 
-    {detail && <><div className="detail-backdrop" onClick={()=>setDetail(null)}/><aside className="detail-panel" role="dialog" aria-modal="true" aria-label="Detalhe do registro"><div className="section-heading"><h2>Registro e evidência</h2><button className="icon-button" aria-label="Fechar detalhe" onClick={()=>setDetail(null)}><X size={20}/></button></div>{Boolean(detail.tipo)&&<><span className="review-pill">Revisão pendente</span><h2 style={{marginTop:18}}>{issueTitle(detail)}</h2><div className="detail-summary-value">{formatMoney(detail.valor_brl)??'Não quantificado'}</div><p className="detail-summary-nature">{String(detail.metrica_valor??'')}</p><div className="detail-context">{String(detail.motivo??'')}<p style={{marginTop:10}}><strong>Quem decide:</strong> {String(detail.quem_decide??'Não informado')}</p></div>{caseKeyFor(detail)&&<button className="button primary" onClick={()=>startCase(caseKeyFor(detail)!)}>Abrir mesa de revisão<ArrowRight size={16}/></button>}</>}<details className="technical" open={!detail.tipo}><summary>Todos os campos do registro</summary><Fields data={detail}/></details>{detail.id_saida != null && <div className="trace-section"><button className="button primary" onClick={loadTrace} disabled={traceLoading}>{traceLoading ? <LoaderCircle className="spin" size={16}/> : <Layers3 size={16}/>}Conferir rastro desta saída</button>{traceError && <p role="alert" className="trace-error">{traceError}</p>}{trace && <><h3>{trace.length} componentes de origem</h3>{trace.length===0 && <p className="inline-help">Nenhum vínculo encontrado neste rastro. Não inferir origem.</p>}{trace.map((record,index)=><div className="trace-record" key={index}><Fields data={record}/></div>)}</>}</div>}<p className="inline-help">Verifique a referência no arquivo de origem e em rastro.csv. Este detalhe não representa aprovação.</p></aside></>}
+
+    <div hidden={Boolean(detail)}><LastroAssistant base={base} period={view==='documents'?period:run?.run_id===runId?run.period:undefined} batchId={view==='documents'?selectedBatchId:run?.run_id===runId?run.batch_id??null:null} runId={view==='documents'?null:run?.run_id===runId?runId:null} onNavigate={assistantNavigate} onRunCreated={assistantRunCreated}/></div>
+
+    {detail && <><div className="detail-backdrop" onClick={()=>setDetail(null)}/><aside className="detail-panel" role="dialog" aria-modal="true" aria-label="Detalhe do registro"><div className="section-heading"><h2>Registro e evidência</h2><button className="icon-button" aria-label="Fechar detalhe" onClick={()=>setDetail(null)}><X size={20}/></button></div>{Boolean(detail.tipo)&&<><span className="review-pill">Revisão pendente</span><h2 style={{marginTop:18}}>{issueTitle(detail)}</h2><div className="detail-summary-value">{formatMoney(detail.valor_brl)??'Não quantificado'}</div><p className="detail-summary-nature">{String(detail.metrica_valor??'')}</p><div className="detail-context">{String(detail.motivo??'')}<p style={{marginTop:10}}><strong>Quem decide:</strong> {String(detail.quem_decide??'Não informado')}</p></div>{run?.period==='2026-09'&&caseKeyFor(detail)&&<button className="button primary" onClick={()=>startCase(caseKeyFor(detail)!)}>Abrir mesa de revisão<ArrowRight size={16}/></button>}</>}<details className="technical" open={!detail.tipo}><summary>Todos os campos do registro</summary><Fields data={detail}/></details>{detail.id_saida != null && <div className="trace-section"><button className="button primary" onClick={loadTrace} disabled={traceLoading}>{traceLoading ? <LoaderCircle className="spin" size={16}/> : <Layers3 size={16}/>}Conferir rastro desta saída</button>{traceError && <p role="alert" className="trace-error">{traceError}</p>}{trace && <><h3>{trace.length} componentes de origem</h3>{trace.length===0 && <p className="inline-help">Nenhuma origem vinculada a este registro.</p>}{trace.map((record,index)=><div className="trace-record" key={index}><Fields data={record}/></div>)}</>}</div>}<p className="inline-help">Confira as referências e os documentos de origem antes de decidir.</p></aside></>}
 
   </div>;
 
