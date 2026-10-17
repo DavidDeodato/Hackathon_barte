@@ -8,6 +8,7 @@ from fastapi import Depends, FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 from starlette.exceptions import HTTPException
 
@@ -318,4 +319,9 @@ def create_app(settings=None, close_adapter=finance_adapter, investigate_adapter
         get_case_review(review_id)
         return review_view(store.cancel(review_id))
 
+    # Optional compiled UI; API routes and their authentication stay first.
+    # Only the build directory is served, never project sources or state.
+    static_dir = settings.project_root / "web" / "dist"
+    if (static_dir / "index.html").is_file():
+        app.mount("/", StaticFiles(directory=static_dir, html=True), name="web")
     return app
