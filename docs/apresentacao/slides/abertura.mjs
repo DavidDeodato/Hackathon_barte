@@ -143,16 +143,19 @@ function develop(presentation, indices) {
       triangle(slide, 0);
     } else if (index === 3) {
       tarvo(slide);
-      text(slide, 'opening-title', 'Uma planilha com\nas taxas e condições\nde cada lojista', 88, 245, 610, 280, 49, { bold: true });
+      const title = text(slide, 'opening-title', 'Planilha com\ntaxas e condições\nde cada lojista', 88, 245, 610, 280, 49);
+      title.text.get('Planilha').bold = true;
+      title.text.get('cada lojista').bold = true;
       triangle(slide, 1);
     } else if (index === 4) {
       tarvo(slide);
-      text(slide, 'opening-title', 'Relatórios dos parceiros\ne extratos bancários', 88, 225, 610, 162, 46, { bold: true });
-      text(slide, 'opening-detail', 'mostrando o que foi cobrado\ne movimentado', 88, 422, 600, 112, 32, { color: palette.muted });
+      const title = text(slide, 'opening-title', 'O que foi cobrado?', 90.38, 279, 610, 162, 48);
+      title.text.get('cobrado').bold = true;
       triangle(slide, 2);
     } else if (index === 5) {
       tarvo(slide);
-      text(slide, 'opening-title', 'Entre essas\nduas pontas,\na Helena', 88, 227, 570, 288, 62, { bold: true });
+      const title = text(slide, 'opening-title', 'Entre pontas,\numa única pessoa', 88, 227, 570, 288, 62);
+      title.text.get('única pessoa').bold = true;
       triangle(slide, 3);
     } else if (index >= 6 && index <= 8) {
       tarvo(slide);

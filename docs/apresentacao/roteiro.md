@@ -8,7 +8,7 @@ Documento de trabalho para reunir as orientações de tom, narrativa, composiç�
 - Falar de forma direta, próxima e natural, como em uma conversa com o financeiro e o CFO.
 - Começar apresentando a empresa e a organização atual do trabalho. Explicar as consequências depois que as três frentes estiverem compreensíveis.
 - Usar frases curtas. Cada avanço visual acompanha uma ideia da fala.
-- Depois da entrada da solução, definir o Lastro em uma frase antes de explicar seu funcionamento.
+- Depois da entrada da solução, apresentar o Lastro como gerenciador inteligente do fechamento financeiro, com uma descrição concreta do trabalho que ele organiza.
 - Explicar a solução com calma, usando tópicos de fala e um tópico principal novo por avanço. Os bullets nas notas orientam a fala; a tela recebe somente o fragmento relevante.
 - Anunciar a entrada na arquitetura agêntica e construir suas relações progressivamente, com responsabilidades nomeadas.
 - Mostrar como o trabalho acontece: quem tem a informação, onde ela está e o esforço necessário para juntar tudo.
@@ -155,7 +155,7 @@ Este é o encerramento da abertura sobre o problema. A entrada da proposta Lastr
 - [ ] Definir se Helena será representada por nome, ícone ou imagem autorizada.
 - [ ] Conferir a leitura do marcador 3 associado a Helena no centro.
 - [ ] Ensaiar a fala com os avanços de slide e ajustar pausas.
-- [ ] Conferir os resultados após incorporar os ajustes tardios antes de fixar valores e capturas da demo.
+- [ ] Ensaiar a demo com as saídas atualizadas de setembro, que já incorporam os ajustes tardios no commit `b43e80e`.
 - [ ] Separar uma evidência real de orientação, erro e correção da IA no histórico de construção.
 - [ ] Ensaiar a investigação assistida e conferir o estado real do modelo na versão apresentada.
 
@@ -184,13 +184,15 @@ Os slides seguintes propõem a execução das novas orientações. Cada avanço 
 
 **Visual:** introduzir a marca própria do projeto, preservando discretamente as fontes que serão organizadas. Fazer uma pausa antes de avançar para a definição.
 
-### Slide 12 — O que o Lastro é, em uma frase
+### Slide 12 — O que o Lastro é
 
-**Frase na tela e na fala:**
+**Definição na tela e na fala:**
 
-> O Lastro organiza os dados e as regras da Tarvo para apurar o fechamento, mostrar a origem de cada valor e encaminhar o que precisa de decisão.
+> O Lastro é um gerenciador inteligente do fechamento financeiro da Tarvo.
+>
+> Ele reúne os arquivos e as regras da operação, apura as comissões, confere as cobranças e organiza as pendências para revisão do financeiro.
 
-**Visual:** manter o nome Lastro e revelar, em uma linha de leitura, os três verbos da frase: **apurar → mostrar a origem → encaminhar**. Este slide apresenta a definição; os seguintes explicam cada parte.
+**Visual:** manter o nome Lastro e dar destaque a **gerenciador inteligente do fechamento financeiro**. A descrição do trabalho aparece em um bloco de apoio, com escala menor e leitura em três linhas. O slide responde o que o produto é; os avanços seguintes explicam seu funcionamento. Esta formulação substitui a definição anterior centrada nos verbos apurar, mostrar e encaminhar, conforme o novo pedido do usuário.
 
 ### Slide 13 — Receber os arquivos
 
@@ -199,7 +201,7 @@ Os slides seguintes propõem a execução das novas orientações. Cada avanço 
 **Fala:**
 
 - “A analista começa pelos arquivos que o financeiro já recebe.”
-- “O Lastro lê o relatório da Orbe, o anexo do e-mail da Ponte, a planilha de taxas e os extratos dos dois bancos, junto com o plano de contas.”
+- “O Lastro lê o relatório da Orbe e seus ajustes, o anexo do e-mail da Ponte, a planilha de taxas e os extratos dos dois bancos, junto com o plano de contas.”
 
 **Visual:** cartões simples de arquivo convergem para uma área de entrada. Nomear as fontes. As conexões representam leitura de arquivos; o relatório da Orbe não deve parecer uma API integrada.
 
@@ -283,7 +285,7 @@ Os slides seguintes propõem a execução das novas orientações. Cada avanço 
 
 **O que mostrar:** abrir a composição do caso Rota, selecionar uma operação e mostrar bruto, taxa contratada, taxa aplicada, diferença monetária e origem. Voltar ao total para concluir a relação entre soma e resultado.
 
-**Referência do lote anterior aos ajustes tardios:** diferenças positivas de R$ 1.644,72, abatimento de R$ 98,44 e líquido de R$ 1.546,28 preparado para revisão. Esses valores foram reproduzidos naquele lote. Conferir novamente após os ajustes antes de fixá-los no slide ou falar como resultado atualizado. Se a revisão ainda estiver pendente, manter o lote e o estado identificados na demo.
+**Referência atualizada:** o [pacote Rota em `b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/blob/b43e80e521646cc46b09e8f2c920fb035c20644d/saida/rota_packet.json), execução `close-2068e24a102ebea3`, mantém diferenças positivas de R$ 1.644,72, abatimento de R$ 98,44 e líquido de R$ 1.546,28 preparado para revisão. A soma dos 87 componentes foi conferida nas saídas publicadas. No slide de desenvolvimento, o exemplo é uma representação nativa desses dados; o percurso efetivo na interface ainda deve ser ensaiado. O valor preparado não comprova envio ou recuperação.
 
 ## Entrada explícita na arquitetura agêntica
 
@@ -410,18 +412,18 @@ flowchart LR
 
 **Leitura do requisito:** setembro define a entrega concreta e a base de avaliação dos números. O tratamento entre competências faz parte do problema operacional; restringir a explicação a “um pacote de setembro” esconde essa relação.
 
-### Slide 29 — O que ainda falta conferir em setembro
+### Slide 29 — Incorporação dos ajustes de setembro
 
-**Novo tópico na tela:** “O fechamento precisa incorporar os ajustes recebidos.”
+**Novo tópico na tela:** “O fechamento incorpora os ajustes recebidos.”
 
 **Fala:**
 
-- “A organização também enviou ajustes tardios de setembro. Eles precisam entrar na mesma entrega e passar pela mesma conferência de valores e origens.”
-- “O arquivo integral já foi recebido. Ainda precisamos concluir a conferência do recálculo antes de promover as saídas atualizadas.”
+- “A organização também enviou ajustes tardios de setembro. Eles entram na mesma competência e passam pela mesma conferência de valores e origens.”
+- “Os 14 ajustes já estão incorporados à apuração atualizada, preservando a origem de cada operação.”
 
 **Visual:** acrescentar uma entrada **ajustes tardios** ao fechamento central do slide anterior. Distinguir os estados **recebido**, **processado** e **conferido**, exibindo apenas os que a versão apresentada comprovar.
 
-**Fonte e cuidado de atualização:** o [registro do case em `7d22eb1`](https://github.com/DavidDeodato/Hackathon_barte/blob/7d22eb10d5cdf8d85275eb6bf2c07e4eb93a3db8/contexto/ATUALIZACOES_CASE.md) confirma o recebimento de 14 linhas e a revisão ainda em andamento. Conferir o estado mais recente no ensaio. O recebimento não comprova incorporação nas saídas publicadas. O fechamento pode registrar pendências comerciais legítimas; uma pendência identificada não justifica omitir uma entrada obrigatória recebida.
+**Fonte e cuidado de atualização:** o [commit `b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/commit/b43e80e521646cc46b09e8f2c920fb035c20644d) incorpora os ajustes na execução `close-2068e24a102ebea3` e publica as novas saídas. Isso atualiza o estado anterior registrado em `7d22eb1`. O README dessa versão relata revisão independente dos eventos adicionais e dos rastros; nesta etapa de apresentação, foram conferidas as fontes publicadas e o exemplo Rota, sem reexecutar o fechamento. A aprovação financeira continua com Helena. Conferir a versão da aplicação no ensaio para que a demo use esse conjunto atualizado.
 
 ### Slide 30 — Como a analista retoma o trabalho em outubro
 
@@ -469,9 +471,9 @@ A demonstração de agentes no produto e a evidência de como o time dirigiu e c
 
 Base de código considerada: [`93ffa23`](https://github.com/DavidDeodato/Hackathon_barte/commit/93ffa2352463e79c0c0b9faf78795bd103afca4a). A mesa de casos passou a integrar a aplicação principal por `CaseWorkspace`. O trecho sobre painel disponível somente em entrada separada, registrado em análises anteriores, foi superado por esse commit. Esta documentação foi incorporada sobre a `main` em [`59ee5c8`](https://github.com/DavidDeodato/Hackathon_barte/commit/59ee5c883477d17bf55210ecf5a859a51a18223d), atualização posterior que publica registros de conversas e não altera o código da aplicação.
 
-Nesta revisão do roteiro, foram consultados os commits documentais posteriores `4ebd3f6` e [`7d22eb1`](https://github.com/DavidDeodato/Hackathon_barte/commit/7d22eb10d5cdf8d85275eb6bf2c07e4eb93a3db8). Eles atualizam o estado dos ajustes tardios e acrescentam contexto do case, sem alterar código ou saídas financeiras. A consulta remota não integra esses commits automaticamente à branch local da apresentação.
+Na produção dos slides 10 a 25, a consulta remota avançou até [`b43e80e`](https://github.com/DavidDeodato/Hackathon_barte/commit/b43e80e521646cc46b09e8f2c920fb035c20644d). Essa versão altera a ingestão e o motor para incorporar ajustes tardios, validar entradas e preservar o rastro, além de publicar as saídas e pacotes atualizados. A mudança supera o estado de revisão ainda pendente dos commits documentais `4ebd3f6` e `7d22eb1`. A consulta remota não integra esses commits automaticamente à branch local da apresentação.
 
-O motor financeiro e o backend agêntico não foram alterados nas atualizações citadas. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A integração foi conferida no código; não houve novo ensaio de navegador ou chamada de modelo nesta etapa. Os valores de Rota foram reproduzidos anteriormente com o mesmo motor financeiro e o lote anterior aos ajustes tardios. Sua manutenção na apresentação depende da conferência da versão que será demonstrada.
+O backend agêntico não foi alterado em `b43e80e`. A revisão assistida continua com qualidade semântica não validada e conclusão `needs_evidence`. A arquitetura foi conferida no código e o exemplo Rota nas fontes publicadas dessa versão; não houve novo ensaio da aplicação, execução do fechamento ou chamada de modelo nesta etapa. Os slides 0 a 25 estão produzidos e renderizados na apresentação editável. A prova na interface e a continuação dos slides 26 a 31 ainda precisam ser desenvolvidas.
 
 ## Novas observações
 
@@ -479,8 +481,8 @@ Acrescentar as próximas orientações neste registro e atualizar a descrição 
 
 | Slide ou trecho | Observação | Origem | Situação |
 |---|---|---|---|
-| Capa e abertura | Sequência dos slides 0 a 9 registrada neste documento. | Usuário; desdobramento de execução identificado no texto. | Base para desenvolvimento. |
-| Entrada da solução | Acrescentar definição do Lastro em uma frase, depois da entrada. | Usuário; frase proposta no slide 12. | Incorporado ao roteiro. |
-| Explicação da solução | Usar bullets de fala, mais calma e um tópico principal novo por avanço. | Usuário; desdobramento nos slides 10 a 20. | Incorporado ao roteiro. |
-| Arquitetura agêntica | Anunciar o bloco e explicar associações com recursos visuais estudados na Barte. | Usuário; composição própria proposta nos slides 21 a 25. | Incorporado ao roteiro; produção visual pendente. |
+| Capa e abertura | Sequência dos slides 0 a 9 registrada neste documento. | Usuário; desdobramento de execução identificado no texto. | Produzida e preservada na extensão. |
+| Entrada da solução | Apresentar o Lastro como gerenciador inteligente do fechamento financeiro e explicar suas tarefas em linguagem concreta. | Usuário; refinamento posterior da definição no slide 12. | Incorporado ao roteiro e ao slide. |
+| Explicação da solução | Usar bullets de fala, mais calma e um tópico principal novo por avanço. | Usuário; desdobramento nos slides 10 a 20. | Produzida em slides editáveis; ensaio da interface pendente. |
+| Arquitetura agêntica | Anunciar o bloco e explicar associações com recursos visuais estudados na Barte. | Usuário; composição própria nos slides 21 a 25. | Produzida com conexões explícitas e decisão humana. |
 | Alcance e continuidade | Reinterpretar setembro como fechamento exigido e explicar seus vínculos com outras competências. | Usuário; requisitos e respostas do case; slides 28 a 31. | Incorporado, com estado dos ajustes tardios e limites de outubro. |
