@@ -14,7 +14,7 @@ Instrucoes oficiais e respostas do financeiro fornecidas orientam o motor. Cada 
 
 ## Pendencias e premissas a conferir
 
-1. Arquivo integral `06_orbe_ajustes_tardios_set2026.csv` nao incorporado. Baseline recebido nao equivale ao fechamento atualizado completo.
+1. O comunicado de 17/10, as 13h10, fornecido na transcricao do canal do hackathon, confirma a exigencia de incorporar `06_orbe_ajustes_tardios_set2026.csv`, com 14 linhas. O CSV integral ainda nao esta no conjunto recebido. A referencia anterior que tratava o requisito como nao confirmado foi corrigida: anuncio confirmado e arquivo recebido sao estados diferentes. Nao reconstruir registros a partir das nove linhas parciais/corrompidas da transcricao. Reprocessar e conferir as seis saidas quando o original completo estiver disponivel. Fonte: `contexto/ATUALIZACOES_CASE.md`.
 2. Revisao dirigida dos nove estornos anteriores a setembro confirmou datas cobertas pela vigencia da tabela recebida e valores correspondentes. As vendas brutas originais de agosto nao constam do lote; suas datas sao informadas nas linhas dos estornos. Nao tratar essa ausencia como nove taxas desconhecidas nem usar aba antiga de 2025.
 3. Base temporal da isencao de antecipacao da Casa exige confronto com a resposta especifica do cliente; nao inferir data das vendas a partir da antecipacao sem agenda.
 4. Remessa: reportar diferenca de taxa quando a diferenca absoluta excede 0.01 ponto percentual, tolerancia escolhida para evitar alertas de arredondamento da cotacao. A tolerancia nao altera comissao realizada; o financeiro autorizou que o time explicitasse seu criterio. A classificacao da devolucao bancaria segue uma conta consistente dentre as alternativas aceitas e deve ser conferida em cada origem.
